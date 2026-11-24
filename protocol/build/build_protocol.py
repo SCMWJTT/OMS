@@ -191,6 +191,11 @@ RULES_EXTRA = {
  "review_frequency": "per RSK-STD-001 §8.2", "last_review": "date", "version": "integer", "change_reason": "text", "process_planned": "PRS expected to perform it",
  "effective": "date the establishing document took effect", "pse_tier": "1, 2, 3 or blank", "spill_bbl": "barrels", "notes": "text", "controls": "C-IDs",
 }
+REGISTERS["DOC-REG-001"] = dict(title="Document Register", file="registers/DOC-REG-001.csv", key="doc_id", owner="Information Management Lead", defined_in="ACE-DOC-PRC-001", columns=[])
+REGISTERS["DOC-REG-001-REV"] = dict(title="Document Register — revisions", file="registers/DOC-REG-001_revisions.csv", key="doc_id+revision", owner="Information Management Lead", defined_in="ACE-DOC-PRC-001", columns=[])
+REGISTERS["DOC-REG-001-READ"] = dict(title="Document Register — read and acknowledge", file="registers/DOC-REG-001_reads.csv", key="doc_id+function", owner="Information Management Lead", defined_in="ACE-DOC-PRC-001", columns=[])
+REGISTERS["MOC-REG-001"] = dict(title="MOC Register", file="registers/MOC-REG-001.csv", key="moc_id", owner="Manager, Technical Excellence", defined_in="ACE-MOC-PRC-001", columns=[])
+REGISTERS["MOC-REG-001-STEPS"] = dict(title="MOC Register — step history", file="registers/MOC-REG-001_steps.csv", key="moc_id+step", owner="Manager, Technical Excellence", defined_in="ACE-MOC-PRS-001", columns=[])
 REGISTERS["RSK-REG-001-HIST"] = dict(title="Risk Register — rating history", file="registers/RSK-REG-001_history.csv", key="risk_id+date", owner="Head of Internal Audit & Risk Assurance", defined_in="ACE-RSK-STD-001", columns=[])
 REGISTERS["RSK-REG-002-HEALTH"] = dict(title="Controls Register — health history", file="registers/RSK-REG-002_health.csv", key="control_id+date", owner="Process Safety Lead", defined_in="ACE-RSK-PRA-001", columns=[])
 REGISTERS["PRF-REG-001-KPI"] = dict(title="Performance data — KPI catalogue", file="registers/PRF-REG-001_kpis.csv", key="kpi_id", owner="Compliance & Assurance Manager", defined_in="ACE-PRF-STD-001 (planned)", columns=[])

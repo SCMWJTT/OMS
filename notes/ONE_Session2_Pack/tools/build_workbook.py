@@ -66,7 +66,7 @@ ws.cell(r0, 1, "Sheets").font = BB
 for i, (k, v) in enumerate([("Performance", "48 KPIs by month, with yearly totals or averages (formulas)"), ("Heat Map", "Risks on the ACE matrix, current and residual (formulas)"),
     ("Risk Register", "RSK-REG-001, all Appendix C fields"), ("Risk History", "Rating changes over time"), ("Controls", "RSK-REG-002 with current health"),
     ("Events", "INC-REG-001 events"), ("Actions", "INC-REG-001 actions; status by formula against the as-of date"),
-    ("Objectives", "OMS-REG-001 objectives and opportunities"), ("Assets & SCEs", "AIM-REG-002 and AIM-REG-001"), ("Processes", "BPM-REG-001"),
+    ("Objectives", "OMS-REG-001 objectives and opportunities"), ("Assets & SCEs", "AIM-REG-002 and AIM-REG-001"), ("Processes", "BPM-REG-001"), ("Documents", "DOC-REG-001 document register"), ("MOC Register", "MOC-REG-001"),
     ("KPI Catalogue", "Definitions, owners, targets")], r0 + 1):
     ws.cell(i, 1, k).font = B; ws.cell(i, 2, v).font = B
 ws.column_dimensions["A"].width = 30; ws.column_dimensions["B"].width = 120
@@ -186,4 +186,17 @@ sheet("Processes", procs, ["process_id", "title", "l1", "l2", "owner", "function
       {"title": 44, "owner": 36, "controls": 40}, note="BPM-REG-001 Process Register.")
 sheet("KPI Catalogue", kpis, ["kpi_id", "name", "unit", "category", "family", "oms_tag", "owner", "target", "better", "scope"], {"name": 54, "owner": 36},
       note="PRF-REG-001 KPI definitions.")
+docs = R("DOC-REG-001.csv"); mocs = R("MOC-REG-001.csv"); reads = R("DOC-REG-001_reads.csv")
+ws, st = sheet("Documents", docs, ["doc_id", "title", "type", "level", "system", "status", "revision", "issue_date", "effective_date", "next_review", "owner",
+               "parent", "pending_revision", "pending_moc", "target_issue", "predecessor", "predecessor_last_review", "predecessor_replaced", "file"],
+               {"title": 52, "owner": 36, "predecessor": 30, "file": 40}, note="DOC-REG-001 Document register: issued ONE documents, pending revisions, planned documents and the legacy (pre-ONE) documents they replace. Read-and-acknowledge totals at the bottom.")
+r0 = st + len(docs) + 3
+for j, c in enumerate(["Read and acknowledge (company)", "Required", "Acknowledged", "Rate"], 1): x = ws.cell(r0, j, c); x.font = H; x.fill = HF
+ws.cell(r0 + 1, 1, "All current documents").font = B
+ws.cell(r0 + 1, 2, sum(int(r["required"]) for r in reads)).font = B; ws.cell(r0 + 1, 3, sum(int(r["acknowledged"]) for r in reads)).font = B
+ws.cell(r0 + 1, 4, f"=C{r0 + 1}/B{r0 + 1}").number_format = "0.0%"
+ws.cell(r0 + 1, 2).comment = Comment("Sum of DOC-REG-001_reads.csv (staff in affected functions per document).", "ONE")
+ws, st = sheet("MOC Register", mocs, ["moc_id", "title", "site", "system", "category", "class_", "type", "status", "raised", "approved", "closed", "target_close",
+               "temp_expiry", "originator", "coordinator", "approver", "risk_ids", "controls", "documents", "event_id", "storyline"],
+               {"title": 60, "originator": 34, "coordinator": 46, "approver": 36, "documents": 40}, note="MOC-REG-001 (classes and states per ACE-MOC-PRC-001). Step-by-step dates for each MOC are in MOC-REG-001_steps.csv.")
 wb.save(OUT); print("saved", OUT)

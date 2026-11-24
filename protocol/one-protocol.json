@@ -2432,6 +2432,279 @@
     }
    ]
   },
+  "DOC-REG-001": {
+   "title": "Document Register",
+   "file": "registers/DOC-REG-001.csv",
+   "key": "doc_id",
+   "owner": "Information Management Lead",
+   "defined_in": "ACE-DOC-PRC-001",
+   "columns": [
+    {
+     "name": "doc_id",
+     "rule": ""
+    },
+    {
+     "name": "title",
+     "rule": ""
+    },
+    {
+     "name": "type",
+     "rule": ""
+    },
+    {
+     "name": "level",
+     "rule": "Enterprise / Asset / Site"
+    },
+    {
+     "name": "system",
+     "rule": "system code"
+    },
+    {
+     "name": "status",
+     "rule": ""
+    },
+    {
+     "name": "revision",
+     "rule": ""
+    },
+    {
+     "name": "issue_date",
+     "rule": ""
+    },
+    {
+     "name": "effective_date",
+     "rule": ""
+    },
+    {
+     "name": "next_review",
+     "rule": ""
+    },
+    {
+     "name": "owner",
+     "rule": ""
+    },
+    {
+     "name": "parent",
+     "rule": ""
+    },
+    {
+     "name": "file",
+     "rule": ""
+    },
+    {
+     "name": "pending_revision",
+     "rule": ""
+    },
+    {
+     "name": "pending_moc",
+     "rule": ""
+    },
+    {
+     "name": "target_issue",
+     "rule": ""
+    },
+    {
+     "name": "predecessor",
+     "rule": ""
+    },
+    {
+     "name": "predecessor_last_review",
+     "rule": ""
+    },
+    {
+     "name": "predecessor_replaced",
+     "rule": ""
+    }
+   ]
+  },
+  "DOC-REG-001-REV": {
+   "title": "Document Register — revisions",
+   "file": "registers/DOC-REG-001_revisions.csv",
+   "key": "doc_id+revision",
+   "owner": "Information Management Lead",
+   "defined_in": "ACE-DOC-PRC-001",
+   "columns": [
+    {
+     "name": "doc_id",
+     "rule": ""
+    },
+    {
+     "name": "revision",
+     "rule": ""
+    },
+    {
+     "name": "date",
+     "rule": ""
+    },
+    {
+     "name": "description",
+     "rule": ""
+    },
+    {
+     "name": "state",
+     "rule": ""
+    }
+   ]
+  },
+  "DOC-REG-001-READ": {
+   "title": "Document Register — read and acknowledge",
+   "file": "registers/DOC-REG-001_reads.csv",
+   "key": "doc_id+function",
+   "owner": "Information Management Lead",
+   "defined_in": "ACE-DOC-PRC-001",
+   "columns": [
+    {
+     "name": "doc_id",
+     "rule": ""
+    },
+    {
+     "name": "revision",
+     "rule": ""
+    },
+    {
+     "name": "function",
+     "rule": ""
+    },
+    {
+     "name": "required",
+     "rule": ""
+    },
+    {
+     "name": "acknowledged",
+     "rule": ""
+    },
+    {
+     "name": "as_of",
+     "rule": ""
+    }
+   ]
+  },
+  "MOC-REG-001": {
+   "title": "MOC Register",
+   "file": "registers/MOC-REG-001.csv",
+   "key": "moc_id",
+   "owner": "Manager, Technical Excellence",
+   "defined_in": "ACE-MOC-PRC-001",
+   "columns": [
+    {
+     "name": "moc_id",
+     "rule": ""
+    },
+    {
+     "name": "title",
+     "rule": ""
+    },
+    {
+     "name": "site",
+     "rule": ""
+    },
+    {
+     "name": "system",
+     "rule": "system code"
+    },
+    {
+     "name": "category",
+     "rule": ""
+    },
+    {
+     "name": "class_",
+     "rule": ""
+    },
+    {
+     "name": "type",
+     "rule": ""
+    },
+    {
+     "name": "status",
+     "rule": ""
+    },
+    {
+     "name": "raised",
+     "rule": ""
+    },
+    {
+     "name": "approved",
+     "rule": ""
+    },
+    {
+     "name": "closed",
+     "rule": ""
+    },
+    {
+     "name": "target_close",
+     "rule": ""
+    },
+    {
+     "name": "temp_expiry",
+     "rule": ""
+    },
+    {
+     "name": "originator",
+     "rule": ""
+    },
+    {
+     "name": "coordinator",
+     "rule": ""
+    },
+    {
+     "name": "approver",
+     "rule": ""
+    },
+    {
+     "name": "risk_ids",
+     "rule": ""
+    },
+    {
+     "name": "controls",
+     "rule": "C-IDs"
+    },
+    {
+     "name": "documents",
+     "rule": ""
+    },
+    {
+     "name": "event_id",
+     "rule": ""
+    },
+    {
+     "name": "storyline",
+     "rule": ""
+    }
+   ]
+  },
+  "MOC-REG-001-STEPS": {
+   "title": "MOC Register — step history",
+   "file": "registers/MOC-REG-001_steps.csv",
+   "key": "moc_id+step",
+   "owner": "Manager, Technical Excellence",
+   "defined_in": "ACE-MOC-PRS-001",
+   "columns": [
+    {
+     "name": "moc_id",
+     "rule": ""
+    },
+    {
+     "name": "step",
+     "rule": ""
+    },
+    {
+     "name": "name",
+     "rule": ""
+    },
+    {
+     "name": "role",
+     "rule": ""
+    },
+    {
+     "name": "entered",
+     "rule": ""
+    },
+    {
+     "name": "left",
+     "rule": ""
+    }
+   ]
+  },
   "RSK-REG-001-HIST": {
    "title": "Risk Register — rating history",
    "file": "registers/RSK-REG-001_history.csv",

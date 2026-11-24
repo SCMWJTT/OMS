@@ -281,6 +281,21 @@ A Process is a Word description plus a model file `ACE-SSS-PRS-NNN.json` (schema
 **Objectives and Opportunities — opportunities** (`registers/OMS-REG-001_opportunities.csv`, key `opportunity_id`, owner Manager, Strategy & Planning, defined in ACE-RSK-PRA-001)  
 `opportunity_id`, `title`, `objective_id` → objective, `owner` → people, `value`, `likelihood`, `benefit`, `status`
 
+**Document Register** (`registers/DOC-REG-001.csv`, key `doc_id`, owner Information Management Lead, defined in ACE-DOC-PRC-001)  
+`doc_id`, `title`, `type`, `level`, `system`, `status`, `revision`, `issue_date`, `effective_date`, `next_review`, `owner`, `parent`, `file`, `pending_revision`, `pending_moc`, `target_issue`, `predecessor`, `predecessor_last_review`, `predecessor_replaced`
+
+**Document Register — revisions** (`registers/DOC-REG-001_revisions.csv`, key `doc_id+revision`, owner Information Management Lead, defined in ACE-DOC-PRC-001)  
+`doc_id`, `revision`, `date`, `description`, `state`
+
+**Document Register — read and acknowledge** (`registers/DOC-REG-001_reads.csv`, key `doc_id+function`, owner Information Management Lead, defined in ACE-DOC-PRC-001)  
+`doc_id`, `revision`, `function`, `required`, `acknowledged`, `as_of`
+
+**MOC Register** (`registers/MOC-REG-001.csv`, key `moc_id`, owner Manager, Technical Excellence, defined in ACE-MOC-PRC-001)  
+`moc_id`, `title`, `site`, `system`, `category`, `class_`, `type`, `status`, `raised`, `approved`, `closed`, `target_close`, `temp_expiry`, `originator`, `coordinator`, `approver`, `risk_ids`, `controls`, `documents`, `event_id`, `storyline`
+
+**MOC Register — step history** (`registers/MOC-REG-001_steps.csv`, key `moc_id+step`, owner Manager, Technical Excellence, defined in ACE-MOC-PRS-001)  
+`moc_id`, `step`, `name`, `role`, `entered`, `left`
+
 **Risk Register — rating history** (`registers/RSK-REG-001_history.csv`, key `risk_id+date`, owner Head of Internal Audit & Risk Assurance, defined in ACE-RSK-STD-001)  
 `risk_id`, `date`, `likelihood`, `consequence`, `rating`, `reason`
 

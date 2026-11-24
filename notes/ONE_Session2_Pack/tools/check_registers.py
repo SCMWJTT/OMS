@@ -35,3 +35,24 @@ for a in act:
     if a['event_id'] not in EID: err.append('action event ' + a['action_id'])
     elif a['closed'] and a['closed'] < EID[a['event_id']]['date']: err.append('action closed before event ' + a['action_id'])
 print('Register check:', 'OK' if not err else f'{len(err)} problems', err[:10])
+# ---- document and MOC registers
+mocs, steps, docs, revs = R('MOC-REG-001.csv'), R('MOC-REG-001_steps.csv'), R('DOC-REG-001.csv'), R('DOC-REG-001_revisions.csv')
+DID = {d['doc_id'] for d in docs}; err2 = []
+for m in mocs:
+    for c in ('originator', 'approver'): person(m[c], 'moc')
+    person(m['coordinator'].replace(' (MOC Coordinator)', ''), 'moc')
+    for d in filter(None, m['documents'].split('; ')):
+        if d not in DID: err2.append(f"moc doc {d}")
+    if m['risk_ids'] and m['risk_ids'] not in RID: err2.append('moc risk')
+    for c in filter(None, m['controls'].split('; ')):
+        if c not in CID or (CID[c]['effective'] and m['raised'] < CID[c]['effective']): err2.append(f"moc control {c} {m['moc_id']}")
+    if m['event_id'] and m['event_id'] not in EID: err2.append('moc event')
+    if m['closed'] and m['closed'] < m['raised']: err2.append('moc dates')
+MID = {m['moc_id'] for m in mocs}
+for s in steps:
+    if s['moc_id'] not in MID: err2.append('step moc')
+    if s['left'] and s['left'] < s['entered']: err2.append('step dates')
+for d in docs:
+    if d['status'] == 'Current': person(d['owner'], 'doc')
+    if d['pending_moc'] and d['pending_moc'] not in MID: err2.append('doc moc')
+print('Document/MOC check:', 'OK' if not err2 and not err else f'{len(err2)} problems', err2[:8], err[-5:] if err else '')

@@ -366,6 +366,22 @@ for r in risks:
 r_pap = next(r for r in risks if r["risk_id"] == "R-PAP-01")
 r_pap.update(version="3", restrictions="PL-101 operating pressure limited to 80% MAOP until features repaired", change_reason="Near miss EV of 14 July 2026; ILI results")
 
+# ---------------- document register and MOC register (separate random stream)
+import json
+from regmoc import build_mocs, build_docreg, build_reads, doc_overdue_pct, MOC_COLS, DOC_COLS
+mrnd = random.Random(20261125)
+mocs, msteps = build_mocs(mrnd, who, TODAY, events, CBY)
+PLANNED = json.load(open(os.path.join(ROOT, "protocol/one-protocol.json"), encoding="utf-8"))["document_register"]["planned"]
+docreg, docrevs = build_docreg(mrnd, ROOT, who, PEOPLE, PLANNED, TODAY)
+reads = build_reads(mrnd, docreg, PEOPLE, TODAY)
+# the Pommerac A MOC keeps the number it gets naturally; update the storyline references to it
+MOCID = next(x["moc_id"] for x in mocs if x.get("storyline") == "Pommerac A" and x["class_"] == "C3")
+for rows in (events, actions, docreg, docrevs, health):
+    for r_ in rows:
+        for k_, v_ in r_.items():
+            if isinstance(v_, str) and "MOC-2026-047" in v_: r_[k_] = v_.replace("MOC-2026-047", MOCID)
+print("Pommerac A storyline MOC:", MOCID)
+
 # ---------------- KPIs (monthly 2024-01 .. 2026-10)
 KPIS = [
  ("PROD-OIL", "Crude oil production", "bbl/d", "Production", "lagging", "", "Sophia Hosany", "≥ 6,600 (2026)", "up", "site"),
@@ -473,7 +489,10 @@ for i, m_ in enumerate(months):
     put(m_, "ACE", "INSP-DONE", round(rnd.uniform(88, 98) - (8 if ym in ("2026-04", "2026-05", "2026-06") else 0), 1))
     put(m_, "ACE", "DEFERRALS", {"2026-04": 6, "2026-05": 7, "2026-06": 7, "2026-07": 8, "2026-08": 5, "2026-09": 2, "2026-10": 2}.get(ym, rnd.randint(1, 4)))
     put(m_, "ACE", "PTW-ISSUED", rnd.randint(470, 560)); put(m_, "ACE", "PTW-NC", rnd.randint(2, 9))
-    mr = rnd.randint(7, 13); put(m_, "ACE", "MOC-RAISED", mr); put(m_, "ACE", "MOC-OPEN", rnd.randint(28, 42)); put(m_, "ACE", "MOC-OVERDUE", rnd.randint(2, 8))
+    me = (m_.replace(day=28) + dt.timedelta(days=4)).replace(day=1) - dt.timedelta(days=1)
+    put(m_, "ACE", "MOC-RAISED", sum(1 for x in mocs if x["raised"].strftime("%Y-%m") == ym))
+    openm = [x for x in mocs if x["raised"] <= me and (not x["closed"] or D(x["closed"]) > me)]
+    put(m_, "ACE", "MOC-OPEN", len(openm)); put(m_, "ACE", "MOC-OVERDUE", sum(1 for x in openm if D(x["target_close"]) < me))
     put(m_, "ACE", "DEV-OPEN", rnd.randint(9, 16) + (3 if ym >= "2026-04" and ym <= "2026-08" else 0))
     end = (m_.replace(day=28) + dt.timedelta(days=4)).replace(day=1) - dt.timedelta(days=1)
     put(m_, "ACE", "AUDIT-FIND", sum(1 for e in allm if e["type"] == "Audit finding"))
@@ -485,7 +504,7 @@ for i, m_ in enumerate(months):
     opex = rnd.uniform(64, 72) + (6 if ym in ("2026-07", "2026-08", "2026-09") else 0); put(m_, "ACE", "OPEX", round(opex, 1))
     boe = (tot + gas * 1000 / 6) * 30.4; put(m_, "ACE", "LIFT-COST", round(opex * 1e6 / 6.78 / boe, 2))
     put(m_, "ACE", "DOCS-ONE", sum(1 for d_ in docs_by_eff if d_["effective"] <= end))
-    put(m_, "ACE", "DOCS-OVERDUE", round(rnd.uniform(22, 30) if m_ < dt.date(2026, 1, 1) else max(3.0, 18 - (m_.month * 1.6)) + rnd.uniform(-1, 1), 1))
+    put(m_, "ACE", "DOCS-OVERDUE", doc_overdue_pct(docreg, end))
 # open / overdue actions at each month end (from the actions register)
 EVD = {e["event_id"]: D(e["date"]) for e in events}
 for m_ in months:
@@ -521,3 +540,10 @@ write("BPM-REG-001.csv", [dict(process_id=p[0], title=p[1], l1=p[2], l2=p[3], ow
 write("PRF-REG-001_kpis.csv", [dict(kpi_id=k[0], name=k[1], unit=k[2], category=k[3], family=k[4], oms_tag=k[5], owner=who(k[6]), target=k[7], better=k[8], scope=k[9]) for k in KPIS],
       ["kpi_id", "name", "unit", "category", "family", "oms_tag", "owner", "target", "better", "scope"])
 write("PRF-REG-001_monthly.csv", kdata, ["month", "site", "kpi_id", "value"])
+
+for x in mocs: x["raised"] = x["raised"].isoformat()
+write("MOC-REG-001.csv", mocs, MOC_COLS)
+write("MOC-REG-001_steps.csv", msteps, ["moc_id", "step", "name", "role", "entered", "left"])
+write("DOC-REG-001.csv", docreg, DOC_COLS)
+write("DOC-REG-001_revisions.csv", docrevs, ["doc_id", "revision", "date", "description", "state"])
+write("DOC-REG-001_reads.csv", reads, ["doc_id", "revision", "function", "required", "acknowledged", "as_of"])

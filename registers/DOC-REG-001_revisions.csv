@@ -1,0 +1,42 @@
+doc_id,revision,date,description,state
+ACE-AIM-PRA-001,A,—,Draft for review.,Draft
+ACE-AIM-PRA-001,01,1 June 2026,"Initial approved issue. Adds named roles, binding statements and Control IDs C-AIM-001 to C-AIM-010.",Issued
+ACE-AIM-STD-001,01,1 January 2026,First approved issue; establishes ACE requirements for the asset integrity management standard.,Issued
+ACE-AIM-STD-002,01,1 January 2026,Initial approved issue. Defines the mandatory ACE inspection and examination requirements.,Issued
+ACE-BPM-PRA-001,01,1 April 2026,"Initial approved issue. Establishes the BPM system, the five-level process architecture, the one-owner rule and the Process Register (ACE-BPM-REG-001).",Issued
+ACE-BPM-PRA-002,01,1 April 2026,"Initial approved issue. Defines the PRS document pair, modelling conventions, process file schema ONE-PRS/1 and simulation-ready fields.",Issued
+ACE-BPM-PRA-003,01,1 April 2026,"Initial approved issue. Defines process owner duties, the four KPI families, the review cycle, improvement routes and the five-level maturity scale.",Issued
+ACE-CON-STD-001,01,1 January 2026,First approved issue: Contractor and Supplier Management Standard.,Issued
+ACE-COW-PRC-001,A,—,Draft for review.,Draft
+ACE-COW-PRC-001,01,1 June 2026,"Initial approved issue. Repairs tables, assigns Control IDs C-COW-001 to C-COW-009 and names the owner and reviewers.",Issued
+ACE-COW-PRC-002,A,—,Draft for review.,Draft
+ACE-COW-PRC-002,01,1 June 2026,"Initial approved issue. Repairs tables, assigns Control IDs C-COW-010 to C-COW-019 and names the owner and reviewers.",Issued
+ACE-COW-STD-001,01,1 January 2026,First approved issue; establishes ACE requirements for the control of work standard.,Issued
+ACE-DOC-POL-001,A,—,Initial draft for review.,Draft
+ACE-DOC-POL-001,01,1 April 2026,"Initial approved issue, released with ACE-OMS-MAN-001 Rev 04 and ACE-DOC-STD-002 Rev 02.",Issued
+ACE-DOC-PRC-001,A,—,Initial draft for review.,Draft
+ACE-DOC-PRC-001,01,1 April 2026,Initial approved issue under ACE-OMS-MAN-001 Rev 04. Approval matrix updated to the five-level hierarchy (adds Practice and Process).,Issued
+ACE-DOC-STD-001,01,1 January 2026,First approved issue; establishes mandatory ACE requirements for this standard.,Issued
+ACE-DOC-STD-002,01,1 January 2026,First approved issue; establishes mandatory ACE requirements for this standard.,Issued
+ACE-EMR-STD-001,01,1 January 2026,"First approved issue: Emergency, Crisis and Business Continuity Standard.",Issued
+ACE-ENG-SPC-410,01,1 January 2026,First approved issue; establishes Safety Instrumented Systems Specification and associated controls.,Issued
+ACE-ENG-STD-901,01,1 January 2026,First approved issue; establishes Engineering Standards Framework and Technical Authority Standard and associated controls.,Issued
+ACE-INC-STD-001,01,1 January 2026,First approved issue; establishes ACE requirements for the incident reporting and investigation standard.,Issued
+ACE-MNT-PRA-001,A,—,Draft for review.,Draft
+ACE-MNT-PRA-001,01,1 June 2026,"Initial approved issue. Adds named roles, priority table, binding statements and Control IDs C-MNT-001 to C-MNT-010.",Issued
+ACE-MNT-STD-001,01,1 January 2026,First approved issue; establishes ACE requirements for the maintenance management standard.,Issued
+ACE-MOC-PRC-001,01,1 January 2026,First approved issue; establishes ACE requirements for the management of change procedure.,Issued
+ACE-OPS-PRA-001,A,—,Initial draft for review.,Draft
+ACE-OPS-PRA-001,01,1 June 2026,Initial approved issue. Replaces placeholder control statements with controls C-OPS-001 to C-OPS-012; names the Area Authority.,Issued
+ACE-OPS-STD-001,01,1 January 2026,Initial approved issue. Defines the mandatory ACE operating envelope and limit control requirements.,Issued
+ACE-PPL-STD-003,01,1 January 2026,"First approved issue. Sets role competence profiles, assessment, authorisation, re-verification and contractor interfaces.",Issued
+ACE-PRF-STD-002,01,1 January 2026,First approved issue; establishes ACE requirements for the assurance and audit standard.,Issued
+ACE-PSM-STD-001,01,1 January 2026,First approved issue; establishes mandatory ACE requirements for this standard.,Issued
+ACE-RSK-PRA-001,01,1 April 2026,"Initial approved issue. Establishes the Control ID scheme, the Controls Register (ACE-RSK-REG-002), control classification and control health.",Issued
+ACE-RSK-STD-001,01,1 January 2026,First approved issue; establishes mandatory ACE requirements for this standard.,Issued
+ACE-WEL-PRA-001,A,—,Initial draft for review.,Draft
+ACE-WEL-PRA-001,01,1 June 2026,Initial approved issue. Replaces placeholder control statements with controls C-WEL-001 to C-WEL-012; names all accountable roles.,Issued
+ACE-WEL-STD-001,01,1 January 2026,"First approved issue. Sets mandatory lifecycle well-barrier, surveillance, anomaly, intervention and abandonment controls.",Issued
+ACE-AIM-PRA-001,02,(target 1 December 2026),Revision after the PL-101 near miss of 14 July 2026 (MOC-2026-061).,In preparation
+ACE-AIM-STD-001,02,(target 1 December 2026),Revision after the PL-101 near miss of 14 July 2026 (MOC-2026-061).,In preparation
+ACE-OPS-PRA-001,02,(target 1 December 2026),Revision after the PL-101 near miss of 14 July 2026 (MOC-2026-061).,In preparation
