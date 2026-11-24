@@ -1,0 +1,47 @@
+sce_id,title,group,site,asset_ids,performance_standard,test_interval,last_test,next_due,status,controls
+SCE-PAP-001,Pommerac A jacket and topsides structure,Structural,PAP,A-PAP-001,PS-STRUCT-01,48 months,2023-10-12,2027-09-21,Available,
+SCE-PAP-002,Firewater pump A,Firewater,PAP,A-PAP-009,PS-FIREWA-02,1 month,2026-11-03,2026-12-03,Available,C-MNT-003; C-MNT-006; C-MNT-007
+SCE-PAP-003,Firewater pump B,Firewater,PAP,A-PAP-010,PS-FIREWA-03,1 month,2026-11-17,2026-12-17,Available,
+SCE-PAP-004,Export riser emergency shutdown valve,ESD,PAP,A-PAP-011,PS-ESD-04,6 months,2026-09-28,2027-03-27,Available,C-RSK-011
+SCE-PAP-005,Gas riser emergency shutdown valve,ESD,PAP,A-PAP-012,PS-ESD-05,6 months,2026-11-11,2027-05-10,Available,
+SCE-PAP-006,Separator pressure safety valve,PSV,PAP,A-PAP-013,PS-PSV-06,24 months,2025-08-26,2027-08-16,Available,
+SCE-PAP-007,Fire and gas detection system,F&G,PAP,A-PAP-014,PS-F&G-07,6 months,2026-11-04,2027-05-03,Available,
+SCE-PAP-008,Emergency shutdown system (logic),SIS,PAP,A-PAP-015,PS-SIS-08,12 months,2026-11-16,2027-11-11,Available,
+SCE-PAP-009,Lifeboat 1,Lifesaving,PAP,A-PAP-016,PS-LIFESA-09,3 months,2026-10-07,2027-01-05,Available,
+SCE-PAP-010,Lifeboat 2,Lifesaving,PAP,A-PAP-017,PS-LIFESA-10,3 months,2026-09-21,2026-12-20,Available,
+SCE-PAP-011,Helideck and refuelling,Helideck,PAP,A-PAP-018,PS-HELIDE-11,12 months,2026-06-27,2027-06-22,Available,
+SCE-PAP-012,Well PAP-01,Well barrier,PAP,A-PAP-020,PS-WELLBA-12,6 months,2026-07-21,2027-01-17,Available,
+SCE-PAP-013,Well PAP-02,Well barrier,PAP,A-PAP-021,PS-WELLBA-13,6 months,2026-08-12,2027-02-08,Available,
+SCE-PAP-014,Well PAP-03,Well barrier,PAP,A-PAP-022,PS-WELLBA-14,6 months,2026-10-01,2027-03-30,Available,C-WEL-001
+SCE-PAP-015,Well PAP-04,Well barrier,PAP,A-PAP-023,PS-WELLBA-15,6 months,2026-08-08,2027-02-04,Available,
+SCE-PAP-016,Well PAP-05,Well barrier,PAP,A-PAP-024,PS-WELLBA-16,6 months,2026-09-24,2027-03-23,Available,
+SCE-PAP-017,Well PAP-06,Well barrier,PAP,A-PAP-025,PS-WELLBA-17,6 months,2026-09-25,2027-03-24,Available,
+SCE-PAP-018,Pommerac A crude export pipeline to CPF (12 in),Pipeline,PAP,A-PAP-026,PS-PIPELI-18,12 months,2026-04-01,2027-03-27,Available,C-AIM-006
+SCE-PAP-019,Pommerac A gas export pipeline to CPF (10 in),Pipeline,PAP,A-PAP-027,PS-PIPELI-19,12 months,2026-07-03,2027-06-28,Available,
+SCE-CHB-001,Chenet B wellhead platform structure,Structural,CHB,A-CHB-001,PS-STRUCT-01,48 months,2025-09-23,2029-09-02,Available,
+SCE-CHB-002,Chenet B ESD and wellhead control panel,ESD,CHB,A-CHB-002,PS-ESD-02,6 months,2026-08-19,2027-02-15,Available,
+SCE-CHB-003,Well CHB-01,Well barrier,CHB,A-CHB-003,PS-WELLBA-03,6 months,2026-08-18,2027-02-14,Available,
+SCE-CHB-004,Well CHB-02,Well barrier,CHB,A-CHB-004,PS-WELLBA-04,6 months,2026-09-09,2027-03-08,Available,C-WEL-011
+SCE-CHB-005,Well CHB-03,Well barrier,CHB,A-CHB-005,PS-WELLBA-05,6 months,2026-11-14,2027-05-13,Available,
+SCE-CHB-006,Chenet B infield flowline to Pommerac A (6 in),Pipeline,CHB,A-CHB-007,PS-PIPELI-06,12 months,2026-05-20,2027-05-15,Available,
+SCE-CHB-007,Chenet B navigation aids,Navigation aid,CHB,A-CHB-008,PS-NAVIGA-07,1 month,2026-11-19,2026-12-19,Available,
+SCE-SAP-001,Sapodilla C wellhead platform structure,Structural,SAP,A-SAP-001,PS-STRUCT-01,48 months,2024-02-07,2028-01-17,Available,
+SCE-SAP-002,Sapodilla C ESD and wellhead control panel,ESD,SAP,A-SAP-002,PS-ESD-02,6 months,2026-08-25,2027-02-21,Available,
+SCE-SAP-003,Well SAP-01,Well barrier,SAP,A-SAP-003,PS-WELLBA-03,6 months,2026-06-25,2026-12-22,Available,
+SCE-SAP-004,Well SAP-02,Well barrier,SAP,A-SAP-004,PS-WELLBA-04,6 months,2026-08-12,2027-02-08,Available,
+SCE-SAP-005,Sapodilla C infield flowline to Pommerac A (6 in),Pipeline,SAP,A-SAP-006,PS-PIPELI-05,12 months,2026-11-10,2027-11-05,Available,
+SCE-SAP-006,Sapodilla C navigation aids,Navigation aid,SAP,A-SAP-007,PS-NAVIGA-06,1 month,2026-10-27,2026-11-26,Available,
+SCE-CPF-001,Tank farm bund and drainage,Containment,CPF,A-CPF-011,PS-CONTAI-01,12 months,2026-09-09,2027-09-04,Available,
+SCE-CPF-002,CPF firewater ring main and pumps,Firewater,CPF,A-CPF-014,PS-FIREWA-02,1 month,2026-10-30,2026-11-29,Available,
+SCE-CPF-003,CPF fire and gas detection,F&G,CPF,A-CPF-015,PS-F&G-03,6 months,2026-09-30,2027-03-29,Available,
+SCE-CPF-004,CPF safety instrumented system,SIS,CPF,A-CPF-016,PS-SIS-04,12 months,2026-07-22,2027-07-17,Available,C-MNT-008; C-MNT-009; C-OPS-005
+SCE-CPF-005,Inlet separator pressure safety valve,PSV,CPF,A-CPF-018,PS-PSV-05,24 months,2026-04-13,2028-04-02,Available,
+SCE-LND-001,Tamarind tank battery,Containment,LND,A-LND-002,PS-CONTAI-01,12 months,2026-02-09,2027-02-04,Available,
+SCE-LND-002,Pawpaw tank battery,Containment,LND,A-LND-004,PS-CONTAI-02,12 months,2026-04-26,2027-04-21,Available,
+SCE-LND-003,Soursop tank battery,Containment,LND,A-LND-006,PS-CONTAI-03,12 months,2026-09-07,2027-09-02,Available,
+SCE-LND-004,Land trunkline Tamarind to CPF (8 in),Pipeline,LND,A-LND-007,PS-PIPELI-04,12 months,2026-10-19,2027-10-14,Available,
+SCE-LND-005,Well TAM-12 (gas lift),Well barrier,LND,A-LND-009,PS-WELLBA-05,6 months,2026-06-10,2026-12-07,Available,
+SCE-LND-006,Well TAM-27,Well barrier,LND,A-LND-010,PS-WELLBA-06,6 months,2026-06-26,2026-12-23,Available,
+SCE-LND-007,Well PAW-08,Well barrier,LND,A-LND-011,PS-WELLBA-07,6 months,2026-09-25,2027-03-24,Available,
+SCE-LND-008,Well SOU-15 (sustained annulus pressure),Well barrier,LND,A-LND-012,PS-WELLBA-08,6 months,2026-11-08,2027-05-07,Available,C-WEL-006
+SCE-PLB-001,Tier 1 oil spill response equipment,Spill response,PLB,A-PLB-007,PS-SPILLR-01,1 month,2026-10-30,2026-11-29,Available,C-RSK-012

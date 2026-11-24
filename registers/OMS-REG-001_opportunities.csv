@@ -1,0 +1,9 @@
+opportunity_id,title,objective_id,owner,value,likelihood,benefit,status
+OPP-01,Infill drilling on Tamarind lease (4 wells),OBJ-26-04,Anya Joseph — VP Exploration & Development,+450 bbl/d,3,4,Pursued
+OPP-02,CPF compressor debottleneck,OBJ-26-05,Rodney Clarke — Projects Manager,+4 MMscf/d sales gas,3,3,Open
+OPP-03,Flare gas recovery at Pommerac A,OBJ-26-07,Michelle de Verteuil — Process Engineering Lead,-30% PAP flaring,2,3,Open
+OPP-04,Share supply vessel with neighbouring operator,OBJ-26-09,Lisa Williams — Logistics & Materials Manager,US$1.2M/yr saving,3,2,Pursued
+OPP-05,Water injection pilot on Soursop,OBJ-26-04,Sharon Laquis — Development & Reservoir Manager,+200 bbl/d after 2 years,2,3,Open
+OPP-06,Solar power at land gathering stations,OBJ-26-07,Rishi Seecharan — Electrical Lead,"-1,200 tCO2e/yr",4,2,Open
+OPP-07,ONE portal replaces manual conformance matrix,OBJ-26-08,"Marvin Williams — VP IT, Data & Knowledge","2,000 staff-hours/yr",4,2,Realised
+OPP-08,Gas lift optimisation on Tamarind,OBJ-26-04,Kerry-Ann Persad — Production Technology Lead,+120 bbl/d,4,2,Realised

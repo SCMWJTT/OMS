@@ -1,0 +1,49 @@
+kpi_id,name,unit,category,family,oms_tag,owner,target,better,scope
+PROD-OIL,Crude oil production,bbl/d,Production,lagging,,Sophia Hosany — VP Operations,"≥ 6,600 (2026)",up,site
+PROD-GAS,Sales gas to NGC,MMscf/d,Production,lagging,4.2,Karen Jack — VP Business Development & Markets,≥ 44,up,ACE
+NGC-DCQ,NGC contract quantity delivered,%,Production,lagging,4.2,Karen Jack — VP Business Development & Markets,≥ 98,up,ACE
+PROD-EFF,Production efficiency,%,Production,lagging,6.3,Sophia Hosany — VP Operations,≥ 92,up,ACE
+DEFER-OIL,Deferred crude production,bbl/d,Production,lagging,6.3,Sophia Hosany — VP Operations,< 300,down,ACE
+ALLOC-IMB,Gas allocation imbalance,%,Measurement,leading,9.1,Navin Sookdeo — Metering & Measurement Lead,< 0.5,down,ACE
+HRS-EMP,Employee hours worked,hours,Exposure,,,Adrian Achong — VP Human Resources,,,ACE
+HRS-CON,Contractor hours worked,hours,Exposure,,,Rhea Sookram — Contracts Manager,,,ACE
+NEAR-MISS,Near misses reported,count,Personal safety,leading,9.2,Christina Bain — HSE Manager,≥ 12 per month,up,site
+FAC,First aid cases,count,Personal safety,lagging,9.2,Christina Bain — HSE Manager,,down,site
+MTC,Medical treatment cases,count,Personal safety,lagging,9.2,Christina Bain — HSE Manager,0,down,site
+RWC,Restricted work cases,count,Personal safety,lagging,9.2,Christina Bain — HSE Manager,0,down,site
+LTI,Lost time injuries,count,Personal safety,lagging,9.2,George Habib — VP HSE & Compliance,0,down,site
+TRIR,"Total recordable injury rate (12-month rolling, per 200,000 h)",rate,Personal safety,lagging,9.2,George Habib — VP HSE & Compliance,< 0.5,down,ACE
+PSE-T1,Tier 1 process safety events,count,Process safety,lagging,9.2,Damian Daniel — Process Safety Lead,0,down,site
+PSE-T2,Tier 2 process safety events,count,Process safety,lagging,9.2,Damian Daniel — Process Safety Lead,≤ 2 per year,down,site
+PSE-T3,Tier 3 challenges to safety systems,count,Process safety,leading,9.2,Damian Daniel — Process Safety Lead,,down,site
+SPILL-N,Hydrocarbon spills,count,Environment,lagging,9.2,Kevin Lutchman — Environmental Lead,0,down,site
+SPILL-BBL,Volume spilled,bbl,Environment,lagging,9.2,Kevin Lutchman — Environmental Lead,0,down,site
+IOW-EXC,IOW excursions recorded,count,Process safety,leading,6.3,Michelle de Verteuil — Process Engineering Lead,,down,ACE
+ALARM-RATE,CPF alarms per operator-hour,rate,Process safety,leading,6.3,Vijay Ramcharan — Instrumentation & Control Lead,< 6,down,ACE
+SCE-PLAN,SCE maintenance and tests planned,count,Asset integrity,leading,6.5,Marc Gomes — Maintenance & Integrity Manager,,,ACE
+SCE-DONE,SCE maintenance and tests completed on time,%,Asset integrity,leading,6.5,Marc Gomes — Maintenance & Integrity Manager,≥ 98,up,ACE
+SCE-OVERDUE,Overdue SCE items at month end,count,Asset integrity,leading,6.5,Marc Gomes — Maintenance & Integrity Manager,0,down,ACE
+SCE-FAIL,SCE test failures,count,Asset integrity,leading,6.5,Marc Gomes — Maintenance & Integrity Manager,,down,ACE
+PM-COMP,Preventive maintenance compliance,%,Maintenance,leading,6.4,Sunita Seepersad — Maintenance Superintendent,≥ 90,up,ACE
+BACKLOG-WK,Corrective maintenance backlog,weeks,Maintenance,leading,6.4,Sunita Seepersad — Maintenance Superintendent,< 4,down,ACE
+INSP-DONE,Inspections completed against plan,%,Asset integrity,leading,6.5,Wayne Rajkumar — Inspection Lead,≥ 95,up,ACE
+DEFERRALS,Open inspection deferrals,count,Asset integrity,leading,6.5,Wayne Rajkumar — Inspection Lead,,down,ACE
+PTW-ISSUED,Permits to work issued,count,Control of work,,8.2,Adrian Rodriguez — Permit to Work Coordinator (Offshore),,,ACE
+PTW-NC,Permit non-conformances found in sampling,count,Control of work,leading,8.2,Adrian Rodriguez — Permit to Work Coordinator (Offshore),,down,ACE
+MOC-RAISED,MOCs raised,count,Change,,5.3,"Elena Farfan — Manager, Technical Excellence",,,ACE
+MOC-OPEN,MOCs open at month end,count,Change,leading,5.3,"Elena Farfan — Manager, Technical Excellence",,down,ACE
+MOC-OVERDUE,MOCs overdue,count,Change,leading,5.3,"Elena Farfan — Manager, Technical Excellence",0,down,ACE
+DEV-OPEN,Open deviations,count,Change,leading,2.6,Marissa Bobb — OMS Manager,,down,ACE
+ACT-OPEN,Open actions (events and audits),count,Assurance,leading,9.4,Dillon Haddad — Compliance & Assurance Manager,,down,ACE
+ACT-OVERDUE,Overdue actions,count,Assurance,leading,9.4,Dillon Haddad — Compliance & Assurance Manager,0,down,ACE
+AUDIT-FIND,Audit findings raised,count,Assurance,,10.1,Dillon Haddad — Compliance & Assurance Manager,,,ACE
+TRAIN-COMP,Mandatory training compliance,%,People,leading,3.3,Andrea Farfan — Learning & Competence Manager,≥ 95,up,ACE
+FLARE,Gas flared,MMscf,Environment,lagging,9.1,Rohan Ali — Plant Manager - Central Processing Facility,-15% vs 2025,down,ACE
+GHG,Greenhouse gas emissions,tCO2e,Environment,lagging,9.1,Kevin Lutchman — Environmental Lead,,down,ACE
+OIW,Produced water oil-in-water (monthly average),mg/l,Environment,lagging,9.1,Kevin Lutchman — Environmental Lead,< 40,down,ACE
+BOAT-TRIPS,Supply and crew boat trips,count,Logistics,,8.1,Lisa Williams — Logistics & Materials Manager,,,ACE
+HELI,Helicopter flights,count,Logistics,,8.1,Lisa Williams — Logistics & Materials Manager,,,ACE
+OPEX,Operating cost,TT$ million,Finance,lagging,,Teresa Daniel — Chief Financial Officer,,down,ACE
+LIFT-COST,Lifting cost,US$/boe,Finance,lagging,,Teresa Daniel — Chief Financial Officer,< 24,down,ACE
+DOCS-ONE,Controlled documents published in ONE (cumulative),count,Documents,leading,1.7,Sanjay Jagessar — Information Management Lead,30,up,ACE
+DOCS-OVERDUE,Controlled documents past review date,%,Documents,leading,1.7,Sanjay Jagessar — Information Management Lead,< 5,down,ACE

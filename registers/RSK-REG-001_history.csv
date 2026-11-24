@@ -1,0 +1,80 @@
+risk_id,date,likelihood,consequence,rating,reason
+R-CHB-01,2024-01-01,C,4,High,Baseline
+R-CHB-02,2024-01-01,C,3,Medium,Baseline
+R-CPF-01,2024-01-01,B,5,High,Baseline
+R-CPF-02,2024-01-01,B,4,Medium,Baseline
+R-CPF-02,2025-09-28,A,4,Medium,Quarterly review
+R-CPF-03,2024-01-01,C,4,High,Baseline
+R-CPF-03,2025-02-12,D,4,High,Event or review
+R-CPF-03,2025-12-01,C,4,High,Event or review
+R-CPF-03,2026-06-01,B,4,Medium,Event or review
+R-CPF-04,2024-01-01,B,5,High,Baseline
+R-CPF-05,2024-01-01,B,4,Medium,Baseline
+R-CPF-05,2025-08-21,D,4,High,Event or review
+R-CPF-05,2025-11-01,B,4,Medium,Event or review
+R-CPF-06,2024-01-01,C,3,Medium,Baseline
+R-CPF-07,2024-01-01,C,3,Medium,Baseline
+R-CPF-08,2024-01-01,B,4,Medium,Baseline
+R-CPF-09,2024-01-01,A,2,Low,Baseline
+R-CPF-09,2025-12-28,B,2,Low,Quarterly review
+R-HOF-01,2024-01-01,B,4,Medium,Baseline
+R-HOF-01,2026-09-28,C,4,High,Quarterly review
+R-HOF-02,2024-01-01,C,4,High,Baseline
+R-HOF-02,2024-06-28,D,4,High,Quarterly review
+R-HOF-03,2024-01-01,B,5,High,Baseline
+R-HOF-03,2026-06-28,A,5,Medium,Quarterly review
+R-HOF-04,2024-01-01,C,3,Medium,Baseline
+R-HOF-05,2024-01-01,B,4,Medium,Baseline
+R-HOF-05,2025-03-28,C,4,High,Quarterly review
+R-HOF-06,2024-01-01,B,3,Medium,Baseline
+R-HOF-06,2024-06-28,C,3,Medium,Quarterly review
+R-HOF-07,2024-01-01,C,4,High,Baseline
+R-HOF-07,2026-03-28,B,4,Medium,Quarterly review
+R-HOF-08,2024-01-01,C,3,Medium,Baseline
+R-HOF-09,2024-01-01,B,4,Medium,Baseline
+R-HOF-10,2024-01-01,B,3,Medium,Baseline
+R-HOF-10,2026-03-28,C,3,Medium,Quarterly review
+R-HOF-11,2024-01-01,B,3,Medium,Baseline
+R-HOF-11,2025-06-28,C,3,Medium,Quarterly review
+R-HOF-12,2024-01-01,B,4,Medium,Baseline
+R-HOF-13,2024-01-01,B,3,Medium,Baseline
+R-HOF-13,2025-06-28,C,3,Medium,Quarterly review
+R-HOF-14,2024-01-01,B,4,Medium,Baseline
+R-HOF-15,2024-01-01,B,2,Low,Baseline
+R-LND-01,2024-01-01,B,4,Medium,Baseline
+R-LND-01,2025-11-06,D,4,High,Event or review
+R-LND-01,2026-04-23,B,4,Medium,Event or review
+R-LND-02,2024-01-01,E,3,High,Baseline
+R-LND-03,2024-01-01,D,4,High,Baseline
+R-LND-04,2024-01-01,B,4,Medium,Baseline
+R-LND-05,2024-01-01,D,3,High,Baseline
+R-LND-05,2025-12-28,C,3,Medium,Quarterly review
+R-LND-06,2024-01-01,A,5,Medium,Baseline
+R-LND-07,2024-01-01,C,2,Medium,Baseline
+R-LND-07,2026-06-28,B,2,Low,Quarterly review
+R-PAP-01,2024-01-01,B,4,Medium,Baseline
+R-PAP-01,2026-07-15,D,4,High,Event or review
+R-PAP-01,2026-10-01,C,4,High,Event or review
+R-PAP-02,2024-01-01,A,5,Medium,Baseline
+R-PAP-02,2026-09-28,B,5,High,Quarterly review
+R-PAP-03,2024-01-01,B,5,High,Baseline
+R-PAP-03,2025-12-28,A,5,Medium,Quarterly review
+R-PAP-04,2024-01-01,A,5,Medium,Baseline
+R-PAP-05,2024-01-01,A,5,Medium,Baseline
+R-PAP-06,2024-01-01,B,4,Medium,Baseline
+R-PAP-07,2024-01-01,C,4,High,Baseline
+R-PAP-07,2024-12-28,B,4,Medium,Quarterly review
+R-PAP-08,2024-01-01,B,4,Medium,Baseline
+R-PLB-01,2024-01-01,A,4,Medium,Baseline
+R-PLB-01,2024-09-28,B,4,Medium,Quarterly review
+R-PLB-02,2024-01-01,D,3,High,Baseline
+R-PLB-02,2025-03-28,C,3,Medium,Quarterly review
+R-PLB-03,2024-01-01,A,4,Medium,Baseline
+R-PLB-03,2024-09-28,B,4,Medium,Quarterly review
+R-PLB-04,2024-01-01,B,5,High,Baseline
+R-PLB-05,2024-01-01,C,2,Medium,Baseline
+R-PLB-05,2025-06-28,B,2,Low,Quarterly review
+R-SAP-01,2024-01-01,D,3,High,Baseline
+R-SAP-01,2026-09-28,C,3,Medium,Quarterly review
+R-SAP-02,2024-01-01,B,3,Medium,Baseline
+R-SAP-02,2026-09-28,C,3,Medium,Quarterly review

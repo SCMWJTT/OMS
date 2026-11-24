@@ -1,0 +1,16 @@
+objective_id,title,owner,kpi,target,year,risks
+OBJ-25-01,Zero lost time injuries,George Habib — VP HSE & Compliance,LTI count,0,2025,
+OBJ-25-02,Zero Tier 1 process safety events,George Habib — VP HSE & Compliance,Tier 1 PSE count,0,2025,
+OBJ-25-03,"Average crude production 7,000 bbl/d",Sophia Hosany — VP Operations,Crude bbl/d,"≥ 7,000",2025,
+OBJ-25-04,NGC deliveries at 98% of contract,Karen Jack — VP Business Development & Markets,DCQ delivered %,≥ 98%,2025,
+OBJ-25-05,Reduce CPF alarm rate to under 6 per operator-hour,Vijay Ramcharan — Instrumentation & Control Lead,Alarms per operator-hour,< 6,2025,
+OBJ-26-01,Zero lost time injuries; TRIR below 0.5,George Habib — VP HSE & Compliance,"TRIR (per 200,000 h)",< 0.5,2026,R-PAP-04; R-PAP-07; R-PAP-08; R-CHB-01; R-LND-03; R-LND-04; R-PLB-01; R-PLB-03; R-HOF-07; R-HOF-13; R-HOF-15; R-CPF-09; R-LND-07
+OBJ-26-02,Zero Tier 1 and no more than two Tier 2 process safety events,George Habib — VP HSE & Compliance,Tier 1 / Tier 2 PSE,0 / ≤ 2,2026,R-PAP-02; R-PAP-03; R-CHB-02; R-SAP-02; R-CPF-01; R-CPF-02; R-CPF-03; R-LND-06; R-HOF-01; R-HOF-09
+OBJ-26-03,Zero loss of containment from integrity failure,Dev Jaggernauth — VP Engineering & Projects,Integrity LOC events,0,2026,R-PAP-01; R-PAP-05; R-SAP-01; R-CPF-08; R-LND-01; R-LND-02; R-PLB-04
+OBJ-26-04,"Average crude production 6,600 bbl/d",Sophia Hosany — VP Operations,Crude bbl/d,"≥ 6,600",2026,R-LND-05; R-PLB-02; R-HOF-03; R-HOF-11; R-HOF-12
+OBJ-26-05,NGC deliveries at 98% of contract; meter imbalance under 0.5%,Karen Jack — VP Business Development & Markets,DCQ delivered %,≥ 98%,2026,R-CPF-05; R-HOF-02
+OBJ-26-06,No overdue SCE maintenance or tests,Marc Gomes — Maintenance & Integrity Manager,Overdue SCE items,0,2026,R-PAP-06; R-CPF-04; R-HOF-06; R-HOF-14
+OBJ-26-07,Reduce routine flaring by 15% against 2025,Rohan Ali — Plant Manager - Central Processing Facility,Flared gas MMscf,-15%,2026,R-CPF-06; R-CPF-07
+OBJ-26-08,Launch ONE with 30 priority documents issued,Marissa Bobb — OMS Manager,Priority documents issued,30,2026,R-HOF-08; R-HOF-10
+OBJ-26-09,Lifting cost below US$24 per boe,Teresa Daniel — Chief Financial Officer,US$/boe,< 24,2026,R-HOF-05; R-PLB-05
+OBJ-26-10,Competence assurance at 95% for safety-critical roles,Andrea Farfan — Learning & Competence Manager,Competence %,≥ 95%,2026,R-HOF-04

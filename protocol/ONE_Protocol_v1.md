@@ -255,13 +255,13 @@ A Process is a Word description plus a model file `ACE-SSS-PRS-NNN.json` (schema
 ## 10. Data spine registers
 
 **Process Register** (`registers/BPM-REG-001.csv`, key `process_id`, owner Manager, Strategy & Planning, defined in ACE-BPM-PRA-001)  
-`process_id`, `title`, `l1`, `l2`, `owner` → people, `function`, `policy` → document, `parent` → document, `status`, `revision`, `oms_tags`, `last_review`, `maturity`, `requirements`
+`process_id`, `title`, `l1`, `l2`, `owner` → people, `function`, `policy` → document, `parent` → document, `status`, `revision`, `oms_tags`, `last_review`, `maturity`, `controls`
 
 **Risk Register** (`registers/RSK-REG-001.csv`, key `risk_id`, owner Head of Internal Audit & Risk Assurance, defined in ACE-RSK-STD-001)  
-`risk_id`, `title`, `site`, `hazard`, `top_event`, `threats`, `consequences`, `owner` → people, `asset_id` → asset, `inherent_l`, `inherent_c`, `residual_l`, `residual_c`, `appetite`, `objective_id` → objective, `controls` → control, `review_date`
+`risk_id`, `level`, `title`, `site`, `system`, `asset_id` → asset, `process`, `hazard`, `top_event`, `threats`, `consequences`, `owner` → people, `escalation_vp`, `c_people`, `c_environment`, `c_asset`, `c_reputation`, `current_c`, `current_l`, `current_rating`, `controls` → control, `legacy_control_docs`, `alarp_status`, `residual_c`, `residual_l`, `residual_rating`, `acceptance_authority`, `accepted_date`, `expiry`, `restrictions`, `review_frequency`, `last_review`, `objective_id` → objective, `version`, `change_reason`
 
 **Controls Register** (`registers/RSK-REG-002.csv`, key `control_id`, owner Process Safety Lead, defined in ACE-RSK-PRA-001)  
-`control_id`, `statement`, `position`, `nature`, `critical`, `risk_id` → risk, `threat`, `barrier`, `doc_ref` → document, `process_step` → process, `owner` → people, `asset_id` → asset, `sce_id` → sce, `evidence`, `test_interval`, `health`, `health_date`, `status`
+`control_id`, `statement`, `position`, `nature`, `critical`, `risk_id` → risk, `threat`, `barrier`, `doc_ref` → document, `process_step` → process, `process_planned`, `owner` → people, `asset_id` → asset, `sce_id` → sce, `evidence`, `test_interval`, `effective`, `health`, `health_date`, `status`
 
 **SCE Register** (`registers/AIM-REG-001.csv`, key `sce_id`, owner Manager, Technical Excellence, defined in ACE-MNT-PRA-001)  
 `sce_id`, `title`, `group`, `site`, `asset_ids` → asset, `performance_standard`, `test_interval`, `last_test`, `next_due`, `status`, `controls` → control
@@ -270,16 +270,28 @@ A Process is a Word description plus a model file `ACE-SSS-PRS-NNN.json` (schema
 `asset_id`, `tag`, `title`, `site`, `parent_id` → asset, `iso14224_class`, `criticality`, `sce`, `in_service`
 
 **Events and Actions — events** (`registers/INC-REG-001_events.csv`, key `event_id`, owner HSE Manager, defined in ACE-INC-STD-001)  
-`event_id`, `date`, `site`, `type`, `title`, `risk_ids` → risk, `controls_tested` → control, `controls_failed` → control, `processes` → process, `severity`
+`event_id`, `date`, `site`, `type`, `title`, `severity`, `pse_tier`, `spill_bbl`, `risk_ids` → risk, `controls_tested` → control, `controls_failed` → control, `processes` → process, `notes`
 
 **Events and Actions — actions** (`registers/INC-REG-001_actions.csv`, key `action_id`, owner HSE Manager, defined in ACE-INC-STD-001)  
 `action_id`, `event_id` → event, `title`, `owner` → people, `due`, `closed`, `result` → document
 
 **Objectives and Opportunities — objectives** (`registers/OMS-REG-001_objectives.csv`, key `objective_id`, owner Manager, Strategy & Planning, defined in ACE-BPM-PRA-001)  
-`objective_id`, `title`, `owner` → people, `kpi`, `target`, `year`, `processes` → process, `risks` → risk
+`objective_id`, `title`, `owner` → people, `kpi`, `target`, `year`, `risks` → risk
 
 **Objectives and Opportunities — opportunities** (`registers/OMS-REG-001_opportunities.csv`, key `opportunity_id`, owner Manager, Strategy & Planning, defined in ACE-RSK-PRA-001)  
 `opportunity_id`, `title`, `objective_id` → objective, `owner` → people, `value`, `likelihood`, `benefit`, `status`
+
+**Risk Register — rating history** (`registers/RSK-REG-001_history.csv`, key `risk_id+date`, owner Head of Internal Audit & Risk Assurance, defined in ACE-RSK-STD-001)  
+`risk_id`, `date`, `likelihood`, `consequence`, `rating`, `reason`
+
+**Controls Register — health history** (`registers/RSK-REG-002_health.csv`, key `control_id+date`, owner Process Safety Lead, defined in ACE-RSK-PRA-001)  
+`control_id`, `date`, `health`, `event_id`, `note`
+
+**Performance data — KPI catalogue** (`registers/PRF-REG-001_kpis.csv`, key `kpi_id`, owner Compliance & Assurance Manager, defined in ACE-PRF-STD-001 (planned))  
+`kpi_id`, `name`, `unit`, `category`, `family`, `oms_tag`, `owner`, `target`, `better`, `scope`
+
+**Performance data — monthly values** (`registers/PRF-REG-001_monthly.csv`, key `month+site+kpi_id`, owner Compliance & Assurance Manager, defined in ACE-PRF-STD-001 (planned))  
+`month`, `site`, `kpi_id`, `value`
 
 ## 11. Pack contents
 

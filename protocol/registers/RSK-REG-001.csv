@@ -1,1 +1,1 @@
-risk_id,title,site,hazard,top_event,threats,consequences,owner,asset_id,inherent_l,inherent_c,residual_l,residual_c,appetite,objective_id,controls,review_date
+risk_id,level,title,site,system,asset_id,process,hazard,top_event,threats,consequences,owner,escalation_vp,c_people,c_environment,c_asset,c_reputation,current_c,current_l,current_rating,controls,legacy_control_docs,alarp_status,residual_c,residual_l,residual_rating,acceptance_authority,accepted_date,expiry,restrictions,review_frequency,last_review,objective_id,version,change_reason

@@ -1891,8 +1891,8 @@
      "rule": "1 to 5"
     },
     {
-     "name": "requirements",
-     "rule": "doc#bookmark list carried out (; separated)"
+     "name": "controls",
+     "rule": "C-IDs"
     }
    ]
   },
@@ -1908,12 +1908,29 @@
      "rule": "R-<SITE>-nn"
     },
     {
+     "name": "level",
+     "rule": "Enterprise / Asset / Site"
+    },
+    {
      "name": "title",
      "rule": "short risk title"
     },
     {
      "name": "site",
      "rule": "site code"
+    },
+    {
+     "name": "system",
+     "rule": "system code"
+    },
+    {
+     "name": "asset_id",
+     "rule": "A-SITE-nnn",
+     "link": "asset"
+    },
+    {
+     "name": "process",
+     "rule": "PRS number"
     },
     {
      "name": "hazard",
@@ -1937,34 +1954,36 @@
      "link": "people"
     },
     {
-     "name": "asset_id",
-     "rule": "A-SITE-nnn",
-     "link": "asset"
+     "name": "escalation_vp",
+     "rule": "Name — Job title"
     },
     {
-     "name": "inherent_l",
-     "rule": "likelihood 1-5"
-    },
-    {
-     "name": "inherent_c",
-     "rule": "consequence 1-5"
-    },
-    {
-     "name": "residual_l",
+     "name": "c_people",
      "rule": "1-5"
     },
     {
-     "name": "residual_c",
+     "name": "c_environment",
      "rule": "1-5"
     },
     {
-     "name": "appetite",
-     "rule": "within / outside"
+     "name": "c_asset",
+     "rule": ""
     },
     {
-     "name": "objective_id",
-     "rule": "OBJ-nn it threatens",
-     "link": "objective"
+     "name": "c_reputation",
+     "rule": "1-5"
+    },
+    {
+     "name": "current_c",
+     "rule": "headline = most severe domain"
+    },
+    {
+     "name": "current_l",
+     "rule": "A-E"
+    },
+    {
+     "name": "current_rating",
+     "rule": "from ACE matrix"
     },
     {
      "name": "controls",
@@ -1972,8 +1991,61 @@
      "link": "control"
     },
     {
-     "name": "review_date",
+     "name": "legacy_control_docs",
+     "rule": "document addressing the risk without Control IDs"
+    },
+    {
+     "name": "alarp_status",
+     "rule": "ALARP demonstrated / in progress"
+    },
+    {
+     "name": "residual_c",
+     "rule": "1-5"
+    },
+    {
+     "name": "residual_l",
+     "rule": "1-5"
+    },
+    {
+     "name": "residual_rating",
+     "rule": "from ACE matrix"
+    },
+    {
+     "name": "acceptance_authority",
+     "rule": "per RSK-STD-001 §5.1"
+    },
+    {
+     "name": "accepted_date",
      "rule": "date"
+    },
+    {
+     "name": "expiry",
+     "rule": "date (High risks)"
+    },
+    {
+     "name": "restrictions",
+     "rule": "operating conditions"
+    },
+    {
+     "name": "review_frequency",
+     "rule": "per RSK-STD-001 §8.2"
+    },
+    {
+     "name": "last_review",
+     "rule": "date"
+    },
+    {
+     "name": "objective_id",
+     "rule": "OBJ-nn it threatens",
+     "link": "objective"
+    },
+    {
+     "name": "version",
+     "rule": "integer"
+    },
+    {
+     "name": "change_reason",
+     "rule": "text"
     }
    ]
   },
@@ -2028,6 +2100,10 @@
      "link": "process"
     },
     {
+     "name": "process_planned",
+     "rule": "PRS expected to perform it"
+    },
+    {
      "name": "owner",
      "rule": "Name — Job title",
      "link": "people"
@@ -2049,6 +2125,10 @@
     {
      "name": "test_interval",
      "rule": "e.g. 6 months"
+    },
+    {
+     "name": "effective",
+     "rule": "date the establishing document took effect"
     },
     {
      "name": "health",
@@ -2193,6 +2273,18 @@
      "rule": "short description"
     },
     {
+     "name": "severity",
+     "rule": "ACE matrix 1-5"
+    },
+    {
+     "name": "pse_tier",
+     "rule": "1, 2, 3 or blank"
+    },
+    {
+     "name": "spill_bbl",
+     "rule": "barrels"
+    },
+    {
      "name": "risk_ids",
      "rule": "R-IDs",
      "link": "risk"
@@ -2213,8 +2305,8 @@
      "link": "process"
     },
     {
-     "name": "severity",
-     "rule": "ACE matrix 1-5"
+     "name": "notes",
+     "rule": "text"
     }
    ]
   },
@@ -2291,11 +2383,6 @@
      "rule": "yyyy"
     },
     {
-     "name": "processes",
-     "rule": "PRS numbers supporting it",
-     "link": "process"
-    },
-    {
      "name": "risks",
      "rule": "R-IDs threatening it",
      "link": "risk"
@@ -2342,6 +2429,142 @@
     {
      "name": "status",
      "rule": "Open / Pursued / Realised / Dropped"
+    }
+   ]
+  },
+  "RSK-REG-001-HIST": {
+   "title": "Risk Register — rating history",
+   "file": "registers/RSK-REG-001_history.csv",
+   "key": "risk_id+date",
+   "owner": "Head of Internal Audit & Risk Assurance",
+   "defined_in": "ACE-RSK-STD-001",
+   "columns": [
+    {
+     "name": "risk_id",
+     "rule": ""
+    },
+    {
+     "name": "date",
+     "rule": ""
+    },
+    {
+     "name": "likelihood",
+     "rule": ""
+    },
+    {
+     "name": "consequence",
+     "rule": ""
+    },
+    {
+     "name": "rating",
+     "rule": ""
+    },
+    {
+     "name": "reason",
+     "rule": ""
+    }
+   ]
+  },
+  "RSK-REG-002-HEALTH": {
+   "title": "Controls Register — health history",
+   "file": "registers/RSK-REG-002_health.csv",
+   "key": "control_id+date",
+   "owner": "Process Safety Lead",
+   "defined_in": "ACE-RSK-PRA-001",
+   "columns": [
+    {
+     "name": "control_id",
+     "rule": ""
+    },
+    {
+     "name": "date",
+     "rule": ""
+    },
+    {
+     "name": "health",
+     "rule": ""
+    },
+    {
+     "name": "event_id",
+     "rule": ""
+    },
+    {
+     "name": "note",
+     "rule": ""
+    }
+   ]
+  },
+  "PRF-REG-001-KPI": {
+   "title": "Performance data — KPI catalogue",
+   "file": "registers/PRF-REG-001_kpis.csv",
+   "key": "kpi_id",
+   "owner": "Compliance & Assurance Manager",
+   "defined_in": "ACE-PRF-STD-001 (planned)",
+   "columns": [
+    {
+     "name": "kpi_id",
+     "rule": ""
+    },
+    {
+     "name": "name",
+     "rule": ""
+    },
+    {
+     "name": "unit",
+     "rule": ""
+    },
+    {
+     "name": "category",
+     "rule": ""
+    },
+    {
+     "name": "family",
+     "rule": ""
+    },
+    {
+     "name": "oms_tag",
+     "rule": ""
+    },
+    {
+     "name": "owner",
+     "rule": ""
+    },
+    {
+     "name": "target",
+     "rule": ""
+    },
+    {
+     "name": "better",
+     "rule": ""
+    },
+    {
+     "name": "scope",
+     "rule": ""
+    }
+   ]
+  },
+  "PRF-REG-001-M": {
+   "title": "Performance data — monthly values",
+   "file": "registers/PRF-REG-001_monthly.csv",
+   "key": "month+site+kpi_id",
+   "owner": "Compliance & Assurance Manager",
+   "defined_in": "ACE-PRF-STD-001 (planned)",
+   "columns": [
+    {
+     "name": "month",
+     "rule": ""
+    },
+    {
+     "name": "site",
+     "rule": ""
+    },
+    {
+     "name": "kpi_id",
+     "rule": ""
+    },
+    {
+     "name": "value",
+     "rule": ""
     }
    ]
   }

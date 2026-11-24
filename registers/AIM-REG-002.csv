@@ -1,0 +1,87 @@
+asset_id,tag,title,site,parent_id,iso14224_class,criticality,sce,in_service
+A-PAP-001,PAP-JKT,Pommerac A jacket and topsides structure,PAP,,Structure,A,Yes,1992-01-01
+A-PAP-002,V-1100,1st stage production separator,PAP,A-PAP-001,Pressure vessel,A,No,1978-01-01
+A-PAP-003,V-1200,Test separator,PAP,A-PAP-001,Pressure vessel,B,No,1978-01-01
+A-PAP-004,P-1300A,Crude export pump A,PAP,A-PAP-001,Pump,A,No,1992-01-01
+A-PAP-005,P-1300B,Crude export pump B,PAP,A-PAP-001,Pump,A,No,2017-01-01
+A-PAP-006,K-1400,Gas compressor,PAP,A-PAP-001,Compressor,A,No,2017-01-01
+A-PAP-007,X-1500,Corrosion inhibitor injection skid,PAP,A-PAP-001,Chemical injection,A,No,1992-01-01
+A-PAP-008,F-1600,Flare system,PAP,A-PAP-001,Flare,B,No,2017-01-01
+A-PAP-009,P-1700A,Firewater pump A,PAP,A-PAP-001,Pump,A,Yes,2013-01-01
+A-PAP-010,P-1700B,Firewater pump B,PAP,A-PAP-001,Pump,A,Yes,1998-01-01
+A-PAP-011,SDV-1001,Export riser emergency shutdown valve,PAP,A-PAP-001,Valve,A,Yes,1985-01-01
+A-PAP-012,SDV-1002,Gas riser emergency shutdown valve,PAP,A-PAP-001,Valve,A,Yes,1978-01-01
+A-PAP-013,PSV-1101,Separator pressure safety valve,PAP,A-PAP-002,Valve,A,Yes,1978-01-01
+A-PAP-014,FGS-PAP,Fire and gas detection system,PAP,A-PAP-001,Fire & gas detection,A,Yes,1992-01-01
+A-PAP-015,ESD-PAP,Emergency shutdown system (logic),PAP,A-PAP-001,Control & safety system,A,Yes,2017-01-01
+A-PAP-016,LB-PAP-1,Lifeboat 1,PAP,A-PAP-001,Lifesaving,A,Yes,2004-01-01
+A-PAP-017,LB-PAP-2,Lifeboat 2,PAP,A-PAP-001,Lifesaving,A,Yes,1978-01-01
+A-PAP-018,HD-PAP,Helideck and refuelling,PAP,A-PAP-001,Structure,A,Yes,2009-01-01
+A-PAP-019,CR-PAP,Pedestal crane,PAP,A-PAP-001,Crane,A,No,2004-01-01
+A-PAP-020,PAP-W01,Well PAP-01,PAP,A-PAP-001,Well,A,Yes,1985-01-01
+A-PAP-021,PAP-W02,Well PAP-02,PAP,A-PAP-001,Well,A,Yes,1985-01-01
+A-PAP-022,PAP-W03,Well PAP-03,PAP,A-PAP-001,Well,A,Yes,2004-01-01
+A-PAP-023,PAP-W04,Well PAP-04,PAP,A-PAP-001,Well,A,Yes,1992-01-01
+A-PAP-024,PAP-W05,Well PAP-05,PAP,A-PAP-001,Well,A,Yes,2017-01-01
+A-PAP-025,PAP-W06,Well PAP-06,PAP,A-PAP-001,Well,A,Yes,2009-01-01
+A-PAP-026,PL-101,Pommerac A crude export pipeline to CPF (12 in),PAP,,Pipeline,A,Yes,1998-01-01
+A-PAP-027,PL-102,Pommerac A gas export pipeline to CPF (10 in),PAP,,Pipeline,A,Yes,2004-01-01
+A-CHB-001,CHB-JKT,Chenet B wellhead platform structure,CHB,,Structure,A,Yes,2004-01-01
+A-CHB-002,CHB-ESD,Chenet B ESD and wellhead control panel,CHB,A-CHB-001,Control & safety system,A,Yes,2004-01-01
+A-CHB-003,CHB-W01,Well CHB-01,CHB,A-CHB-001,Well,A,Yes,2009-01-01
+A-CHB-004,CHB-W02,Well CHB-02,CHB,A-CHB-001,Well,A,Yes,1992-01-01
+A-CHB-005,CHB-W03,Well CHB-03,CHB,A-CHB-001,Well,A,Yes,2009-01-01
+A-CHB-006,CHB-BL,Chenet B boat landing and access ladder,CHB,A-CHB-001,Structure,B,No,1978-01-01
+A-CHB-007,PL-201,Chenet B infield flowline to Pommerac A (6 in),CHB,,Pipeline,A,Yes,2004-01-01
+A-CHB-008,NAV-CHB,Chenet B navigation aids,CHB,A-CHB-001,Navigation aid,B,Yes,1978-01-01
+A-SAP-001,SAP-JKT,Sapodilla C wellhead platform structure,SAP,,Structure,A,Yes,1992-01-01
+A-SAP-002,SAP-ESD,Sapodilla C ESD and wellhead control panel,SAP,A-SAP-001,Control & safety system,A,Yes,1978-01-01
+A-SAP-003,SAP-W01,Well SAP-01,SAP,A-SAP-001,Well,A,Yes,2004-01-01
+A-SAP-004,SAP-W02,Well SAP-02,SAP,A-SAP-001,Well,A,Yes,2017-01-01
+A-SAP-005,SAP-BL,Sapodilla C boat landing,SAP,A-SAP-001,Structure,B,No,2013-01-01
+A-SAP-006,PL-301,Sapodilla C infield flowline to Pommerac A (6 in),SAP,,Pipeline,A,Yes,2017-01-01
+A-SAP-007,NAV-SAP,Sapodilla C navigation aids,SAP,A-SAP-001,Navigation aid,B,Yes,2013-01-01
+A-CPF-001,V-2100,CPF inlet slug catcher and separator,CPF,,Pressure vessel,A,No,2013-01-01
+A-CPF-002,C-2200,Crude stabiliser column,CPF,,Pressure vessel,A,No,1998-01-01
+A-CPF-003,K-2301,Sales gas compressor 1,CPF,,Compressor,A,No,2009-01-01
+A-CPF-004,K-2302,Sales gas compressor 2,CPF,,Compressor,A,No,1998-01-01
+A-CPF-005,U-2400,Glycol dehydration unit,CPF,,Process unit,B,No,1992-01-01
+A-CPF-006,M-2500,NGC sales gas custody transfer meter station,CPF,,Metering,A,No,1985-01-01
+A-CPF-007,M-2510,Crude custody transfer meter (jetty),CPF,,Metering,A,No,1998-01-01
+A-CPF-008,T-2601,Crude storage tank 1,CPF,,Storage tank,A,No,2017-01-01
+A-CPF-009,T-2602,Crude storage tank 2,CPF,,Storage tank,A,No,2013-01-01
+A-CPF-010,T-2603,Crude storage tank 3,CPF,,Storage tank,A,No,1998-01-01
+A-CPF-011,TF-BUND,Tank farm bund and drainage,CPF,,Structure,A,Yes,1985-01-01
+A-CPF-012,JTY-LA,Jetty loading arms,CPF,,Loading arm,A,No,2013-01-01
+A-CPF-013,F-2700,CPF flare system,CPF,,Flare,A,No,1992-01-01
+A-CPF-014,FW-CPF,CPF firewater ring main and pumps,CPF,,Firewater,A,Yes,2013-01-01
+A-CPF-015,FGS-CPF,CPF fire and gas detection,CPF,,Fire & gas detection,A,Yes,2013-01-01
+A-CPF-016,SIS-CPF,CPF safety instrumented system,CPF,,Control & safety system,A,Yes,2017-01-01
+A-CPF-017,DCS-CPF,CPF distributed control system and alarm system,CPF,,Control system,A,No,1985-01-01
+A-CPF-018,PSV-2101,Inlet separator pressure safety valve,CPF,A-CPF-001,Valve,A,Yes,2017-01-01
+A-CPF-019,G-2800,CPF power generation,CPF,,Generator,B,No,1978-01-01
+A-CPF-020,WT-2900,Produced water treatment,CPF,,Process unit,B,No,2017-01-01
+A-LND-001,GS-T1,Tamarind gathering station,LND,,Process unit,A,No,2013-01-01
+A-LND-002,TB-T1,Tamarind tank battery,LND,A-LND-001,Storage tank,B,Yes,1985-01-01
+A-LND-003,GS-P1,Pawpaw gathering station,LND,,Process unit,A,No,1978-01-01
+A-LND-004,TB-P1,Pawpaw tank battery,LND,A-LND-003,Storage tank,B,Yes,2017-01-01
+A-LND-005,GS-S1,Soursop gathering station,LND,,Process unit,A,No,1998-01-01
+A-LND-006,TB-S1,Soursop tank battery,LND,A-LND-005,Storage tank,B,Yes,2009-01-01
+A-LND-007,PL-401,Land trunkline Tamarind to CPF (8 in),LND,,Pipeline,A,Yes,2017-01-01
+A-LND-008,PL-402,Pawpaw–Soursop flowline network,LND,,Pipeline,B,No,1992-01-01
+A-LND-009,TAM-W12,Well TAM-12 (gas lift),LND,A-LND-001,Well,A,Yes,1992-01-01
+A-LND-010,TAM-W27,Well TAM-27,LND,A-LND-001,Well,B,Yes,2017-01-01
+A-LND-011,PAW-W08,Well PAW-08,LND,A-LND-003,Well,B,Yes,2009-01-01
+A-LND-012,SOU-W15,Well SOU-15 (sustained annulus pressure),LND,A-LND-005,Well,A,Yes,1978-01-01
+A-LND-013,LND-PJ,Land pump jacks (about 140 units),LND,,Pump,C,No,2004-01-01
+A-LND-014,RIG-L1,Contracted land workover rig,LND,,Rig,B,No,2013-01-01
+A-PLB-001,PLB-QY,Point Lisas quay and fendering,PLB,,Structure,B,No,2013-01-01
+A-PLB-002,PLB-CR1,Shore base mobile crane,PLB,,Crane,A,No,2009-01-01
+A-PLB-003,PLB-WH,Warehouse and laydown yard,PLB,,Building,C,No,2009-01-01
+A-PLB-004,MV-SUP1,Contracted supply vessel,PLB,,Vessel,A,No,1985-01-01
+A-PLB-005,MV-CRW1,Contracted crew boat,PLB,,Vessel,A,No,1978-01-01
+A-PLB-006,HEL-1,Contracted helicopter service,PLB,,Aircraft,A,No,1985-01-01
+A-PLB-007,OSR-KIT,Tier 1 oil spill response equipment,PLB,,Response equipment,A,Yes,1992-01-01
+A-HOF-001,OT-NET,OT network and remote monitoring links (CHB/SAP/LND),HOF,,IT/OT system,A,No,2004-01-01
+A-HOF-002,IT-ERP,ERP and CMMS,HOF,,IT/OT system,B,No,1998-01-01
+A-HOF-003,ONE,ONE document repository and portal,HOF,,IT/OT system,B,No,2013-01-01

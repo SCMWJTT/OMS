@@ -1,1 +1,1 @@
-control_id,statement,position,nature,critical,risk_id,threat,barrier,doc_ref,process_step,owner,asset_id,sce_id,evidence,test_interval,health,health_date,status
+control_id,statement,position,nature,critical,risk_id,threat,barrier,doc_ref,process_step,process_planned,owner,asset_id,sce_id,evidence,test_interval,effective,health,health_date,status

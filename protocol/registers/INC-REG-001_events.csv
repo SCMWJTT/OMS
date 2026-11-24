@@ -1,1 +1,1 @@
-event_id,date,site,type,title,risk_ids,controls_tested,controls_failed,processes,severity
+event_id,date,site,type,title,severity,pse_tier,spill_bbl,risk_ids,controls_tested,controls_failed,processes,notes

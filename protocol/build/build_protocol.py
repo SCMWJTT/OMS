@@ -182,6 +182,26 @@ REGISTERS = {
    C("value", "expected value"), C("likelihood", "1-5"), C("benefit", "1-5"), C("status", "Open / Pursued / Realised / Dropped")]),
 }
 
+# ---- align register definitions with the generated register files (registers/*.csv headers are authoritative for column order)
+RULES_EXTRA = {
+ "level": "Enterprise / Asset / Site", "system": "system code", "process": "PRS number", "escalation_vp": "Name — Job title", "c_people": "1-5",
+ "c_environment": "1-5", "c_reputation": "1-5", "current_c": "headline = most severe domain", "current_l": "A-E", "current_rating": "from ACE matrix",
+ "legacy_control_docs": "document addressing the risk without Control IDs", "alarp_status": "ALARP demonstrated / in progress", "residual_rating": "from ACE matrix",
+ "acceptance_authority": "per RSK-STD-001 §5.1", "accepted_date": "date", "expiry": "date (High risks)", "restrictions": "operating conditions",
+ "review_frequency": "per RSK-STD-001 §8.2", "last_review": "date", "version": "integer", "change_reason": "text", "process_planned": "PRS expected to perform it",
+ "effective": "date the establishing document took effect", "pse_tier": "1, 2, 3 or blank", "spill_bbl": "barrels", "notes": "text", "controls": "C-IDs",
+}
+REGISTERS["RSK-REG-001-HIST"] = dict(title="Risk Register — rating history", file="registers/RSK-REG-001_history.csv", key="risk_id+date", owner="Head of Internal Audit & Risk Assurance", defined_in="ACE-RSK-STD-001", columns=[])
+REGISTERS["RSK-REG-002-HEALTH"] = dict(title="Controls Register — health history", file="registers/RSK-REG-002_health.csv", key="control_id+date", owner="Process Safety Lead", defined_in="ACE-RSK-PRA-001", columns=[])
+REGISTERS["PRF-REG-001-KPI"] = dict(title="Performance data — KPI catalogue", file="registers/PRF-REG-001_kpis.csv", key="kpi_id", owner="Compliance & Assurance Manager", defined_in="ACE-PRF-STD-001 (planned)", columns=[])
+REGISTERS["PRF-REG-001-M"] = dict(title="Performance data — monthly values", file="registers/PRF-REG-001_monthly.csv", key="month+site+kpi_id", owner="Compliance & Assurance Manager", defined_in="ACE-PRF-STD-001 (planned)", columns=[])
+for k, r in REGISTERS.items():
+    f = os.path.join(ROOT, r["file"])
+    if os.path.exists(f):
+        have = {c["name"]: c for c in r["columns"]}
+        head = next(csv.reader(open(f, encoding="utf-8")))
+        r["columns"] = [have.get(h, dict(name=h, rule=RULES_EXTRA.get(h, ""))) for h in head]
+
 proto = {
     "protocol": "ONE-PROTOCOL", "version": "1.0.0", "issued": "2026-11-24",
     "governed_by": "ACE-DOC-STD-002 Rev 02",
