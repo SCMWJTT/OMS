@@ -1,0 +1,47 @@
+name: Build and publish the ONE portal
+
+# Runs whenever a document, register or portal file changes on main, or when started by hand (Actions tab > Run workflow).
+on:
+  push:
+    branches: [main]
+    paths: ["finals/**", "manuals/**", "registers/**", "company/**", "processes/**", "protocol/**", "portal/src/**", "portal/build/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install the Word reader
+        run: npm install --no-save jszip@3
+      - name: Check documents against the ONE Protocol (gateway report)
+        run: node protocol/engine/cli.js . finals manuals
+      - name: Build the portal from the repository
+        run: node portal/build/build.js .
+      - name: Add the custom domain
+        run: echo "oms.cynmark.app" > portal/dist/CNAME
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: portal/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
