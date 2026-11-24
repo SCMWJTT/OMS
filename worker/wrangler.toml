@@ -1,0 +1,10 @@
+name = "one-api"
+main = "src/index.js"
+compatibility_date = "2024-11-01"
+workers_dev = false
+routes = [{ pattern = "oms-api.cynmark.app", custom_domain = true }]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "one-comments"
+database_id = "DATABASE_ID"   # filled in by the deploy workflow
