@@ -1,0 +1,6625 @@
+{
+ "protocol": "1.0.0",
+ "engine": "1.0.0",
+ "date": "2026-11-24T17:23:50.704Z",
+ "results": [
+  {
+   "file": "ACE-AIM-PRA-001_Risk-Based_Inspection_and_Corrosion_Management_Practice_Rev01.docx",
+   "folder": "finals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS",
+   "facts": {
+    "docId": "ACE-AIM-PRA-001",
+    "title": "Risk-Based Inspection and Corrosion Management Practice",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 04",
+    "legacy": false,
+    "format": "STRICT",
+    "system": "AIM",
+    "type": "PRA",
+    "headings": 16,
+    "tagControls": 17,
+    "bookmarks": [
+     "doc_title",
+     "front_document_control",
+     "front_revision_history",
+     "front_approval",
+     "front_document_map",
+     "ACE_AIM_PRA_001_H001",
+     "ACE_AIM_PRA_001_H002",
+     "ACE_AIM_PRA_001_H003",
+     "ACE_AIM_PRA_001_H004",
+     "ACE_AIM_PRA_001_H005",
+     "ACE_AIM_PRA_001_H006",
+     "ACE_AIM_PRA_001_H007",
+     "ACE_AIM_PRA_001_H008",
+     "ACE_AIM_PRA_001_H009",
+     "ACE_AIM_PRA_001_H010",
+     "ACE_AIM_PRA_001_H011",
+     "ACE_AIM_PRA_001_H012"
+    ],
+    "binding": 13,
+    "controls": [
+     "C-AIM-010",
+     "C-AIM-002",
+     "C-AIM-001",
+     "C-AIM-003",
+     "C-AIM-005",
+     "C-AIM-006",
+     "C-AIM-004",
+     "C-AIM-007",
+     "C-AIM-008",
+     "C-AIM-009"
+    ],
+    "parent": "ACE-AIM-STD-001",
+    "declaredPlanned": [
+     "ACE-AIM-PRS-001",
+     "ACE-AIM-PRS-002",
+     "ACE-OPS-PRS-001",
+     "ACE-LOG-PRS-001"
+    ],
+    "references": [
+     "ACE-AIM-STD-001",
+     "ACE-OMS-MAN-001",
+     "ACE-OPS-PRA-001",
+     "ACE-LOG-PRA-001",
+     "ACE-AIM-PRS-001",
+     "ACE-AIM-PRS-002",
+     "ACE-OPS-PRS-001",
+     "ACE-LOG-PRS-001",
+     "ACE-RSK-REG-002"
+    ],
+    "sizeKB": 113,
+    "plannedRefs": [
+     "ACE-LOG-PRA-001",
+     "ACE-AIM-PRS-001",
+     "ACE-AIM-PRS-002",
+     "ACE-OPS-PRS-001",
+     "ACE-LOG-PRS-001",
+     "ACE-RSK-REG-002"
+    ]
+   },
+   "findings": [],
+   "counts": {
+    "errors": 0,
+    "warnings": 0
+   }
+  },
+  {
+   "file": "ACE-AIM-STD-001_Asset_Integrity_Management_Standard_Rev01.docx",
+   "folder": "finals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS",
+   "facts": {
+    "docId": "ACE-AIM-STD-001",
+    "title": "Asset Integrity Management Standard",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 03",
+    "legacy": true,
+    "format": "STRICT",
+    "system": "AIM",
+    "type": "STD",
+    "headings": 114,
+    "tagControls": 115,
+    "bookmarks": [
+     "doc_title",
+     "front_document_control",
+     "front_revision_history",
+     "front_approval",
+     "front_document_map",
+     "ACE_AIM_STD_001_H201",
+     "ACE_AIM_STD_001_H202",
+     "ACE_AIM_STD_001_H203",
+     "ACE_AIM_STD_001_H204",
+     "ACE_AIM_STD_001_H205",
+     "ACE_AIM_STD_001_H206",
+     "ACE_AIM_STD_001_H207",
+     "ACE_AIM_STD_001_H208",
+     "ACE_AIM_STD_001_H209",
+     "ACE_AIM_STD_001_H210",
+     "ACE_AIM_STD_001_H211",
+     "ACE_AIM_STD_001_H212",
+     "ACE_AIM_STD_001_H213",
+     "ACE_AIM_STD_001_H214",
+     "ACE_AIM_STD_001_H215",
+     "ACE_AIM_STD_001_H216",
+     "ACE_AIM_STD_001_H217",
+     "ACE_AIM_STD_001_H218",
+     "ACE_AIM_STD_001_H219",
+     "ACE_AIM_STD_001_H220",
+     "ACE_AIM_STD_001_H221",
+     "ACE_AIM_STD_001_H222",
+     "ACE_AIM_STD_001_H223",
+     "ACE_AIM_STD_001_H224",
+     "ACE_AIM_STD_001_H225",
+     "ACE_AIM_STD_001_H226",
+     "ACE_AIM_STD_001_H227",
+     "ACE_AIM_STD_001_H228",
+     "ACE_AIM_STD_001_H229",
+     "ACE_AIM_STD_001_H230",
+     "ACE_AIM_STD_001_H231",
+     "ACE_AIM_STD_001_H232",
+     "ACE_AIM_STD_001_H233",
+     "ACE_AIM_STD_001_H234",
+     "ACE_AIM_STD_001_H235",
+     "ACE_AIM_STD_001_H236",
+     "ACE_AIM_STD_001_H237",
+     "ACE_AIM_STD_001_H238",
+     "ACE_AIM_STD_001_H239",
+     "ACE_AIM_STD_001_H240",
+     "ACE_AIM_STD_001_H241",
+     "ACE_AIM_STD_001_H242",
+     "ACE_AIM_STD_001_H243",
+     "ACE_AIM_STD_001_H244",
+     "ACE_AIM_STD_001_H245",
+     "ACE_AIM_STD_001_H246",
+     "ACE_AIM_STD_001_H247",
+     "ACE_AIM_STD_001_H248",
+     "ACE_AIM_STD_001_H249",
+     "ACE_AIM_STD_001_H250",
+     "ACE_AIM_STD_001_H251",
+     "ACE_AIM_STD_001_H252",
+     "ACE_AIM_STD_001_H253",
+     "ACE_AIM_STD_001_H254",
+     "ACE_AIM_STD_001_H255",
+     "ACE_AIM_STD_001_H256",
+     "ACE_AIM_STD_001_H257",
+     "ACE_AIM_STD_001_H258",
+     "ACE_AIM_STD_001_H259",
+     "ACE_AIM_STD_001_H260",
+     "ACE_AIM_STD_001_H261",
+     "ACE_AIM_STD_001_H262",
+     "ACE_AIM_STD_001_H263",
+     "ACE_AIM_STD_001_H264",
+     "ACE_AIM_STD_001_H265",
+     "ACE_AIM_STD_001_H266",
+     "ACE_AIM_STD_001_H267",
+     "ACE_AIM_STD_001_H268",
+     "ACE_AIM_STD_001_H269",
+     "ACE_AIM_STD_001_H270",
+     "ACE_AIM_STD_001_H271",
+     "ACE_AIM_STD_001_H272",
+     "ACE_AIM_STD_001_H273",
+     "ACE_AIM_STD_001_H274",
+     "ACE_AIM_STD_001_H275",
+     "ACE_AIM_STD_001_H276",
+     "ACE_AIM_STD_001_H277",
+     "ACE_AIM_STD_001_H278",
+     "ACE_AIM_STD_001_H279",
+     "ACE_AIM_STD_001_H280",
+     "ACE_AIM_STD_001_H281",
+     "ACE_AIM_STD_001_H282",
+     "ACE_AIM_STD_001_H283",
+     "ACE_AIM_STD_001_H284",
+     "ACE_AIM_STD_001_H285",
+     "ACE_AIM_STD_001_H286",
+     "ACE_AIM_STD_001_H287",
+     "ACE_AIM_STD_001_H288",
+     "ACE_AIM_STD_001_H289",
+     "ACE_AIM_STD_001_H290",
+     "ACE_AIM_STD_001_H291",
+     "ACE_AIM_STD_001_H292",
+     "ACE_AIM_STD_001_H293",
+     "ACE_AIM_STD_001_H294",
+     "ACE_AIM_STD_001_H295",
+     "ACE_AIM_STD_001_H296",
+     "ACE_AIM_STD_001_H297",
+     "ACE_AIM_STD_001_H298",
+     "ACE_AIM_STD_001_H299",
+     "ACE_AIM_STD_001_H300",
+     "ACE_AIM_STD_001_H301",
+     "ACE_AIM_STD_001_H302",
+     "ACE_AIM_STD_001_H303",
+     "ACE_AIM_STD_001_H304",
+     "ACE_AIM_STD_001_H305",
+     "ACE_AIM_STD_001_H306",
+     "ACE_AIM_STD_001_H307",
+     "ACE_AIM_STD_001_H308",
+     "ACE_AIM_STD_001_H309",
+     "ACE_AIM_STD_001_H310"
+    ],
+    "binding": 39,
+    "controls": [],
+    "parent": "",
+    "declaredPlanned": [],
+    "references": [
+     "ACE-OMS-MAN-001",
+     "ACE-DOC-STD-001",
+     "ACE-OMS-STD-002",
+     "ACE-ENG-STD-901",
+     "ACE-ENG-SPC-410",
+     "ACE-WEL-STD-001",
+     "ACE-AIM-STD-002",
+     "ACE-MOC-PRC-001",
+     "ACE-RSK-STD-001",
+     "ACE-PSM-STD-001",
+     "ACE-DOC-STD-002",
+     "ACE-AIM-REG-001",
+     "ACE-MNT-STD-001",
+     "ACE-OPS-STD-001",
+     "ACE-COW-STD-001"
+    ],
+    "sizeKB": 137,
+    "plannedRefs": [
+     "ACE-AIM-REG-001"
+    ]
+   },
+   "findings": [
+    {
+     "rule": "G3",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Property ODS.Parent missing (added in template v5)",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "Primary function 'Engineering & Projects / Asset Integrity and Inspection' is not one of the 13 ACE functions",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Control table lacks v5 rows: Level, ProcessOwner, RoleRegister, Parent",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Word built-in subject is 'ONE / ACE controlled document — Standard (Level 2)', should be 'ACE-AIM-STD-001'",
+     "where": ""
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "A green maintenance schedule is not proof of barrier health "
+    },
+    {
+     "rule": "G10",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "ODS.Parent not set",
+     "where": ""
+    },
+    {
+     "rule": "G13",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "No implementing processes and procedures table",
+     "where": ""
+    }
+   ],
+   "counts": {
+    "errors": 0,
+    "warnings": 7
+   }
+  },
+  {
+   "file": "ACE-AIM-STD-002_Inspection_Management_Standard_Rev01.docx",
+   "folder": "finals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS",
+   "facts": {
+    "docId": "ACE-AIM-STD-002",
+    "title": "Inspection Management Standard",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 03",
+    "legacy": true,
+    "format": "STRICT",
+    "system": "AIM",
+    "type": "STD",
+    "headings": 23,
+    "tagControls": 24,
+    "bookmarks": [
+     "doc_title",
+     "front_document_control",
+     "front_revision_history",
+     "front_approval",
+     "front_document_map",
+     "ACE_AIM_STD_002_H601",
+     "ACE_AIM_STD_002_H602",
+     "ACE_AIM_STD_002_H603",
+     "ACE_AIM_STD_002_H604",
+     "ACE_AIM_STD_002_H605",
+     "ACE_AIM_STD_002_H606",
+     "ACE_AIM_STD_002_H607",
+     "ACE_AIM_STD_002_H608",
+     "ACE_AIM_STD_002_H609",
+     "ACE_AIM_STD_002_H610",
+     "ACE_AIM_STD_002_H611",
+     "ACE_AIM_STD_002_H612",
+     "ACE_AIM_STD_002_H613",
+     "ACE_AIM_STD_002_H614",
+     "ACE_AIM_STD_002_H615",
+     "ACE_AIM_STD_002_H616",
+     "ACE_AIM_STD_002_H617",
+     "ACE_AIM_STD_002_H618",
+     "ACE_AIM_STD_002_H619"
+    ],
+    "binding": 26,
+    "controls": [],
+    "parent": "",
+    "declaredPlanned": [],
+    "references": [
+     "ACE-OMS-MAN-001",
+     "ACE-WEL-STD-001",
+     "ACE-AIM-STD-001",
+     "ACE-RSK-STD-001",
+     "ACE-MNT-STD-001",
+     "ACE-COW-STD-001",
+     "ACE-MOC-PRC-001",
+     "ACE-OPS-STD-001",
+     "ACE-OMS-STD-002",
+     "ACE-ENG-STD-901",
+     "ACE-DOC-STD-001",
+     "ACE-DOC-STD-002"
+    ],
+    "sizeKB": 258,
+    "plannedRefs": []
+   },
+   "findings": [
+    {
+     "rule": "G3",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Property ODS.Parent missing (added in template v5)",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "Primary function 'Asset Integrity and Inspection (AIM)' is not one of the 13 ACE functions",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Control table lacks v5 rows: Level, ProcessOwner, RoleRegister, Parent",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Word built-in subject is 'ACE-AIM-STD-002 | ONE management system', should be 'ACE-AIM-STD-002'",
+     "where": ""
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "Equipment with unknown remaining integrity, missing critical"
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "Access and exposure risks for radiography, confined space, w"
+    },
+    {
+     "rule": "G10",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "ODS.Parent not set",
+     "where": ""
+    },
+    {
+     "rule": "G13",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "No implementing processes and procedures table",
+     "where": ""
+    }
+   ],
+   "counts": {
+    "errors": 0,
+    "warnings": 8
+   }
+  },
+  {
+   "file": "ACE-BPM-PRA-001_Business_Process_Management_Practice_Rev01.docx",
+   "folder": "finals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS",
+   "facts": {
+    "docId": "ACE-BPM-PRA-001",
+    "title": "Business Process Management Practice",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 04",
+    "legacy": false,
+    "format": "STRICT",
+    "system": "BPM",
+    "type": "PRA",
+    "headings": 22,
+    "tagControls": 23,
+    "bookmarks": [
+     "doc_title",
+     "front_document_control",
+     "front_revision_history",
+     "front_approval",
+     "front_document_map",
+     "ACE_BPM_PRA_001_H001",
+     "ACE_BPM_PRA_001_H002",
+     "ACE_BPM_PRA_001_H003",
+     "ACE_BPM_PRA_001_H004",
+     "ACE_BPM_PRA_001_H005",
+     "ACE_BPM_PRA_001_H006",
+     "ACE_BPM_PRA_001_H007",
+     "ACE_BPM_PRA_001_H008",
+     "ACE_BPM_PRA_001_H009",
+     "ACE_BPM_PRA_001_H010",
+     "ACE_BPM_PRA_001_H011",
+     "ACE_BPM_PRA_001_H012",
+     "ACE_BPM_PRA_001_H013",
+     "ACE_BPM_PRA_001_H014",
+     "ACE_BPM_PRA_001_H015",
+     "ACE_BPM_PRA_001_H016",
+     "ACE_BPM_PRA_001_H017",
+     "ACE_BPM_PRA_001_H018"
+    ],
+    "binding": 19,
+    "controls": [
+     "C-BPM-001",
+     "C-BPM-002",
+     "C-BPM-003",
+     "C-BPM-004",
+     "C-BPM-005",
+     "C-BPM-006",
+     "C-BPM-007",
+     "C-BPM-008",
+     "C-BPM-009"
+    ],
+    "parent": "ACE-LDR-POL-001",
+    "declaredPlanned": [
+     "ACE-MOC-PRS-001",
+     "ACE-COW-PRS-001",
+     "ACE-ENG-PRS-410",
+     "ACE-AIM-PRS-001",
+     "ACE-OPS-PRS-001",
+     "ACE-WEL-PRS-001",
+     "ACE-BPM-PRS-001"
+    ],
+    "references": [
+     "ACE-LDR-POL-001",
+     "ACE-OMS-MAN-001",
+     "ACE-BPM-REG-001",
+     "ACE-BPM-PRA-002",
+     "ACE-BPM-PRA-003",
+     "ACE-AIM-STD-001",
+     "ACE-AIM-PRA-001",
+     "ACE-AIM-PRS-001",
+     "ACE-COW-PRC-002",
+     "ACE-MOC-PRS-001",
+     "ACE-COW-PRS-001",
+     "ACE-ENG-PRS-410",
+     "ACE-OPS-PRS-001",
+     "ACE-WEL-PRS-001",
+     "ACE-PRF-STD-002",
+     "ACE-BPM-PRS-001",
+     "ACE-DOC-PRC-001",
+     "ACE-RSK-REG-002"
+    ],
+    "sizeKB": 119,
+    "plannedRefs": [
+     "ACE-BPM-REG-001",
+     "ACE-AIM-PRS-001",
+     "ACE-MOC-PRS-001",
+     "ACE-COW-PRS-001",
+     "ACE-ENG-PRS-410",
+     "ACE-OPS-PRS-001",
+     "ACE-WEL-PRS-001",
+     "ACE-BPM-PRS-001",
+     "ACE-RSK-REG-002"
+    ]
+   },
+   "findings": [],
+   "counts": {
+    "errors": 0,
+    "warnings": 0
+   }
+  },
+  {
+   "file": "ACE-BPM-PRA-002_Process_Modelling_and_Process_File_Practice_Rev01.docx",
+   "folder": "finals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS",
+   "facts": {
+    "docId": "ACE-BPM-PRA-002",
+    "title": "Process Modelling and Process File Practice",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 04",
+    "legacy": false,
+    "format": "STRICT",
+    "system": "BPM",
+    "type": "PRA",
+    "headings": 20,
+    "tagControls": 21,
+    "bookmarks": [
+     "doc_title",
+     "front_document_control",
+     "front_revision_history",
+     "front_approval",
+     "front_document_map",
+     "ACE_BPM_PRA_002_H001",
+     "ACE_BPM_PRA_002_H002",
+     "ACE_BPM_PRA_002_H003",
+     "ACE_BPM_PRA_002_H004",
+     "ACE_BPM_PRA_002_H005",
+     "ACE_BPM_PRA_002_H006",
+     "ACE_BPM_PRA_002_H007",
+     "ACE_BPM_PRA_002_H008",
+     "ACE_BPM_PRA_002_H009",
+     "ACE_BPM_PRA_002_H010",
+     "ACE_BPM_PRA_002_H011",
+     "ACE_BPM_PRA_002_H012",
+     "ACE_BPM_PRA_002_H013",
+     "ACE_BPM_PRA_002_H014",
+     "ACE_BPM_PRA_002_H015",
+     "ACE_BPM_PRA_002_H016"
+    ],
+    "binding": 15,
+    "controls": [
+     "C-BPM-020",
+     "C-BPM-021",
+     "C-BPM-022",
+     "C-BPM-023",
+     "C-BPM-024",
+     "C-BPM-025",
+     "C-BPM-026",
+     "C-BPM-027"
+    ],
+    "parent": "ACE-BPM-PRA-001",
+    "declaredPlanned": [
+     "ACE-BPM-PRS-001",
+     "ACE-MOC-PRS-001"
+    ],
+    "references": [
+     "ACE-BPM-PRA-001",
+     "ACE-OMS-MAN-001",
+     "ACE-BPM-REG-001",
+     "ACE-DOC-STD-002",
+     "ACE-BPM-PRA-003",
+     "ACE-MOC-PRC-001",
+     "ACE-RSK-REG-002",
+     "ACE-BPM-PRS-001",
+     "ACE-DOC-PRC-001",
+     "ACE-MOC-PRS-001"
+    ],
+    "sizeKB": 116,
+    "plannedRefs": [
+     "ACE-BPM-REG-001",
+     "ACE-RSK-REG-002",
+     "ACE-BPM-PRS-001",
+     "ACE-MOC-PRS-001"
+    ]
+   },
+   "findings": [],
+   "counts": {
+    "errors": 0,
+    "warnings": 0
+   }
+  },
+  {
+   "file": "ACE-BPM-PRA-003_Process_Ownership_and_Continuous_Improvement_Practice_Rev01.docx",
+   "folder": "finals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS",
+   "facts": {
+    "docId": "ACE-BPM-PRA-003",
+    "title": "Process Ownership and Continuous Improvement Practice",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 04",
+    "legacy": false,
+    "format": "STRICT",
+    "system": "BPM",
+    "type": "PRA",
+    "headings": 17,
+    "tagControls": 18,
+    "bookmarks": [
+     "doc_title",
+     "front_document_control",
+     "front_revision_history",
+     "front_approval",
+     "front_document_map",
+     "ACE_BPM_PRA_003_H001",
+     "ACE_BPM_PRA_003_H002",
+     "ACE_BPM_PRA_003_H003",
+     "ACE_BPM_PRA_003_H004",
+     "ACE_BPM_PRA_003_H005",
+     "ACE_BPM_PRA_003_H006",
+     "ACE_BPM_PRA_003_H007",
+     "ACE_BPM_PRA_003_H008",
+     "ACE_BPM_PRA_003_H009",
+     "ACE_BPM_PRA_003_H010",
+     "ACE_BPM_PRA_003_H011",
+     "ACE_BPM_PRA_003_H012",
+     "ACE_BPM_PRA_003_H013"
+    ],
+    "binding": 15,
+    "controls": [
+     "C-BPM-040",
+     "C-BPM-041",
+     "C-BPM-042",
+     "C-BPM-043",
+     "C-BPM-044",
+     "C-BPM-045",
+     "C-BPM-046",
+     "C-BPM-047",
+     "C-BPM-048"
+    ],
+    "parent": "ACE-BPM-PRA-001",
+    "declaredPlanned": [
+     "ACE-BPM-PRS-002"
+    ],
+    "references": [
+     "ACE-BPM-PRA-001",
+     "ACE-OMS-MAN-001",
+     "ACE-BPM-REG-001",
+     "ACE-INC-STD-001",
+     "ACE-DOC-PRC-001",
+     "ACE-MOC-PRC-001",
+     "ACE-BPM-PRS-002",
+     "ACE-PRF-STD-002",
+     "ACE-RSK-REG-002"
+    ],
+    "sizeKB": 114,
+    "plannedRefs": [
+     "ACE-BPM-REG-001",
+     "ACE-BPM-PRS-002",
+     "ACE-RSK-REG-002"
+    ]
+   },
+   "findings": [],
+   "counts": {
+    "errors": 0,
+    "warnings": 0
+   }
+  },
+  {
+   "file": "ACE-CON-STD-001_Contractor_and_Supplier_Management_Standard_Rev01.docx",
+   "folder": "finals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS",
+   "facts": {
+    "docId": "ACE-CON-STD-001",
+    "title": "Contractor and Supplier Management Standard",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 03",
+    "legacy": true,
+    "format": "STRICT",
+    "system": "CON",
+    "type": "STD",
+    "headings": 38,
+    "tagControls": 39,
+    "bookmarks": [
+     "doc_title",
+     "front_document_control",
+     "front_revision_history",
+     "front_approval",
+     "front_document_map",
+     "ACE_CON_STD_001_H001",
+     "ACE_CON_STD_001_H002",
+     "ACE_CON_STD_001_H003",
+     "ACE_CON_STD_001_H004",
+     "ACE_CON_STD_001_H005",
+     "ACE_CON_STD_001_H006",
+     "ACE_CON_STD_001_H007",
+     "ACE_CON_STD_001_H008",
+     "ACE_CON_STD_001_H009",
+     "ACE_CON_STD_001_H010",
+     "ACE_CON_STD_001_H011",
+     "ACE_CON_STD_001_H012",
+     "ACE_CON_STD_001_H013",
+     "ACE_CON_STD_001_H014",
+     "ACE_CON_STD_001_H015",
+     "ACE_CON_STD_001_H016",
+     "ACE_CON_STD_001_H017",
+     "ACE_CON_STD_001_H018",
+     "ACE_CON_STD_001_H019",
+     "ACE_CON_STD_001_H020",
+     "ACE_CON_STD_001_H021",
+     "ACE_CON_STD_001_H022",
+     "ACE_CON_STD_001_H023",
+     "ACE_CON_STD_001_H024",
+     "ACE_CON_STD_001_H025",
+     "ACE_CON_STD_001_H026",
+     "ACE_CON_STD_001_H027",
+     "ACE_CON_STD_001_H028",
+     "ACE_CON_STD_001_H029",
+     "ACE_CON_STD_001_H030",
+     "ACE_CON_STD_001_H031",
+     "ACE_CON_STD_001_H032",
+     "ACE_CON_STD_001_H033",
+     "ACE_CON_STD_001_H034"
+    ],
+    "binding": 24,
+    "controls": [],
+    "parent": "",
+    "declaredPlanned": [],
+    "references": [
+     "ACE-OMS-MAN-001",
+     "ACE-RSK-STD-001",
+     "ACE-COW-STD-001",
+     "ACE-MOC-PRC-001",
+     "ACE-AIM-STD-001",
+     "ACE-DOC-STD-001",
+     "ACE-DOC-STD-002"
+    ],
+    "sizeKB": 305,
+    "plannedRefs": []
+   },
+   "findings": [
+    {
+     "rule": "G3",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Property ODS.Parent missing (added in template v5)",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Control table lacks v5 rows: Level, ProcessOwner, RoleRegister, Parent",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Word built-in subject is 'ACE-CON-STD-001 — Contractor and Supplier Management Standard', should be 'ACE-CON-STD-001'",
+     "where": ""
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "Where the scope could affect a major accident barrier, safet"
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "High-risk contractors shall demonstrate that worksite superv"
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "Work involving an ineffective or unavailable critical barrie"
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "Nonconforming safety-critical items shall remain segregated "
+    },
+    {
+     "rule": "G10",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "ODS.Parent not set",
+     "where": ""
+    },
+    {
+     "rule": "G13",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "No implementing processes and procedures table",
+     "where": ""
+    }
+   ],
+   "counts": {
+    "errors": 0,
+    "warnings": 9
+   }
+  },
+  {
+   "file": "ACE-COW-PRC-001_Permit_to_Work_Procedure_Rev01.docx",
+   "folder": "finals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS",
+   "facts": {
+    "docId": "ACE-COW-PRC-001",
+    "title": "Permit to Work Procedure",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 04",
+    "legacy": false,
+    "format": "STRICT",
+    "system": "COW",
+    "type": "PRC",
+    "headings": 16,
+    "tagControls": 17,
+    "bookmarks": [
+     "doc_title",
+     "front_document_control",
+     "front_revision_history",
+     "front_approval",
+     "front_document_map",
+     "ACE_COW_PRC_001_H001",
+     "ACE_COW_PRC_001_H002",
+     "ACE_COW_PRC_001_H003",
+     "ACE_COW_PRC_001_H004",
+     "ACE_COW_PRC_001_H005",
+     "ACE_COW_PRC_001_H006",
+     "ACE_COW_PRC_001_H007",
+     "ACE_COW_PRC_001_H008",
+     "ACE_COW_PRC_001_H009",
+     "ACE_COW_PRC_001_H010",
+     "ACE_COW_PRC_001_H011",
+     "ACE_COW_PRC_001_H012"
+    ],
+    "binding": 12,
+    "controls": [
+     "C-COW-003",
+     "C-COW-001",
+     "C-COW-002",
+     "C-COW-004",
+     "C-COW-006",
+     "C-COW-005",
+     "C-COW-007",
+     "C-COW-008",
+     "C-COW-009"
+    ],
+    "parent": "ACE-COW-STD-001",
+    "declaredPlanned": [
+     "ACE-COW-PRS-001"
+    ],
+    "references": [
+     "ACE-COW-STD-001",
+     "ACE-OMS-MAN-001",
+     "ACE-COW-PRC-002",
+     "ACE-COW-PRS-001",
+     "ACE-DOC-STD-001",
+     "ACE-MNT-PRA-001",
+     "ACE-RSK-REG-002"
+    ],
+    "sizeKB": 113,
+    "plannedRefs": [
+     "ACE-COW-PRS-001",
+     "ACE-RSK-REG-002"
+    ]
+   },
+   "findings": [
+    {
+     "rule": "G6",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "1 section(s) carry more than 3 tags",
+     "where": ""
+    }
+   ],
+   "counts": {
+    "errors": 0,
+    "warnings": 1
+   }
+  },
+  {
+   "file": "ACE-COW-PRC-002_Isolation_and_Reinstatement_Procedure_Rev01.docx",
+   "folder": "finals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS",
+   "facts": {
+    "docId": "ACE-COW-PRC-002",
+    "title": "Isolation and Reinstatement Procedure",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 04",
+    "legacy": false,
+    "format": "STRICT",
+    "system": "COW",
+    "type": "PRC",
+    "headings": 18,
+    "tagControls": 19,
+    "bookmarks": [
+     "doc_title",
+     "front_document_control",
+     "front_revision_history",
+     "front_approval",
+     "front_document_map",
+     "ACE_COW_PRC_002_H001",
+     "ACE_COW_PRC_002_H002",
+     "ACE_COW_PRC_002_H003",
+     "ACE_COW_PRC_002_H004",
+     "ACE_COW_PRC_002_H005",
+     "ACE_COW_PRC_002_H006",
+     "ACE_COW_PRC_002_H007",
+     "ACE_COW_PRC_002_H008",
+     "ACE_COW_PRC_002_H009",
+     "ACE_COW_PRC_002_H010",
+     "ACE_COW_PRC_002_H011",
+     "ACE_COW_PRC_002_H012",
+     "ACE_COW_PRC_002_H013",
+     "ACE_COW_PRC_002_H014"
+    ],
+    "binding": 12,
+    "controls": [
+     "C-COW-010",
+     "C-COW-011",
+     "C-COW-012",
+     "C-COW-013",
+     "C-COW-014",
+     "C-COW-015",
+     "C-COW-016",
+     "C-COW-017",
+     "C-COW-018",
+     "C-COW-019"
+    ],
+    "parent": "ACE-COW-STD-001",
+    "declaredPlanned": [
+     "ACE-COW-PRS-001"
+    ],
+    "references": [
+     "ACE-COW-STD-001",
+     "ACE-OMS-MAN-001",
+     "ACE-COW-PRC-001",
+     "ACE-OMS-STD-002",
+     "ACE-COW-PRS-001",
+     "ACE-RSK-REG-002"
+    ],
+    "sizeKB": 113,
+    "plannedRefs": [
+     "ACE-COW-PRS-001",
+     "ACE-RSK-REG-002"
+    ]
+   },
+   "findings": [
+    {
+     "rule": "G6",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "1 section(s) carry more than 3 tags",
+     "where": ""
+    }
+   ],
+   "counts": {
+    "errors": 0,
+    "warnings": 1
+   }
+  },
+  {
+   "file": "ACE-COW-STD-001_Control_of_Work_Standard_Rev01.docx",
+   "folder": "finals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS",
+   "facts": {
+    "docId": "ACE-COW-STD-001",
+    "title": "Control of Work Standard",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 03",
+    "legacy": true,
+    "format": "STRICT",
+    "system": "COW",
+    "type": "STD",
+    "headings": 58,
+    "tagControls": 59,
+    "bookmarks": [
+     "doc_title",
+     "front_document_control",
+     "front_revision_history",
+     "front_approval",
+     "front_document_map",
+     "ACE_COW_STD_001_H201",
+     "ACE_COW_STD_001_H202",
+     "ACE_COW_STD_001_H203",
+     "ACE_COW_STD_001_H204",
+     "ACE_COW_STD_001_H205",
+     "ACE_COW_STD_001_H206",
+     "ACE_COW_STD_001_H207",
+     "ACE_COW_STD_001_H208",
+     "ACE_COW_STD_001_H209",
+     "ACE_COW_STD_001_H210",
+     "ACE_COW_STD_001_H211",
+     "ACE_COW_STD_001_H212",
+     "ACE_COW_STD_001_H213",
+     "ACE_COW_STD_001_H214",
+     "ACE_COW_STD_001_H215",
+     "ACE_COW_STD_001_H216",
+     "ACE_COW_STD_001_H217",
+     "ACE_COW_STD_001_H218",
+     "ACE_COW_STD_001_H219",
+     "ACE_COW_STD_001_H220",
+     "ACE_COW_STD_001_H221",
+     "ACE_COW_STD_001_H222",
+     "ACE_COW_STD_001_H223",
+     "ACE_COW_STD_001_H224",
+     "ACE_COW_STD_001_H225",
+     "ACE_COW_STD_001_H226",
+     "ACE_COW_STD_001_H227",
+     "ACE_COW_STD_001_H228",
+     "ACE_COW_STD_001_H229",
+     "ACE_COW_STD_001_H230",
+     "ACE_COW_STD_001_H231",
+     "ACE_COW_STD_001_H232",
+     "ACE_COW_STD_001_H233",
+     "ACE_COW_STD_001_H234",
+     "ACE_COW_STD_001_H235",
+     "ACE_COW_STD_001_H236",
+     "ACE_COW_STD_001_H237",
+     "ACE_COW_STD_001_H238",
+     "ACE_COW_STD_001_H239",
+     "ACE_COW_STD_001_H240",
+     "ACE_COW_STD_001_H241",
+     "ACE_COW_STD_001_H242",
+     "ACE_COW_STD_001_H243",
+     "ACE_COW_STD_001_H244",
+     "ACE_COW_STD_001_H245",
+     "ACE_COW_STD_001_H246",
+     "ACE_COW_STD_001_H247",
+     "ACE_COW_STD_001_H248",
+     "ACE_COW_STD_001_H249",
+     "ACE_COW_STD_001_H250",
+     "ACE_COW_STD_001_H251",
+     "ACE_COW_STD_001_H252",
+     "ACE_COW_STD_001_H253",
+     "ACE_COW_STD_001_H254"
+    ],
+    "binding": 23,
+    "controls": [],
+    "parent": "",
+    "declaredPlanned": [],
+    "references": [
+     "ACE-OMS-MAN-001",
+     "ACE-RSK-STD-001",
+     "ACE-AIM-STD-001",
+     "ACE-MNT-STD-001",
+     "ACE-MOC-PRC-001",
+     "ACE-PSM-STD-001",
+     "ACE-EMR-STD-001",
+     "ACE-COW-PRC-001",
+     "ACE-COW-PRC-002",
+     "ACE-DOC-STD-001",
+     "ACE-DOC-STD-002"
+    ],
+    "sizeKB": 119,
+    "plannedRefs": []
+   },
+   "findings": [
+    {
+     "rule": "G3",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Property ODS.Parent missing (added in template v5)",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "Primary function 'Operations — Control of Work' is not one of the 13 ACE functions",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Control table lacks v5 rows: Level, ProcessOwner, RoleRegister, Parent",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Word built-in subject is 'ONE / ACE controlled document — Standard (Level 2)', should be 'ACE-COW-STD-001'",
+     "where": ""
+    },
+    {
+     "rule": "G10",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "ODS.Parent not set",
+     "where": ""
+    },
+    {
+     "rule": "G13",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "No implementing processes and procedures table",
+     "where": ""
+    }
+   ],
+   "counts": {
+    "errors": 0,
+    "warnings": 6
+   }
+  },
+  {
+   "file": "ACE-DOC-POL-001_Document_and_Records_Management_Policy_Rev01.docx",
+   "folder": "finals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS",
+   "facts": {
+    "docId": "ACE-DOC-POL-001",
+    "title": "Document and Records Management Policy",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 04",
+    "legacy": false,
+    "format": "STRICT",
+    "system": "DOC",
+    "type": "POL",
+    "headings": 24,
+    "tagControls": 25,
+    "bookmarks": [
+     "doc_title",
+     "front_document_control",
+     "front_revision_history",
+     "front_approval",
+     "front_document_map",
+     "ACE_DOC_POL_001_H001",
+     "ACE_DOC_POL_001_H002",
+     "ACE_DOC_POL_001_H003",
+     "ACE_DOC_POL_001_H004",
+     "ACE_DOC_POL_001_H005",
+     "ACE_DOC_POL_001_H006",
+     "ACE_DOC_POL_001_H007",
+     "ACE_DOC_POL_001_H008",
+     "ACE_DOC_POL_001_H009",
+     "ACE_DOC_POL_001_H010",
+     "ACE_DOC_POL_001_H011",
+     "ACE_DOC_POL_001_H012",
+     "ACE_DOC_POL_001_H013",
+     "ACE_DOC_POL_001_H014",
+     "ACE_DOC_POL_001_H015",
+     "ACE_DOC_POL_001_H016",
+     "ACE_DOC_POL_001_H017",
+     "ACE_DOC_POL_001_H018",
+     "ACE_DOC_POL_001_H019",
+     "ACE_DOC_POL_001_H020"
+    ],
+    "binding": 27,
+    "controls": [],
+    "parent": "ACE-LDR-POL-001",
+    "declaredPlanned": [],
+    "references": [
+     "ACE-LDR-POL-001",
+     "ACE-OMS-MAN-001",
+     "ACE-DOC-STD-002",
+     "ACE-DOC-PRC-001",
+     "ACE-DOC-STD-001",
+     "ACE-OMS-STD-002"
+    ],
+    "sizeKB": 113,
+    "plannedRefs": []
+   },
+   "findings": [],
+   "counts": {
+    "errors": 0,
+    "warnings": 0
+   }
+  },
+  {
+   "file": "ACE-DOC-PRC-001_Controlled_Document_and_Records_Lifecycle_Procedure_Rev01.docx",
+   "folder": "finals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS",
+   "facts": {
+    "docId": "ACE-DOC-PRC-001",
+    "title": "Controlled Document and Records Lifecycle Procedure",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 04",
+    "legacy": false,
+    "format": "STRICT",
+    "system": "DOC",
+    "type": "PRC",
+    "headings": 46,
+    "tagControls": 47,
+    "bookmarks": [
+     "doc_title",
+     "front_document_control",
+     "front_revision_history",
+     "front_approval",
+     "front_document_map",
+     "ACE_DOC_PRC_001_H001",
+     "ACE_DOC_PRC_001_H002",
+     "ACE_DOC_PRC_001_H003",
+     "ACE_DOC_PRC_001_H004",
+     "ACE_DOC_PRC_001_H005",
+     "ACE_DOC_PRC_001_H006",
+     "ACE_DOC_PRC_001_H007",
+     "ACE_DOC_PRC_001_H008",
+     "ACE_DOC_PRC_001_H009",
+     "ACE_DOC_PRC_001_H010",
+     "ACE_DOC_PRC_001_H011",
+     "ACE_DOC_PRC_001_H012",
+     "ACE_DOC_PRC_001_H013",
+     "ACE_DOC_PRC_001_H014",
+     "ACE_DOC_PRC_001_H015",
+     "ACE_DOC_PRC_001_H016",
+     "ACE_DOC_PRC_001_H017",
+     "ACE_DOC_PRC_001_H018",
+     "ACE_DOC_PRC_001_H019",
+     "ACE_DOC_PRC_001_H020",
+     "ACE_DOC_PRC_001_H021",
+     "ACE_DOC_PRC_001_H022",
+     "ACE_DOC_PRC_001_H023",
+     "ACE_DOC_PRC_001_H024",
+     "ACE_DOC_PRC_001_H025",
+     "ACE_DOC_PRC_001_H026",
+     "ACE_DOC_PRC_001_H027",
+     "ACE_DOC_PRC_001_H028",
+     "ACE_DOC_PRC_001_H029",
+     "ACE_DOC_PRC_001_H030",
+     "ACE_DOC_PRC_001_H031",
+     "ACE_DOC_PRC_001_H032",
+     "ACE_DOC_PRC_001_H033",
+     "ACE_DOC_PRC_001_H034",
+     "ACE_DOC_PRC_001_H035",
+     "ACE_DOC_PRC_001_H036",
+     "ACE_DOC_PRC_001_H037",
+     "ACE_DOC_PRC_001_H038",
+     "ACE_DOC_PRC_001_H039",
+     "ACE_DOC_PRC_001_H040",
+     "ACE_DOC_PRC_001_H041",
+     "ACE_DOC_PRC_001_H042"
+    ],
+    "binding": 27,
+    "controls": [],
+    "parent": "ACE-DOC-STD-001",
+    "declaredPlanned": [],
+    "references": [
+     "ACE-DOC-STD-001",
+     "ACE-OMS-MAN-001",
+     "ACE-EMR-PLN-001-CPF",
+     "ACE-DOC-POL-001",
+     "ACE-DOC-STD-002",
+     "ACE-MOC-PRC-001",
+     "ACE-OMS-STD-002"
+    ],
+    "sizeKB": 124,
+    "plannedRefs": [
+     "ACE-EMR-PLN-001-CPF"
+    ]
+   },
+   "findings": [],
+   "counts": {
+    "errors": 0,
+    "warnings": 0
+   }
+  },
+  {
+   "file": "ACE-DOC-STD-001_Document_Records_Management_Standard_Rev01.docx",
+   "folder": "finals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS",
+   "facts": {
+    "docId": "ACE-DOC-STD-001",
+    "title": "Document and Records Management Standard",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 03",
+    "legacy": true,
+    "format": "STRICT",
+    "system": "DOC",
+    "type": "STD",
+    "headings": 51,
+    "tagControls": 52,
+    "bookmarks": [
+     "doc_title",
+     "front_document_control",
+     "front_revision_history",
+     "front_approval",
+     "front_document_map",
+     "ACE_DOC_STD_001_H001",
+     "ACE_DOC_STD_001_H002",
+     "ACE_DOC_STD_001_H003",
+     "ACE_DOC_STD_001_H004",
+     "ACE_DOC_STD_001_H005",
+     "ACE_DOC_STD_001_H006",
+     "ACE_DOC_STD_001_H007",
+     "ACE_DOC_STD_001_H008",
+     "ACE_DOC_STD_001_H009",
+     "ACE_DOC_STD_001_H010",
+     "ACE_DOC_STD_001_H011",
+     "ACE_DOC_STD_001_H012",
+     "ACE_DOC_STD_001_H013",
+     "ACE_DOC_STD_001_H014",
+     "ACE_DOC_STD_001_H015",
+     "ACE_DOC_STD_001_H016",
+     "ACE_DOC_STD_001_H017",
+     "ACE_DOC_STD_001_H018",
+     "ACE_DOC_STD_001_H019",
+     "ACE_DOC_STD_001_H020",
+     "ACE_DOC_STD_001_H021",
+     "ACE_DOC_STD_001_H022",
+     "ACE_DOC_STD_001_H023",
+     "ACE_DOC_STD_001_H024",
+     "ACE_DOC_STD_001_H025",
+     "ACE_DOC_STD_001_H026",
+     "ACE_DOC_STD_001_H027",
+     "ACE_DOC_STD_001_H028",
+     "ACE_DOC_STD_001_H029",
+     "ACE_DOC_STD_001_H030",
+     "ACE_DOC_STD_001_H031",
+     "ACE_DOC_STD_001_H032",
+     "ACE_DOC_STD_001_H033",
+     "ACE_DOC_STD_001_H034",
+     "ACE_DOC_STD_001_H035",
+     "ACE_DOC_STD_001_H036",
+     "ACE_DOC_STD_001_H037",
+     "ACE_DOC_STD_001_H038",
+     "ACE_DOC_STD_001_H039",
+     "ACE_DOC_STD_001_H040",
+     "ACE_DOC_STD_001_H041",
+     "ACE_DOC_STD_001_H042",
+     "ACE_DOC_STD_001_H043",
+     "ACE_DOC_STD_001_H044",
+     "ACE_DOC_STD_001_H045",
+     "ACE_DOC_STD_001_H046",
+     "ACE_DOC_STD_001_H047"
+    ],
+    "binding": 30,
+    "controls": [],
+    "parent": "",
+    "declaredPlanned": [],
+    "references": [
+     "ACE-OMS-MAN-001",
+     "ACE-DOC-STD-002",
+     "ACE-EMR-PLN-001-CPF",
+     "ACE-MNT-WIN-001-PAP",
+     "ACE-ENG-SPC-410"
+    ],
+    "sizeKB": 117,
+    "plannedRefs": [
+     "ACE-EMR-PLN-001-CPF",
+     "ACE-MNT-WIN-001-PAP"
+    ]
+   },
+   "findings": [
+    {
+     "rule": "G3",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Property ODS.Parent missing (added in template v5)",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Control table lacks v5 rows: Level, ProcessOwner, RoleRegister, Parent",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Word built-in subject is 'ONE / ACE controlled document — Standard (Level 2)', should be 'ACE-DOC-STD-001'",
+     "where": ""
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "A site team shall not rely on an unapproved draft to justify"
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "Where a cyber incident, broken link or repository outage mak"
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "If a current instruction cannot be shown to be approved and "
+    },
+    {
+     "rule": "G10",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "ODS.Parent not set",
+     "where": ""
+    },
+    {
+     "rule": "G13",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "No implementing processes and procedures table",
+     "where": ""
+    }
+   ],
+   "counts": {
+    "errors": 0,
+    "warnings": 8
+   }
+  },
+  {
+   "file": "ACE-DOC-STD-002_Operational_Document_Publishing_Standard_Rev01.docx",
+   "folder": "finals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS",
+   "facts": {
+    "docId": "ACE-DOC-STD-002",
+    "title": "Operational Document Publishing Standard",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 03",
+    "legacy": true,
+    "format": "STRICT",
+    "system": "DOC",
+    "type": "STD",
+    "headings": 59,
+    "tagControls": 60,
+    "bookmarks": [
+     "doc_title",
+     "front_document_control",
+     "front_revision_history",
+     "front_approval",
+     "front_document_map",
+     "ACE_DOC_STD_002_H001",
+     "ACE_DOC_STD_002_H002",
+     "ACE_DOC_STD_002_H003",
+     "ACE_DOC_STD_002_H004",
+     "ACE_DOC_STD_002_H005",
+     "ACE_DOC_STD_002_H006",
+     "ACE_DOC_STD_002_H007",
+     "ACE_DOC_STD_002_H008",
+     "ACE_DOC_STD_002_H009",
+     "ACE_DOC_STD_002_H010",
+     "ACE_DOC_STD_002_H011",
+     "ACE_DOC_STD_002_H012",
+     "ACE_DOC_STD_002_H013",
+     "ACE_DOC_STD_002_H014",
+     "ACE_DOC_STD_002_H015",
+     "ACE_DOC_STD_002_H016",
+     "ACE_DOC_STD_002_H017",
+     "ACE_DOC_STD_002_H018",
+     "ACE_DOC_STD_002_H019",
+     "ACE_DOC_STD_002_H020",
+     "ACE_DOC_STD_002_H021",
+     "ACE_DOC_STD_002_H022",
+     "ACE_DOC_STD_002_H023",
+     "ACE_DOC_STD_002_H024",
+     "ACE_DOC_STD_002_H025",
+     "ACE_DOC_STD_002_H026",
+     "ACE_DOC_STD_002_H027",
+     "ACE_DOC_STD_002_H028",
+     "ACE_DOC_STD_002_H029",
+     "ACE_DOC_STD_002_H030",
+     "ACE_DOC_STD_002_H031",
+     "ACE_DOC_STD_002_H032",
+     "ACE_DOC_STD_002_H033",
+     "ACE_DOC_STD_002_H034",
+     "ACE_DOC_STD_002_H035",
+     "ACE_DOC_STD_002_H036",
+     "ACE_DOC_STD_002_H037",
+     "ACE_DOC_STD_002_H038",
+     "ACE_DOC_STD_002_H039",
+     "ACE_DOC_STD_002_H040",
+     "ACE_DOC_STD_002_H041",
+     "ACE_DOC_STD_002_H042",
+     "ACE_DOC_STD_002_H043",
+     "ACE_DOC_STD_002_H044",
+     "ACE_DOC_STD_002_H045",
+     "ACE_DOC_STD_002_H046",
+     "ACE_DOC_STD_002_H047",
+     "ACE_DOC_STD_002_H048",
+     "ACE_DOC_STD_002_H049",
+     "ACE_DOC_STD_002_H050",
+     "ACE_DOC_STD_002_H051",
+     "ACE_DOC_STD_002_H052",
+     "ACE_DOC_STD_002_H053",
+     "ACE_DOC_STD_002_H054",
+     "ACE_DOC_STD_002_H055"
+    ],
+    "binding": 24,
+    "controls": [],
+    "parent": "",
+    "declaredPlanned": [],
+    "references": [
+     "ACE-OMS-MAN-001",
+     "ACE-DOC-STD-001",
+     "ACE-RSK-STD-001"
+    ],
+    "sizeKB": 124,
+    "plannedRefs": []
+   },
+   "findings": [
+    {
+     "rule": "G3",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Property ODS.Parent missing (added in template v5)",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Control table lacks v5 rows: Level, ProcessOwner, RoleRegister, Parent",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Word built-in subject is 'ONE / ACE controlled document — Standard (Level 2)', should be 'ACE-DOC-STD-002'",
+     "where": ""
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "Work involving a safety-critical element shall identify the "
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "Where the publication view is unavailable or out of synchron"
+    },
+    {
+     "rule": "G10",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "ODS.Parent not set",
+     "where": ""
+    },
+    {
+     "rule": "G13",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "No implementing processes and procedures table",
+     "where": ""
+    }
+   ],
+   "counts": {
+    "errors": 0,
+    "warnings": 7
+   }
+  },
+  {
+   "file": "ACE-EMR-STD-001_Emergency_Crisis_and_Business_Continuity_Standard_Rev01.docx",
+   "folder": "finals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS",
+   "facts": {
+    "docId": "ACE-EMR-STD-001",
+    "title": "Emergency, Crisis and Business Continuity Standard",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 03",
+    "legacy": true,
+    "format": "STRICT",
+    "system": "EMR",
+    "type": "STD",
+    "headings": 38,
+    "tagControls": 39,
+    "bookmarks": [
+     "doc_title",
+     "front_document_control",
+     "front_revision_history",
+     "front_approval",
+     "front_document_map",
+     "ACE_EMR_STD_001_H001",
+     "ACE_EMR_STD_001_H002",
+     "ACE_EMR_STD_001_H003",
+     "ACE_EMR_STD_001_H004",
+     "ACE_EMR_STD_001_H005",
+     "ACE_EMR_STD_001_H006",
+     "ACE_EMR_STD_001_H007",
+     "ACE_EMR_STD_001_H008",
+     "ACE_EMR_STD_001_H009",
+     "ACE_EMR_STD_001_H010",
+     "ACE_EMR_STD_001_H011",
+     "ACE_EMR_STD_001_H012",
+     "ACE_EMR_STD_001_H013",
+     "ACE_EMR_STD_001_H014",
+     "ACE_EMR_STD_001_H015",
+     "ACE_EMR_STD_001_H016",
+     "ACE_EMR_STD_001_H017",
+     "ACE_EMR_STD_001_H018",
+     "ACE_EMR_STD_001_H019",
+     "ACE_EMR_STD_001_H020",
+     "ACE_EMR_STD_001_H021",
+     "ACE_EMR_STD_001_H022",
+     "ACE_EMR_STD_001_H023",
+     "ACE_EMR_STD_001_H024",
+     "ACE_EMR_STD_001_H025",
+     "ACE_EMR_STD_001_H026",
+     "ACE_EMR_STD_001_H027",
+     "ACE_EMR_STD_001_H028",
+     "ACE_EMR_STD_001_H029",
+     "ACE_EMR_STD_001_H030",
+     "ACE_EMR_STD_001_H031",
+     "ACE_EMR_STD_001_H032",
+     "ACE_EMR_STD_001_H033",
+     "ACE_EMR_STD_001_H034"
+    ],
+    "binding": 21,
+    "controls": [],
+    "parent": "",
+    "declaredPlanned": [],
+    "references": [
+     "ACE-OMS-MAN-001",
+     "ACE-RSK-STD-001",
+     "ACE-PSM-STD-001",
+     "ACE-COW-STD-001",
+     "ACE-INC-STD-001",
+     "ACE-AIM-STD-001",
+     "ACE-DOC-STD-001",
+     "ACE-DOC-STD-002"
+    ],
+    "sizeKB": 283,
+    "plannedRefs": []
+   },
+   "findings": [
+    {
+     "rule": "G3",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Property ODS.Parent missing (added in template v5)",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Control table lacks v5 rows: Level, ProcessOwner, RoleRegister, Parent",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Word built-in subject is 'ACE-EMR-STD-001 — Emergency, Crisis and Business Continuity Standard', should be 'ACE-EMR-STD-001'",
+     "where": ""
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "Protection of life, safe isolation and prevention of escalat"
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "Where a critical response resource is impaired, the Area Aut"
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "Personnel shall not disclose personal casualty details, spec"
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "Recovery actions that change plant, controls, competence or "
+    },
+    {
+     "rule": "G10",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "ODS.Parent not set",
+     "where": ""
+    },
+    {
+     "rule": "G13",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "No implementing processes and procedures table",
+     "where": ""
+    }
+   ],
+   "counts": {
+    "errors": 0,
+    "warnings": 9
+   }
+  },
+  {
+   "file": "ACE-ENG-SPC-410_Safety_Instrumented_Systems_Specification_Rev01.docx",
+   "folder": "finals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS_AFTER_FIX",
+   "facts": {
+    "docId": "ACE-ENG-SPC-410",
+    "title": "Safety Instrumented Systems Specification",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 03",
+    "legacy": true,
+    "format": "STRICT",
+    "system": "ENG",
+    "type": "SPC",
+    "headings": 35,
+    "tagControls": 36,
+    "bookmarks": [
+     "doc_title",
+     "front_document_control",
+     "front_revision_history",
+     "front_approval",
+     "front_document_map",
+     "ACE_ENG_SPC_410_H001",
+     "ACE_ENG_SPC_410_H002",
+     "ACE_ENG_SPC_410_H003",
+     "ACE_ENG_SPC_410_H004",
+     "ACE_ENG_SPC_410_H005",
+     "ACE_ENG_SPC_410_H006",
+     "ACE_ENG_SPC_410_H007",
+     "ACE_ENG_SPC_410_H008",
+     "ACE_ENG_SPC_410_H009",
+     "ACE_ENG_SPC_410_H010",
+     "ACE_ENG_SPC_410_H011",
+     "ACE_ENG_SPC_410_H012",
+     "ACE_ENG_SPC_410_H013",
+     "ACE_ENG_SPC_410_H014",
+     "ACE_ENG_SPC_410_H015",
+     "ACE_ENG_SPC_410_H016",
+     "ACE_ENG_SPC_410_H017",
+     "ACE_ENG_SPC_410_H018",
+     "ACE_ENG_SPC_410_H019",
+     "ACE_ENG_SPC_410_H020",
+     "ACE_ENG_SPC_410_H021",
+     "ACE_ENG_SPC_410_H022",
+     "ACE_ENG_SPC_410_H023",
+     "ACE_ENG_SPC_410_H024",
+     "ACE_ENG_SPC_410_H025",
+     "ACE_ENG_SPC_410_H026",
+     "ACE_ENG_SPC_410_H027",
+     "ACE_ENG_SPC_410_H028",
+     "ACE_ENG_SPC_410_H029",
+     "ACE_ENG_SPC_410_H030",
+     "ACE_ENG_SPC_410_H031"
+    ],
+    "binding": 23,
+    "controls": [],
+    "parent": "",
+    "declaredPlanned": [],
+    "references": [
+     "ACE-OMS-MAN-001",
+     "ACE-PSM-STD-001",
+     "ACE-RSK-STD-001",
+     "ACE-AIM-STD-001",
+     "ACE-ENG-STD-901",
+     "ACE-MNT-STD-001",
+     "ACE-COW-STD-001",
+     "ACE-OMS-STD-002",
+     "ACE-MOC-PRC-001",
+     "ACE-CON-STD-001",
+     "ACE-PPL-STD-003"
+    ],
+    "sizeKB": 268,
+    "plannedRefs": []
+   },
+   "findings": [
+    {
+     "rule": "G3",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Property ODS.Parent missing (added in template v5)",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "ODS.Level 'Technical' is not a number 1–5",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Control table values not in Meta controls: DocumentType, IssueDate, Author, Reviewer, Endorser, Approver, DocumentOwner, Custodian, PrimaryFunction, Framework, TitleOMSTags, Classification, Applicability, ReviewInterval",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Control table lacks v5 rows: Level, ProcessOwner, RoleRegister, Parent",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Word built-in subject is 'ACE-ENG-SPC-410 • Specification • 6.2, 6.4, 5.1', should be 'ACE-ENG-SPC-410'",
+     "where": ""
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "A generic example of a shutdown loop must never substitute f"
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "A control loop, alarm or operator response shall not be cred"
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "A single shared component or service that can defeat both th"
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "No test is complete until temporary bypasses, forced values,"
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "Do not bypass or suppress a credited safety function solely "
+    },
+    {
+     "rule": "G10",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "ODS.Parent not set",
+     "where": ""
+    }
+   ],
+   "counts": {
+    "errors": 1,
+    "warnings": 10
+   }
+  },
+  {
+   "file": "ACE-ENG-STD-901_Engineering_Standards_Framework_and_Technical_Authority_Standard_Rev01.docx",
+   "folder": "finals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS",
+   "facts": {
+    "docId": "ACE-ENG-STD-901",
+    "title": "Engineering Standards Framework and Technical Authority Standard",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 03",
+    "legacy": true,
+    "format": "STRICT",
+    "system": "ENG",
+    "type": "STD",
+    "headings": 25,
+    "tagControls": 26,
+    "bookmarks": [
+     "doc_title",
+     "front_document_control",
+     "front_revision_history",
+     "front_approval",
+     "front_document_map",
+     "ACE_ENG_STD_901_H001",
+     "ACE_ENG_STD_901_H002",
+     "ACE_ENG_STD_901_H003",
+     "ACE_ENG_STD_901_H004",
+     "ACE_ENG_STD_901_H005",
+     "ACE_ENG_STD_901_H006",
+     "ACE_ENG_STD_901_H007",
+     "ACE_ENG_STD_901_H008",
+     "ACE_ENG_STD_901_H009",
+     "ACE_ENG_STD_901_H010",
+     "ACE_ENG_STD_901_H011",
+     "ACE_ENG_STD_901_H012",
+     "ACE_ENG_STD_901_H013",
+     "ACE_ENG_STD_901_H014",
+     "ACE_ENG_STD_901_H015",
+     "ACE_ENG_STD_901_H016",
+     "ACE_ENG_STD_901_H017",
+     "ACE_ENG_STD_901_H018",
+     "ACE_ENG_STD_901_H019",
+     "ACE_ENG_STD_901_H020",
+     "ACE_ENG_STD_901_H021"
+    ],
+    "binding": 19,
+    "controls": [],
+    "parent": "",
+    "declaredPlanned": [],
+    "references": [
+     "ACE-OMS-MAN-001",
+     "ACE-AIM-STD-001",
+     "ACE-DOC-STD-001",
+     "ACE-DOC-STD-002",
+     "ACE-ENG-SPC-410",
+     "ACE-MOC-PRC-001",
+     "ACE-OMS-STD-002",
+     "ACE-RSK-STD-001"
+    ],
+    "sizeKB": 288,
+    "plannedRefs": []
+   },
+   "findings": [
+    {
+     "rule": "G3",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Property ODS.Parent missing (added in template v5)",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Control table values not in Meta controls: DocumentType, IssueDate, Author, Reviewer, Endorser, Approver, DocumentOwner, Custodian, PrimaryFunction, Framework, TitleOMSTags, Classification, Applicability, ReviewInterval",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Control table lacks v5 rows: Level, ProcessOwner, RoleRegister, Parent",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Word built-in subject is 'ACE-ENG-STD-901 • Standard • 6.2, 3.1, 2.6', should be 'ACE-ENG-STD-901'",
+     "where": ""
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "A deviation affecting a major accident barrier shall not be "
+    },
+    {
+     "rule": "G10",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "ODS.Parent not set",
+     "where": ""
+    },
+    {
+     "rule": "G13",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "No implementing processes and procedures table",
+     "where": ""
+    }
+   ],
+   "counts": {
+    "errors": 0,
+    "warnings": 7
+   }
+  },
+  {
+   "file": "ACE-INC-STD-001_Incident_Reporting_and_Investigation_Standard_Rev01.docx",
+   "folder": "finals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS",
+   "facts": {
+    "docId": "ACE-INC-STD-001",
+    "title": "Incident Reporting and Investigation Standard",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 03",
+    "legacy": true,
+    "format": "STRICT",
+    "system": "INC",
+    "type": "STD",
+    "headings": 50,
+    "tagControls": 51,
+    "bookmarks": [
+     "doc_title",
+     "front_document_control",
+     "front_revision_history",
+     "front_approval",
+     "front_document_map",
+     "ACE_INC_STD_001_H201",
+     "ACE_INC_STD_001_H202",
+     "ACE_INC_STD_001_H203",
+     "ACE_INC_STD_001_H204",
+     "ACE_INC_STD_001_H205",
+     "ACE_INC_STD_001_H206",
+     "ACE_INC_STD_001_H207",
+     "ACE_INC_STD_001_H208",
+     "ACE_INC_STD_001_H209",
+     "ACE_INC_STD_001_H210",
+     "ACE_INC_STD_001_H211",
+     "ACE_INC_STD_001_H212",
+     "ACE_INC_STD_001_H213",
+     "ACE_INC_STD_001_H214",
+     "ACE_INC_STD_001_H215",
+     "ACE_INC_STD_001_H216",
+     "ACE_INC_STD_001_H217",
+     "ACE_INC_STD_001_H218",
+     "ACE_INC_STD_001_H219",
+     "ACE_INC_STD_001_H220",
+     "ACE_INC_STD_001_H221",
+     "ACE_INC_STD_001_H222",
+     "ACE_INC_STD_001_H223",
+     "ACE_INC_STD_001_H224",
+     "ACE_INC_STD_001_H225",
+     "ACE_INC_STD_001_H226",
+     "ACE_INC_STD_001_H227",
+     "ACE_INC_STD_001_H228",
+     "ACE_INC_STD_001_H229",
+     "ACE_INC_STD_001_H230",
+     "ACE_INC_STD_001_H231",
+     "ACE_INC_STD_001_H232",
+     "ACE_INC_STD_001_H233",
+     "ACE_INC_STD_001_H234",
+     "ACE_INC_STD_001_H235",
+     "ACE_INC_STD_001_H236",
+     "ACE_INC_STD_001_H237",
+     "ACE_INC_STD_001_H238",
+     "ACE_INC_STD_001_H239",
+     "ACE_INC_STD_001_H240",
+     "ACE_INC_STD_001_H241",
+     "ACE_INC_STD_001_H242",
+     "ACE_INC_STD_001_H243",
+     "ACE_INC_STD_001_H244",
+     "ACE_INC_STD_001_H245",
+     "ACE_INC_STD_001_H246"
+    ],
+    "binding": 24,
+    "controls": [],
+    "parent": "",
+    "declaredPlanned": [],
+    "references": [
+     "ACE-OMS-MAN-001",
+     "ACE-RSK-STD-001",
+     "ACE-PSM-STD-001",
+     "ACE-AIM-STD-001",
+     "ACE-MNT-STD-001",
+     "ACE-COW-STD-001",
+     "ACE-MOC-PRC-001",
+     "ACE-DOC-STD-001",
+     "ACE-DOC-STD-002",
+     "ACE-INC-STD-002",
+     "ACE-PRF-STD-001"
+    ],
+    "sizeKB": 117,
+    "plannedRefs": [
+     "ACE-INC-STD-002",
+     "ACE-PRF-STD-001"
+    ]
+   },
+   "findings": [
+    {
+     "rule": "G3",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Property ODS.Parent missing (added in template v5)",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "Primary function 'HSE & Compliance / Incidents and Learning' is not one of the 13 ACE functions",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Control table lacks v5 rows: Level, ProcessOwner, RoleRegister, Parent",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Word built-in subject is 'ONE / ACE controlled document — Standard (Level 2)', should be 'ACE-INC-STD-001'",
+     "where": ""
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "Incident investigations shall not compromise emergency respo"
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "Barrier-related investigation recommendations shall identify"
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "The worked example demonstrates classification and evidence "
+    },
+    {
+     "rule": "G10",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "ODS.Parent not set",
+     "where": ""
+    },
+    {
+     "rule": "G13",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "No implementing processes and procedures table",
+     "where": ""
+    }
+   ],
+   "counts": {
+    "errors": 0,
+    "warnings": 9
+   }
+  },
+  {
+   "file": "ACE-LDR-POL-001_OMS_Policy_Rev01.docx",
+   "folder": "finals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS_AFTER_FIX",
+   "facts": {
+    "docId": "ACE-LDR-POL-001",
+    "title": "OMS Policy — Health, Safety, Environment and Operating Integrity",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 03",
+    "legacy": true,
+    "format": "STRICT",
+    "system": "LDR",
+    "type": "POL",
+    "headings": 19,
+    "tagControls": 20,
+    "bookmarks": [
+     "doc_title",
+     "sec_document_control",
+     "sec_revision_history",
+     "sec_approval_and_issue",
+     "sec_policy_statement",
+     "sec_1_our_commitment",
+     "sec_1_1_leadership_ownership",
+     "sec_1_2_one_consistent_system",
+     "sec_2_what_we_will_do",
+     "sec_2_1_protect_people_and_prevent_se",
+     "sec_2_2_maintain_the_integrity_and_re",
+     "sec_2_3_meet_legal_environmental_and",
+     "sec_2_4_use_competence_controlled_wo",
+     "sec_3_what_we_expect_of_everyone",
+     "sec_3_1_employees_and_contractors",
+     "sec_3_2_managers_area_authorities_an",
+     "sec_4_how_we_will_know",
+     "sec_4_1_objectives_and_transparent_pe",
+     "sec_4_2_assurance_review_and_continu",
+     "sec_controlled_references"
+    ],
+    "binding": 28,
+    "controls": [],
+    "parent": "",
+    "declaredPlanned": [],
+    "references": [
+     "ACE-OMS-MAN-001",
+     "ACE-DOC-STD-001",
+     "ACE-DOC-STD-002",
+     "ACE-RSK-STD-001",
+     "ACE-AIM-STD-001",
+     "ACE-MOC-PRC-001",
+     "ACE-COW-STD-001",
+     "ACE-PRF-STD-002"
+    ],
+    "sizeKB": 135,
+    "plannedRefs": []
+   },
+   "findings": [
+    {
+     "rule": "G3",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Property ODS.Parent missing (added in template v5)",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Control table values not in Meta controls: TitleOMSTags",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Control table lacks v5 rows: Level, RoleRegister, Parent",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Word built-in subject is 'ONE | Policy (Level 1) | ACE-LDR-POL-001', should be 'ACE-LDR-POL-001'",
+     "where": ""
+    },
+    {
+     "rule": "G8",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Reviewer: 'Sharda Bissoon — VP Legal & Government Affairs' — register title is 'VP Legal & Government Affairs (General Counsel)'",
+     "where": ""
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "Everyone has authority and a duty to stop or suspend work wh"
+    }
+   ],
+   "counts": {
+    "errors": 1,
+    "warnings": 5
+   }
+  },
+  {
+   "file": "ACE-MNT-PRA-001_Equipment_Criticality_and_SCE_Maintenance_Practice_Rev01.docx",
+   "folder": "finals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS",
+   "facts": {
+    "docId": "ACE-MNT-PRA-001",
+    "title": "Equipment Criticality and SCE Maintenance Practice",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 04",
+    "legacy": false,
+    "format": "STRICT",
+    "system": "MNT",
+    "type": "PRA",
+    "headings": 17,
+    "tagControls": 18,
+    "bookmarks": [
+     "doc_title",
+     "front_document_control",
+     "front_revision_history",
+     "front_approval",
+     "front_document_map",
+     "ACE_MNT_PRA_001_H001",
+     "ACE_MNT_PRA_001_H002",
+     "ACE_MNT_PRA_001_H003",
+     "ACE_MNT_PRA_001_H004",
+     "ACE_MNT_PRA_001_H005",
+     "ACE_MNT_PRA_001_H006",
+     "ACE_MNT_PRA_001_H007",
+     "ACE_MNT_PRA_001_H008",
+     "ACE_MNT_PRA_001_H009",
+     "ACE_MNT_PRA_001_H010",
+     "ACE_MNT_PRA_001_H011",
+     "ACE_MNT_PRA_001_H012",
+     "ACE_MNT_PRA_001_H013"
+    ],
+    "binding": 13,
+    "controls": [
+     "C-MNT-001",
+     "C-MNT-002",
+     "C-MNT-003",
+     "C-MNT-004",
+     "C-MNT-005",
+     "C-MNT-006",
+     "C-MNT-007",
+     "C-MNT-008",
+     "C-MNT-009",
+     "C-MNT-010"
+    ],
+    "parent": "ACE-MNT-STD-001",
+    "declaredPlanned": [
+     "ACE-MNT-PRS-001",
+     "ACE-MNT-PRS-002",
+     "ACE-MNT-WIN-001-PAP"
+    ],
+    "references": [
+     "ACE-MNT-STD-001",
+     "ACE-OMS-MAN-001",
+     "ACE-AIM-REG-001",
+     "ACE-OMS-STD-002",
+     "ACE-COW-STD-001",
+     "ACE-MNT-PRS-001",
+     "ACE-MNT-PRS-002",
+     "ACE-MNT-WIN-001-PAP",
+     "ACE-RSK-REG-002"
+    ],
+    "sizeKB": 113,
+    "plannedRefs": [
+     "ACE-AIM-REG-001",
+     "ACE-MNT-PRS-001",
+     "ACE-MNT-PRS-002",
+     "ACE-MNT-WIN-001-PAP",
+     "ACE-RSK-REG-002"
+    ]
+   },
+   "findings": [],
+   "counts": {
+    "errors": 0,
+    "warnings": 0
+   }
+  },
+  {
+   "file": "ACE-MNT-STD-001_Maintenance_Management_Standard_Rev01.docx",
+   "folder": "finals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS",
+   "facts": {
+    "docId": "ACE-MNT-STD-001",
+    "title": "Maintenance Management Standard",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 03",
+    "legacy": true,
+    "format": "STRICT",
+    "system": "MNT",
+    "type": "STD",
+    "headings": 64,
+    "tagControls": 65,
+    "bookmarks": [
+     "doc_title",
+     "front_document_control",
+     "front_revision_history",
+     "front_approval",
+     "front_document_map",
+     "ACE_MNT_STD_001_H201",
+     "ACE_MNT_STD_001_H202",
+     "ACE_MNT_STD_001_H203",
+     "ACE_MNT_STD_001_H204",
+     "ACE_MNT_STD_001_H205",
+     "ACE_MNT_STD_001_H206",
+     "ACE_MNT_STD_001_H207",
+     "ACE_MNT_STD_001_H208",
+     "ACE_MNT_STD_001_H209",
+     "ACE_MNT_STD_001_H210",
+     "ACE_MNT_STD_001_H211",
+     "ACE_MNT_STD_001_H212",
+     "ACE_MNT_STD_001_H213",
+     "ACE_MNT_STD_001_H214",
+     "ACE_MNT_STD_001_H215",
+     "ACE_MNT_STD_001_H216",
+     "ACE_MNT_STD_001_H217",
+     "ACE_MNT_STD_001_H218",
+     "ACE_MNT_STD_001_H219",
+     "ACE_MNT_STD_001_H220",
+     "ACE_MNT_STD_001_H221",
+     "ACE_MNT_STD_001_H222",
+     "ACE_MNT_STD_001_H223",
+     "ACE_MNT_STD_001_H224",
+     "ACE_MNT_STD_001_H225",
+     "ACE_MNT_STD_001_H226",
+     "ACE_MNT_STD_001_H227",
+     "ACE_MNT_STD_001_H228",
+     "ACE_MNT_STD_001_H229",
+     "ACE_MNT_STD_001_H230",
+     "ACE_MNT_STD_001_H231",
+     "ACE_MNT_STD_001_H232",
+     "ACE_MNT_STD_001_H233",
+     "ACE_MNT_STD_001_H234",
+     "ACE_MNT_STD_001_H235",
+     "ACE_MNT_STD_001_H236",
+     "ACE_MNT_STD_001_H237",
+     "ACE_MNT_STD_001_H238",
+     "ACE_MNT_STD_001_H239",
+     "ACE_MNT_STD_001_H240",
+     "ACE_MNT_STD_001_H241",
+     "ACE_MNT_STD_001_H242",
+     "ACE_MNT_STD_001_H243",
+     "ACE_MNT_STD_001_H244",
+     "ACE_MNT_STD_001_H245",
+     "ACE_MNT_STD_001_H246",
+     "ACE_MNT_STD_001_H247",
+     "ACE_MNT_STD_001_H248",
+     "ACE_MNT_STD_001_H249",
+     "ACE_MNT_STD_001_H250",
+     "ACE_MNT_STD_001_H251",
+     "ACE_MNT_STD_001_H252",
+     "ACE_MNT_STD_001_H253",
+     "ACE_MNT_STD_001_H254",
+     "ACE_MNT_STD_001_H255",
+     "ACE_MNT_STD_001_H256",
+     "ACE_MNT_STD_001_H257",
+     "ACE_MNT_STD_001_H258",
+     "ACE_MNT_STD_001_H259",
+     "ACE_MNT_STD_001_H260"
+    ],
+    "binding": 27,
+    "controls": [],
+    "parent": "",
+    "declaredPlanned": [],
+    "references": [
+     "ACE-OMS-MAN-001",
+     "ACE-RSK-STD-001",
+     "ACE-AIM-STD-001",
+     "ACE-MOC-PRC-001",
+     "ACE-COW-STD-001",
+     "ACE-DOC-STD-001",
+     "ACE-DOC-STD-002",
+     "ACE-AIM-STD-002",
+     "ACE-COW-PRC-001",
+     "ACE-COW-PRC-002",
+     "ACE-PSM-STD-001"
+    ],
+    "sizeKB": 122,
+    "plannedRefs": []
+   },
+   "findings": [
+    {
+     "rule": "G3",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Property ODS.Parent missing (added in template v5)",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "Primary function 'Operations — Maintenance & Integrity' is not one of the 13 ACE functions",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Control table lacks v5 rows: Level, ProcessOwner, RoleRegister, Parent",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Word built-in subject is 'ONE / ACE controlled document — Standard (Level 2)', should be 'ACE-MNT-STD-001'",
+     "where": ""
+    },
+    {
+     "rule": "G8",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Endorser: role qualifier after the title in 'Sharon Alexander — Rotating Equipment Lead (Technical Authority)'",
+     "where": ""
+    },
+    {
+     "rule": "G10",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "ODS.Parent not set",
+     "where": ""
+    },
+    {
+     "rule": "G13",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "No implementing processes and procedures table",
+     "where": ""
+    }
+   ],
+   "counts": {
+    "errors": 0,
+    "warnings": 7
+   }
+  },
+  {
+   "file": "ACE-MOC-PRC-001_Management_of_Change_Procedure_Rev01.docx",
+   "folder": "finals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS_AFTER_FIX",
+   "facts": {
+    "docId": "ACE-MOC-PRC-001",
+    "title": "Management of Change Procedure",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 03",
+    "legacy": true,
+    "format": "STRICT",
+    "system": "MOC",
+    "type": "PRC",
+    "headings": 53,
+    "tagControls": 54,
+    "bookmarks": [
+     "doc_title",
+     "front_document_control",
+     "front_revision_history",
+     "front_approval",
+     "front_document_map",
+     "ACE_MOC_PRC_001_H201",
+     "ACE_MOC_PRC_001_H202",
+     "ACE_MOC_PRC_001_H203",
+     "ACE_MOC_PRC_001_H204",
+     "ACE_MOC_PRC_001_H205",
+     "ACE_MOC_PRC_001_H206",
+     "ACE_MOC_PRC_001_H207",
+     "ACE_MOC_PRC_001_H208",
+     "ACE_MOC_PRC_001_H209",
+     "ACE_MOC_PRC_001_H210",
+     "ACE_MOC_PRC_001_H211",
+     "ACE_MOC_PRC_001_H212",
+     "ACE_MOC_PRC_001_H213",
+     "ACE_MOC_PRC_001_H214",
+     "ACE_MOC_PRC_001_H215",
+     "ACE_MOC_PRC_001_H216",
+     "ACE_MOC_PRC_001_H217",
+     "ACE_MOC_PRC_001_H218",
+     "ACE_MOC_PRC_001_H219",
+     "ACE_MOC_PRC_001_H220",
+     "ACE_MOC_PRC_001_H221",
+     "ACE_MOC_PRC_001_H222",
+     "ACE_MOC_PRC_001_H223",
+     "ACE_MOC_PRC_001_H224",
+     "ACE_MOC_PRC_001_H225",
+     "ACE_MOC_PRC_001_H226",
+     "ACE_MOC_PRC_001_H227",
+     "ACE_MOC_PRC_001_H228",
+     "ACE_MOC_PRC_001_H229",
+     "ACE_MOC_PRC_001_H230",
+     "ACE_MOC_PRC_001_H231",
+     "ACE_MOC_PRC_001_H232",
+     "ACE_MOC_PRC_001_H233",
+     "ACE_MOC_PRC_001_H234",
+     "ACE_MOC_PRC_001_H235",
+     "ACE_MOC_PRC_001_H236",
+     "ACE_MOC_PRC_001_H237",
+     "ACE_MOC_PRC_001_H238",
+     "ACE_MOC_PRC_001_H239",
+     "ACE_MOC_PRC_001_H240",
+     "ACE_MOC_PRC_001_H241",
+     "ACE_MOC_PRC_001_H242",
+     "ACE_MOC_PRC_001_H243",
+     "ACE_MOC_PRC_001_H244",
+     "ACE_MOC_PRC_001_H245",
+     "ACE_MOC_PRC_001_H246",
+     "ACE_MOC_PRC_001_H247",
+     "ACE_MOC_PRC_001_H248",
+     "ACE_MOC_PRC_001_H249"
+    ],
+    "binding": 27,
+    "controls": [],
+    "parent": "",
+    "declaredPlanned": [],
+    "references": [
+     "ACE-OMS-MAN-001",
+     "ACE-RSK-STD-001",
+     "ACE-PSM-STD-001",
+     "ACE-COW-STD-001",
+     "ACE-MNT-STD-001",
+     "ACE-OMS-STD-002",
+     "ACE-AIM-STD-001",
+     "ACE-DOC-STD-001",
+     "ACE-DOC-STD-002",
+     "ACE-OPS-STD-001"
+    ],
+    "sizeKB": 116,
+    "plannedRefs": []
+   },
+   "findings": [
+    {
+     "rule": "G3",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Property ODS.Parent missing (added in template v5)",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "Primary function 'Engineering & Projects / Technical Excellence' is not one of the 13 ACE functions",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Control table lacks v5 rows: Level, ProcessOwner, RoleRegister, Parent",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Word built-in subject is 'ONE / ACE controlled document — Procedure (Level 3)', should be 'ACE-MOC-PRC-001'",
+     "where": ""
+    },
+    {
+     "rule": "G8",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Reviewer: 'Arjun Gittens — Offshore Operations Manager' — register title is 'Offshore Operations Manager (Gulf of Paria)'",
+     "where": ""
+    },
+    {
+     "rule": "G8",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Endorser: role qualifier after the title in 'Michelle de Verteuil — Process Engineering Lead (Technical Authority)'",
+     "where": ""
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "An intended protective function is not a credited barrier un"
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "Where work affects an active barrier, the job is held until "
+    },
+    {
+     "rule": "G10",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "ODS.Parent not set",
+     "where": ""
+    }
+   ],
+   "counts": {
+    "errors": 1,
+    "warnings": 8
+   }
+  },
+  {
+   "file": "ACE-OMS-STD-002_Deviation_and_Exemption_Standard_Rev01.docx",
+   "folder": "finals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS",
+   "facts": {
+    "docId": "ACE-OMS-STD-002",
+    "title": "Deviation and Exemption Standard",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 03",
+    "legacy": true,
+    "format": "STRICT",
+    "system": "OMS",
+    "type": "STD",
+    "headings": 47,
+    "tagControls": 48,
+    "bookmarks": [
+     "doc_title",
+     "sec_document_control",
+     "sec_revision_history",
+     "sec_approval_and_issue",
+     "sec_document_map",
+     "sec_purpose_scope_and_governing_princ",
+     "sec_1_when_a_deviation_is_needed",
+     "sec_1_1_deviation_exemption_and_ordi",
+     "sec_1_2_typical_triggers_at_ace_sites",
+     "sec_1_3_actions_that_cannot_be_author",
+     "sec_1_4_discovery_during_work_or_in_a",
+     "sec_2_raising_a_deviation",
+     "sec_2_1_initiation_and_problem_statem",
+     "sec_2_2_assess_the_actual_risk_and_pr",
+     "sec_2_3_technical_authority_endorseme",
+     "sec_2_4_implementation_plan_and_compe",
+     "sec_2_5_pre_approval_gateway_and_comp",
+     "sec_3_approval_by_risk_level",
+     "sec_3_1_risk_acceptance_and_decision_",
+     "sec_3_2_conditions_release_and_commu",
+     "sec_3_3_technical_legal_and_contract",
+     "sec_3_4_refusal_stopping_work_and_es",
+     "sec_4_safety_critical_element_impairm",
+     "sec_4_1_identifying_and_classifying_a",
+     "sec_4_2_operating_with_an_impaired_ba",
+     "sec_4_3_deferrals_overdue_verificati",
+     "sec_4_4_verification_of_restoration",
+     "sec_5_expiry_extension_and_closure",
+     "sec_5_1_expiry_dates_and_active_perio",
+     "sec_5_2_extension_before_expiry",
+     "sec_5_3_expiry_non_compliance_and_co",
+     "sec_5_4_closure_and_effectiveness_ver",
+     "sec_6_deviation_register_and_reportin",
+     "sec_6_1_one_register_and_record_owner",
+     "sec_6_2_routine_monitoring_and_dashbo",
+     "sec_6_3_oversight_assurance_and_lear",
+     "sec_appendix_a_accountabilities_and_",
+     "sec_appendix_b_risk_acceptance_and_d",
+     "sec_appendix_c_controlled_request_an",
+     "sec_appendix_d_barrier_and_assessmen",
+     "sec_appendix_e_applied_operating_exa",
+     "sec_e_1_pommerac_a_temporary_emerge",
+     "sec_e_2_central_processing_facility_",
+     "sec_e_3_point_lisas_shore_base_subs",
+     "sec_e_4_land_lease_work_simultaneou",
+     "sec_e_5_licence_condition_exemption",
+     "sec_appendix_f_assurance_and_perform",
+     "sec_appendix_g_definitions_and_contr"
+    ],
+    "binding": 93,
+    "controls": [],
+    "parent": "",
+    "declaredPlanned": [],
+    "references": [
+     "ACE-OMS-MAN-001",
+     "ACE-DOC-STD-001",
+     "ACE-RSK-STD-001",
+     "ACE-AIM-STD-001",
+     "ACE-MOC-PRC-001",
+     "ACE-INC-STD-001",
+     "ACE-COW-STD-001",
+     "ACE-CON-STD-001",
+     "ACE-AIM-REG-001",
+     "ACE-MNT-STD-001",
+     "ACE-PRF-STD-002",
+     "ACE-DOC-STD-002",
+     "ACE-LDR-POL-001"
+    ],
+    "sizeKB": 148,
+    "plannedRefs": [
+     "ACE-AIM-REG-001"
+    ]
+   },
+   "findings": [
+    {
+     "rule": "G3",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Property ODS.Parent missing (added in template v5)",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Control table values not in Meta controls: TitleOMSTags",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Control table lacks v5 rows: Level, RoleRegister, Parent",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Word built-in subject is 'ONE | Standard (Level 2) | ACE-OMS-STD-002', should be 'ACE-OMS-STD-002'",
+     "where": ""
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "Consider common-cause failures, dependent barriers, the leng"
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "Do not count a manual watch, additional inspection or proced"
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "For emergency shutdown, fire and gas, pressure protection or"
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "Where an impaired barrier changes the risk during the approv"
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "Failure to demonstrate an acceptable independent barrier res"
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "Vendor assurance and a purchase order do not authorize an en"
+    },
+    {
+     "rule": "G10",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "ODS.Parent not set",
+     "where": ""
+    },
+    {
+     "rule": "G13",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "No implementing processes and procedures table",
+     "where": ""
+    }
+   ],
+   "counts": {
+    "errors": 0,
+    "warnings": 12
+   }
+  },
+  {
+   "file": "ACE-OPS-PRA-001_Operating_Envelopes_and_Integrity_Operating_Windows_Practice_Rev01.docx",
+   "folder": "finals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS",
+   "facts": {
+    "docId": "ACE-OPS-PRA-001",
+    "title": "Operating Envelopes and Integrity Operating Windows Practice",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 04",
+    "legacy": false,
+    "format": "STRICT",
+    "system": "OPS",
+    "type": "PRA",
+    "headings": 16,
+    "tagControls": 17,
+    "bookmarks": [
+     "doc_title",
+     "front_document_control",
+     "front_revision_history",
+     "front_approval",
+     "front_document_map",
+     "ACE_OPS_PRA_001_H001",
+     "ACE_OPS_PRA_001_H002",
+     "ACE_OPS_PRA_001_H003",
+     "ACE_OPS_PRA_001_H004",
+     "ACE_OPS_PRA_001_H005",
+     "ACE_OPS_PRA_001_H006",
+     "ACE_OPS_PRA_001_H007",
+     "ACE_OPS_PRA_001_H008",
+     "ACE_OPS_PRA_001_H009",
+     "ACE_OPS_PRA_001_H010",
+     "ACE_OPS_PRA_001_H011",
+     "ACE_OPS_PRA_001_H012"
+    ],
+    "binding": 16,
+    "controls": [
+     "C-OPS-001",
+     "C-OPS-002",
+     "C-OPS-003",
+     "C-OPS-004",
+     "C-OPS-005",
+     "C-OPS-006",
+     "C-OPS-007",
+     "C-OPS-008",
+     "C-OPS-009",
+     "C-OPS-010",
+     "C-OPS-011",
+     "C-OPS-012"
+    ],
+    "parent": "ACE-OPS-STD-001",
+    "declaredPlanned": [
+     "ACE-OPS-PRS-001"
+    ],
+    "references": [
+     "ACE-OPS-STD-001",
+     "ACE-OMS-MAN-001",
+     "ACE-INC-STD-001",
+     "ACE-MOC-PRC-001",
+     "ACE-OPS-PRS-001",
+     "ACE-AIM-PRA-001",
+     "ACE-RSK-REG-002"
+    ],
+    "sizeKB": 114,
+    "plannedRefs": [
+     "ACE-OPS-PRS-001",
+     "ACE-RSK-REG-002"
+    ]
+   },
+   "findings": [],
+   "counts": {
+    "errors": 0,
+    "warnings": 0
+   }
+  },
+  {
+   "file": "ACE-OPS-STD-001_Operating_Envelopes_and_Operating_Limits_Standard_Rev01.docx",
+   "folder": "finals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS",
+   "facts": {
+    "docId": "ACE-OPS-STD-001",
+    "title": "Operating Envelopes and Operating Limits Standard",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 03",
+    "legacy": true,
+    "format": "STRICT",
+    "system": "OPS",
+    "type": "STD",
+    "headings": 16,
+    "tagControls": 17,
+    "bookmarks": [
+     "doc_title",
+     "front_document_control",
+     "front_revision_history",
+     "front_approval",
+     "front_document_map",
+     "ACE_OPS_STD_001_H601",
+     "ACE_OPS_STD_001_H602",
+     "ACE_OPS_STD_001_H603",
+     "ACE_OPS_STD_001_H604",
+     "ACE_OPS_STD_001_H605",
+     "ACE_OPS_STD_001_H606",
+     "ACE_OPS_STD_001_H607",
+     "ACE_OPS_STD_001_H608",
+     "ACE_OPS_STD_001_H609",
+     "ACE_OPS_STD_001_H610",
+     "ACE_OPS_STD_001_H611",
+     "ACE_OPS_STD_001_H612"
+    ],
+    "binding": 21,
+    "controls": [],
+    "parent": "",
+    "declaredPlanned": [],
+    "references": [
+     "ACE-OMS-MAN-001",
+     "ACE-RSK-STD-001",
+     "ACE-PSM-STD-001",
+     "ACE-MOC-PRC-001",
+     "ACE-AIM-STD-001",
+     "ACE-MNT-STD-001",
+     "ACE-INC-STD-001",
+     "ACE-OMS-STD-002",
+     "ACE-AIM-STD-002",
+     "ACE-COW-STD-001",
+     "ACE-ENG-SPC-410"
+    ],
+    "sizeKB": 252,
+    "plannedRefs": []
+   },
+   "findings": [
+    {
+     "rule": "G3",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Property ODS.Parent missing (added in template v5)",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "Primary function 'Operations (OPS)' is not one of the 13 ACE functions",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Control table lacks v5 rows: Level, ProcessOwner, RoleRegister, Parent",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Word built-in subject is 'ACE-OPS-STD-001 | ONE management system', should be 'ACE-OPS-STD-001'",
+     "where": ""
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "When a limit is uncertain, inaccessible or contradicted by a"
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "For operating modes outside the verified design case, the Ar"
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "The Shift Supervisor shall secure the plant when the approve"
+    },
+    {
+     "rule": "G10",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "ODS.Parent not set",
+     "where": ""
+    },
+    {
+     "rule": "G13",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "No implementing processes and procedures table",
+     "where": ""
+    }
+   ],
+   "counts": {
+    "errors": 0,
+    "warnings": 9
+   }
+  },
+  {
+   "file": "ACE-PPL-STD-003_Competence_Assurance_Standard_Rev01.docx",
+   "folder": "finals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS",
+   "facts": {
+    "docId": "ACE-PPL-STD-003",
+    "title": "Competence Assurance Standard",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 03",
+    "legacy": true,
+    "format": "STRICT",
+    "system": "PPL",
+    "type": "STD",
+    "headings": 39,
+    "tagControls": 40,
+    "bookmarks": [
+     "doc_title",
+     "front_document_control",
+     "front_revision_history",
+     "front_approval",
+     "front_document_map",
+     "ACE_PPL_STD_003_H161",
+     "ACE_PPL_STD_003_H162",
+     "ACE_PPL_STD_003_H163",
+     "ACE_PPL_STD_003_H164",
+     "ACE_PPL_STD_003_H165",
+     "ACE_PPL_STD_003_H166",
+     "ACE_PPL_STD_003_H167",
+     "ACE_PPL_STD_003_H168",
+     "ACE_PPL_STD_003_H169",
+     "ACE_PPL_STD_003_H170",
+     "ACE_PPL_STD_003_H171",
+     "ACE_PPL_STD_003_H172",
+     "ACE_PPL_STD_003_H173",
+     "ACE_PPL_STD_003_H174",
+     "ACE_PPL_STD_003_H175",
+     "ACE_PPL_STD_003_H176",
+     "ACE_PPL_STD_003_H177",
+     "ACE_PPL_STD_003_H178",
+     "ACE_PPL_STD_003_H179",
+     "ACE_PPL_STD_003_H180",
+     "ACE_PPL_STD_003_H181",
+     "ACE_PPL_STD_003_H182",
+     "ACE_PPL_STD_003_H183",
+     "ACE_PPL_STD_003_H184",
+     "ACE_PPL_STD_003_H185",
+     "ACE_PPL_STD_003_H186",
+     "ACE_PPL_STD_003_H187",
+     "ACE_PPL_STD_003_H188",
+     "ACE_PPL_STD_003_H189",
+     "ACE_PPL_STD_003_H190",
+     "ACE_PPL_STD_003_H191",
+     "ACE_PPL_STD_003_H192",
+     "ACE_PPL_STD_003_H193",
+     "ACE_PPL_STD_003_H194",
+     "ACE_PPL_STD_003_H195"
+    ],
+    "binding": 26,
+    "controls": [],
+    "parent": "",
+    "declaredPlanned": [],
+    "references": [
+     "ACE-OMS-MAN-001",
+     "ACE-PPL-STD-001",
+     "ACE-COW-STD-001",
+     "ACE-ENG-STD-901",
+     "ACE-CON-STD-001",
+     "ACE-DOC-STD-001",
+     "ACE-DOC-STD-002",
+     "ACE-PRF-STD-002",
+     "ACE-INC-STD-001"
+    ],
+    "sizeKB": 237,
+    "plannedRefs": [
+     "ACE-PPL-STD-001"
+    ]
+   },
+   "findings": [
+    {
+     "rule": "G3",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Property ODS.Parent missing (added in template v5)",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Control table lacks v5 rows: Level, ProcessOwner, RoleRegister, Parent",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Word built-in subject is 'ACE-PPL-STD-003 — Standard (Level 2)', should be 'ACE-PPL-STD-003'",
+     "where": ""
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "Task criticality shall be established using the ACE Risk Mat"
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "A contractor competence deficiency affecting a major-acciden"
+    },
+    {
+     "rule": "G10",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "ODS.Parent not set",
+     "where": ""
+    },
+    {
+     "rule": "G13",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "No implementing processes and procedures table",
+     "where": ""
+    }
+   ],
+   "counts": {
+    "errors": 0,
+    "warnings": 7
+   }
+  },
+  {
+   "file": "ACE-PRF-STD-002_Assurance_and_Audit_Standard_Rev01.docx",
+   "folder": "finals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS",
+   "facts": {
+    "docId": "ACE-PRF-STD-002",
+    "title": "Assurance and Audit Standard",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 03",
+    "legacy": true,
+    "format": "STRICT",
+    "system": "PRF",
+    "type": "STD",
+    "headings": 56,
+    "tagControls": 57,
+    "bookmarks": [
+     "doc_title",
+     "front_document_control",
+     "front_revision_history",
+     "front_approval",
+     "front_document_map",
+     "ACE_PRF_STD_002_H201",
+     "ACE_PRF_STD_002_H202",
+     "ACE_PRF_STD_002_H203",
+     "ACE_PRF_STD_002_H204",
+     "ACE_PRF_STD_002_H205",
+     "ACE_PRF_STD_002_H206",
+     "ACE_PRF_STD_002_H207",
+     "ACE_PRF_STD_002_H208",
+     "ACE_PRF_STD_002_H209",
+     "ACE_PRF_STD_002_H210",
+     "ACE_PRF_STD_002_H211",
+     "ACE_PRF_STD_002_H212",
+     "ACE_PRF_STD_002_H213",
+     "ACE_PRF_STD_002_H214",
+     "ACE_PRF_STD_002_H215",
+     "ACE_PRF_STD_002_H216",
+     "ACE_PRF_STD_002_H217",
+     "ACE_PRF_STD_002_H218",
+     "ACE_PRF_STD_002_H219",
+     "ACE_PRF_STD_002_H220",
+     "ACE_PRF_STD_002_H221",
+     "ACE_PRF_STD_002_H222",
+     "ACE_PRF_STD_002_H223",
+     "ACE_PRF_STD_002_H224",
+     "ACE_PRF_STD_002_H225",
+     "ACE_PRF_STD_002_H226",
+     "ACE_PRF_STD_002_H227",
+     "ACE_PRF_STD_002_H228",
+     "ACE_PRF_STD_002_H229",
+     "ACE_PRF_STD_002_H230",
+     "ACE_PRF_STD_002_H231",
+     "ACE_PRF_STD_002_H232",
+     "ACE_PRF_STD_002_H233",
+     "ACE_PRF_STD_002_H234",
+     "ACE_PRF_STD_002_H235",
+     "ACE_PRF_STD_002_H236",
+     "ACE_PRF_STD_002_H237",
+     "ACE_PRF_STD_002_H238",
+     "ACE_PRF_STD_002_H239",
+     "ACE_PRF_STD_002_H240",
+     "ACE_PRF_STD_002_H241",
+     "ACE_PRF_STD_002_H242",
+     "ACE_PRF_STD_002_H243",
+     "ACE_PRF_STD_002_H244",
+     "ACE_PRF_STD_002_H245",
+     "ACE_PRF_STD_002_H246",
+     "ACE_PRF_STD_002_H247",
+     "ACE_PRF_STD_002_H248",
+     "ACE_PRF_STD_002_H249",
+     "ACE_PRF_STD_002_H250",
+     "ACE_PRF_STD_002_H251",
+     "ACE_PRF_STD_002_H252"
+    ],
+    "binding": 23,
+    "controls": [],
+    "parent": "",
+    "declaredPlanned": [],
+    "references": [
+     "ACE-OMS-MAN-001",
+     "ACE-DOC-STD-001",
+     "ACE-DOC-STD-002",
+     "ACE-RSK-STD-001",
+     "ACE-PSM-STD-001",
+     "ACE-AIM-STD-001",
+     "ACE-MOC-PRC-001",
+     "ACE-COW-STD-001",
+     "ACE-MNT-STD-001",
+     "ACE-INC-STD-001",
+     "ACE-PRF-STD-001",
+     "ACE-PRF-STD-003",
+     "ACE-OMS-STD-003"
+    ],
+    "sizeKB": 117,
+    "plannedRefs": [
+     "ACE-PRF-STD-001",
+     "ACE-PRF-STD-003",
+     "ACE-OMS-STD-003"
+    ]
+   },
+   "findings": [
+    {
+     "rule": "G3",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Property ODS.Parent missing (added in template v5)",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "Primary function 'HSE & Compliance / Internal Audit & Risk Assurance' is not one of the 13 ACE functions",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Control table lacks v5 rows: Level, ProcessOwner, RoleRegister, Parent",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Word built-in subject is 'ONE / ACE controlled document — Standard (Level 2)', should be 'ACE-PRF-STD-002'",
+     "where": ""
+    },
+    {
+     "rule": "G8",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Approver: role qualifier after the title in 'George Habib — VP HSE & Compliance (system owner)'",
+     "where": ""
+    },
+    {
+     "rule": "G8",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Approver: role qualifier after the title in 'Nicole Lange — Head of Internal Audit & Risk Assurance (audit authority)'",
+     "where": ""
+    },
+    {
+     "rule": "G10",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "ODS.Parent not set",
+     "where": ""
+    },
+    {
+     "rule": "G13",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "No implementing processes and procedures table",
+     "where": ""
+    }
+   ],
+   "counts": {
+    "errors": 0,
+    "warnings": 8
+   }
+  },
+  {
+   "file": "ACE-PSM-STD-001_Process_Safety_and_Hazard_Study_Standard_Rev01.docx",
+   "folder": "finals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS",
+   "facts": {
+    "docId": "ACE-PSM-STD-001",
+    "title": "Process Safety and Hazard Study Standard",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 03",
+    "legacy": true,
+    "format": "STRICT",
+    "system": "PSM",
+    "type": "STD",
+    "headings": 70,
+    "tagControls": 71,
+    "bookmarks": [
+     "doc_title",
+     "front_document_control",
+     "front_revision_history",
+     "front_approval",
+     "front_document_map",
+     "ACE_PSM_STD_001_H001",
+     "ACE_PSM_STD_001_H002",
+     "ACE_PSM_STD_001_H003",
+     "ACE_PSM_STD_001_H004",
+     "ACE_PSM_STD_001_H005",
+     "ACE_PSM_STD_001_H006",
+     "ACE_PSM_STD_001_H007",
+     "ACE_PSM_STD_001_H008",
+     "ACE_PSM_STD_001_H009",
+     "ACE_PSM_STD_001_H010",
+     "ACE_PSM_STD_001_H011",
+     "ACE_PSM_STD_001_H012",
+     "ACE_PSM_STD_001_H013",
+     "ACE_PSM_STD_001_H014",
+     "ACE_PSM_STD_001_H015",
+     "ACE_PSM_STD_001_H016",
+     "ACE_PSM_STD_001_H017",
+     "ACE_PSM_STD_001_H018",
+     "ACE_PSM_STD_001_H019",
+     "ACE_PSM_STD_001_H020",
+     "ACE_PSM_STD_001_H021",
+     "ACE_PSM_STD_001_H022",
+     "ACE_PSM_STD_001_H023",
+     "ACE_PSM_STD_001_H024",
+     "ACE_PSM_STD_001_H025",
+     "ACE_PSM_STD_001_H026",
+     "ACE_PSM_STD_001_H027",
+     "ACE_PSM_STD_001_H028",
+     "ACE_PSM_STD_001_H029",
+     "ACE_PSM_STD_001_H030",
+     "ACE_PSM_STD_001_H031",
+     "ACE_PSM_STD_001_H032",
+     "ACE_PSM_STD_001_H033",
+     "ACE_PSM_STD_001_H034",
+     "ACE_PSM_STD_001_H035",
+     "ACE_PSM_STD_001_H036",
+     "ACE_PSM_STD_001_H037",
+     "ACE_PSM_STD_001_H038",
+     "ACE_PSM_STD_001_H039",
+     "ACE_PSM_STD_001_H040",
+     "ACE_PSM_STD_001_H041",
+     "ACE_PSM_STD_001_H042",
+     "ACE_PSM_STD_001_H043",
+     "ACE_PSM_STD_001_H044",
+     "ACE_PSM_STD_001_H045",
+     "ACE_PSM_STD_001_H046",
+     "ACE_PSM_STD_001_H047",
+     "ACE_PSM_STD_001_H048",
+     "ACE_PSM_STD_001_H049",
+     "ACE_PSM_STD_001_H050",
+     "ACE_PSM_STD_001_H051",
+     "ACE_PSM_STD_001_H052",
+     "ACE_PSM_STD_001_H053",
+     "ACE_PSM_STD_001_H054",
+     "ACE_PSM_STD_001_H055",
+     "ACE_PSM_STD_001_H056",
+     "ACE_PSM_STD_001_H057",
+     "ACE_PSM_STD_001_H058",
+     "ACE_PSM_STD_001_H059",
+     "ACE_PSM_STD_001_H060",
+     "ACE_PSM_STD_001_H061",
+     "ACE_PSM_STD_001_H062",
+     "ACE_PSM_STD_001_H063",
+     "ACE_PSM_STD_001_H064",
+     "ACE_PSM_STD_001_H065",
+     "ACE_PSM_STD_001_H066"
+    ],
+    "binding": 27,
+    "controls": [],
+    "parent": "",
+    "declaredPlanned": [],
+    "references": [
+     "ACE-OMS-MAN-001",
+     "ACE-RSK-STD-001",
+     "ACE-ENG-SPC-410",
+     "ACE-OMS-STD-002",
+     "ACE-DOC-STD-001",
+     "ACE-DOC-STD-002",
+     "ACE-AIM-STD-001",
+     "ACE-MOC-PRC-001"
+    ],
+    "sizeKB": 121,
+    "plannedRefs": []
+   },
+   "findings": [
+    {
+     "rule": "G3",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Property ODS.Parent missing (added in template v5)",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Control table lacks v5 rows: Level, ProcessOwner, RoleRegister, Parent",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Word built-in subject is 'ONE / ACE controlled document — Standard (Level 2)', should be 'ACE-PSM-STD-001'",
+     "where": ""
+    },
+    {
+     "rule": "G8",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Endorser: role qualifier after the title in 'Damian Daniel — Process Safety Lead (Technical Authority)'",
+     "where": ""
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "A credited barrier that is unavailable, inhibited, overdue f"
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "Never count the same physical function twice under different"
+    },
+    {
+     "rule": "G10",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "ODS.Parent not set",
+     "where": ""
+    },
+    {
+     "rule": "G13",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "No implementing processes and procedures table",
+     "where": ""
+    }
+   ],
+   "counts": {
+    "errors": 0,
+    "warnings": 8
+   }
+  },
+  {
+   "file": "ACE-RSK-PRA-001_Controls_and_Barrier_Linkage_Practice_Rev01.docx",
+   "folder": "finals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS",
+   "facts": {
+    "docId": "ACE-RSK-PRA-001",
+    "title": "Controls and Barrier Linkage Practice",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 04",
+    "legacy": false,
+    "format": "STRICT",
+    "system": "RSK",
+    "type": "PRA",
+    "headings": 18,
+    "tagControls": 19,
+    "bookmarks": [
+     "doc_title",
+     "front_document_control",
+     "front_revision_history",
+     "front_approval",
+     "front_document_map",
+     "ACE_RSK_PRA_001_H001",
+     "ACE_RSK_PRA_001_H002",
+     "ACE_RSK_PRA_001_H003",
+     "ACE_RSK_PRA_001_H004",
+     "ACE_RSK_PRA_001_H005",
+     "ACE_RSK_PRA_001_H006",
+     "ACE_RSK_PRA_001_H007",
+     "ACE_RSK_PRA_001_H008",
+     "ACE_RSK_PRA_001_H009",
+     "ACE_RSK_PRA_001_H010",
+     "ACE_RSK_PRA_001_H011",
+     "ACE_RSK_PRA_001_H012",
+     "ACE_RSK_PRA_001_H013",
+     "ACE_RSK_PRA_001_H014"
+    ],
+    "binding": 18,
+    "controls": [
+     "C-RSK-001",
+     "C-RSK-002",
+     "C-RSK-003",
+     "C-RSK-004",
+     "C-RSK-005",
+     "C-RSK-006",
+     "C-RSK-007",
+     "C-RSK-008",
+     "C-RSK-009",
+     "C-RSK-010",
+     "C-RSK-011",
+     "C-RSK-012"
+    ],
+    "parent": "ACE-RSK-STD-001",
+    "declaredPlanned": [
+     "ACE-RSK-PRS-001"
+    ],
+    "references": [
+     "ACE-RSK-STD-001",
+     "ACE-OMS-MAN-001",
+     "ACE-RSK-REG-002",
+     "ACE-DOC-STD-002",
+     "ACE-AIM-PRS-001",
+     "ACE-MOC-PRC-001",
+     "ACE-RSK-PRS-001",
+     "ACE-INC-STD-001",
+     "ACE-BPM-PRA-002"
+    ],
+    "sizeKB": 116,
+    "plannedRefs": [
+     "ACE-RSK-REG-002",
+     "ACE-AIM-PRS-001",
+     "ACE-RSK-PRS-001"
+    ]
+   },
+   "findings": [],
+   "counts": {
+    "errors": 0,
+    "warnings": 0
+   }
+  },
+  {
+   "file": "ACE-RSK-STD-001_Risk_Management_Standard_Rev01.docx",
+   "folder": "finals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS",
+   "facts": {
+    "docId": "ACE-RSK-STD-001",
+    "title": "Risk Management Standard",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 03",
+    "legacy": true,
+    "format": "STRICT",
+    "system": "RSK",
+    "type": "STD",
+    "headings": 56,
+    "tagControls": 57,
+    "bookmarks": [
+     "doc_title",
+     "front_document_control",
+     "front_revision_history",
+     "front_approval",
+     "front_document_map",
+     "ACE_RSK_STD_001_H001",
+     "ACE_RSK_STD_001_H002",
+     "ACE_RSK_STD_001_H003",
+     "ACE_RSK_STD_001_H004",
+     "ACE_RSK_STD_001_H005",
+     "ACE_RSK_STD_001_H006",
+     "ACE_RSK_STD_001_H007",
+     "ACE_RSK_STD_001_H008",
+     "ACE_RSK_STD_001_H009",
+     "ACE_RSK_STD_001_H010",
+     "ACE_RSK_STD_001_H011",
+     "ACE_RSK_STD_001_H012",
+     "ACE_RSK_STD_001_H013",
+     "ACE_RSK_STD_001_H014",
+     "ACE_RSK_STD_001_H015",
+     "ACE_RSK_STD_001_H016",
+     "ACE_RSK_STD_001_H017",
+     "ACE_RSK_STD_001_H018",
+     "ACE_RSK_STD_001_H019",
+     "ACE_RSK_STD_001_H020",
+     "ACE_RSK_STD_001_H021",
+     "ACE_RSK_STD_001_H022",
+     "ACE_RSK_STD_001_H023",
+     "ACE_RSK_STD_001_H024",
+     "ACE_RSK_STD_001_H025",
+     "ACE_RSK_STD_001_H026",
+     "ACE_RSK_STD_001_H027",
+     "ACE_RSK_STD_001_H028",
+     "ACE_RSK_STD_001_H029",
+     "ACE_RSK_STD_001_H030",
+     "ACE_RSK_STD_001_H031",
+     "ACE_RSK_STD_001_H032",
+     "ACE_RSK_STD_001_H033",
+     "ACE_RSK_STD_001_H034",
+     "ACE_RSK_STD_001_H035",
+     "ACE_RSK_STD_001_H036",
+     "ACE_RSK_STD_001_H037",
+     "ACE_RSK_STD_001_H038",
+     "ACE_RSK_STD_001_H039",
+     "ACE_RSK_STD_001_H040",
+     "ACE_RSK_STD_001_H041",
+     "ACE_RSK_STD_001_H042",
+     "ACE_RSK_STD_001_H043",
+     "ACE_RSK_STD_001_H044",
+     "ACE_RSK_STD_001_H045",
+     "ACE_RSK_STD_001_H046",
+     "ACE_RSK_STD_001_H047",
+     "ACE_RSK_STD_001_H048",
+     "ACE_RSK_STD_001_H049",
+     "ACE_RSK_STD_001_H050",
+     "ACE_RSK_STD_001_H051",
+     "ACE_RSK_STD_001_H052"
+    ],
+    "binding": 26,
+    "controls": [],
+    "parent": "",
+    "declaredPlanned": [],
+    "references": [
+     "ACE-OMS-MAN-001",
+     "ACE-OMS-STD-002",
+     "ACE-PSM-STD-001",
+     "ACE-AIM-STD-001",
+     "ACE-MOC-PRC-001",
+     "ACE-COW-STD-001"
+    ],
+    "sizeKB": 117,
+    "plannedRefs": []
+   },
+   "findings": [
+    {
+     "rule": "G3",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Property ODS.Parent missing (added in template v5)",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Control table lacks v5 rows: Level, ProcessOwner, RoleRegister, Parent",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Word built-in subject is 'ONE / ACE controlled document — Standard (Level 2)', should be 'ACE-RSK-STD-001'",
+     "where": ""
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "When a safety-critical element is bypassed, failed or overdu"
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "An administrative restriction cannot be assumed to fully rep"
+    },
+    {
+     "rule": "G10",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "ODS.Parent not set",
+     "where": ""
+    },
+    {
+     "rule": "G13",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "No implementing processes and procedures table",
+     "where": ""
+    }
+   ],
+   "counts": {
+    "errors": 0,
+    "warnings": 7
+   }
+  },
+  {
+   "file": "ACE-WEL-PRA-001_Well_Barriers_and_Well_Handover_Practice_Rev01.docx",
+   "folder": "finals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS",
+   "facts": {
+    "docId": "ACE-WEL-PRA-001",
+    "title": "Well Barriers and Well Handover Practice",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 04",
+    "legacy": false,
+    "format": "STRICT",
+    "system": "WEL",
+    "type": "PRA",
+    "headings": 17,
+    "tagControls": 18,
+    "bookmarks": [
+     "doc_title",
+     "front_document_control",
+     "front_revision_history",
+     "front_approval",
+     "front_document_map",
+     "ACE_WEL_PRA_001_H001",
+     "ACE_WEL_PRA_001_H002",
+     "ACE_WEL_PRA_001_H003",
+     "ACE_WEL_PRA_001_H004",
+     "ACE_WEL_PRA_001_H005",
+     "ACE_WEL_PRA_001_H006",
+     "ACE_WEL_PRA_001_H007",
+     "ACE_WEL_PRA_001_H008",
+     "ACE_WEL_PRA_001_H009",
+     "ACE_WEL_PRA_001_H010",
+     "ACE_WEL_PRA_001_H011",
+     "ACE_WEL_PRA_001_H012",
+     "ACE_WEL_PRA_001_H013"
+    ],
+    "binding": 16,
+    "controls": [
+     "C-WEL-001",
+     "C-WEL-002",
+     "C-WEL-003",
+     "C-WEL-004",
+     "C-WEL-005",
+     "C-WEL-006",
+     "C-WEL-007",
+     "C-WEL-008",
+     "C-WEL-009",
+     "C-WEL-010",
+     "C-WEL-011",
+     "C-WEL-012"
+    ],
+    "parent": "ACE-WEL-STD-001",
+    "declaredPlanned": [
+     "ACE-WEL-PRS-001",
+     "ACE-WEL-PRS-002"
+    ],
+    "references": [
+     "ACE-WEL-STD-001",
+     "ACE-OMS-MAN-001",
+     "ACE-WEL-PRS-001",
+     "ACE-WEL-PRS-002",
+     "ACE-MOC-PRC-001",
+     "ACE-RSK-REG-002"
+    ],
+    "sizeKB": 115,
+    "plannedRefs": [
+     "ACE-WEL-PRS-001",
+     "ACE-WEL-PRS-002",
+     "ACE-RSK-REG-002"
+    ]
+   },
+   "findings": [],
+   "counts": {
+    "errors": 0,
+    "warnings": 0
+   }
+  },
+  {
+   "file": "ACE-WEL-STD-001_Well_Integrity_Management_Standard_Rev01.docx",
+   "folder": "finals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS",
+   "facts": {
+    "docId": "ACE-WEL-STD-001",
+    "title": "Well Integrity Management Standard",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 03",
+    "legacy": true,
+    "format": "STRICT",
+    "system": "WEL",
+    "type": "STD",
+    "headings": 52,
+    "tagControls": 53,
+    "bookmarks": [
+     "doc_title",
+     "front_document_control",
+     "front_revision_history",
+     "front_approval",
+     "front_document_map",
+     "ACE_WEL_STD_001_H196",
+     "ACE_WEL_STD_001_H197",
+     "ACE_WEL_STD_001_H198",
+     "ACE_WEL_STD_001_H199",
+     "ACE_WEL_STD_001_H200",
+     "ACE_WEL_STD_001_H201",
+     "ACE_WEL_STD_001_H202",
+     "ACE_WEL_STD_001_H203",
+     "ACE_WEL_STD_001_H204",
+     "ACE_WEL_STD_001_H205",
+     "ACE_WEL_STD_001_H206",
+     "ACE_WEL_STD_001_H207",
+     "ACE_WEL_STD_001_H208",
+     "ACE_WEL_STD_001_H209",
+     "ACE_WEL_STD_001_H210",
+     "ACE_WEL_STD_001_H211",
+     "ACE_WEL_STD_001_H212",
+     "ACE_WEL_STD_001_H213",
+     "ACE_WEL_STD_001_H214",
+     "ACE_WEL_STD_001_H215",
+     "ACE_WEL_STD_001_H216",
+     "ACE_WEL_STD_001_H217",
+     "ACE_WEL_STD_001_H218",
+     "ACE_WEL_STD_001_H219",
+     "ACE_WEL_STD_001_H220",
+     "ACE_WEL_STD_001_H221",
+     "ACE_WEL_STD_001_H222",
+     "ACE_WEL_STD_001_H223",
+     "ACE_WEL_STD_001_H224",
+     "ACE_WEL_STD_001_H225",
+     "ACE_WEL_STD_001_H226",
+     "ACE_WEL_STD_001_H227",
+     "ACE_WEL_STD_001_H228",
+     "ACE_WEL_STD_001_H229",
+     "ACE_WEL_STD_001_H230",
+     "ACE_WEL_STD_001_H231",
+     "ACE_WEL_STD_001_H232",
+     "ACE_WEL_STD_001_H233",
+     "ACE_WEL_STD_001_H234",
+     "ACE_WEL_STD_001_H235",
+     "ACE_WEL_STD_001_H236",
+     "ACE_WEL_STD_001_H237",
+     "ACE_WEL_STD_001_H238",
+     "ACE_WEL_STD_001_H239",
+     "ACE_WEL_STD_001_H240",
+     "ACE_WEL_STD_001_H241",
+     "ACE_WEL_STD_001_H242",
+     "ACE_WEL_STD_001_H243"
+    ],
+    "binding": 34,
+    "controls": [],
+    "parent": "",
+    "declaredPlanned": [],
+    "references": [
+     "ACE-OMS-MAN-001",
+     "ACE-ENG-STD-901",
+     "ACE-RSK-STD-001",
+     "ACE-PSM-STD-001",
+     "ACE-OMS-STD-002",
+     "ACE-MOC-PRC-001",
+     "ACE-AIM-STD-001",
+     "ACE-INC-STD-001",
+     "ACE-PRF-STD-002",
+     "ACE-OPS-STD-001",
+     "ACE-COW-STD-001"
+    ],
+    "sizeKB": 239,
+    "plannedRefs": []
+   },
+   "findings": [
+    {
+     "rule": "G3",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Property ODS.Parent missing (added in template v5)",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Control table lacks v5 rows: Level, ProcessOwner, RoleRegister, Parent",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Word built-in subject is 'ACE-WEL-STD-001 — Standard (Level 2)', should be 'ACE-WEL-STD-001'",
+     "where": ""
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "A degraded barrier shall not be treated as available solely "
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "Personnel shall not bleed or pressure-cycle an anomalous ann"
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "A well classified W3 shall be prevented from normal producti"
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "RiskControl paragraph without a Control ID",
+     "where": "A suspended well shall retain a documented barrier and monit"
+    },
+    {
+     "rule": "G10",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "ODS.Parent not set",
+     "where": ""
+    },
+    {
+     "rule": "G13",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "No implementing processes and procedures table",
+     "where": ""
+    }
+   ],
+   "counts": {
+    "errors": 0,
+    "warnings": 9
+   }
+  },
+  {
+   "file": "ACE-OMS-MAN-001_OMS_Manual_Rev04.docx",
+   "folder": "manuals",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS_AFTER_FIX",
+   "facts": {
+    "docId": "ACE-OMS-MAN-001",
+    "title": "One Management System (OMS) Manual",
+    "revision": "04",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 04",
+    "legacy": false,
+    "format": "STRICT",
+    "system": "OMS",
+    "type": "MAN",
+    "headings": 115,
+    "tagControls": 107,
+    "bookmarks": [
+     "doc_title",
+     "front_control",
+     "front_revhist",
+     "front_approval",
+     "front_welcome",
+     "front_ceo",
+     "front_glance",
+     "front_commit",
+     "front_why",
+     "front_new",
+     "front_howto",
+     "front_reading",
+     "front_toc",
+     "a_0",
+     "a_1",
+     "a_2",
+     "a_3",
+     "a_3_1",
+     "a_4",
+     "a_5",
+     "a_5_1",
+     "a_6",
+     "a_6_1",
+     "a_7",
+     "w_0",
+     "w_1",
+     "w_2",
+     "w_3",
+     "w_4",
+     "w_5",
+     "w_6",
+     "w_7",
+     "b_0",
+     "el_1",
+     "s1_1",
+     "s1_2",
+     "s1_3",
+     "s1_4",
+     "s1_5",
+     "s1_6",
+     "s1_7",
+     "s1_8",
+     "el_2",
+     "s2_1",
+     "s2_2",
+     "s2_3",
+     "s2_4",
+     "s2_5",
+     "s2_6",
+     "el_3",
+     "s3_1",
+     "s3_2",
+     "s3_3",
+     "s3_4",
+     "s3_5",
+     "s3_6",
+     "el_4",
+     "s4_1",
+     "s4_2",
+     "s4_3",
+     "s4_4",
+     "el_5",
+     "s5_1",
+     "s5_2",
+     "s5_3",
+     "s5_4",
+     "el_6",
+     "s6_1",
+     "s6_2",
+     "s6_3",
+     "s6_4",
+     "s6_5",
+     "s6_6",
+     "el_7",
+     "s7_1",
+     "s7_2",
+     "s7_3",
+     "s7_4",
+     "s7_5",
+     "el_8",
+     "s8_1",
+     "s8_2",
+     "s8_3",
+     "s8_4",
+     "s8_5",
+     "el_9",
+     "s9_1",
+     "s9_2",
+     "s9_3",
+     "s9_4",
+     "s9_5",
+     "el_10",
+     "s10_1",
+     "s10_2",
+     "s10_3",
+     "s10_4",
+     "s10_5",
+     "c_0",
+     "c_1",
+     "c_2",
+     "c_3",
+     "c_4",
+     "c_5",
+     "d_0",
+     "d_1",
+     "d_2",
+     "d_2_1",
+     "d_2_2",
+     "d_2_3",
+     "d_3",
+     "d_4",
+     "d_5",
+     "d_6",
+     "d_7",
+     "d_8",
+     "d_9",
+     "app_0",
+     "app_1",
+     "app_2",
+     "app_3",
+     "app_4",
+     "app_5"
+    ],
+    "binding": 188,
+    "controls": [],
+    "parent": "Not applicable (top-level document)",
+    "declaredPlanned": [],
+    "references": [
+     "ACE-RSK-PRA-001",
+     "ACE-OPS-STD-001",
+     "ACE-OPS-PRA-001",
+     "ACE-COW-PRS-001",
+     "ACE-COW-PRC-001",
+     "ACE-WEL-STD-001",
+     "ACE-WEL-PRA-001",
+     "ACE-MOC-PRS-001",
+     "ACE-AIM-STD-001",
+     "ACE-MNT-STD-001",
+     "ACE-AIM-PRA-001",
+     "ACE-MNT-PRA-001",
+     "ACE-AIM-REG-001",
+     "ACE-CON-STD-001",
+     "ACE-LOG-PRA-001",
+     "ACE-STK-STD-002",
+     "ACE-HMA-PRA-001",
+     "ACE-BPM-PRA-001",
+     "ACE-BPM-PRA-002",
+     "ACE-BPM-PRA-003",
+     "ACE-BPM-REG-001",
+     "ACE-OMS-STD-001",
+     "ACE-OMS-STD-003",
+     "ACE-LDR-STD-002",
+     "ACE-LDR-POL-001",
+     "ACE-LEG-STD-001",
+     "ACE-LDR-STD-001",
+     "ACE-PPL-STD-001",
+     "ACE-DOC-STD-002",
+     "ACE-DOC-STD-001",
+     "ACE-INC-STD-002",
+     "ACE-LEG-REG-001",
+     "ACE-PRF-STD-001",
+     "ACE-OMS-STD-004",
+     "ACE-OMS-STD-002",
+     "ACE-RSK-STD-001",
+     "ACE-ENG-STD-901",
+     "ACE-PPL-STD-002",
+     "ACE-PPL-STD-003",
+     "ACE-OHH-STD-001",
+     "ACE-CON-STD-002",
+     "ACE-PPL-STD-004",
+     "ACE-STK-STD-001",
+     "ACE-STK-PRC-001",
+     "ACE-EMR-STD-001",
+     "ACE-PSM-STD-001",
+     "ACE-RSK-REG-001",
+     "ACE-RSK-REG-002",
+     "ACE-MOC-STD-001",
+     "ACE-MOC-PRC-001",
+     "ACE-PSM-STD-002",
+     "ACE-INC-STD-001",
+     "ACE-PRJ-STD-001",
+     "ACE-ENG-SPC-410",
+     "ACE-AIM-STD-002",
+     "ACE-OMS-STD-005",
+     "ACE-OPS-STD-002",
+     "ACE-EMR-PLN-001-CPF",
+     "ACE-EMR-PLN-002-PAP",
+     "ACE-EMR-PLN-003",
+     "ACE-OPS-STD-003",
+     "ACE-COW-STD-001",
+     "ACE-COW-PRC-002",
+     "ACE-OPS-STD-004",
+     "ACE-LDR-STD-003",
+     "ACE-LDR-STD-004",
+     "ACE-DOC-STD-003",
+     "ACE-PRF-STD-002",
+     "ACE-PRF-STD-003",
+     "ACE-PRF-STD-004",
+     "ACE-ENG-PRS-410",
+     "ACE-ENV-STD-001",
+     "ACE-RSK-POL-001",
+     "ACE-SEC-STD-001"
+    ],
+    "sizeKB": 1314,
+    "plannedRefs": [
+     "ACE-COW-PRS-001",
+     "ACE-MOC-PRS-001",
+     "ACE-AIM-REG-001",
+     "ACE-LOG-PRA-001",
+     "ACE-STK-STD-002",
+     "ACE-HMA-PRA-001",
+     "ACE-BPM-REG-001",
+     "ACE-OMS-STD-001",
+     "ACE-OMS-STD-003",
+     "ACE-LDR-STD-002",
+     "ACE-LEG-STD-001",
+     "ACE-LDR-STD-001",
+     "ACE-PPL-STD-001",
+     "ACE-INC-STD-002",
+     "ACE-LEG-REG-001",
+     "ACE-PRF-STD-001",
+     "ACE-OMS-STD-004",
+     "ACE-PPL-STD-002",
+     "ACE-OHH-STD-001",
+     "ACE-CON-STD-002",
+     "ACE-PPL-STD-004",
+     "ACE-STK-STD-001",
+     "ACE-STK-PRC-001",
+     "ACE-RSK-REG-001",
+     "ACE-RSK-REG-002",
+     "ACE-MOC-STD-001",
+     "ACE-PSM-STD-002",
+     "ACE-PRJ-STD-001",
+     "ACE-OMS-STD-005",
+     "ACE-OPS-STD-002",
+     "ACE-EMR-PLN-001-CPF",
+     "ACE-EMR-PLN-002-PAP",
+     "ACE-EMR-PLN-003",
+     "ACE-OPS-STD-003",
+     "ACE-OPS-STD-004",
+     "ACE-LDR-STD-003",
+     "ACE-LDR-STD-004",
+     "ACE-DOC-STD-003",
+     "ACE-PRF-STD-003",
+     "ACE-PRF-STD-004",
+     "ACE-ENG-PRS-410",
+     "ACE-ENV-STD-001",
+     "ACE-RSK-POL-001",
+     "ACE-SEC-STD-001"
+    ]
+   },
+   "findings": [
+    {
+     "rule": "G4",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control table lacks v5 rows: Level, ProcessOwner, RoleRegister",
+     "where": ""
+    },
+    {
+     "rule": "G6",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "Heading has no tag line",
+     "where": "How to use this Manual"
+    },
+    {
+     "rule": "G6",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "Heading has no tag line",
+     "where": "Reading the Manual"
+    },
+    {
+     "rule": "G6",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "Heading has no tag line",
+     "where": "Contents"
+    },
+    {
+     "rule": "G6",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "Heading has no tag line",
+     "where": "Element 1 — Commitment and accountability"
+    },
+    {
+     "rule": "G6",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "Heading has no tag line",
+     "where": "Element 2 — Policies, standards and objectives"
+    },
+    {
+     "rule": "G6",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "Heading has no tag line",
+     "where": "Element 3 — Organisation, resources and capability"
+    },
+    {
+     "rule": "G6",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "Heading has no tag line",
+     "where": "Element 4 — Stakeholders and customers"
+    },
+    {
+     "rule": "G6",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "Heading has no tag line",
+     "where": "Element 5 — Risk assessment and control"
+    },
+    {
+     "rule": "G6",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "Heading has no tag line",
+     "where": "Element 6 — Asset design and integrity"
+    },
+    {
+     "rule": "G6",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "Heading has no tag line",
+     "where": "Element 7 — Plans and procedures"
+    },
+    {
+     "rule": "G6",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "Heading has no tag line",
+     "where": "Element 8 — Execution of activities"
+    },
+    {
+     "rule": "G6",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "Heading has no tag line",
+     "where": "Element 9 — Monitoring, reporting and learning"
+    },
+    {
+     "rule": "G6",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "Heading has no tag line",
+     "where": "Element 10 — Assurance, review and improvement"
+    },
+    {
+     "rule": "G6",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "Heading has no tag line",
+     "where": "Appendices"
+    },
+    {
+     "rule": "G6",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "Heading has no tag line",
+     "where": "Appendix 4 — Glossary"
+    }
+   ],
+   "counts": {
+    "errors": 1,
+    "warnings": 15
+   }
+  },
+  {
+   "file": "ACE-AIM-PRA-001_Risk-Based_Inspection_and_Corrosion_Management_Practice_RevA.docx",
+   "folder": "samples/lite",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "FAIL",
+   "facts": {
+    "docId": "ACE-AIM-PRA-001",
+    "title": "Risk-Based Inspection and Corrosion Management Practice",
+    "revision": "A",
+    "status": "Draft",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 04",
+    "legacy": false,
+    "format": "LITE",
+    "system": "AIM",
+    "type": "PRA",
+    "headings": 12,
+    "tagControls": 0,
+    "bookmarks": [],
+    "binding": 0,
+    "controls": [],
+    "parent": "ACE-AIM-STD-001 Asset Integrity Management Standard",
+    "declaredPlanned": [
+     "ACE-AIM-PRS-001",
+     "ACE-AIM-PRS-002",
+     "ACE-OPS-PRS-001",
+     "ACE-LOG-PRS-001"
+    ],
+    "references": [
+     "ACE-AIM-STD-001",
+     "ACE-OMS-MAN-001",
+     "ACE-OPS-PRA-001",
+     "ACE-AIM-PRS-001",
+     "ACE-AIM-PRS-002",
+     "ACE-OPS-PRS-001",
+     "ACE-LOG-PRS-001"
+    ],
+    "sizeKB": 133,
+    "plannedRefs": [
+     "ACE-AIM-PRS-001",
+     "ACE-AIM-PRS-002",
+     "ACE-OPS-PRS-001",
+     "ACE-LOG-PRS-001"
+    ]
+   },
+   "findings": [
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Property ODS.DocumentId empty; value available in the document",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Property ODS.Title empty; Fix will set 'Risk-Based Inspection and Corrosion Management Practice'",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Property ODS.DocumentType empty; Fix will set 'Practice'",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Property ODS.Level empty; Fix will set '2'",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Property ODS.Revision empty; value available in the document",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Property ODS.Status empty; value available in the document",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "manual",
+     "msg": "ODS.Author has no value anywhere in the document",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "manual",
+     "msg": "ODS.DocumentOwner has no value anywhere in the document",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Property ODS.ProcessOwner empty; Fix will set 'Not applicable'",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "manual",
+     "msg": "ODS.PrimaryFunction has no value anywhere in the document",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Property ODS.Framework empty; value available in the document",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Property ODS.TitleOMSTags empty; Fix will set '6.5, 6.4, 5.4'",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Property ODS.Classification empty; Fix will set 'Internal'",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "manual",
+     "msg": "ODS.Applicability has no value anywhere in the document",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Property ODS.ReviewInterval empty; Fix will set 'Three years; earlier if triggered'",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Property ODS.Parent empty; value available in the document",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Word built-in keywords is 'Standard Practice; Draft Revision A; ONE; OMS', should be '6.5, 6.4, 5.4'",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Header/footer does not show the document number",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Header/footer does not show revision A",
+     "where": ""
+    },
+    {
+     "rule": "G5",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Title paragraph has no doc_title bookmark",
+     "where": ""
+    },
+    {
+     "rule": "G5",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "No title tag control ODS.OMSTags@doc_title",
+     "where": ""
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "1 Purpose and scope"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "2 Roles and technical authority"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "3 Damage mechanisms and corrosion loops"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "4 Risk-based inspection method"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "5 Inspection intervals and strategy"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "6 Corrosion monitoring and mitigation"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "7 Pipeline integrity and surveillance"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "8 Deferral, anomalies and fitness for service"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "9 Data, records and systems"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "10 Performance, assurance and implementing processes"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "11 Implementing processes and procedures"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "Appendix A — Controls established by this Practice"
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "Controls appendix and body differ (appendix only: C-AIM-001, C-AIM-002, C-AIM-003, C-AIM-004, C-AIM-005, C-AIM-006, C-AIM-007, C-AIM-008, C-AIM-009, C-AIM-010; body only: -)",
+     "where": ""
+    }
+   ],
+   "counts": {
+    "errors": 31,
+    "warnings": 3
+   }
+  },
+  {
+   "file": "ACE-COW-PRC-001_Permit_to_Work_Procedure_DraftA.docx",
+   "folder": "samples/lite",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "FAIL",
+   "facts": {
+    "docId": "ACE-COW-PRC-001",
+    "title": "Permit to Work Procedure",
+    "revision": "A",
+    "status": "Draft",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 04",
+    "legacy": false,
+    "format": "LITE",
+    "system": "COW",
+    "type": "PRC",
+    "headings": 12,
+    "tagControls": 0,
+    "bookmarks": [],
+    "binding": 0,
+    "controls": [],
+    "parent": "ACE-COW-STD-001 Control of Work Standard",
+    "declaredPlanned": [],
+    "references": [
+     "ACE-OMS-MAN-001",
+     "ACE-COW-PRC-002"
+    ],
+    "sizeKB": 135,
+    "plannedRefs": []
+   },
+   "findings": [
+    {
+     "rule": "G1",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "File name does not follow ACE-COW-PRC-001_Title_RevNN.docx",
+     "where": "ACE-COW-PRC-001_Permit_to_Work_Procedure_DraftA.docx"
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Property ODS.ProcessOwner empty; Fix will set 'Not applicable'",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "ODS.Level 'Level 3' is not a number 1–5",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Classification 'Controlled document — draft' not one of Public, Internal, Confidential",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "Primary function 'Control of Work permit authorization' is not one of the 13 ACE functions",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Word built-in keywords is 'ONE; ACE; ACE-COW-PRC-001; OMS 8.2, 8.1, 5.1, 3.6', should be '8.2, 8.1, 5.1, 3.6'",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Header/footer does not show the document number",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Header/footer does not show revision A",
+     "where": ""
+    },
+    {
+     "rule": "G5",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Title paragraph has no doc_title bookmark",
+     "where": ""
+    },
+    {
+     "rule": "G5",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "No title tag control ODS.OMSTags@doc_title",
+     "where": ""
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "1 Purpose, scope and permit principles"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "2 Permit applicability and work classification"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "3 Roles and authorization"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "4 Request and work preparation"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "5 Field verification and issue"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "6 Execution and monitoring"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "7 SIMOPS and coordination"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "8 Suspension, shift handover and extension"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "9 Completion, hand-back and closure"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "10 Records, assurance and process interfaces"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "11 Processes and procedures implementing this Procedure"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "Appendix A — Controls established by this Procedure"
+    },
+    {
+     "rule": "G6",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "1 section(s) carry more than 3 tags",
+     "where": ""
+    },
+    {
+     "rule": "G7",
+     "severity": "error",
+     "fix": "manual",
+     "msg": "'shall' in Normal paragraph",
+     "where": "Permit type and supplemental certificates are selected by hazard and t"
+    },
+    {
+     "rule": "G8",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Approver: 'Arjun Gittens — Offshore Operations Manager' — register title is 'Offshore Operations Manager (Gulf of Paria)'",
+     "where": ""
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "manual",
+     "msg": "Malformed Control IDs in the controls table: C-C-COW-PTW-001, C-C-COW-PTW-002, C-C-COW-PTW-003…",
+     "where": ""
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "Controls appendix and body differ (appendix only: C-C-COW-PTW-001, C-C-COW-PTW-002, C-C-COW-PTW-003, C-C-COW-PTW-004, C-C-COW-PTW-005, C-C-COW-PTW-006, C-C-COW-PTW-007, C-C-COW-PTW-008, C-C-COW-PTW-009; body only: -)",
+     "where": ""
+    },
+    {
+     "rule": "G15",
+     "severity": "error",
+     "fix": "manual",
+     "msg": "5 table(s) with the header split one letter per column (damaged table)",
+     "where": ""
+    }
+   ],
+   "counts": {
+    "errors": 22,
+    "warnings": 6
+   }
+  },
+  {
+   "file": "ACE-COW-PRC-002_Isolation_and_Reinstatement_Procedure_DraftA.docx",
+   "folder": "samples/lite",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "FAIL",
+   "facts": {
+    "docId": "ACE-COW-PRC-002",
+    "title": "Isolation and Reinstatement Procedure",
+    "revision": "A",
+    "status": "Draft",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 04",
+    "legacy": false,
+    "format": "LITE",
+    "system": "COW",
+    "type": "PRC",
+    "headings": 14,
+    "tagControls": 0,
+    "bookmarks": [],
+    "binding": 0,
+    "controls": [],
+    "parent": "ACE-COW-STD-001 Control of Work Standard",
+    "declaredPlanned": [],
+    "references": [
+     "ACE-OMS-MAN-001"
+    ],
+    "sizeKB": 135,
+    "plannedRefs": []
+   },
+   "findings": [
+    {
+     "rule": "G1",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "File name does not follow ACE-COW-PRC-002_Title_RevNN.docx",
+     "where": "ACE-COW-PRC-002_Isolation_and_Reinstatement_Procedure_DraftA.docx"
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Property ODS.ProcessOwner empty; Fix will set 'Not applicable'",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "ODS.Level 'Level 3' is not a number 1–5",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Classification 'Controlled document — draft' not one of Public, Internal, Confidential",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "Primary function 'Isolation and reinstatement' is not one of the 13 ACE functions",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Word built-in keywords is 'ONE; ACE; ACE-COW-PRC-002; OMS 8.2, 6.5, 8.1, 7.1', should be '8.2, 6.5, 8.1, 7.1'",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Header/footer does not show the document number",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Header/footer does not show revision A",
+     "where": ""
+    },
+    {
+     "rule": "G5",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Title paragraph has no doc_title bookmark",
+     "where": ""
+    },
+    {
+     "rule": "G5",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "No title tag control ODS.OMSTags@doc_title",
+     "where": ""
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "1 Purpose, scope and isolation principles"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "2 Roles and responsibilities"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "3 Planning and source identification"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "4 Method selection and design"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "5 Certificate, locks, tags and register"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "6 Apply, secure and verify"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "7 Personal and group lock protection"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "8 Maintain isolation and respond to change"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "9 Clearance and reinstatement planning"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "10 Removal, restoration and return to service"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "11 Complex, emergency and non-standard isolations"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "12 Records, assurance and performance"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "13 Processes and procedures implementing this Procedure"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "Appendix A — Controls established by this Procedure"
+    },
+    {
+     "rule": "G6",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "1 section(s) carry more than 3 tags",
+     "where": ""
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "manual",
+     "msg": "Malformed Control IDs in the controls table: C-C-COW-ISO-001, C-C-COW-ISO-002, C-C-COW-ISO-003…",
+     "where": ""
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "Controls appendix and body differ (appendix only: C-C-COW-ISO-001, C-C-COW-ISO-002, C-C-COW-ISO-003, C-C-COW-ISO-004, C-C-COW-ISO-005, C-C-COW-ISO-006, C-C-COW-ISO-007, C-C-COW-ISO-008, C-C-COW-ISO-009, C-C-COW-ISO-010; body only: -)",
+     "where": ""
+    },
+    {
+     "rule": "G15",
+     "severity": "error",
+     "fix": "manual",
+     "msg": "3 table(s) with the header split one letter per column (damaged table)",
+     "where": ""
+    }
+   ],
+   "counts": {
+    "errors": 22,
+    "warnings": 6
+   }
+  },
+  {
+   "file": "ACE-MNT-PRA-001_Equipment_Criticality_and_SCE_Maintenance_Practice_RevA.docx",
+   "folder": "samples/lite",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "FAIL",
+   "facts": {
+    "docId": "ACE-MNT-PRA-001",
+    "title": "Equipment Criticality and Safety-Critical Element Maintenance Practice",
+    "revision": "A",
+    "status": "Draft",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 04",
+    "legacy": false,
+    "format": "LITE",
+    "system": "MNT",
+    "type": "PRA",
+    "headings": 14,
+    "tagControls": 0,
+    "bookmarks": [],
+    "binding": 0,
+    "controls": [],
+    "parent": "ACE-MNT-STD-001 Maintenance Management Standard",
+    "declaredPlanned": [
+     "ACE-MNT-PRS-001",
+     "ACE-MNT-PRS-002",
+     "ACE-MNT-WIN-001-PAP"
+    ],
+    "references": [
+     "ACE-MNT-STD-001",
+     "ACE-OMS-MAN-001",
+     "ACE-OMS-STD-002",
+     "ACE-MNT-PRS-001",
+     "ACE-MNT-PRS-002",
+     "ACE-MNT-WIN-001-PAP"
+    ],
+    "sizeKB": 133,
+    "plannedRefs": [
+     "ACE-MNT-PRS-001",
+     "ACE-MNT-PRS-002",
+     "ACE-MNT-WIN-001-PAP"
+    ]
+   },
+   "findings": [
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Property ODS.DocumentId empty; value available in the document",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Property ODS.Title empty; Fix will set 'Equipment Criticality and Safety-Critical Element Maintenance Practice'",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Property ODS.DocumentType empty; Fix will set 'Practice'",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Property ODS.Level empty; Fix will set '2'",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Property ODS.Revision empty; value available in the document",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Property ODS.Status empty; value available in the document",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "manual",
+     "msg": "ODS.Author has no value anywhere in the document",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "manual",
+     "msg": "ODS.DocumentOwner has no value anywhere in the document",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Property ODS.ProcessOwner empty; Fix will set 'Not applicable'",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "manual",
+     "msg": "ODS.PrimaryFunction has no value anywhere in the document",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Property ODS.Framework empty; value available in the document",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Property ODS.TitleOMSTags empty; Fix will set '6.4, 6.5, 8.2'",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Property ODS.Classification empty; Fix will set 'Internal'",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "manual",
+     "msg": "ODS.Applicability has no value anywhere in the document",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Property ODS.ReviewInterval empty; Fix will set 'Three years; earlier if triggered'",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Property ODS.Parent empty; value available in the document",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Word built-in keywords is 'Standard Practice; Draft Revision A; ONE; OMS', should be '6.4, 6.5, 8.2'",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Header/footer does not show the document number",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Header/footer does not show revision A",
+     "where": ""
+    },
+    {
+     "rule": "G5",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Title paragraph has no doc_title bookmark",
+     "where": ""
+    },
+    {
+     "rule": "G5",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "No title tag control ODS.OMSTags@doc_title",
+     "where": ""
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "1 Purpose and scope"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "2 Roles and authority"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "3 Equipment hierarchy and criticality"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "4 Criticality method and reassessment"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "5 Safety-Critical Elements and performance standards"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "6 Maintenance strategy selection"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "7 Work order priority, backlog and planning"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "8 SCE overdue, impairment, bypass and deviation"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "9 Failure data, records and systems"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "10 Performance, verification and process interfaces"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "11 Implementing processes and procedures"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "Appendix A — Criticality selection matrix"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "Appendix B — Processes and procedures implementing this Prac"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "Appendix C — Controls established by this Practice"
+    },
+    {
+     "rule": "G9",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "Controls appendix and body differ (appendix only: C-MNT-001, C-MNT-002, C-MNT-003, C-MNT-004, C-MNT-005, C-MNT-006, C-MNT-007, C-MNT-008, C-MNT-009, C-MNT-010; body only: -)",
+     "where": ""
+    }
+   ],
+   "counts": {
+    "errors": 33,
+    "warnings": 3
+   }
+  },
+  {
+   "file": "ACE-OPS-PRA-001_Operating_Envelopes_and_Integrity_Operating_Windows_Practice_RevA.docx",
+   "folder": "samples/lite",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "FAIL",
+   "facts": {
+    "docId": "ACE-OPS-PRA-001",
+    "title": "Operating Envelopes and Integrity Operating Windows Practice",
+    "revision": "A",
+    "status": "Draft",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 04",
+    "legacy": false,
+    "format": "LITE",
+    "system": "OPS",
+    "type": "PRA",
+    "headings": 14,
+    "tagControls": 0,
+    "bookmarks": [],
+    "binding": 39,
+    "controls": [
+     "C-OPS-001",
+     "C-OPS-002",
+     "C-OPS-003",
+     "C-OPS-004",
+     "C-OPS-005",
+     "C-OPS-006",
+     "C-OPS-007",
+     "C-OPS-008",
+     "C-OPS-009",
+     "C-OPS-010",
+     "C-OPS-011",
+     "C-OPS-012",
+     "C-OPS-013",
+     "C-OPS-014",
+     "C-OPS-015",
+     "C-OPS-016",
+     "C-OPS-017",
+     "C-OPS-018",
+     "C-OPS-019",
+     "C-OPS-020",
+     "C-OPS-021",
+     "C-OPS-022",
+     "C-OPS-023",
+     "C-OPS-024",
+     "C-OPS-025",
+     "C-OPS-026",
+     "C-OPS-027",
+     "C-OPS-028",
+     "C-OPS-029",
+     "C-OPS-030",
+     "C-OPS-031",
+     "C-OPS-032",
+     "C-OPS-033",
+     "C-OPS-034",
+     "C-OPS-035",
+     "C-OPS-036",
+     "C-OPS-037",
+     "C-OPS-038",
+     "C-OPS-039"
+    ],
+    "parent": "ACE-OPS-STD-001 Operating Envelopes and Operating Limits Standard (planned)",
+    "declaredPlanned": [
+     "ACE-OPS-PRS-001"
+    ],
+    "references": [
+     "ACE-OPS-STD-001",
+     "ACE-OMS-MAN-001",
+     "ACE-MOC-PRC-001",
+     "ACE-OPS-PRS-001",
+     "ACE-INC-PRS-001"
+    ],
+    "sizeKB": 136,
+    "plannedRefs": [
+     "ACE-OPS-PRS-001"
+    ]
+   },
+   "findings": [
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Property ODS.IssueDate missing",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Property ODS.EffectiveDate missing",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Header/footer does not show the document number",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Header/footer does not show revision A",
+     "where": ""
+    },
+    {
+     "rule": "G5",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Title paragraph has no doc_title bookmark",
+     "where": ""
+    },
+    {
+     "rule": "G5",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "No title tag control ODS.OMSTags@doc_title",
+     "where": ""
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Standard heading has no tag line; Fix adds OMS 1.7",
+     "where": "Document control"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Standard heading has no tag line; Fix adds OMS 1.7",
+     "where": "Revision history"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Standard heading has no tag line; Fix adds OMS 7.1",
+     "where": "Document map"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "Purpose, scope and parent Standard"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "Roles and technical authority"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "Limit hierarchy and classification"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "Establishing and validating limits"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "Registers, control-system integration and monitoring"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "Excursion response and escalation"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "Change, review and assurance"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "Records and data quality"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "Implementing processes"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "Appendix A — Example limits (illustrative, not operating set"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "Appendix B — Limit review flow"
+    },
+    {
+     "rule": "G7",
+     "severity": "error",
+     "fix": "manual",
+     "msg": "'shall' in Normal paragraph",
+     "where": "Limits are nested; lower-level targets never override an upper-level s"
+    },
+    {
+     "rule": "G7",
+     "severity": "error",
+     "fix": "manual",
+     "msg": "'shall' in Normal paragraph",
+     "where": "Each limit shall be recorded in the Operating Limits Register with a u"
+    },
+    {
+     "rule": "G7",
+     "severity": "error",
+     "fix": "manual",
+     "msg": "'shall' in Normal paragraph",
+     "where": "Excursions are assessed by limit class, magnitude, duration, trend and"
+    },
+    {
+     "rule": "G7",
+     "severity": "error",
+     "fix": "manual",
+     "msg": "'shall' in Normal paragraph",
+     "where": "Operating limits may be changed only through ACE-MOC-PRC-001. The MOC "
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-001 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-002 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-003 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-004 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-005 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-006 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-007 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-008 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-009 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-010 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-011 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-012 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-013 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-014 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-015 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-016 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-017 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-018 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-019 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-020 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-021 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-022 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-023 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-024 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-025 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-026 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-027 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-028 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-029 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-030 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-031 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-032 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-033 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-034 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-035 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-036 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-037 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-038 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-OPS-039 as plain text",
+     "where": "Operating limits are technically based, classified, approved"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "manual",
+     "msg": "39 control paragraphs have identical text — placeholders, not real controls",
+     "where": ""
+    },
+    {
+     "rule": "G11",
+     "severity": "warning",
+     "fix": "manual",
+     "msg": "References to unknown documents: ACE-INC-PRS-001",
+     "where": ""
+    }
+   ],
+   "counts": {
+    "errors": 62,
+    "warnings": 3
+   }
+  },
+  {
+   "file": "ACE-WEL-PRA-001_Well_Barriers_and_Well_Handover_Practice_RevA.docx",
+   "folder": "samples/lite",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "FAIL",
+   "facts": {
+    "docId": "ACE-WEL-PRA-001",
+    "title": "Well Barriers and Well Handover Practice",
+    "revision": "A",
+    "status": "Draft",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 04",
+    "legacy": false,
+    "format": "LITE",
+    "system": "WEL",
+    "type": "PRA",
+    "headings": 15,
+    "tagControls": 0,
+    "bookmarks": [],
+    "binding": 39,
+    "controls": [
+     "C-WEL-001",
+     "C-WEL-002",
+     "C-WEL-003",
+     "C-WEL-004",
+     "C-WEL-005",
+     "C-WEL-006",
+     "C-WEL-007",
+     "C-WEL-008",
+     "C-WEL-009",
+     "C-WEL-010",
+     "C-WEL-011",
+     "C-WEL-012",
+     "C-WEL-013",
+     "C-WEL-014",
+     "C-WEL-015",
+     "C-WEL-016",
+     "C-WEL-017",
+     "C-WEL-018",
+     "C-WEL-019",
+     "C-WEL-020",
+     "C-WEL-021",
+     "C-WEL-022",
+     "C-WEL-023",
+     "C-WEL-024",
+     "C-WEL-025",
+     "C-WEL-026",
+     "C-WEL-027",
+     "C-WEL-028",
+     "C-WEL-029",
+     "C-WEL-030",
+     "C-WEL-031",
+     "C-WEL-032",
+     "C-WEL-033",
+     "C-WEL-034",
+     "C-WEL-035",
+     "C-WEL-036",
+     "C-WEL-037",
+     "C-WEL-038",
+     "C-WEL-039"
+    ],
+    "parent": "ACE-WEL-STD-001 Well Integrity Management Standard (planned)",
+    "declaredPlanned": [
+     "ACE-WEL-PRS-001",
+     "ACE-WEL-PRS-002"
+    ],
+    "references": [
+     "ACE-WEL-STD-001",
+     "ACE-OMS-MAN-001",
+     "ACE-WEL-PRS-001",
+     "ACE-WEL-PRS-002",
+     "ACE-MOC-PRC-001"
+    ],
+    "sizeKB": 137,
+    "plannedRefs": [
+     "ACE-WEL-PRS-001",
+     "ACE-WEL-PRS-002"
+    ]
+   },
+   "findings": [
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Property ODS.IssueDate missing",
+     "where": ""
+    },
+    {
+     "rule": "G3",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Property ODS.EffectiveDate missing",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Header/footer does not show the document number",
+     "where": ""
+    },
+    {
+     "rule": "G4",
+     "severity": "warning",
+     "fix": "auto",
+     "msg": "Header/footer does not show revision A",
+     "where": ""
+    },
+    {
+     "rule": "G5",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Title paragraph has no doc_title bookmark",
+     "where": ""
+    },
+    {
+     "rule": "G5",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "No title tag control ODS.OMSTags@doc_title",
+     "where": ""
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Standard heading has no tag line; Fix adds OMS 1.7",
+     "where": "Document control"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Standard heading has no tag line; Fix adds OMS 1.7",
+     "where": "Revision history"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Standard heading has no tag line; Fix adds OMS 7.1",
+     "where": "Document map"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "Purpose, scope and parent Standard"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "Roles and technical authority"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "Barrier philosophy and well states"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "Barrier element acceptance and verification"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "Well integrity categories and response"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "Annulus pressure management"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "Well handover and return to Wells"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "Unmanned platform and land-well application"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "Records, performance and assurance"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "Implementing processes and procedures"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "Appendix A — Well barrier decision flow"
+    },
+    {
+     "rule": "G6",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Tag line is plain text (LITE)",
+     "where": "Appendix B — Reference basis"
+    },
+    {
+     "rule": "G7",
+     "severity": "error",
+     "fix": "manual",
+     "msg": "'shall' in Normal paragraph",
+     "where": "Barrier elements are accepted against a defined function, design envel"
+    },
+    {
+     "rule": "G7",
+     "severity": "error",
+     "fix": "manual",
+     "msg": "'shall' in Normal paragraph",
+     "where": "Chenet B and Sapodilla C are normally unmanned and accessed by boat. B"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-001 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-002 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-003 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-004 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-005 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-006 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-007 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-008 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-009 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-010 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-011 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-012 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-013 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-014 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-015 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-016 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-017 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-018 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-019 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-020 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-021 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-022 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-023 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-024 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-025 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-026 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-027 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-028 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-029 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-030 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-031 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-032 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-033 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-034 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-035 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-036 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-037 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-038 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "auto",
+     "msg": "Control ID(s) C-WEL-039 as plain text",
+     "where": "Well barrier envelopes, elements, verification, category, pr"
+    },
+    {
+     "rule": "G9",
+     "severity": "error",
+     "fix": "manual",
+     "msg": "39 control paragraphs have identical text — placeholders, not real controls",
+     "where": ""
+    }
+   ],
+   "counts": {
+    "errors": 61,
+    "warnings": 2
+   }
+  },
+  {
+   "file": "ACE-DOC-PRA-999_ONE_Golden_Sample_Practice_Rev01.docx",
+   "folder": "protocol/samples",
+   "engine": "1.0.0",
+   "protocol": "1.0.0",
+   "outcome": "PASS",
+   "facts": {
+    "docId": "ACE-DOC-PRA-999",
+    "title": "ONE Golden Sample Practice",
+    "revision": "01",
+    "status": "Approved",
+    "framework": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 04",
+    "legacy": false,
+    "format": "STRICT",
+    "system": "DOC",
+    "type": "PRA",
+    "headings": 14,
+    "tagControls": 15,
+    "bookmarks": [
+     "doc_title",
+     "front_document_control",
+     "front_revision_history",
+     "front_approval",
+     "front_document_map",
+     "ACE_DOC_PRA_999_H001",
+     "ACE_DOC_PRA_999_H002",
+     "ACE_DOC_PRA_999_H003",
+     "ACE_DOC_PRA_999_H004",
+     "ACE_DOC_PRA_999_H005",
+     "ACE_DOC_PRA_999_H006",
+     "ACE_DOC_PRA_999_H007",
+     "ACE_DOC_PRA_999_H008",
+     "ACE_DOC_PRA_999_H009",
+     "ACE_DOC_PRA_999_H010"
+    ],
+    "binding": 6,
+    "controls": [
+     "C-DOC-901",
+     "C-DOC-902"
+    ],
+    "parent": "ACE-DOC-STD-002",
+    "declaredPlanned": [
+     "ACE-BPM-PRS-001"
+    ],
+    "references": [
+     "ACE-DOC-STD-002",
+     "ACE-OMS-MAN-001",
+     "ACE-DOC-PRC-001",
+     "ACE-BPM-PRS-001",
+     "ACE-RSK-REG-002"
+    ],
+    "sizeKB": 108,
+    "plannedRefs": [
+     "ACE-BPM-PRS-001",
+     "ACE-RSK-REG-002"
+    ]
+   },
+   "findings": [],
+   "counts": {
+    "errors": 0,
+    "warnings": 0
+   }
+  }
+ ]
+}

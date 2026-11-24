@@ -31,3 +31,10 @@ The 20 Rev 01 finals from Wave 1: no ODS.Parent; Framework "Rev 03"; control-tab
 ## Tools
 
 `notes/ONE_Session2_Pack/tools/` — `gen.py` (STRICT builder from a spec, shell = OPS-STD-001), `extract.py` (LITE → spec, text kept), `verify.py` (independent check), `run.py`. Specs in `notes/ONE_Session2_Pack/specs/`.
+
+## Protocol Pack (24 November 2026, afternoon)
+
+- `protocol/` added: one-protocol.json, ONE_Protocol_v1.md, the shared checker (engine/one-audit.js), process schema ONE-PRS/1 with the MOC example, nine register templates, golden sample ACE-DOC-PRA-999.
+- Template v5 added to `templates/`; v4 and the preview moved to `superseded/`.
+- Manual Rev 04: one paragraph restyled from ODS.RiskControl to ODS.Requirement (a requirement about controls, not a control). Text unchanged.
+- Test result: all 33 controlled documents PASS (29) or PASS AFTER FIX (4); golden sample PASS; the 6 writer originals in samples/lite FAIL only on genuine defects.

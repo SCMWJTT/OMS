@@ -1,0 +1,2364 @@
+{
+ "protocol": "ONE-PROTOCOL",
+ "version": "1.0.0",
+ "issued": "2026-11-24",
+ "governed_by": "ACE-DOC-STD-002 Rev 02",
+ "company": {
+  "name": "Acme Caribbean Energy Limited",
+  "short": "ACE",
+  "site_url": "https://oms.cynmark.app/"
+ },
+ "framework": {
+  "current": "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 04",
+  "legacy": [
+   "IOGP Report 510 (2014); ACE-OMS-MAN-001 Rev 03"
+  ],
+  "legacy_rule": "A document whose Framework names Rev 03 is LEGACY: rules introduced in protocol 2.0 give warnings, not errors, until its next revision."
+ },
+ "numbering": {
+  "docid": "^ACE-([A-Z]{3})-([A-Z]{3})-(\\d{3})(?:-([A-Z]{3}))?$",
+  "file": "^(ACE-[A-Z]{3}-[A-Z]{3}-\\d{3}(?:-[A-Z]{3})?)_[A-Za-z0-9_\\-]+_Rev([A-Z]|\\d{2})\\.docx$",
+  "reference": "(?<![A-Za-z0-9-])ACE-[A-Z]{3}-[A-Z]{3}-\\d{3}(?:-[A-Z]{3})?(?:\\s*§\\s*[0-9A-Z][0-9A-Z.]*)?",
+  "eng_blocks": "ENG uses discipline blocks 100 to 900; 901 is the framework standard"
+ },
+ "revision": {
+  "draft": "^[A-Z]$",
+  "approved": "^\\d{2}$",
+  "draft_status": [
+   "Draft",
+   "In Review"
+  ],
+  "approved_status": [
+   "Approved",
+   "Superseded",
+   "Withdrawn"
+  ]
+ },
+ "statuses": [
+  "Draft",
+  "In Review",
+  "Approved",
+  "Superseded",
+  "Withdrawn"
+ ],
+ "classifications": [
+  "Public",
+  "Internal",
+  "Confidential"
+ ],
+ "types": {
+  "MAN": {
+   "name": "Manual",
+   "level": 1,
+   "layer": "Policy"
+  },
+  "POL": {
+   "name": "Policy",
+   "level": 1,
+   "layer": "Policy"
+  },
+  "STD": {
+   "name": "Standard",
+   "level": 2,
+   "layer": "Standard and Practice",
+   "implementing_table": true
+  },
+  "PRA": {
+   "name": "Practice",
+   "level": 2,
+   "layer": "Standard and Practice",
+   "implementing_table": true
+  },
+  "SPC": {
+   "name": "Specification",
+   "level": 2,
+   "layer": "Standard and Practice"
+  },
+  "PRS": {
+   "name": "Process",
+   "level": 3,
+   "layer": "Process",
+   "paired_file": true
+  },
+  "PRC": {
+   "name": "Procedure",
+   "level": 4,
+   "layer": "Procedure and Plan",
+   "legacy_level": 3
+  },
+  "PLN": {
+   "name": "Plan",
+   "level": 4,
+   "layer": "Procedure and Plan",
+   "legacy_level": 3
+  },
+  "WIN": {
+   "name": "Work Instruction",
+   "level": 5,
+   "layer": "Task and record",
+   "legacy_level": 4
+  },
+  "FRM": {
+   "name": "Form",
+   "level": 5,
+   "layer": "Task and record",
+   "legacy_level": 4
+  },
+  "REG": {
+   "name": "Register",
+   "level": 5,
+   "layer": "Task and record",
+   "legacy_level": 4
+  },
+  "GDL": {
+   "name": "Guideline",
+   "level": null,
+   "layer": "Supporting",
+   "binding_allowed": false
+  }
+ },
+ "systems": {
+  "LDR": {
+   "name": "Leadership and Conduct",
+   "owner": "Chief Executive Officer",
+   "elements": [
+    1
+   ]
+  },
+  "OMS": {
+   "name": "OMS Governance and Deviations",
+   "owner": "VP HSE & Compliance (custodian: OMS Manager)",
+   "elements": [
+    1,
+    2,
+    10
+   ]
+  },
+  "LEG": {
+   "name": "Legal and Regulatory Compliance",
+   "owner": "VP Legal & Government Affairs",
+   "elements": [
+    2
+   ]
+  },
+  "PPL": {
+   "name": "People, Organisation and Competence",
+   "owner": "VP Human Resources",
+   "elements": [
+    3
+   ]
+  },
+  "CON": {
+   "name": "Contractors and Supply Chain",
+   "owner": "VP Supply Chain Management",
+   "elements": [
+    3,
+    8
+   ]
+  },
+  "STK": {
+   "name": "Stakeholders, Community and Customers",
+   "owner": "VP Communications & Corporate Services",
+   "elements": [
+    4
+   ]
+  },
+  "RSK": {
+   "name": "Risk Management and the ACE Risk Matrix",
+   "owner": "VP HSE & Compliance",
+   "elements": [
+    5
+   ]
+  },
+  "PSM": {
+   "name": "Process Safety and Hazard Studies",
+   "owner": "VP HSE & Compliance (Technical Authority: Process Safety Lead)",
+   "elements": [
+    5,
+    6
+   ]
+  },
+  "MOC": {
+   "name": "Management of Change",
+   "owner": "VP Engineering & Projects",
+   "elements": [
+    5
+   ]
+  },
+  "PRJ": {
+   "name": "Projects and Engineering Delivery",
+   "owner": "VP Engineering & Projects",
+   "elements": [
+    6
+   ]
+  },
+  "ENG": {
+   "name": "Engineering Standards and Technical Authority",
+   "owner": "VP Engineering & Projects (Technical Leadership Council)",
+   "elements": [
+    6
+   ]
+  },
+  "AIM": {
+   "name": "Asset Integrity and Inspection",
+   "owner": "VP Engineering & Projects",
+   "elements": [
+    6
+   ]
+  },
+  "MNT": {
+   "name": "Maintenance Management",
+   "owner": "VP Operations",
+   "elements": [
+    6,
+    8
+   ]
+  },
+  "WEL": {
+   "name": "Well Integrity",
+   "owner": "VP Wells",
+   "elements": [
+    6,
+    8
+   ]
+  },
+  "OPS": {
+   "name": "Operations and Operating Limits",
+   "owner": "VP Operations",
+   "elements": [
+    6,
+    7,
+    8
+   ]
+  },
+  "COW": {
+   "name": "Control of Work",
+   "owner": "VP Operations",
+   "elements": [
+    8
+   ]
+  },
+  "EMR": {
+   "name": "Emergency, Crisis and Continuity",
+   "owner": "VP HSE & Compliance",
+   "elements": [
+    7
+   ]
+  },
+  "DOC": {
+   "name": "Information, Documents and Records",
+   "owner": "VP IT, Data & Knowledge",
+   "elements": [
+    1,
+    7,
+    9
+   ]
+  },
+  "INC": {
+   "name": "Incidents and Learning",
+   "owner": "VP HSE & Compliance",
+   "elements": [
+    9
+   ]
+  },
+  "PRF": {
+   "name": "Performance, Assurance and Review",
+   "owner": "VP HSE & Compliance (audit: Head of Internal Audit)",
+   "elements": [
+    9,
+    10
+   ]
+  },
+  "ENV": {
+   "name": "Environment",
+   "owner": "VP HSE & Compliance",
+   "elements": [
+    2,
+    5,
+    9
+   ]
+  },
+  "OHH": {
+   "name": "Occupational Health",
+   "owner": "VP HSE & Compliance",
+   "elements": [
+    3,
+    5
+   ]
+  },
+  "SEC": {
+   "name": "Security",
+   "owner": "VP HSE & Compliance",
+   "elements": [
+    5,
+    7
+   ]
+  },
+  "BPM": {
+   "name": "Business Process Management",
+   "owner": "Manager, Strategy & Planning (sponsor: Chief Executive Officer)",
+   "elements": [
+    1,
+    2,
+    3,
+    7,
+    10
+   ]
+  },
+  "LOG": {
+   "name": "Marine and Aviation Logistics",
+   "owner": "VP Supply Chain Management",
+   "elements": [
+    3,
+    7,
+    8
+   ]
+  },
+  "HMA": {
+   "name": "Hydrocarbon Measurement and Allocation",
+   "owner": "VP Business Development & Markets (Technical Authority: Metering & Measurement Lead)",
+   "elements": [
+    2,
+    4,
+    9
+   ]
+  }
+ },
+ "sites": {
+  "PAP": "Pommerac A",
+  "CHB": "Chenet B",
+  "SAP": "Sapodilla C",
+  "CPF": "Central Processing Facility",
+  "LND": "Land leases (Tamarind, Pawpaw, Soursop)",
+  "PLB": "Point Lisas shore base",
+  "HOF": "Head Office"
+ },
+ "functions": [
+  "Business Development & Markets",
+  "CEO Office",
+  "Communications & Corporate Services",
+  "Engineering & Projects",
+  "Exploration & Development",
+  "Finance",
+  "HSE & Compliance",
+  "Human Resources",
+  "IT, Data & Knowledge",
+  "Legal & Government Affairs",
+  "Operations",
+  "Supply Chain Management",
+  "Wells"
+ ],
+ "elements": [
+  {
+   "id": 1,
+   "title": "Commitment and accountability",
+   "owner": "Chief Executive Officer"
+  },
+  {
+   "id": 2,
+   "title": "Policies, standards and objectives",
+   "owner": "VP HSE & Compliance"
+  },
+  {
+   "id": 3,
+   "title": "Organisation, resources and capability",
+   "owner": "VP Human Resources"
+  },
+  {
+   "id": 4,
+   "title": "Stakeholders and customers",
+   "owner": "VP Communications & Corporate Services"
+  },
+  {
+   "id": 5,
+   "title": "Risk assessment and control",
+   "owner": "VP HSE & Compliance"
+  },
+  {
+   "id": 6,
+   "title": "Asset design and integrity",
+   "owner": "VP Engineering & Projects"
+  },
+  {
+   "id": 7,
+   "title": "Plans and procedures",
+   "owner": "VP Operations"
+  },
+  {
+   "id": 8,
+   "title": "Execution of activities",
+   "owner": "VP Operations"
+  },
+  {
+   "id": 9,
+   "title": "Monitoring, reporting and learning",
+   "owner": "VP HSE & Compliance"
+  },
+  {
+   "id": 10,
+   "title": "Assurance, review and improvement",
+   "owner": "Head of Internal Audit & Risk Assurance"
+  }
+ ],
+ "expectations": [
+  {
+   "id": "1.1",
+   "element": 1,
+   "title": "Leading OMS across ACE"
+  },
+  {
+   "id": "1.2",
+   "element": 1,
+   "title": "A culture of safe, reliable and accountable work"
+  },
+  {
+   "id": "1.3",
+   "element": 1,
+   "title": "Everyone committed to OMS and the law"
+  },
+  {
+   "id": "1.4",
+   "element": 1,
+   "title": "Our Code of Conduct"
+  },
+  {
+   "id": "1.5",
+   "element": 1,
+   "title": "OMS duties built into every role"
+  },
+  {
+   "id": "1.6",
+   "element": 1,
+   "title": "Keeping OMS visible"
+  },
+  {
+   "id": "1.7",
+   "element": 1,
+   "title": "Controlled documents and records"
+  },
+  {
+   "id": "1.8",
+   "element": 1,
+   "title": "Learning to reduce risk"
+  },
+  {
+   "id": "2.1",
+   "element": 2,
+   "title": "Setting and sharing policies, standards and objectives"
+  },
+  {
+   "id": "2.2",
+   "element": 2,
+   "title": "Approval at the right level"
+  },
+  {
+   "id": "2.3",
+   "element": 2,
+   "title": "Risk-based standards that meet the law"
+  },
+  {
+   "id": "2.4",
+   "element": 2,
+   "title": "Objectives we can measure"
+  },
+  {
+   "id": "2.5",
+   "element": 2,
+   "title": "Working with partners"
+  },
+  {
+   "id": "2.6",
+   "element": 2,
+   "title": "Deviations and exemptions"
+  },
+  {
+   "id": "3.1",
+   "element": 3,
+   "title": "Clear roles, accountabilities and authorities"
+  },
+  {
+   "id": "3.2",
+   "element": 3,
+   "title": "Planning our workforce"
+  },
+  {
+   "id": "3.3",
+   "element": 3,
+   "title": "Competence assurance"
+  },
+  {
+   "id": "3.4",
+   "element": 3,
+   "title": "The right resources"
+  },
+  {
+   "id": "3.5",
+   "element": 3,
+   "title": "Consulting our workforce"
+  },
+  {
+   "id": "3.6",
+   "element": 3,
+   "title": "Contractors and suppliers"
+  },
+  {
+   "id": "4.1",
+   "element": 4,
+   "title": "Knowing and engaging our stakeholders"
+  },
+  {
+   "id": "4.2",
+   "element": 4,
+   "title": "Managing stakeholder and customer risks"
+  },
+  {
+   "id": "4.3",
+   "element": 4,
+   "title": "Listening and responding"
+  },
+  {
+   "id": "4.4",
+   "element": 4,
+   "title": "Two-way relationships"
+  },
+  {
+   "id": "5.1",
+   "element": 5,
+   "title": "Assessing risk and putting barriers in place"
+  },
+  {
+   "id": "5.2",
+   "element": 5,
+   "title": "Recording and reviewing significant risks"
+  },
+  {
+   "id": "5.3",
+   "element": 5,
+   "title": "Managing change"
+  },
+  {
+   "id": "5.4",
+   "element": 5,
+   "title": "Staying alert to rising risk"
+  },
+  {
+   "id": "6.1",
+   "element": 6,
+   "title": "Designing with the right information"
+  },
+  {
+   "id": "6.2",
+   "element": 6,
+   "title": "Engineering standards through the asset life"
+  },
+  {
+   "id": "6.3",
+   "element": 6,
+   "title": "Staying inside operating limits"
+  },
+  {
+   "id": "6.4",
+   "element": 6,
+   "title": "Safety-critical elements"
+  },
+  {
+   "id": "6.5",
+   "element": 6,
+   "title": "Maintenance, inspection and testing"
+  },
+  {
+   "id": "6.6",
+   "element": 6,
+   "title": "Buying and selling assets"
+  },
+  {
+   "id": "7.1",
+   "element": 7,
+   "title": "Writing plans and procedures"
+  },
+  {
+   "id": "7.2",
+   "element": 7,
+   "title": "Approving plans and procedures"
+  },
+  {
+   "id": "7.3",
+   "element": 7,
+   "title": "Training people to use procedures"
+  },
+  {
+   "id": "7.4",
+   "element": 7,
+   "title": "The current version wherever work is done"
+  },
+  {
+   "id": "7.5",
+   "element": 7,
+   "title": "Emergency and continuity plans"
+  },
+  {
+   "id": "8.1",
+   "element": 8,
+   "title": "Ready before we start"
+  },
+  {
+   "id": "8.2",
+   "element": 8,
+   "title": "Doing the work as planned"
+  },
+  {
+   "id": "8.3",
+   "element": 8,
+   "title": "Supervision that checks the work"
+  },
+  {
+   "id": "8.4",
+   "element": 8,
+   "title": "Stop work"
+  },
+  {
+   "id": "8.5",
+   "element": 8,
+   "title": "Recognising good work and correcting poor work"
+  },
+  {
+   "id": "9.1",
+   "element": 9,
+   "title": "Monitoring and verification"
+  },
+  {
+   "id": "9.2",
+   "element": 9,
+   "title": "Reporting and investigating incidents"
+  },
+  {
+   "id": "9.3",
+   "element": 9,
+   "title": "Learning and closing actions"
+  },
+  {
+   "id": "9.4",
+   "element": 9,
+   "title": "Leading and lagging indicators"
+  },
+  {
+   "id": "9.5",
+   "element": 9,
+   "title": "Reliable data"
+  },
+  {
+   "id": "10.1",
+   "element": 10,
+   "title": "A risk-based assurance programme"
+  },
+  {
+   "id": "10.2",
+   "element": 10,
+   "title": "Reviewing performance"
+  },
+  {
+   "id": "10.3",
+   "element": 10,
+   "title": "Finding weak controls"
+  },
+  {
+   "id": "10.4",
+   "element": 10,
+   "title": "Planned improvement"
+  },
+  {
+   "id": "10.5",
+   "element": 10,
+   "title": "Leadership review of the whole system"
+  }
+ ],
+ "people": {
+  "source": "company/ACE_People.csv",
+  "name_column": "Full Name",
+  "title_column": "Job Title",
+  "format": "Name — Job title",
+  "separator": "; ",
+  "allowed_values": [
+   "Technical Leadership Council",
+   "Executive Leadership Team",
+   "Not required",
+   "Not applicable",
+   "Board of Directors"
+  ],
+  "fields": [
+   "ODS.Author",
+   "ODS.Reviewer",
+   "ODS.Endorser",
+   "ODS.Approver",
+   "ODS.DocumentOwner",
+   "ODS.ProcessOwner",
+   "ODS.Custodian"
+  ]
+ },
+ "styles": [
+  {
+   "id": "Title",
+   "name": "Title",
+   "aliases": [],
+   "binding": false,
+   "one": "document title (carries doc_title bookmark)",
+   "kind": "paragraph"
+  },
+  {
+   "id": "Heading1",
+   "name": "Heading 1",
+   "aliases": [],
+   "binding": false,
+   "one": "section; must have bookmark + tag line",
+   "kind": "paragraph"
+  },
+  {
+   "id": "Heading2",
+   "name": "Heading 2",
+   "aliases": [],
+   "binding": false,
+   "one": "sub-section; must have bookmark + tag line",
+   "kind": "paragraph"
+  },
+  {
+   "id": "Heading3",
+   "name": "Heading 3",
+   "aliases": [],
+   "binding": false,
+   "one": "minor heading; tag line optional",
+   "kind": "paragraph"
+  },
+  {
+   "id": "ODSTagLine",
+   "name": "ODS Tag Line",
+   "aliases": [],
+   "binding": false,
+   "one": "holds the OMS Tags content control for the heading above",
+   "kind": "paragraph"
+  },
+  {
+   "id": "DocumentSubTitle",
+   "name": "Document Sub Title",
+   "aliases": [],
+   "binding": false,
+   "one": "cover subtitle; shown as summary",
+   "kind": "paragraph"
+  },
+  {
+   "id": "DocumentKicker",
+   "name": "Document Kicker",
+   "aliases": [],
+   "binding": false,
+   "one": "cover label",
+   "kind": "paragraph"
+  },
+  {
+   "id": "ODS.Requirement",
+   "name": "ODS Requirement",
+   "aliases": [
+    "ODSRequirement"
+   ],
+   "binding": true,
+   "one": "requirement",
+   "kind": "paragraph"
+  },
+  {
+   "id": "ODS.Responsibility",
+   "name": "ODS Responsibility",
+   "aliases": [
+    "ODSResponsibility"
+   ],
+   "binding": true,
+   "one": "responsibility (role register)",
+   "kind": "paragraph"
+  },
+  {
+   "id": "ODS.ApprovalRequirement",
+   "name": "ODS Approval Requirement",
+   "aliases": [
+    "ODSApprovalRequirement"
+   ],
+   "binding": true,
+   "one": "approval requirement",
+   "kind": "paragraph"
+  },
+  {
+   "id": "ODS.RecordRequirement",
+   "name": "ODS Record Requirement",
+   "aliases": [
+    "ODSRecordRequirement"
+   ],
+   "binding": true,
+   "one": "record requirement (records view)",
+   "kind": "paragraph"
+  },
+  {
+   "id": "ODS.RiskControl",
+   "name": "ODS Risk Control",
+   "aliases": [
+    "ODSRiskControl"
+   ],
+   "binding": true,
+   "one": "control; must carry Control ID content control(s)",
+   "kind": "paragraph"
+  },
+  {
+   "id": "ODS.Warning",
+   "name": "ODS Warning",
+   "aliases": [
+    "ODSWarning"
+   ],
+   "binding": false,
+   "one": "warning",
+   "kind": "paragraph"
+  },
+  {
+   "id": "ODS.Note",
+   "name": "ODS Note",
+   "aliases": [
+    "ODSNote"
+   ],
+   "binding": false,
+   "one": "note",
+   "kind": "paragraph"
+  },
+  {
+   "id": "ODS.PerformanceIndicator",
+   "name": "ODS Performance Indicator",
+   "aliases": [
+    "ODSPerformanceIndicator"
+   ],
+   "binding": false,
+   "one": "KPI",
+   "kind": "paragraph"
+  },
+  {
+   "id": "ODS.DocumentReference",
+   "name": "ODS Document Reference",
+   "aliases": [
+    "ODSDocumentReference"
+   ],
+   "binding": false,
+   "one": "reference to an ACE document",
+   "kind": "paragraph"
+  },
+  {
+   "id": "ODS.ExternalStandard",
+   "name": "ODS External Standard",
+   "aliases": [
+    "ODSExternalStandard"
+   ],
+   "binding": false,
+   "one": "reference to an external standard",
+   "kind": "paragraph"
+  },
+  {
+   "id": "ODS.ProcedureStep",
+   "name": "ODS Procedure Step",
+   "aliases": [
+    "ODSProcedureStep"
+   ],
+   "binding": false,
+   "one": "procedure step",
+   "kind": "paragraph"
+  },
+  {
+   "id": "ODS.Definition",
+   "name": "ODS Definition",
+   "aliases": [
+    "ODSDefinition"
+   ],
+   "binding": false,
+   "one": "glossary term",
+   "kind": "paragraph"
+  },
+  {
+   "id": "ODS.Example",
+   "name": "ODS Example",
+   "aliases": [
+    "ODSExample"
+   ],
+   "binding": false,
+   "one": "example",
+   "kind": "paragraph"
+  },
+  {
+   "id": "OMS.ElementKicker",
+   "name": "OMS Element Kicker",
+   "aliases": [
+    "OMSElementKicker"
+   ],
+   "binding": false,
+   "one": "Manual element label",
+   "kind": "paragraph"
+  },
+  {
+   "id": "ListBullet",
+   "name": "List Bullet",
+   "aliases": [],
+   "binding": false,
+   "one": "list item",
+   "kind": "paragraph"
+  },
+  {
+   "id": "ONEBrand",
+   "name": "ONE Brand",
+   "aliases": [],
+   "binding": false,
+   "one": "cover branding (ignored)",
+   "kind": "paragraph"
+  },
+  {
+   "id": "ONESectionLabel",
+   "name": "ONE Section Label",
+   "aliases": [],
+   "binding": false,
+   "one": "cover label (ignored)",
+   "kind": "paragraph"
+  },
+  {
+   "id": "ONECoverCaption",
+   "name": "ONE Cover Caption",
+   "aliases": [],
+   "binding": false,
+   "one": "cover caption (ignored)",
+   "kind": "paragraph"
+  },
+  {
+   "id": "ONEMetadata",
+   "name": "ONE Metadata",
+   "aliases": [],
+   "binding": false,
+   "one": "cover metadata (ignored)",
+   "kind": "paragraph"
+  },
+  {
+   "id": "ONEPullQuote",
+   "name": "ONE Pull Quote",
+   "aliases": [],
+   "binding": false,
+   "one": "Manual quote (ignored)",
+   "kind": "paragraph"
+  },
+  {
+   "id": "ONEQuoteBy",
+   "name": "ONE Quote By",
+   "aliases": [],
+   "binding": false,
+   "one": "Manual quote author (ignored)",
+   "kind": "paragraph"
+  },
+  {
+   "id": "Caption",
+   "name": "Caption",
+   "aliases": [],
+   "binding": false,
+   "one": "figure or table caption",
+   "kind": "paragraph"
+  }
+ ],
+ "content_controls": [
+  {
+   "tag": "ODS.Meta.<Field>",
+   "alias": "free text (label)",
+   "kind": "plain text",
+   "use": "control table and cover values; Field from properties[].meta"
+  },
+  {
+   "tag": "ODS.OMSTags@<bookmark>",
+   "alias": "OMS Tags (variants accepted)",
+   "kind": "plain text",
+   "use": "OMS expectation tags for the heading carrying <bookmark>; doc_title for the Title"
+  },
+  {
+   "tag": "ODS.Control@<ControlID>",
+   "alias": "Control ID",
+   "kind": "plain text",
+   "use": "inside ODS.RiskControl paragraphs",
+   "since": "2.0"
+  }
+ ],
+ "properties": [
+  {
+   "name": "ODS.DocumentId",
+   "meta": [
+    "DocumentID"
+   ],
+   "format": "docid",
+   "required": "always",
+   "since": "1.0",
+   "note": ""
+  },
+  {
+   "name": "ODS.Title",
+   "meta": [
+    "Title",
+    "ControlTitle"
+   ],
+   "format": "text",
+   "required": "always",
+   "since": "1.0",
+   "note": ""
+  },
+  {
+   "name": "ODS.DocumentType",
+   "meta": [
+    "DocumentType"
+   ],
+   "format": "type_name",
+   "required": "always",
+   "since": "1.0",
+   "note": "Meta.DocumentType may read 'Standard (Level 2)' in legacy documents"
+  },
+  {
+   "name": "ODS.Level",
+   "meta": [
+    "Level"
+   ],
+   "format": "level",
+   "required": "always",
+   "since": "1.0",
+   "note": "digit only; 'Level 3' accepted and normalised by Fix"
+  },
+  {
+   "name": "ODS.Revision",
+   "meta": [
+    "Revision",
+    "CoverRevision"
+   ],
+   "format": "revision",
+   "required": "always",
+   "since": "1.0",
+   "note": "Meta.CoverRevision reads '01 — Approved'; legacy Meta.Revision may read '01 (approved issue)'"
+  },
+  {
+   "name": "ODS.Status",
+   "meta": [
+    "Status",
+    "CoverStatus"
+   ],
+   "format": "status",
+   "required": "always",
+   "since": "1.0",
+   "note": ""
+  },
+  {
+   "name": "ODS.IssueDate",
+   "meta": [
+    "IssueDate"
+   ],
+   "format": "date",
+   "required": "approved",
+   "since": "1.0",
+   "note": ""
+  },
+  {
+   "name": "ODS.EffectiveDate",
+   "meta": [
+    "EffectiveDate",
+    "CoverEffectiveDate"
+   ],
+   "format": "date",
+   "required": "approved",
+   "since": "1.0",
+   "note": ""
+  },
+  {
+   "name": "ODS.Author",
+   "meta": [
+    "Author"
+   ],
+   "format": "people",
+   "required": "always",
+   "since": "1.0",
+   "note": ""
+  },
+  {
+   "name": "ODS.Reviewer",
+   "meta": [
+    "Reviewer"
+   ],
+   "format": "people",
+   "required": "approved",
+   "since": "1.0",
+   "note": ""
+  },
+  {
+   "name": "ODS.Endorser",
+   "meta": [
+    "Endorser"
+   ],
+   "format": "people_or_body",
+   "required": "approved",
+   "since": "1.0",
+   "note": ""
+  },
+  {
+   "name": "ODS.Approver",
+   "meta": [
+    "Approver"
+   ],
+   "format": "people",
+   "required": "approved",
+   "since": "1.0",
+   "note": ""
+  },
+  {
+   "name": "ODS.DocumentOwner",
+   "meta": [
+    "DocumentOwner"
+   ],
+   "format": "people",
+   "required": "always",
+   "since": "1.0",
+   "note": ""
+  },
+  {
+   "name": "ODS.ProcessOwner",
+   "meta": [
+    "ProcessOwner"
+   ],
+   "format": "people_or_na",
+   "required": "approved",
+   "since": "2.0",
+   "note": "required person for PRS; otherwise 'Not applicable' preferred"
+  },
+  {
+   "name": "ODS.Custodian",
+   "meta": [
+    "Custodian"
+   ],
+   "format": "people",
+   "required": "approved",
+   "since": "1.0",
+   "note": ""
+  },
+  {
+   "name": "ODS.PrimaryFunction",
+   "meta": [
+    "PrimaryFunction"
+   ],
+   "format": "function",
+   "required": "always",
+   "since": "1.0",
+   "note": ""
+  },
+  {
+   "name": "ODS.Framework",
+   "meta": [
+    "Framework"
+   ],
+   "format": "framework",
+   "required": "always",
+   "since": "1.0",
+   "note": ""
+  },
+  {
+   "name": "ODS.TitleOMSTags",
+   "meta": [
+    "TitleOMSTags"
+   ],
+   "format": "tags",
+   "required": "always",
+   "since": "1.0",
+   "note": ""
+  },
+  {
+   "name": "ODS.Classification",
+   "meta": [
+    "Classification"
+   ],
+   "format": "classification",
+   "required": "always",
+   "since": "1.0",
+   "note": ""
+  },
+  {
+   "name": "ODS.Applicability",
+   "meta": [
+    "Applicability"
+   ],
+   "format": "text",
+   "required": "always",
+   "since": "1.0",
+   "note": ""
+  },
+  {
+   "name": "ODS.ReviewInterval",
+   "meta": [
+    "ReviewInterval"
+   ],
+   "format": "text",
+   "required": "approved",
+   "since": "1.0",
+   "note": ""
+  },
+  {
+   "name": "ODS.RoleRegister",
+   "meta": [
+    "RoleRegister"
+   ],
+   "format": "text",
+   "required": "approved",
+   "since": "2.0",
+   "note": ""
+  },
+  {
+   "name": "ODS.Parent",
+   "meta": [
+    "Parent"
+   ],
+   "format": "parent",
+   "required": "approved",
+   "since": "2.0",
+   "note": "parent document number; Level 1 may use 'Not applicable'"
+  }
+ ],
+ "builtin_properties": {
+  "core": {
+   "dc:title": "{Title}",
+   "dc:subject": "{DocumentId}",
+   "cp:keywords": "{TitleOMSTags}",
+   "cp:category": "{DocumentType} (Level {Level})",
+   "cp:contentStatus": "{Status}",
+   "dc:description": "Rev {Revision} · Effective {EffectiveDate} · Owner: {DocumentOwner.name}",
+   "dc:creator": "{Author.name}"
+  },
+  "app": {
+   "Manager": "{DocumentOwner.name}",
+   "Company": "Acme Caribbean Energy Limited",
+   "HyperlinkBase": "https://oms.cynmark.app/"
+  },
+  "checked_as_error": [
+   "dc:title",
+   "dc:subject",
+   "cp:keywords"
+  ]
+ },
+ "bookmarks": {
+  "title": "doc_title",
+  "recommended_heading": "<DOCID with _>_H<nnn>  e.g. ACE_RSK_STD_001_H004",
+  "accepted_heading_patterns": [
+   "^ACE_[A-Z]{3}_[A-Z]{3}_\\d{3}(_[A-Z]{3})?_H\\d{3}$",
+   "^front_[a-z_]+$",
+   "^sec_[a-z0-9_]+$",
+   "^s\\d+_\\d+$",
+   "^(el|d|a|w|c|app)_\\d+(_\\d+)?$",
+   "^_S\\d{2}$"
+  ],
+  "rule": "Any valid bookmark is accepted; the tag control must name the bookmark of its own heading. Fix adds <DOCID>_Hnnn where missing."
+ },
+ "tags": {
+  "min_per_section": 1,
+  "max_per_section": 3,
+  "scope": "heading down to next heading of same or higher level; not inherited",
+  "tag_line_prefix": "OMS",
+  "headings_requiring_tags": [
+   "Heading1",
+   "Heading2"
+  ]
+ },
+ "control_id": {
+  "pattern": "(?<![A-Za-z0-9-])C-([A-Z]{3})-(\\d{3})",
+  "content_control": "ODS.Control@{id}",
+  "unique": "repository",
+  "allocation_register": "ACE-RSK-REG-002"
+ },
+ "formats": {
+  "STRICT": "Values in ODS.Meta content controls; tags in ODS.OMSTags@bookmark controls; heading bookmarks; 23 properties filled; Control ID controls. ONE publishes STRICT only.",
+  "LITE": "What writers and AI tools produce: Title and headings in template styles; tags typed as plain text in ODS Tag Line paragraphs ('OMS 6.5, 6.4'); control table as plain text; Control IDs as plain text; properties may be empty. Fix converts LITE to STRICT without changing the text."
+ },
+ "outcomes": {
+  "PASS": "no errors",
+  "PASS_AFTER_FIX": "all errors can be fixed automatically by ONE Fix",
+  "FAIL": "at least one error needs a person"
+ },
+ "document_register": {
+  "planned": {
+   "ACE-OMS-MAN-001": {
+    "title": "One Management System (OMS) Manual",
+    "owner_role": "Chief Executive Officer",
+    "level": 1
+   },
+   "ACE-LDR-POL-001": {
+    "title": "OMS Policy — Health, Safety, Environment and Operating Integrity",
+    "owner_role": "Chief Executive Officer",
+    "level": 1
+   },
+   "ACE-RSK-POL-001": {
+    "title": "Operational Risk Management Policy",
+    "owner_role": "VP HSE & Compliance",
+    "level": 1
+   },
+   "ACE-LDR-STD-001": {
+    "title": "Code of Conduct",
+    "owner_role": "VP Legal & Government Affairs",
+    "level": 2
+   },
+   "ACE-LDR-STD-002": {
+    "title": "Leadership Engagement and Communication Standard",
+    "owner_role": "VP Communications & Corporate Services",
+    "level": 2
+   },
+   "ACE-LDR-STD-003": {
+    "title": "Stop Work Authority Standard",
+    "owner_role": "VP Operations",
+    "level": 2
+   },
+   "ACE-LDR-STD-004": {
+    "title": "Recognition and Consequence Management Standard",
+    "owner_role": "VP Human Resources",
+    "level": 2
+   },
+   "ACE-OMS-STD-001": {
+    "title": "OMS Governance Standard",
+    "owner_role": "VP HSE & Compliance",
+    "level": 2
+   },
+   "ACE-OMS-STD-002": {
+    "title": "Deviation and Exemption Standard",
+    "owner_role": "VP HSE & Compliance",
+    "level": 2
+   },
+   "ACE-OMS-STD-003": {
+    "title": "Objectives and Annual OMS Plan Standard",
+    "owner_role": "Manager, Strategy & Planning",
+    "level": 2
+   },
+   "ACE-OMS-STD-004": {
+    "title": "Joint Venture and Partner Interface Standard",
+    "owner_role": "VP Business Development & Markets",
+    "level": 2
+   },
+   "ACE-OMS-STD-005": {
+    "title": "Acquisition and Divestment Due Diligence Standard",
+    "owner_role": "VP Business Development & Markets",
+    "level": 2
+   },
+   "ACE-LEG-STD-001": {
+    "title": "Legal and Other Requirements Standard",
+    "owner_role": "VP Legal & Government Affairs",
+    "level": 2
+   },
+   "ACE-LEG-REG-001": {
+    "title": "Legal and Regulatory Requirements Register",
+    "owner_role": "Regulatory Compliance Specialist",
+    "level": 5
+   },
+   "ACE-PPL-STD-001": {
+    "title": "Roles, Accountabilities and Delegated Authority Standard",
+    "owner_role": "VP Human Resources",
+    "level": 2
+   },
+   "ACE-PPL-STD-002": {
+    "title": "Workforce Planning and Succession Standard",
+    "owner_role": "VP Human Resources",
+    "level": 2
+   },
+   "ACE-PPL-STD-003": {
+    "title": "Competence Assurance Standard",
+    "owner_role": "Learning & Competence Manager",
+    "level": 2
+   },
+   "ACE-PPL-STD-004": {
+    "title": "Workforce Engagement and Consultation Standard",
+    "owner_role": "VP Human Resources",
+    "level": 2
+   },
+   "ACE-CON-STD-001": {
+    "title": "Contractor and Supplier Management Standard",
+    "owner_role": "VP Supply Chain Management",
+    "level": 2
+   },
+   "ACE-CON-STD-002": {
+    "title": "Local Content Standard",
+    "owner_role": "VP Supply Chain Management",
+    "level": 2
+   },
+   "ACE-STK-STD-001": {
+    "title": "Stakeholder and Community Engagement Standard",
+    "owner_role": "VP Communications & Corporate Services",
+    "level": 2
+   },
+   "ACE-STK-PRC-001": {
+    "title": "Grievance and Feedback Procedure",
+    "owner_role": "Communications Manager",
+    "level": 4
+   },
+   "ACE-STK-STD-002": {
+    "title": "Customer and Product Quality Standard",
+    "owner_role": "VP Business Development & Markets",
+    "level": 2
+   },
+   "ACE-RSK-STD-001": {
+    "title": "Risk Management Standard (including the ACE Risk Matrix)",
+    "owner_role": "VP HSE & Compliance",
+    "level": 2
+   },
+   "ACE-RSK-REG-001": {
+    "title": "Corporate and Asset Risk Registers",
+    "owner_role": "Head of Internal Audit & Risk Assurance",
+    "level": 5
+   },
+   "ACE-PSM-STD-001": {
+    "title": "Process Safety and Hazard Study Standard (HAZID, HAZOP, LOPA, bow-tie)",
+    "owner_role": "Process Safety Lead",
+    "level": 2
+   },
+   "ACE-PSM-STD-002": {
+    "title": "Process Safety Leadership and Early Warning Standard",
+    "owner_role": "VP HSE & Compliance",
+    "level": 2
+   },
+   "ACE-MOC-STD-001": {
+    "title": "Management of Change Standard",
+    "owner_role": "VP Engineering & Projects",
+    "level": 2
+   },
+   "ACE-MOC-PRC-001": {
+    "title": "Management of Change Procedure",
+    "owner_role": "Manager, Technical Excellence",
+    "level": 4
+   },
+   "ACE-PRJ-STD-001": {
+    "title": "Capital Project Delivery and Stage Gate Standard",
+    "owner_role": "Projects Manager",
+    "level": 2
+   },
+   "ACE-ENG-STD-901": {
+    "title": "Engineering Standards Framework and Technical Authority Standard",
+    "owner_role": "VP Engineering & Projects",
+    "level": 2
+   },
+   "ACE-OPS-STD-001": {
+    "title": "Operating Envelopes and Operating Limits Standard",
+    "owner_role": "VP Operations",
+    "level": 2
+   },
+   "ACE-OPS-STD-002": {
+    "title": "Operating Procedures Standard",
+    "owner_role": "VP Operations",
+    "level": 2
+   },
+   "ACE-OPS-STD-003": {
+    "title": "Operational Readiness, Start-up and Handover Standard",
+    "owner_role": "VP Operations",
+    "level": 2
+   },
+   "ACE-OPS-STD-004": {
+    "title": "Supervision and Verification of Work Standard",
+    "owner_role": "VP Operations",
+    "level": 2
+   },
+   "ACE-AIM-STD-001": {
+    "title": "Asset Integrity Management Standard",
+    "owner_role": "VP Engineering & Projects",
+    "level": 2
+   },
+   "ACE-AIM-REG-001": {
+    "title": "Safety-Critical Element Register and Performance Standards",
+    "owner_role": "Manager, Technical Excellence",
+    "level": 5
+   },
+   "ACE-AIM-STD-002": {
+    "title": "Inspection Management Standard",
+    "owner_role": "Inspection Lead",
+    "level": 2
+   },
+   "ACE-MNT-STD-001": {
+    "title": "Maintenance Management Standard",
+    "owner_role": "Maintenance & Integrity Manager",
+    "level": 2
+   },
+   "ACE-WEL-STD-001": {
+    "title": "Well Integrity Management Standard",
+    "owner_role": "Well Integrity Lead",
+    "level": 2
+   },
+   "ACE-COW-STD-001": {
+    "title": "Control of Work Standard",
+    "owner_role": "VP Operations",
+    "level": 2
+   },
+   "ACE-COW-PRC-001": {
+    "title": "Permit to Work Procedure",
+    "owner_role": "Offshore Operations Manager (Gulf of Paria)",
+    "level": 4
+   },
+   "ACE-COW-PRC-002": {
+    "title": "Isolation and Reinstatement Procedure",
+    "owner_role": "Maintenance & Integrity Manager",
+    "level": 4
+   },
+   "ACE-EMR-STD-001": {
+    "title": "Emergency, Crisis and Business Continuity Standard",
+    "owner_role": "Emergency Response & Security Manager",
+    "level": 2
+   },
+   "ACE-EMR-PLN-001-CPF": {
+    "title": "Central Processing Facility Emergency Response Plan",
+    "owner_role": "Plant Manager - Central Processing Facility",
+    "level": 4
+   },
+   "ACE-EMR-PLN-002-PAP": {
+    "title": "Pommerac A Emergency Response Plan",
+    "owner_role": "Offshore Installation Manager",
+    "level": 4
+   },
+   "ACE-EMR-PLN-003": {
+    "title": "Oil Spill Contingency Plan",
+    "owner_role": "Emergency Response & Security Manager",
+    "level": 4
+   },
+   "ACE-DOC-STD-001": {
+    "title": "Document and Records Management Standard",
+    "owner_role": "Information Management Lead",
+    "level": 2
+   },
+   "ACE-DOC-STD-002": {
+    "title": "Operational Document Publishing Standard",
+    "owner_role": "Information Management Lead",
+    "level": 2
+   },
+   "ACE-DOC-STD-003": {
+    "title": "Data Quality and Information Management Standard",
+    "owner_role": "VP IT, Data & Knowledge",
+    "level": 2
+   },
+   "ACE-INC-STD-001": {
+    "title": "Incident Reporting and Investigation Standard",
+    "owner_role": "VP HSE & Compliance",
+    "level": 2
+   },
+   "ACE-INC-STD-002": {
+    "title": "Lessons Learned and Action Tracking Standard",
+    "owner_role": "Knowledge Management Specialist",
+    "level": 2
+   },
+   "ACE-PRF-STD-001": {
+    "title": "Performance Measurement and KPI Standard",
+    "owner_role": "Compliance & Assurance Manager",
+    "level": 2
+   },
+   "ACE-PRF-STD-002": {
+    "title": "Assurance and Audit Standard",
+    "owner_role": "Head of Internal Audit & Risk Assurance",
+    "level": 2
+   },
+   "ACE-PRF-STD-003": {
+    "title": "Management Review Standard",
+    "owner_role": "OMS Manager",
+    "level": 2
+   },
+   "ACE-PRF-STD-004": {
+    "title": "OMS Maturity Assessment Standard",
+    "owner_role": "OMS Manager",
+    "level": 2
+   },
+   "ACE-ENV-STD-001": {
+    "title": "Environmental Management Standard",
+    "owner_role": "Environmental Lead",
+    "level": 2
+   },
+   "ACE-OHH-STD-001": {
+    "title": "Occupational Health and Fitness for Work Standard",
+    "owner_role": "Occupational Health & Hygiene Lead",
+    "level": 2
+   },
+   "ACE-SEC-STD-001": {
+    "title": "Security Management Standard",
+    "owner_role": "Emergency Response & Security Manager",
+    "level": 2
+   },
+   "ACE-BPM-PRA-001": {
+    "title": "Business Process Management Practice",
+    "owner_role": "Manager, Strategy & Planning",
+    "level": 2
+   },
+   "ACE-BPM-PRA-002": {
+    "title": "Process Modelling and Process File Practice",
+    "owner_role": "Manager, Strategy & Planning",
+    "level": 2
+   },
+   "ACE-BPM-PRA-003": {
+    "title": "Process Ownership and Continuous Improvement Practice",
+    "owner_role": "Manager, Strategy & Planning",
+    "level": 2
+   },
+   "ACE-BPM-REG-001": {
+    "title": "Process Register",
+    "owner_role": "Manager, Strategy & Planning",
+    "level": 5
+   },
+   "ACE-RSK-PRA-001": {
+    "title": "Controls and Barrier Linkage Practice",
+    "owner_role": "VP HSE & Compliance",
+    "level": 2
+   },
+   "ACE-RSK-REG-002": {
+    "title": "Controls Register",
+    "owner_role": "Process Safety Lead",
+    "level": 5
+   },
+   "ACE-OPS-PRA-001": {
+    "title": "Operating Envelopes and Integrity Operating Windows Practice",
+    "owner_role": "VP Operations",
+    "level": 2
+   },
+   "ACE-WEL-PRA-001": {
+    "title": "Well Barriers and Well Handover Practice",
+    "owner_role": "VP Wells",
+    "level": 2
+   },
+   "ACE-AIM-PRA-001": {
+    "title": "Risk-Based Inspection and Corrosion Management Practice",
+    "owner_role": "VP Engineering & Projects",
+    "level": 2
+   },
+   "ACE-MNT-PRA-001": {
+    "title": "Equipment Criticality and Safety-Critical Element Maintenance Practice",
+    "owner_role": "VP Operations",
+    "level": 2
+   },
+   "ACE-LOG-PRA-001": {
+    "title": "Marine and Aviation Logistics Practice",
+    "owner_role": "VP Supply Chain Management",
+    "level": 2
+   },
+   "ACE-HMA-PRA-001": {
+    "title": "Hydrocarbon Measurement and Allocation Practice",
+    "owner_role": "VP Business Development & Markets",
+    "level": 2
+   },
+   "ACE-MOC-PRS-001": {
+    "title": "Management of Change Process",
+    "owner_role": "Manager, Technical Excellence",
+    "level": 3
+   },
+   "ACE-COW-PRS-001": {
+    "title": "Permit to Work Process",
+    "owner_role": "VP Operations",
+    "level": 3
+   },
+   "ACE-ENG-PRS-410": {
+    "title": "Safety Instrumented System Lifecycle Process",
+    "owner_role": "Instrumentation & Control Lead",
+    "level": 3
+   },
+   "ACE-ENG-SPC-410": {
+    "title": "Safety Instrumented Systems Specification",
+    "owner_role": "Instrumentation & Control Lead",
+    "level": 2
+   }
+  }
+ },
+ "rules": [
+  {
+   "id": "G1",
+   "title": "Document number, codes and file name",
+   "severity": "error",
+   "fix": "manual",
+   "checks": [
+    "DocumentId matches the number pattern",
+    "system, type and site codes are valid",
+    "file name starts with the number (auto-fix: rename)"
+   ]
+  },
+  {
+   "id": "G2",
+   "title": "Revision and status agree",
+   "severity": "error",
+   "fix": "manual",
+   "checks": [
+    "letters ↔ Draft/In Review; digits ↔ Approved/Superseded/Withdrawn",
+    "approved issues have issue and effective dates",
+    "finals/ holds Approved only (warning)"
+   ]
+  },
+  {
+   "id": "G3",
+   "title": "Custom properties",
+   "severity": "error",
+   "fix": "auto",
+   "checks": [
+    "all 23 present with standard names (ODS.Parent missing → warning for legacy)",
+    "required values filled",
+    "values in valid format",
+    "no unknown ODS.* properties (warning)"
+   ]
+  },
+  {
+   "id": "G4",
+   "title": "Metadata agrees in the five places",
+   "severity": "error",
+   "fix": "auto",
+   "checks": [
+    "control table (ODS.Meta.*) = custom properties (control table is master)",
+    "built-in Title/Subject/Tags (warning for legacy)",
+    "header/footer shows number and revision (warning)"
+   ]
+  },
+  {
+   "id": "G5",
+   "title": "Title bookmark and title tags",
+   "severity": "error",
+   "fix": "auto",
+   "checks": [
+    "doc_title bookmark on the Title paragraph",
+    "title tag control ODS.OMSTags@doc_title = ODS.TitleOMSTags"
+   ]
+  },
+  {
+   "id": "G6",
+   "title": "Headings, bookmarks and OMS tags",
+   "severity": "error",
+   "fix": "auto",
+   "checks": [
+    "every Heading 1/2 has a bookmark and is followed by a tag line",
+    "tag line holds ODS.OMSTags@<that bookmark> (plain-text tag line = LITE, auto-fix)",
+    "every tag is one of the 54 expectations",
+    "no orphan or duplicate tag controls",
+    "1 to 3 tags per section (warning)"
+   ]
+  },
+  {
+   "id": "G7",
+   "title": "'Shall' only in binding styles",
+   "severity": "error",
+   "fix": "manual",
+   "checks": [
+    "no 'shall' in non-binding paragraphs or table cells",
+    "Guidelines contain no binding styles"
+   ]
+  },
+  {
+   "id": "G8",
+   "title": "People match the organisation register",
+   "severity": "error",
+   "fix": "auto",
+   "checks": [
+    "each person is 'Name — Job title' exactly as in ACE_People.csv",
+    "known name with wrong title → auto-fix",
+    "unknown name → manual"
+   ]
+  },
+  {
+   "id": "G9",
+   "title": "Control IDs",
+   "severity": "error",
+   "fix": "auto",
+   "checks": [
+    "C-SSS-NNN with a valid system code",
+    "unique across the repository",
+    "every ODS.RiskControl paragraph carries a Control ID content control (legacy → warning)",
+    "plain-text IDs in RiskControl paragraphs → auto-fix",
+    "controls appendix matches body (warning)"
+   ]
+  },
+  {
+   "id": "G10",
+   "title": "Parent document",
+   "severity": "error",
+   "fix": "manual",
+   "checks": [
+    "ODS.Parent set below Level 1 (legacy → warning)",
+    "parent exists in the document register"
+   ]
+  },
+  {
+   "id": "G11",
+   "title": "References to ACE documents",
+   "severity": "warning",
+   "fix": "manual",
+   "checks": [
+    "referenced numbers exist (issued or planned)",
+    "unknown number → warning"
+   ]
+  },
+  {
+   "id": "G12",
+   "title": "Process (PRS) pair",
+   "severity": "error",
+   "fix": "manual",
+   "checks": [
+    "JSON file present with same number and revision",
+    "validates against ONE-PRS/1",
+    "every step has a bookmarked narrative heading",
+    "doc_refs and controls resolve"
+   ]
+  },
+  {
+   "id": "G13",
+   "title": "Implementing processes table (STD, PRA)",
+   "severity": "warning",
+   "fix": "manual",
+   "checks": [
+    "table listing implementing processes and procedures present"
+   ]
+  },
+  {
+   "id": "G14",
+   "title": "Media and size",
+   "severity": "warning",
+   "fix": "auto",
+   "checks": [
+    "no linked (external) images",
+    "no unused media",
+    "file under 2 MB"
+   ]
+  },
+  {
+   "id": "G15",
+   "title": "Valid Word XML",
+   "severity": "error",
+   "fix": "manual",
+   "checks": [
+    "all parts well-formed",
+    "bookmarkStart not before pPr (warning, auto-fix)"
+   ]
+  },
+  {
+   "id": "G16",
+   "title": "No lock or temporary files",
+   "severity": "error",
+   "fix": "auto",
+   "checks": [
+    "no ~$ or .tmp files in the submission"
+   ]
+  }
+ ],
+ "registers": {
+  "BPM-REG-001": {
+   "title": "Process Register",
+   "file": "registers/BPM-REG-001.csv",
+   "key": "process_id",
+   "owner": "Manager, Strategy & Planning",
+   "defined_in": "ACE-BPM-PRA-001",
+   "columns": [
+    {
+     "name": "process_id",
+     "rule": "PRS number, unique"
+    },
+    {
+     "name": "title",
+     "rule": "process title"
+    },
+    {
+     "name": "l1",
+     "rule": "L1 code"
+    },
+    {
+     "name": "l2",
+     "rule": "L2 code"
+    },
+    {
+     "name": "owner",
+     "rule": "Name — Job title",
+     "link": "people"
+    },
+    {
+     "name": "function",
+     "rule": "one of the 13 functions"
+    },
+    {
+     "name": "policy",
+     "rule": "Policy number",
+     "link": "document"
+    },
+    {
+     "name": "parent",
+     "rule": "parent Standard/Practice/Procedure",
+     "link": "document"
+    },
+    {
+     "name": "status",
+     "rule": "Planned / Draft / Current / Retired"
+    },
+    {
+     "name": "revision",
+     "rule": "current PRS revision"
+    },
+    {
+     "name": "oms_tags",
+     "rule": "expectations, primary first"
+    },
+    {
+     "name": "last_review",
+     "rule": "date"
+    },
+    {
+     "name": "maturity",
+     "rule": "1 to 5"
+    },
+    {
+     "name": "requirements",
+     "rule": "doc#bookmark list carried out (; separated)"
+    }
+   ]
+  },
+  "RSK-REG-001": {
+   "title": "Risk Register",
+   "file": "registers/RSK-REG-001.csv",
+   "key": "risk_id",
+   "owner": "Head of Internal Audit & Risk Assurance",
+   "defined_in": "ACE-RSK-STD-001",
+   "columns": [
+    {
+     "name": "risk_id",
+     "rule": "R-<SITE>-nn"
+    },
+    {
+     "name": "title",
+     "rule": "short risk title"
+    },
+    {
+     "name": "site",
+     "rule": "site code"
+    },
+    {
+     "name": "hazard",
+     "rule": "hazard"
+    },
+    {
+     "name": "top_event",
+     "rule": "top event"
+    },
+    {
+     "name": "threats",
+     "rule": "; separated"
+    },
+    {
+     "name": "consequences",
+     "rule": "; separated"
+    },
+    {
+     "name": "owner",
+     "rule": "Name — Job title",
+     "link": "people"
+    },
+    {
+     "name": "asset_id",
+     "rule": "A-SITE-nnn",
+     "link": "asset"
+    },
+    {
+     "name": "inherent_l",
+     "rule": "likelihood 1-5"
+    },
+    {
+     "name": "inherent_c",
+     "rule": "consequence 1-5"
+    },
+    {
+     "name": "residual_l",
+     "rule": "1-5"
+    },
+    {
+     "name": "residual_c",
+     "rule": "1-5"
+    },
+    {
+     "name": "appetite",
+     "rule": "within / outside"
+    },
+    {
+     "name": "objective_id",
+     "rule": "OBJ-nn it threatens",
+     "link": "objective"
+    },
+    {
+     "name": "controls",
+     "rule": "C-IDs (; separated)",
+     "link": "control"
+    },
+    {
+     "name": "review_date",
+     "rule": "date"
+    }
+   ]
+  },
+  "RSK-REG-002": {
+   "title": "Controls Register",
+   "file": "registers/RSK-REG-002.csv",
+   "key": "control_id",
+   "owner": "Process Safety Lead",
+   "defined_in": "ACE-RSK-PRA-001",
+   "columns": [
+    {
+     "name": "control_id",
+     "rule": "C-SSS-NNN"
+    },
+    {
+     "name": "statement",
+     "rule": "short statement"
+    },
+    {
+     "name": "position",
+     "rule": "Preventive / Mitigating"
+    },
+    {
+     "name": "nature",
+     "rule": "Hard / Soft / People"
+    },
+    {
+     "name": "critical",
+     "rule": "Yes / No"
+    },
+    {
+     "name": "risk_id",
+     "rule": "R-SITE-nn",
+     "link": "risk"
+    },
+    {
+     "name": "threat",
+     "rule": "threat addressed"
+    },
+    {
+     "name": "barrier",
+     "rule": "bow-tie barrier name"
+    },
+    {
+     "name": "doc_ref",
+     "rule": "document#bookmark",
+     "link": "document"
+    },
+    {
+     "name": "process_step",
+     "rule": "PRS#Snn",
+     "link": "process"
+    },
+    {
+     "name": "owner",
+     "rule": "Name — Job title",
+     "link": "people"
+    },
+    {
+     "name": "asset_id",
+     "rule": "A-SITE-nnn",
+     "link": "asset"
+    },
+    {
+     "name": "sce_id",
+     "rule": "SCE id",
+     "link": "sce"
+    },
+    {
+     "name": "evidence",
+     "rule": "record type and system"
+    },
+    {
+     "name": "test_interval",
+     "rule": "e.g. 6 months"
+    },
+    {
+     "name": "health",
+     "rule": "Effective / Degraded / Failed / Not tested"
+    },
+    {
+     "name": "health_date",
+     "rule": "date"
+    },
+    {
+     "name": "status",
+     "rule": "Active / Planned / Retired"
+    }
+   ]
+  },
+  "AIM-REG-001": {
+   "title": "SCE Register",
+   "file": "registers/AIM-REG-001.csv",
+   "key": "sce_id",
+   "owner": "Manager, Technical Excellence",
+   "defined_in": "ACE-MNT-PRA-001",
+   "columns": [
+    {
+     "name": "sce_id",
+     "rule": "SCE-<SITE>-nnn"
+    },
+    {
+     "name": "title",
+     "rule": "element"
+    },
+    {
+     "name": "group",
+     "rule": "SCE group, e.g. ESD, F&G, PSV"
+    },
+    {
+     "name": "site",
+     "rule": "site code"
+    },
+    {
+     "name": "asset_ids",
+     "rule": "A-SITE-nnn (; separated)",
+     "link": "asset"
+    },
+    {
+     "name": "performance_standard",
+     "rule": "PS reference"
+    },
+    {
+     "name": "test_interval",
+     "rule": "interval"
+    },
+    {
+     "name": "last_test",
+     "rule": "date"
+    },
+    {
+     "name": "next_due",
+     "rule": "date"
+    },
+    {
+     "name": "status",
+     "rule": "Available / Impaired / Deviation"
+    },
+    {
+     "name": "controls",
+     "rule": "C-IDs",
+     "link": "control"
+    }
+   ]
+  },
+  "AIM-REG-002": {
+   "title": "Asset Register",
+   "file": "registers/AIM-REG-002.csv",
+   "key": "asset_id",
+   "owner": "Maintenance & Integrity Manager",
+   "defined_in": "ACE-MNT-PRA-001",
+   "columns": [
+    {
+     "name": "asset_id",
+     "rule": "A-<SITE>-nnn"
+    },
+    {
+     "name": "tag",
+     "rule": "equipment tag"
+    },
+    {
+     "name": "title",
+     "rule": "description"
+    },
+    {
+     "name": "site",
+     "rule": "site code"
+    },
+    {
+     "name": "parent_id",
+     "rule": "hierarchy parent",
+     "link": "asset"
+    },
+    {
+     "name": "iso14224_class",
+     "rule": "equipment class"
+    },
+    {
+     "name": "criticality",
+     "rule": "A / B / C"
+    },
+    {
+     "name": "sce",
+     "rule": "Yes / No"
+    },
+    {
+     "name": "in_service",
+     "rule": "date"
+    }
+   ]
+  },
+  "INC-REG-001-EV": {
+   "title": "Events and Actions — events",
+   "file": "registers/INC-REG-001_events.csv",
+   "key": "event_id",
+   "owner": "HSE Manager",
+   "defined_in": "ACE-INC-STD-001",
+   "columns": [
+    {
+     "name": "event_id",
+     "rule": "EV-yyyy-nnn"
+    },
+    {
+     "name": "date",
+     "rule": "date"
+    },
+    {
+     "name": "site",
+     "rule": "site code"
+    },
+    {
+     "name": "type",
+     "rule": "Incident / Near miss / Audit finding / Test failure / IOW excursion / Deviation"
+    },
+    {
+     "name": "title",
+     "rule": "short description"
+    },
+    {
+     "name": "risk_ids",
+     "rule": "R-IDs",
+     "link": "risk"
+    },
+    {
+     "name": "controls_tested",
+     "rule": "C-IDs that worked",
+     "link": "control"
+    },
+    {
+     "name": "controls_failed",
+     "rule": "C-IDs that failed",
+     "link": "control"
+    },
+    {
+     "name": "processes",
+     "rule": "PRS numbers",
+     "link": "process"
+    },
+    {
+     "name": "severity",
+     "rule": "ACE matrix 1-5"
+    }
+   ]
+  },
+  "INC-REG-001-ACT": {
+   "title": "Events and Actions — actions",
+   "file": "registers/INC-REG-001_actions.csv",
+   "key": "action_id",
+   "owner": "HSE Manager",
+   "defined_in": "ACE-INC-STD-001",
+   "columns": [
+    {
+     "name": "action_id",
+     "rule": "ACT-yyyy-nnn"
+    },
+    {
+     "name": "event_id",
+     "rule": "EV id",
+     "link": "event"
+    },
+    {
+     "name": "title",
+     "rule": "action"
+    },
+    {
+     "name": "owner",
+     "rule": "Name — Job title",
+     "link": "people"
+    },
+    {
+     "name": "due",
+     "rule": "date"
+    },
+    {
+     "name": "closed",
+     "rule": "date or blank"
+    },
+    {
+     "name": "result",
+     "rule": "document revision or MOC raised",
+     "link": "document"
+    }
+   ]
+  },
+  "OMS-REG-001-OBJ": {
+   "title": "Objectives and Opportunities — objectives",
+   "file": "registers/OMS-REG-001_objectives.csv",
+   "key": "objective_id",
+   "owner": "Manager, Strategy & Planning",
+   "defined_in": "ACE-BPM-PRA-001",
+   "columns": [
+    {
+     "name": "objective_id",
+     "rule": "OBJ-nn"
+    },
+    {
+     "name": "title",
+     "rule": "objective"
+    },
+    {
+     "name": "owner",
+     "rule": "Name — Job title",
+     "link": "people"
+    },
+    {
+     "name": "kpi",
+     "rule": "measure"
+    },
+    {
+     "name": "target",
+     "rule": "target"
+    },
+    {
+     "name": "year",
+     "rule": "yyyy"
+    },
+    {
+     "name": "processes",
+     "rule": "PRS numbers supporting it",
+     "link": "process"
+    },
+    {
+     "name": "risks",
+     "rule": "R-IDs threatening it",
+     "link": "risk"
+    }
+   ]
+  },
+  "OMS-REG-001-OPP": {
+   "title": "Objectives and Opportunities — opportunities",
+   "file": "registers/OMS-REG-001_opportunities.csv",
+   "key": "opportunity_id",
+   "owner": "Manager, Strategy & Planning",
+   "defined_in": "ACE-RSK-PRA-001",
+   "columns": [
+    {
+     "name": "opportunity_id",
+     "rule": "OPP-nn"
+    },
+    {
+     "name": "title",
+     "rule": "opportunity"
+    },
+    {
+     "name": "objective_id",
+     "rule": "OBJ-nn",
+     "link": "objective"
+    },
+    {
+     "name": "owner",
+     "rule": "Name — Job title",
+     "link": "people"
+    },
+    {
+     "name": "value",
+     "rule": "expected value"
+    },
+    {
+     "name": "likelihood",
+     "rule": "1-5"
+    },
+    {
+     "name": "benefit",
+     "rule": "1-5"
+    },
+    {
+     "name": "status",
+     "rule": "Open / Pursued / Realised / Dropped"
+    }
+   ]
+  }
+ },
+ "process_schema": "protocol/schemas/one-prs-1.schema.json",
+ "limits": {
+  "max_file_mb": 2
+ },
+ "front_sections": {
+  "Document control": "1.7",
+  "Revision history": "1.7",
+  "Approval and issue": "2.2, 1.7",
+  "Document map": "7.1"
+ },
+ "defaults": {
+  "ODS.Classification": "Internal",
+  "ODS.ReviewInterval": "Three years; earlier if triggered",
+  "ODS.ProcessOwner": "Not applicable"
+ }
+}

@@ -281,7 +281,10 @@ def build(spec, out_path):
 
 def iso(d):
     import datetime
-    return datetime.datetime.strptime(d, "%d %B %Y").strftime("%Y-%m-%dT09:00:00Z")
+    try:
+        return datetime.datetime.strptime(d, "%d %B %Y").strftime("%Y-%m-%dT09:00:00Z")
+    except ValueError:  # template placeholders
+        return "2026-11-24T09:00:00Z"
 
 
 def custom_xml(m):

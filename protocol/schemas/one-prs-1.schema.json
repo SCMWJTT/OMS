@@ -1,0 +1,80 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://oms.cynmark.app/schemas/one-prs-1.schema.json",
+ "title": "ONE process model file (ONE-PRS/1)",
+ "description": "Defined by ACE-BPM-PRA-002 Process Modelling and Process File Practice. Paired with the Word process description of the same number and revision.",
+ "type": "object",
+ "required": ["schema", "id", "revision", "status", "title", "apqc", "owner", "function", "policy", "parent", "oms_tags", "lanes", "steps", "kpis"],
+ "additionalProperties": false,
+ "properties": {
+  "schema": {"const": "ONE-PRS/1"},
+  "id": {"type": "string", "pattern": "^ACE-[A-Z]{3}-PRS-\\d{3}(-[A-Z]{3})?$"},
+  "revision": {"type": "string", "pattern": "^([A-Z]|\\d{2})$"},
+  "status": {"enum": ["Draft", "In Review", "Approved", "Superseded", "Withdrawn"]},
+  "title": {"type": "string", "minLength": 3},
+  "apqc": {
+   "type": "object", "required": ["l1", "l2", "l3"], "additionalProperties": false,
+   "properties": {
+    "l1": {"type": "string", "description": "L1 code and name, e.g. '7 Manage Risk & HSE'"},
+    "l2": {"type": "string", "description": "L2 code and name, e.g. '7.2 Manage change'"},
+    "l3": {"type": "string", "description": "This process's title"}
+   }
+  },
+  "owner": {"type": "string", "pattern": "^.+ — .+$", "description": "Name — Job title, as in ACE_People.csv"},
+  "function": {"type": "string"},
+  "policy": {"type": "string", "pattern": "^ACE-[A-Z]{3}-POL-\\d{3}$"},
+  "parent": {"type": "string", "pattern": "^ACE-[A-Z]{3}-[A-Z]{3}-\\d{3}(-[A-Z]{3})?$"},
+  "oms_tags": {"type": "array", "minItems": 1, "maxItems": 3, "items": {"type": "string", "pattern": "^(10|[1-9])\\.[1-9]$"}},
+  "sipoc": {
+   "type": "object", "additionalProperties": false,
+   "properties": {"suppliers": {"$ref": "#/$defs/strs"}, "inputs": {"$ref": "#/$defs/strs"}, "process": {"$ref": "#/$defs/strs"},
+                  "outputs": {"$ref": "#/$defs/strs"}, "customers": {"$ref": "#/$defs/strs"}}
+  },
+  "lanes": {
+   "type": "array", "minItems": 1,
+   "items": {"type": "object", "required": ["id", "role"], "additionalProperties": false,
+             "properties": {"id": {"type": "string", "pattern": "^L\\d+$"}, "role": {"type": "string"}}}
+  },
+  "steps": {"type": "array", "minItems": 6, "maxItems": 30, "items": {"$ref": "#/$defs/step"}},
+  "kpis": {
+   "type": "array", "minItems": 1,
+   "items": {"type": "object", "required": ["name", "target", "type"], "additionalProperties": false,
+             "properties": {"name": {"type": "string"}, "target": {"type": "string"},
+                            "type": {"enum": ["leading", "lagging"]},
+                            "family": {"enum": ["cycle time", "quality", "control effectiveness", "conformance", "other"]}}}
+  },
+  "sim_defaults": {
+   "type": "object", "additionalProperties": false,
+   "properties": {"volume_per_year": {"type": "number", "minimum": 0},
+                  "rates_per_h": {"type": "object", "additionalProperties": {"type": "number", "minimum": 0}}}
+  }
+ },
+ "$defs": {
+  "strs": {"type": "array", "items": {"type": "string"}},
+  "stepId": {"type": "string", "pattern": "^S\\d{2}$"},
+  "step": {
+   "type": "object", "required": ["id", "lane", "type", "name"], "additionalProperties": false,
+   "properties": {
+    "id": {"$ref": "#/$defs/stepId"},
+    "lane": {"type": "string", "pattern": "^L\\d+$"},
+    "type": {"enum": ["start", "end", "task", "xor", "and", "wait"]},
+    "name": {"type": "string", "minLength": 3},
+    "inputs": {"$ref": "#/$defs/strs"}, "outputs": {"$ref": "#/$defs/strs"},
+    "doc_refs": {"type": "array", "items": {"type": "string", "pattern": "^ACE-[A-Z]{3}-[A-Z]{3}-\\d{3}(-[A-Z]{3})?#[A-Za-z0-9_]+$"}},
+    "controls": {"type": "array", "items": {"type": "string", "pattern": "^C-[A-Z]{3}-\\d{3}$"}},
+    "records": {"$ref": "#/$defs/strs"}, "systems": {"$ref": "#/$defs/strs"},
+    "next": {"type": "array", "items": {"$ref": "#/$defs/stepId"}},
+    "branches": {"type": "array", "minItems": 2,
+                 "items": {"type": "object", "required": ["to", "label"], "additionalProperties": false,
+                           "properties": {"to": {"$ref": "#/$defs/stepId"}, "label": {"type": "string"}, "p": {"type": "number", "minimum": 0, "maximum": 1}}}},
+    "sim": {"type": "object", "additionalProperties": false,
+            "properties": {"dur_h": {"type": "array", "items": {"type": "number", "minimum": 0}, "minItems": 3, "maxItems": 3},
+                           "wait_h": {"type": "number", "minimum": 0}, "cost_role": {"type": "string", "pattern": "^L\\d+$"}}}
+   },
+   "allOf": [
+    {"if": {"properties": {"type": {"const": "xor"}}}, "then": {"required": ["branches"]}},
+    {"if": {"properties": {"type": {"const": "end"}}}, "then": {"not": {"required": ["next"]}}, "else": {"anyOf": [{"required": ["next"]}, {"required": ["branches"]}]}}
+   ]
+  }
+ }
+}
