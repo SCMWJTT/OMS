@@ -253,7 +253,7 @@ ev("2024-07-01", "PAP", "Weather shut-in", "Tropical storm warning: precautionar
 ev("2024-09-17", "CPF", "PSE Tier 2", "Gas release from K-2301 compressor dry gas seal; unit tripped and blown down", 3, ["R-CPF-01"], pse="2", procs=["ACE-INC-PRS-001"])
 for d_, n in [("2025-02-11", 340), ("2025-03-27", 410), ("2025-05-06", 290)]:
     ev(d_, "CPF", "PSE Tier 3", f"Alarm flood: {n} alarms in 10 minutes during compressor trip; operator missed low-level alarm on V-2100", 2, ["R-CPF-03"], pse="3", note="Storyline: CPF alarm flood")
-ev("2025-08-20", "CPF", "Measurement error", "NGC sales gas meter found reading 1.3% low after flow computer update in May", 3, ["R-CPF-05", "R-HOF-02"], note="Storyline: NGC meter mismeasurement")
+ev("2025-08-20", "CPF", "Measurement error", "Gas Buyer sales gas meter found reading 1.3% low after flow computer update in May", 3, ["R-CPF-05", "R-HOF-02"], note="Storyline: Gas Buyer meter mismeasurement")
 ev("2025-11-05", "LND", "Well integrity", "SOU-15 A-annulus pressure above MAASP; well shut in and placed in Orange category", 3, ["R-LND-01"], note="Storyline: land annulus pressure")
 for d_ in ["2026-03-09", "2026-04-06", "2026-05-11"]:
     ev(d_, "PAP", "IOW excursion", "Corrosion inhibitor injection on X-1500 below operating window for more than 72 hours", 2, ["R-PAP-01"], note="Storyline: Pommerac A corrosion")
@@ -305,7 +305,7 @@ act(leak, "Revise ACE-AIM-PRA-001: deferral rule and ILI interval", "Rochelle Ma
 act(leak, "Revise ACE-AIM-STD-001 to require deferral expiry dates", "Wayne Rajkumar", D("2026-12-01"), None, "ACE-AIM-STD-001 Rev 02 (drafting)")
 act(leak, "Repair the two PL-101 features above 40% wall loss", "Allison Mitchell", D("2026-12-15"), None, "Repair work orders")
 act(evt("Alarm flood: 410"), "Alarm rationalisation of CPF compressor and inlet sections", "Vijay Ramcharan", D("2025-09-30"), D("2025-11-28"), "Alarm rationalisation report")
-act(evt("NGC sales gas meter found"), "Correct flow computer and agree volume adjustment with NGC", "Navin Sookdeo", D("2025-09-30"), D("2025-10-17"), "Adjustment agreed with NGC")
+act(evt("Gas Buyer sales gas meter found"), "Correct flow computer and agree volume adjustment with the Gas Buyer", "Navin Sookdeo", D("2025-09-30"), D("2025-10-17"), "Adjustment agreed with the Gas Buyer")
 act(evt("SOU-15 A-annulus"), "Rig workover to replace SOU-15 tubing", "Nazim Bailey", D("2026-03-31"), D("2026-04-22"), "Workover report")
 act(evt("Firewater pump P-1700B"), "Repair P-1700B starter and re-test", "Marc Gomes", D("2026-10-22"), D("2026-10-19"), "Work order closed")
 act(evt("Sapodilla C barrier test overdue"), "Complete overdue barrier tests at Sapodilla C", "Shalini Jaggernauth", D("2026-09-30"), D("2026-09-26"), "Barrier test record")
@@ -385,8 +385,8 @@ print("Pommerac A storyline MOC:", MOCID)
 # ---------------- KPIs (monthly 2024-01 .. 2026-10)
 KPIS = [
  ("PROD-OIL", "Crude oil production", "bbl/d", "Production", "lagging", "", "Sophia Hosany", "≥ 6,600 (2026)", "up", "site"),
- ("PROD-GAS", "Sales gas to NGC", "MMscf/d", "Production", "lagging", "4.2", "Karen Jack", "≥ 44", "up", "ACE"),
- ("NGC-DCQ", "NGC contract quantity delivered", "%", "Production", "lagging", "4.2", "Karen Jack", "≥ 98", "up", "ACE"),
+ ("PROD-GAS", "Sales gas to the Gas Buyer", "MMscf/d", "Production", "lagging", "4.2", "Karen Jack", "≥ 44", "up", "ACE"),
+ ("GAS-DCQ", "Gas Buyer contract quantity delivered", "%", "Production", "lagging", "4.2", "Karen Jack", "≥ 98", "up", "ACE"),
  ("PROD-EFF", "Production efficiency", "%", "Production", "lagging", "6.3", "Sophia Hosany", "≥ 92", "up", "ACE"),
  ("DEFER-OIL", "Deferred crude production", "bbl/d", "Production", "lagging", "6.3", "Sophia Hosany", "< 300", "down", "ACE"),
  ("ALLOC-IMB", "Gas allocation imbalance", "%", "Measurement", "leading", "9.1", "Navin Sookdeo", "< 0.5", "down", "ACE"),
@@ -458,7 +458,7 @@ for i, m_ in enumerate(months):
     gas = 46.5 * (1 - 0.04) ** t * rnd.uniform(0.97, 1.02)
     if ym == "2024-09": gas *= 0.9
     if ym in ("2026-07", "2026-08"): gas *= 0.93
-    put(m_, "ACE", "PROD-GAS", round(gas, 1)); put(m_, "ACE", "NGC-DCQ", round(min(100, gas / 45.5 * 100 * rnd.uniform(0.99, 1.01)), 1))
+    put(m_, "ACE", "PROD-GAS", round(gas, 1)); put(m_, "ACE", "GAS-DCQ", round(min(100, gas / 45.5 * 100 * rnd.uniform(0.99, 1.01)), 1))
     lost = {"2024-07": 380, "2026-07": 1250, "2026-08": 820, "2026-09": 420, "2024-09": 120}.get(ym, rnd.randint(120, 260))
     put(m_, "ACE", "DEFER-OIL", lost); put(m_, "ACE", "PROD-EFF", round(100 * tot / (tot + lost), 1))
     put(m_, "ACE", "ALLOC-IMB", round({"2025-06": 1.1, "2025-07": 1.3, "2025-08": 1.4}.get(ym, rnd.uniform(0.15, 0.45)), 2))

@@ -18,7 +18,7 @@ MOC_TEMPL = {
  "CPF": [("Replace pressure transmitter on SIF with different span", "Plant", "ENG"), ("Upgrade DCS operator graphics", "Software", "OPS"),
          ("Change glycol circulation rate limits", "Process", "OPS"), ("Tie-in new compressor recycle valve", "Plant", "PSM"),
          ("Re-rate crude tank T-2602 after inspection", "Plant", "AIM"), ("Change jetty loading rate limit", "Process", "OPS"),
-         ("Flow computer software update at NGC meter", "Software", "HMA")],
+         ("Flow computer software update at the Gas Buyer meter", "Software", "HMA")],
  "LND": [("Combine supervisor coverage across Tamarind and Pawpaw", "Organisation", "OPS"), ("Replace flowline section with HDPE", "Plant", "AIM"),
          ("Convert TAM-27 to gas lift", "Plant", "WEL"), ("Change tank battery inspection interval", "Process", "AIM"), ("Install remote level monitoring on tank batteries", "Plant", "OPS")],
  "PLB": [("Change supply vessel contract and vessel type", "Organisation", "LOG"), ("New laydown area for pipe storage", "Plant", "LOG")],
@@ -54,8 +54,8 @@ def build_mocs(rnd, who, today, events, controls_by_id):
     # storyline MOCs (fixed)
     story = [dict(raised=D("2025-09-02"), site="CPF", title="Alarm rationalisation of CPF compressor and inlet sections", category="Software", system="OPS", cls="C2", type="Permanent",
                   story="CPF alarm flood"),
-             dict(raised=D("2025-09-08"), site="CPF", title="Correct NGC meter flow computer configuration and add verification check", category="Software", system="HMA", cls="C2", type="Permanent",
-                  story="NGC meter"),
+             dict(raised=D("2025-09-08"), site="CPF", title="Correct Gas Buyer meter flow computer configuration and add verification check", category="Software", system="HMA", cls="C2", type="Permanent",
+                  story="Gas Buyer meter"),
              dict(raised=D("2026-07-15"), site="PAP", title="Temporary operating pressure limit on PL-101 (80% MAOP) pending repair", category="Process", system="AIM", cls="C2", type="Temporary",
                   story="Pommerac A"),
              dict(raised=D("2026-08-11"), site="PAP", title="Revise inhibitor IOW, pigging interval and deferral rule for PL-101; add low-flow alarm on X-1500", category="Process",
@@ -109,7 +109,7 @@ def build_mocs(rnd, who, today, events, controls_by_id):
         ev = ""
         if st == "Pommerac A" and cls == "C3": ev = next((e["event_id"] for e in events if e["title"].startswith("MOC-2026-047")), "")  # title patched to the real ID in gen_registers
         x.update(dict(class_=cls, status=status, approved=approved.isoformat() if approved else "", closed=closed.isoformat() if closed else "",
-                      target_close=target.isoformat(), temp_expiry=exp, originator=who(rnd.choice(ORIG[x["site"]]) if not st else {"Pommerac A": "Allison Mitchell", "CPF alarm flood": "Vijay Ramcharan", "NGC meter": "Navin Sookdeo"}[st]),
+                      target_close=target.isoformat(), temp_expiry=exp, originator=who(rnd.choice(ORIG[x["site"]]) if not st else {"Pommerac A": "Allison Mitchell", "CPF alarm flood": "Vijay Ramcharan", "Gas Buyer meter": "Navin Sookdeo"}[st]),
                       coordinator=who(COORD) + " (MOC Coordinator)",
                       approver=who(APPROVER[cls][x["site"]] if cls == "C1" else APPROVER[cls]), risk_ids=risk, controls=", ".join(ctrl).replace(", ", "; "),
                       documents="; ".join(d for d in docs if d), event_id=ev, storyline=st or ""))

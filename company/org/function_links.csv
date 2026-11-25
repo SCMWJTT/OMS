@@ -1,0 +1,32 @@
+from,to,strength,nature
+EXD,WEL,Strong,"Well proposals, subsurface targets, wellsite geology, logging and well results"
+EXD,OPS,Strong,"Well and reservoir performance, production forecasts, well optimisation"
+EXD,BDM,Medium,"Reserves, resource volumes and new venture evaluations"
+EXD,FIN,Medium,Reserves for financial reporting and investment cases
+WEL,OPS,Strong,"Well handover, well integrity monitoring, workovers on producing leases"
+WEL,ENP,Medium,Well design standards via discipline leads; well tie-in projects
+WEL,SCM,Strong,"Land and offshore rig, workover and well services contracts; supply boats"
+ENP,OPS,Strong,"Technical authority endorsement, MOC, safety-critical elements, project handover"
+ENP,SCM,Strong,"Technical specifications, vendor qualification, inspection and test plans"
+ENP,HSE,Strong,"Process safety studies, HAZOP, performance standards"
+ENP,FIN,Medium,"Capital estimates, AFEs and project cost control"
+ENP,IDK,Medium,Engineering documents and drawings in the controlled repository
+OPS,HSE,Strong,"Permit to work, incident investigation, emergency and spill response, health"
+OPS,SCM,Strong,"Spare parts, maintenance contracts, supply boats from Point Lisas"
+OPS,FIN,Medium,"Production data, allocation and operating budgets"
+OPS,HR,Strong,"Competence assurance, rotation and shift manning, industrial relations"
+OPS,IDK,Medium,"Control systems, OT security, operating procedures repository"
+OPS,CCS,Medium,Landowners and communities near the leases and the processing facility
+OPS,BDM,Strong,"Sales gas delivery to the Gas Buyer, crude liftings and quality"
+OPS,LGA,Medium,"Lease obligations, land access and rights of way"
+HSE,LGA,Medium,"Legal and regulatory requirements, permits, regulator inspections"
+HSE,HR,Medium,"Health surveillance, fitness to work, HSE training"
+HSE,SCM,Strong,Contractor HSE pre-qualification and performance
+HSE,EXEC,Strong,OMS conformance and HSE performance reporting to leadership
+HSE,IDK,Strong,"OMS documents, tagging and publishing"
+FIN,BDM,Strong,"Gas and crude sales revenue, partner billing, economics"
+FIN,LGA,Medium,"Tax, royalty and contract terms"
+BDM,LGA,Strong,"Gas sales and joint venture agreements, licence bids"
+CCS,LGA,Medium,Government and community stakeholder engagement
+EXEC,FIN,Strong,"Business plan, budgets and internal audit"
+IDK,HR,Light,HR systems and access management

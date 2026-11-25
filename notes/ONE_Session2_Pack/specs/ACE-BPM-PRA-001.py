@@ -80,7 +80,7 @@ body = [
        ["2 Deliver Wells", "2.1 Design wells; 2.2 Construct wells; 2.3 Intervene in wells; 2.4 Manage well integrity; 2.5 Abandon wells"],
        ["3 Operate & Produce", "3.1 Plan production; 3.2 Operate facilities; 3.3 Control operating limits; 3.4 Control work; 3.5 Hand over and start up"],
        ["4 Maintain Assets", "4.1 Plan and schedule maintenance; 4.2 Inspect and assess integrity; 4.3 Manage SCEs and deviations; 4.4 Manage anomalies"],
-       ["5 Process & Sell", "5.1 Process gas and crude; 5.2 Measure and allocate hydrocarbons; 5.3 Sell gas to NGC; 5.4 Export crude"],
+       ["5 Process & Sell", "5.1 Process gas and crude; 5.2 Measure and allocate hydrocarbons; 5.3 Sell gas to the Gas Buyer; 5.4 Export crude"],
        ["6 Move People & Materials", "6.1 Plan marine and aviation logistics; 6.2 Manage shore base; 6.3 Manifest people and cargo"],
        ["7 Manage Risk & HSE", "7.1 Assess and treat risk; 7.2 Manage change; 7.3 Manage process safety; 7.4 Report and investigate incidents; 7.5 Respond to emergencies"],
        ["8 Manage People", "8.1 Recruit and onboard; 8.2 Assure competence; 8.3 Manage performance"],

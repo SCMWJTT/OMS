@@ -1,0 +1,14 @@
+code,name,head_role,purpose,elements
+EXEC,CEO Office,EXEC-01,"Sets direction, strategy and assurance for ACE; owns the OMS commitment and leadership expectations.",1; 10
+EXD,Exploration & Development,EXD-01,"Finds, appraises and develops gas resources; owns the subsurface description, reservoir management and reserves.",5; 6; 7
+WEL,Wells,WEL-01,"Designs, drills, completes, intervenes on and abandons wells safely; owns well integrity across the well life cycle.",5; 6; 8
+ENP,Engineering & Projects,ENP-01,Delivers capital projects and owns engineering standards and technical integrity through the discipline leads and the Technical Leadership Council.,6; 7; 5
+OPS,Operations,OPS-01,"Operates and maintains the Gulf of Paria platforms, the land leases and the Central Processing Facility; owns day-to-day control of work and asset integrity execution.",7; 8; 6
+HSE,HSE & Compliance,HSE-01,"Sets HSE and process safety requirements, provides specialist support, manages emergency response and security, and assures OMS conformance.",2; 5; 9
+FIN,Finance,FIN-01,"Manages financial planning, accounting, tax, treasury and joint-venture partner reporting.",2; 10
+HR,Human Resources,HR-01,"Recruits, develops and retains staff; owns organisation design, competence assurance and industrial relations.",3
+SCM,Supply Chain Management,SCM-01,"Procures goods and services, manages contracts and contractors, and runs marine, aviation and materials logistics.",3; 8; 4
+IDK,"IT, Data & Knowledge",IDK-01,"Provides IT and OT infrastructure, data platforms, cyber security and the controlled document and knowledge system.",7; 9
+BDM,Business Development & Markets,BDM-01,"Sells ACE gas to the Gas Buyer and markets crude, manages partner relationships and develops new venture opportunities.",4
+CCS,Communications & Corporate Services,CCS-01,"Manages internal and external communications, community relations, offices and corporate services.",4
+LGA,Legal & Government Affairs,LGA-01,"Provides legal advice, corporate secretarial services and manages licences and relations with government and regulators.",2; 4

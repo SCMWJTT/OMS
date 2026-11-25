@@ -94,6 +94,7 @@ const firstSentence = (t) => (t.match(/^.*?[.!?](\s|$)/) || [t])[0].trim();
 const expSec = (id) => manSec(`s${id.replace(".", "_")}`);
 
 // ---------- small renderers ----------
+const wordIcon = (id, big) => DOC[id] ? `<a class="wicon${big ? " big" : ""}" href="docs/${id}.docx" download="${esc(DOC[id].file.split("/").pop())}" title="Download the Word document" aria-label="Download ${id} as a Word document"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="2" width="18" height="20" rx="2" fill="#2B579A"/><path d="M6.5 7.5h2l1.3 6 1.5-6h1.5l1.5 6 1.3-6h2l-2.3 9h-1.9L12 10.7l-1.4 5.8H8.8z" fill="#fff"/></svg>${big ? "<span>Word</span>" : ""}</a>` : "";
 const docLink = (id, bm, label) => DOC[id] ? `<a href="#/doc/${id}${bm ? "/" + bm : ""}">${esc(label || id)}</a>` : `<span class="muted" data-tip="Planned, not yet issued">${esc(label || id)}</span>`;
 const hcls = (h) => "h-" + (h || "").replace(" ", "");
 const ctlChip = (c) => { const x = CTL[c]; return `<a class="chip" href="#/control/${c}" data-tip="${x ? `<b>${c}</b>${esc(x.statement)}` : c}">${x ? `<span class="dot ${hcls(x.health)}"></span>` : ""}${esc(c)}</a>`; };
@@ -119,9 +120,10 @@ const spark = (pts, col = "#0B5563", W = 240, H = 46) => {
 const NAV = [
   ["#/", "OMS wheel"], ["#/library", "Library", DOCS.length], ["#/review", "Comments and edits", ""], ["sep"],
   ["#/barriers", "Barriers"], ["#/risk", "Risks", RISKS.length], ["#/controls", "Controls", CTLS.length], ["sep"],
-  ["#/explore", "Requirements", WORK.length], ["#/gaps", "Gaps"], ["#/process", "Processes"], ["#/performance", "Performance"], ["#/authority", "Technical authority"],
+  ["#/explore", "Requirements", WORK.length], ["#/gaps", "Gaps"], ["#/process", "Processes"], ["#/performance", "Performance"], ["#/authority", "Technical authority"], ["head", "Company"],
+  ["#/company", "About ACE"], ["#/model", "The ONE model"], ["#/org", "Organisation"], ["#/roles", "Roles"], ["#/people", "People", (D.people || []).filter((p) => p.st !== "Left").length],
 ];
-$("#nav").innerHTML = NAV.map(([h, l, c]) => h === "sep" ? `<li class="sep" aria-hidden="true"></li>` : `<li><a href="${h}">${l}<span class="count" ${h === "#/review" ? 'id="navNotes"' : ""}>${c ?? ""}</span></a></li>`).join("");
+$("#nav").innerHTML = NAV.map(([h, l, c]) => h === "sep" ? `<li class="sep" aria-hidden="true"></li>` : h === "head" ? `<li class="navhead">${l}</li>` : `<li><a href="${h}">${l}<span class="count" ${h === "#/review" ? 'id="navNotes"' : ""}>${c ?? ""}</span></a></li>`).join("");
 $("#built").textContent = `Built ${fmt(new Date(D.built))} from ${DOCS.length} documents and ${Object.keys(REG).length} registers in the repository.`;
 
 const ROUTES = [];
@@ -130,7 +132,7 @@ const timers = []; const stopAll = () => { while (timers.length) clearInterval(t
 function go() {
   const h = decodeURIComponent(location.hash.slice(1) || "/");
   const top = "#" + (h === "/" ? "/" : "/" + h.split("/")[1]);
-  const alias = { "#/el": "#/", "#/exp": "#/", "#/doc": "#/library", "#/control": "#/controls" };
+  const alias = { "#/el": "#/", "#/exp": "#/", "#/doc": "#/library", "#/control": "#/controls", "#/site": "#/company", "#/role": "#/roles", "#/duty": "#/roles", "#/person": "#/people" };
   for (const a of $$("#nav a")) { if (a.getAttribute("href") === (alias[top] || top)) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); }
   for (const [re, fn] of ROUTES) { const m = h.match(re); if (m) { stopAll(); $("#main").innerHTML = ""; fn(...m.slice(1)); $("#main").focus({ preventScroll: true }); if (!/^\/doc\/[^/]+\/./.test(h)) window.scrollTo(0, 0); return; } }
   go404();
@@ -212,7 +214,7 @@ route(/^\/$/, () => {
   <section class="hero">
     <div>${bigWheel()}</div>
     <div>
-      <h1>Acme Caribbean Energy runs on one management system</h1>
+      <h1 class="display">Acme Caribbean Energy runs on one management system</h1>
       <p class="lede">Ten elements tell ACE what good looks like. Every page here is read from the approved Word documents and live registers, so the wheel shows what is written, what it controls and how it is performing today. Choose an element to start.</p>
       <div class="figures"><div><b>${DOCS.length}</b><span>documents in force</span></div><div><b>${WORK.length.toLocaleString()}</b><span>binding statements</span></div><div><b>${covered}<small style="font-size:15px;color:var(--ink-3)">/54</small></b><span>expectations written</span></div><div><b>${bar.length}</b><span>barriers watched</span></div></div>
       <div class="replay" style="margin-top:14px"><button class="btn" id="play">Watch the system fill in since launch</button><span class="date-read" id="dread">Today</span></div>
@@ -247,7 +249,7 @@ route(/^\/$/, () => {
 route(/^\/el\/(\d+)$/, (n) => {
   n = +n; const e = EL[n]; if (!e) return go404();
   const f = ELF[n]; const intro = elIntro(n); const c = ECOL[n];
-  const owner = PEOPLE.find((p) => p.t === e.owner);
+  const owner = PEOPLE.find((p) => p.t === e.owner && p.st !== "Left");
   const ex = EXP.filter((x) => x.element === n); const [cv, tot] = elCovered(n);
   const ca = f.ctls.filter((x) => x.status === "Active"); const bars = ca.filter(isBarrier);
   const openAct = f.actions.filter((a) => !a.closed); const overdue = openAct.filter((a) => toDate(a.due) < TODAY);
@@ -260,7 +262,7 @@ route(/^\/el\/(\d+)$/, (n) => {
   page(n, `
   <div class="crumb"><a href="#/">OMS wheel</a> / ${GROUP(n)}</div>
   <div class="eband" style="--c:${c};color:${ON(n)}"><div class="big">${n}</div><div><h1 style="color:inherit">${esc(e.title)}</h1><p>${esc(intro.desc)}</p></div>
-    <div class="owner">Element owner<br><b>${esc(owner ? owner.n : e.owner)}</b><br>${esc(e.owner)}<div style="margin-top:10px"><a href="#/el/${prev}" style="color:inherit">Previous</a> &nbsp; <a href="#/el/${next}" style="color:inherit">Next</a></div></div></div>
+    <div class="owner">Element owner<br><b>${owner ? `<a href="#/person/${owner.id}" style="color:inherit">${esc(owner.n)}</a>` : esc(e.owner)}</b><br>${ROLE_BY[e.owner] ? `<a href="#/role/${ROLE_BY[e.owner].role_id}" style="color:inherit">${esc(e.owner)}</a>` : esc(e.owner)}<div style="margin-top:10px"><a href="#/el/${prev}" style="color:inherit">Previous</a> &nbsp; <a href="#/el/${next}" style="color:inherit">Next</a></div></div></div>
   ${intro.you ? `<div class="youline" style="--c:${c}"><b>What this means for you.</b> ${esc(intro.you)}</div>` : ""}
   <div class="page-head" style="margin-bottom:10px"><div><h2 style="margin:0">What the Manual expects</h2><p class="small">${cv} of ${tot} expectations are written into issued documents. Choose one to see the documents, statements and controls behind it.</p></div>
     <a class="btn" href="#/library/el/${n}">Read element ${n} as one manual</a></div>
@@ -316,15 +318,15 @@ route(/^\/exp\/(\d+\.\d+)$/, (id) => {
     </div></div>
   <div class="panel" style="margin-top:18px"><h2>Binding statements tagged ${id}</h2>${[...byDoc].map(([doc, list]) => `<h3 style="margin-top:14px">${docLink(doc)} ${esc(DOC[doc].title)}</h3>${list.map(stmtHTML).join("")}`).join("") || `<p class="muted">None yet.</p>`}</div>`);
 });
-function stmtHTML(s) { return `<div class="stmt k-${s.b.k}"><p>${esc(s.b.t)}</p><div class="src">${kindChip(s.b.k)} ${docLink(s.d.id, s.s.bm, `${s.d.id}, ${s.s.title}`)} ${tagChips(s.tags)} ${(s.b.c || []).map(ctlChip).join("")}</div></div>`; }
+function stmtHTML(s) { return `<div class="stmt k-${s.b.k}"><p>${linkRoles(s.b.t)}</p><div class="src">${kindChip(s.b.k)} ${docLink(s.d.id, s.s.bm, `${s.d.id}, ${s.s.title}`)} ${tagChips(s.tags)} ${(s.b.c || []).map(ctlChip).join("")}</div></div>`; }
 const linkRefs = (h) => h.replace(/(?<![A-Za-z0-9-])(ACE-[A-Z]{3}-[A-Z]{3}-\d{3}(?:-[A-Z]{3})?)/g, (m) => DOC[m] ? `<a href="#/doc/${m}">${m}</a>` : `<span data-tip="Planned document" style="border-bottom:1px dashed var(--ink-3)">${m}</span>`);
 function blockInner(b, text) {
-  let t = text ?? linkRefs(esc(b.t));
+  let t = text ?? linkRefs(linkRoles(b.t));
   if (text == null) for (const c of b.c || []) t = t.replace(new RegExp(`\\(?${c}\\)?`), ` ${ctlChip(c)}`);
   return `${BIND.has(b.k) ? kindChip(b.k) + " " : ""}${t}`;
 }
 function blockHTML(b) {
-  if (b.k === "table") return `<table>${b.rows.map((r) => `<tr>${r.map((c) => `<td>${linkRefs(esc(c))}</td>`).join("")}</tr>`).join("")}</table>`;
+  if (b.k === "table") return `<table>${b.rows.map((r) => `<tr>${r.map((c) => `<td>${linkRefs(linkRoles(c))}</td>`).join("")}</tr>`).join("")}</table>`;
   return `<div class="blk k-${b.k}">${blockInner(b)}</div>`;
 }
 
@@ -383,6 +385,8 @@ route(/^\/gaps$/, () => {
     <div class="panel"><h2>Revisions in progress</h2><table class="t"><tr><th>Document</th><th>Revision</th><th>Change</th><th>Target</th></tr>${pend.map((d) => `<tr><td>${docLink(d.doc_id)} ${esc(d.title)}</td><td>${esc(d.pending_revision)}</td><td>${esc(d.pending_moc)}</td><td>${fmt(toDate(d.target_issue))}</td></tr>`).join("")}</table></div>
     <div class="panel"><h2>References to documents not yet issued</h2><div class="scroll"><table class="t"><tr><th>Referenced</th><th>Status</th><th>Referenced by</th></tr>
       ${[...refs].sort().map(([r, by]) => { const p = docReg.find((d) => d.doc_id === r); return `<tr><td>${esc(r)}<div class="small muted">${esc(p?.title || "")}</div></td><td class="small">${p ? "Planned " + fmt(toDate(p.target_issue)) : "<b>Not in any register</b>"}</td><td class="small">${[...by].map((d) => docLink(d)).join(", ")}</td></tr>`; }).join("")}</table></div></div>
+    <div class="panel"><h2>Documents naming people who have left or moved</h2><p class="muted small">Read from the staff list. Documents should name roles; where they name people, the names go stale.</p><table class="t"><tr><th>Document</th><th>Field</th><th>Now</th></tr>
+      ${STALE.map((x) => `<tr><td>${docLink(x.d.id)}</td><td class="small">${MNAME[x.f]}: ${esc(x.w.raw)}</td><td class="small">${staleNote(x.w)}</td></tr>`).join("") || `<tr><td class="muted">None.</td></tr>`}</table></div>
     <div class="panel"><h2>Documents waiting for automatic fix</h2><p class="muted small">They pass the protocol after the ONE Fix tool runs.</p><table class="t"><tr><th>Document</th><th>What Fix will correct</th></tr>
       ${Object.entries(D.gate).filter(([, g]) => g.outcome === "PASS_AFTER_FIX").map(([id, g]) => `<tr><td>${docLink(id)}</td><td class="small">${g.findings.filter((f) => f.sev === "error").map((f) => esc(f.msg)).join("<br>")}</td></tr>`).join("")}</table></div>
   </div>`);
@@ -452,7 +456,7 @@ route(/^\/risk\/(R-[A-Z]{3}-\d+)$/, (id) => {
   const bar = (c) => `<div class="barrier ${c.status === "Planned" ? "planned" : ""}" style="--hc:var(--${{ Effective: "eff", Degraded: "deg", Failed: "fail" }[c.health] || "nt"})"><span class="edot" style="--c:${ECOL[ctlEl(c)]};margin-top:5px"></span><div><a href="#/control/${c.control_id}">${c.control_id}</a> ${isBarrier(c) ? `<span class="kind k-ctl">Barrier</span>` : ""} ${esc(c.statement)}<div class="small muted">${c.status === "Planned" ? "Planned, " + esc(c.doc_ref) : esc(c.health) + ", " + esc(nameOf(c.owner))}</div></div></div>`;
   const ev = EVENTS.filter((e) => e.risk_ids.split("; ").includes(id)).sort((a, b) => b.date.localeCompare(a.date));
   const hist = REG["RSK-REG-001_history"].filter((h) => h.risk_id === id);
-  page([...riskEls(r)], head(`${id} ${esc(r.title)}`, `${esc(r.level)} risk at ${esc(D.protocol.sites[r.site] || r.site)}. Owner ${esc(r.owner)}. ${r.restrictions ? "Restriction: " + esc(r.restrictions) + "." : ""}`, `<a href="#/risk">Risks</a>`,
+  page([...riskEls(r)], head(`${id} ${esc(r.title)}`, `${esc(r.level)} risk at <a href="#/site/${r.site}">${esc(D.protocol.sites[r.site] || r.site)}</a>. Owner ${whoHTML(r.owner)}. ${r.restrictions ? "Restriction: " + esc(r.restrictions) + "." : ""}`, `<a href="#/risk">Risks</a>`,
     `<div style="text-align:right"><div>Now ${rateChip(r.current_rating)} <span class="small muted">${r.current_l}${r.current_c}</span></div><div style="margin-top:4px">After actions ${rateChip(r.residual_rating)} <span class="small muted">${r.residual_l}${r.residual_c}</span></div></div>`) + `
   <div class="panel" style="margin-bottom:18px"><div class="bowtie">
     <div class="side"><h3>Threats</h3>${r.threats.split(";").map((t) => `<div class="small" style="margin-bottom:4px">${esc(t.trim())}</div>`).join("")}<h3 style="margin-top:12px">Preventive controls</h3>${pre.map(bar).join("") || `<p class="muted small">None with Control IDs.</p>`}</div>
@@ -478,7 +482,7 @@ route(/^\/controls$/, () => {
   <div class="panel"><table class="t" id="ct"></table></div>`);
   const run = () => { const e = $("#fe").value, b = $("#fb").value, h = $("#fh").value, st = $("#fst").value;
     $("#ct").innerHTML = `<tr><th>Control</th><th>Statement</th><th>Risk</th><th>Written in</th><th>Owner</th></tr>` + CTLS.filter((c) => (!e || ctlEl(c) === +e) && (!b || (b === "b") === isBarrier(c)) && (!h || c.health === h) && (!st || c.status === st)).map((c) => {
-      const [doc, bm] = c.doc_ref.split("#"); return `<tr><td><span class="edot" style="--c:${ECOL[ctlEl(c)]}"></span>${ctlChip(c.control_id)}</td><td>${isBarrier(c) ? `<span class="kind k-ctl">Barrier</span> ` : ""}${esc(c.statement)}</td><td><a href="#/risk/${c.risk_id}">${c.risk_id}</a></td><td class="small">${c.status === "Planned" ? esc(c.doc_ref) : docLink(doc, bm)}</td><td class="small">${esc(nameOf(c.owner))}</td></tr>`; }).join(""); };
+      const [doc, bm] = c.doc_ref.split("#"); return `<tr><td><span class="edot" style="--c:${ECOL[ctlEl(c)]}"></span>${ctlChip(c.control_id)}</td><td>${isBarrier(c) ? `<span class="kind k-ctl">Barrier</span> ` : ""}${esc(c.statement)}</td><td><a href="#/risk/${c.risk_id}">${c.risk_id}</a></td><td class="small">${c.status === "Planned" ? esc(c.doc_ref) : docLink(doc, bm)}</td><td class="small">${whoHTML(c.owner)}</td></tr>`; }).join(""); };
   for (const id of ["fe", "fb", "fh", "fst"]) $("#" + id).oninput = run; run();
 });
 route(/^\/control\/(C-[A-Z]{3}-\d{3})$/, (id) => {
@@ -490,7 +494,7 @@ route(/^\/control\/(C-[A-Z]{3}-\d{3})$/, (id) => {
   page(ctlEl(c), head(`<span class="dot ${hcls(c.health)}" style="width:14px;height:14px"></span>${id}`, `${isBarrier(c) ? "Barrier. " : "Management check. "}${esc(c.statement)}`, `<a href="#/controls">Controls</a>`) + `
   <div class="grid2"><div class="panel"><h2>Where it is written</h2>${para ? `<div class="blk k-ctl">${esc(para.t)}</div><p class="small">${docLink(doc, bm, `${doc}, ${sec.s.title}`)} ${tagChips(sec.s.tags)}</p>` : `<p class="muted">${esc(c.doc_ref)}</p>`}
     <table class="t" style="margin-top:10px"><tr><td>Risk</td><td><a href="#/risk/${c.risk_id}">${c.risk_id}</a> ${esc(RISK[c.risk_id]?.title || "")}</td></tr><tr><td>Type</td><td>${esc(c.position)}, ${esc(c.nature.toLowerCase())}${c.critical === "Yes" ? ", critical" : ""}</td></tr>
-    <tr><td>Owner</td><td>${esc(c.owner)}</td></tr><tr><td>Evidence</td><td>${esc(c.evidence)}</td></tr><tr><td>Process step</td><td>${c.process_step ? `<a href="#/process">${esc(c.process_step)}</a>` : `<span class="muted">Not yet modelled${c.process_planned ? " (expected in " + esc(c.process_planned) + ")" : ""}</span>`}</td></tr>
+    <tr><td>Owner</td><td>${whoHTML(c.owner)}</td></tr><tr><td>Evidence</td><td>${esc(c.evidence)}</td></tr><tr><td>Process step</td><td>${c.process_step ? `<a href="#/process">${esc(c.process_step)}</a>` : `<span class="muted">Not yet modelled${c.process_planned ? " (expected in " + esc(c.process_planned) + ")" : ""}</span>`}</td></tr>
     ${c.barrier ? `<tr><td>Barrier</td><td>${esc(c.barrier)}</td></tr>` : ""}${c.sce_id ? `<tr><td>Safety-critical element</td><td>${esc(c.sce_id)}</td></tr>` : ""}</table></div>
   <div class="panel"><h2>Health over time</h2><ul class="events">${hist.map((h) => `<li><span class="muted">${fmt(toDate(h.date))}</span><span><span class="dot ${hcls(h.health)}"></span>${esc(h.health)} <span class="small muted">${esc(h.note)}</span></span></li>`).join("") || `<li><span></span><span class="muted">Not yet in force.</span></li>`}</ul>
     ${ev.length ? `<h3 style="margin-top:14px">Events</h3><ul class="events">${ev.map((e) => `<li><span class="muted">${fmt(toDate(e.date))}</span><span>${esc(e.title)}</span></li>`).join("")}</ul>` : ""}</div></div>`);
@@ -498,8 +502,8 @@ route(/^\/control\/(C-[A-Z]{3}-\d{3})$/, (id) => {
 
 // ---------- technical authority ----------
 route(/^\/authority(?:\/(.+))?$/, (who) => {
-  const vp = PEOPLE.find((p) => p.t === "VP Engineering & Projects");
-  const leads = PEOPLE.filter((p) => p.dl === vp.id && p.disc);
+  const vp = PEOPLE.find((p) => p.t === "VP Engineering & Projects" && p.st !== "Left");
+  const leads = PEOPLE.filter((p) => p.dl === vp.id && p.disc && p.st !== "Left");
   const fns = [...new Set(leads.map((p) => p.f))];
   const FC = ["#0B5563", "#C8402F", "#3D4FA1", "#6E9A2E", "#7A4FA0", "#D6A21E", "#5B6B73"];
   const cx = 360, cy = 330; let svg = "";
@@ -532,7 +536,7 @@ route(/^\/authority(?:\/(.+))?$/, (who) => {
 });
 
 // ---------- library: by element (virtual manual), tree, list ----------
-const libTabs = (on) => `<div class="tabs">${[["el", "By element", "#/library/el/1"], ["tree", "Document tree", "#/library/tree"], ["list", "List", "#/library/list"]].map(([k, l, h]) => `<a class="${on === k ? "on" : ""}" href="${h}">${l}</a>`).join("")}</div>`;
+const libTabs = (on) => `<div class="tabs">${[["el", "By element", "#/library/el/1"], ["tree", "Document tree", "#/library/tree"], ["map", "Document map", "#/library/map"], ["list", "List", "#/library/list"]].map(([k, l, h]) => `<a class="${on === k ? "on" : ""}" href="${h}">${l}</a>`).join("")}</div>`;
 route(/^\/library$/, () => { location.replace("#/library/el/1"); });
 route(/^\/library\/el\/(\d+)$/, (n) => {
   n = +n; const e = EL[n]; if (!e) return go404(); const c = ECOL[n];
@@ -553,7 +557,7 @@ const parentOf = (d) => { if (d.id === MAN.id) return null; const p = (d.parent.
 route(/^\/library\/tree$/, () => {
   const kids = {}; for (const d of DOCS) { const p = parentOf(d); if (p) (kids[p] ||= []).push(d); }
   for (const k in kids) kids[k].sort((a, b) => LORDER.indexOf(a.layer) - LORDER.indexOf(b.layer) || a.id.localeCompare(b.id));
-  const node = (d, depth) => `<li><details ${depth < 1 ? "open" : ""}><summary><span class="lay">${esc(d.layer)}</span><a href="#/doc/${d.id}">${esc(d.id)}</a> <span>${esc(d.title)}</span> ${fpBar(d.id)} <span class="small muted">${(kids[d.id] || []).length ? plural(kids[d.id].length, "child document") : ""}</span></summary>
+  const node = (d, depth) => `<li><details ${depth < 1 ? "open" : ""}><summary><span class="lay">${esc(d.layer)}</span>${wordIcon(d.id)}<a href="#/doc/${d.id}">${esc(d.id)}</a> <span>${esc(d.title)}</span> ${fpBar(d.id)} <span class="small muted">${(kids[d.id] || []).length ? plural(kids[d.id].length, "child document") : ""}</span></summary>
     <div class="secs">${(d.id === MAN.id ? [] : d.sections.filter((s) => s.level === 1)).map((s) => `<a href="#/doc/${d.id}/${s.bm}" style="--c:${s.tags[0] ? ECOL[elOf(s.tags[0])] : "var(--line)"}"><i></i>${esc(s.title)}</a>`).join("")}</div>
     ${(kids[d.id] || []).length ? `<ul>${kids[d.id].map((k) => node(k, depth + 1)).join("")}</ul>` : ""}</details></li>`;
   page(null, head("Document tree", "From the OMS Manual down through policies, standards, practices and procedures. Expand a document to see its sections, coloured by the element each one serves.", `<a href="#/library">Library</a>`) + libTabs("tree") + `<div class="panel tree"><ul>${node(MAN, 0)}</ul></div>`);
@@ -568,7 +572,7 @@ route(/^\/library\/list$/, () => {
     const issued = x === "p" ? [] : DOCS.filter((d) => (!l || d.layer === l) && (!e || FP[d.id][e]));
     const planned = x === "i" || e ? [] : reg.filter((d) => d.status === "Planned" && (!l || TYPE_LAYER[d.doc_id.split("-")[2]] === l));
     $("#lt").innerHTML = `<tr><th>Number</th><th>Title</th><th>Elements</th><th>Layer</th><th>Rev</th><th>Effective</th><th>Owner</th><th>Gateway</th></tr>` +
-      issued.sort((a, b) => a.id.localeCompare(b.id)).map((d) => `<tr><td>${docLink(d.id)}</td><td>${esc(d.title)}</td><td>${fpBar(d.id)}</td><td>${d.layer}</td><td>${esc(d.revision)}</td><td class="num">${fmt(d.eff)}</td><td class="small">${esc(nameOf(d.owner))}</td><td>${gateChip(d.id)}</td></tr>`).join("") +
+      issued.sort((a, b) => a.id.localeCompare(b.id)).map((d) => `<tr><td style="white-space:nowrap">${wordIcon(d.id)} ${docLink(d.id)}</td><td>${esc(d.title)}</td><td>${fpBar(d.id)}</td><td>${d.layer}</td><td>${esc(d.revision)}</td><td class="num">${fmt(d.eff)}</td><td class="small">${whoHTML(d.owner)}</td><td>${gateChip(d.id)}</td></tr>`).join("") +
       planned.map((d) => `<tr style="color:var(--ink-3)"><td>${esc(d.doc_id)}</td><td>${esc(d.title)}</td><td></td><td>${TYPE_LAYER[d.doc_id.split("-")[2]] || ""}</td><td></td><td class="small">Planned ${fmt(toDate(d.target_issue))}</td><td class="small">${esc(nameOf(d.owner))}</td><td></td></tr>`).join(""); };
   for (const id of ["fe", "fl", "fx"]) $("#" + id).oninput = run; run();
 });
@@ -656,9 +660,10 @@ route(/^\/doc\/([A-Z0-9-]+)(?:\/(.+))?$/, (id, bm) => {
   const parent = parentOf(d); const children = DOCS.filter((x) => parentOf(x) === id);
   const secCol = (s) => s.tags[0] ? ECOL[elOf(s.tags[0])] : "var(--line-2)";
   page(FP[id], `<div class="crumb"><a href="#/library">Library</a> / <a href="#/library/tree">${esc(d.layer)}</a></div>
-  <div class="titleblock"><div><h1 style="font-size:24px">${esc(d.title)}</h1><p class="muted" style="margin:6px 0 10px">${esc(d.subtitle)}</p>
+  <div class="titleblock"><div><h1 style="font-size:24px;display:flex;gap:12px;align-items:center">${wordIcon(id, true)}<span>${esc(d.title)}</span></h1><p class="muted" style="margin:6px 0 10px">${esc(d.subtitle)}</p>
     <dl><dt>Number</dt><dd>${esc(d.id)}</dd><dt>Revision</dt><dd>${esc(d.revision)} ${esc(d.status)}</dd><dt>Effective</dt><dd>${fmt(d.eff)}</dd><dt>Next review</dt><dd>${fmt(toDate(reg.next_review))}</dd>
-    <dt>Owner</dt><dd>${esc(nameOf(d.owner))}</dd><dt>Author</dt><dd>${esc(nameOf(d.author))}</dd><dt>Parent</dt><dd>${parent ? docLink(parent) : "None"}</dd><dt>Gateway</dt><dd>${gateChip(id)}</dd></dl>
+    <dt>Owner</dt><dd>${whoHTML(d.owner)}</dd><dt>Author</dt><dd>${whoHTML(d.author)}</dd><dt>Parent</dt><dd>${parent ? docLink(parent) : "None"}</dd><dt>Gateway</dt><dd>${gateChip(id)}</dd></dl>
+    ${STALE.filter((x) => x.d.id === id).map((x) => `<p class="small" style="margin:8px 0 0;color:var(--flare)">${MNAME[x.f]} names ${esc(x.w.name)}: ${staleNote(x.w)}. Update at the next revision.</p>`).join("")}
     ${children.length ? `<p class="small" style="margin:8px 0 0">Child documents: ${children.map((c) => docLink(c.id)).join(", ")}</p>` : ""}
     ${reg.pending_revision ? `<p class="small" style="margin:8px 0 0;color:var(--flare)">Revision ${esc(reg.pending_revision)} in preparation under ${esc(reg.pending_moc)}, target ${fmt(toDate(reg.target_issue))}.</p>` : ""}</div>
     <div style="text-align:center">${fpWheel(d)}<div class="small muted">Which elements this document serves</div></div></div>
@@ -914,6 +919,320 @@ route(/^\/search\/(.*)$/, (q) => {
     ${ctl.length ? `<div class="panel"><h2>Controls</h2>${ctl.map((c) => `<div>${ctlChip(c.control_id)} ${esc(c.statement)}</div>`).join("")}</div>` : ""}
     ${rk.length ? `<div class="panel"><h2>Risks</h2>${rk.map((r) => `<div><a href="#/risk/${r.risk_id}">${r.risk_id}</a> ${esc(r.title)} ${rateChip(r.current_rating)}</div>`).join("")}</div>` : ""}
     ${!docs.length && !st.length && !ppl.length && !ctl.length && !rk.length ? `<div class="panel"><p>Nothing matches. Try a document number, a job title or a word from a requirement.</p></div>` : ""}</div></div>`);
+});
+
+// =====================================================================================================
+// THE ORGANISATIONAL DIMENSION: company, sites, functions, roles and people, read from company/org/*.csv
+// =====================================================================================================
+const CO = D.company || { roles: [], omsRoles: [], sites: [], functions: [], links: [], changes: [], profile: "" };
+const ROLES = CO.roles; const ROLE = Object.fromEntries(ROLES.map((r) => [r.role_id, r]));
+const ROLE_BY = {}; for (const r of ROLES) { ROLE_BY[r.title] = r; for (const a of (r.aliases || "").split("; ").filter(Boolean)) ROLE_BY[a] ||= r; }
+const OMSR = CO.omsRoles; const OMSR_BY = Object.fromEntries(OMSR.map((o) => [o.oms_role_id, o]));
+const SITES = CO.sites; const SITE = Object.fromEntries(SITES.map((s) => [s.site_code, s]));
+const FUNCS = CO.functions; const FUNC = Object.fromEntries(FUNCS.map((f) => [f.code, f]));
+const ACTIVE = PEOPLE.filter((p) => p.st !== "Left");
+const HOLD = {}; for (const p of ACTIVE) (HOLD[p.r] ||= []).push(p);
+const PNAME = {}; for (const p of PEOPLE) if (!PNAME[p.n] || p.st !== "Left") PNAME[p.n] = p;
+const CHANGES = CO.changes;
+const roleLink = (r, label) => r ? `<a class="rl" href="#/role/${r.role_id}">${esc(label || r.title)}</a>` : esc(label || "");
+const personLink = (p, label) => p ? `<a class="pl" href="#/person/${p.id}">${esc(label || p.n)}</a>${p.st === "Left" ? ` <span class="st rejected">Left</span>` : ""}` : esc(label || "");
+// "Name — Title; Name — Title" as written in documents and registers
+const bare = (t) => (t || "").replace(/\s*\((Technical Authority|system owner|audit authority|[a-z][^)]*)\)$/, "").trim();   // drop qualifiers such as "(Technical Authority)"
+const parseWho = (s) => String(s || "").split(/;\s*/).filter(Boolean).map((x) => { const [n, t] = x.split(" — ").map((y) => (y || "").trim()); const person = PNAME[n]; const role = ROLE_BY[t] || ROLE_BY[bare(t)] || (t ? null : ROLE_BY[n]);
+  return { raw: x, name: t ? n : "", title: t || n, person: t ? person : null, role, stale: person && t ? (person.st === "Left" ? "left" : role !== ROLE_BY[person.t] ? "moved" : "") : "" }; });
+const whoHTML = (s) => parseWho(s).map((w) => w.name ? `${personLink(w.person, w.name)}${w.title ? ", " + roleLink(w.role, w.title) : ""}` : roleLink(w.role, w.title)).join("; ") || esc(s || "");
+const staleNote = (w) => w.stale === "left" ? `${esc(w.name)} left ACE on ${fmt(toDate(w.person.left))}` : w.stale === "moved" ? (CO.changes.some((c) => c.employee_id === w.person.id) ? `${esc(w.name)} moved to ${esc(w.person.t)}` : `the staff list has ${esc(w.name)} as ${esc(w.person.t)}`) : "";
+
+// every job title, short name and OMS role name, found in the text of binding statements
+const KEYS = {}; for (const [k, r] of Object.entries(ROLE_BY)) KEYS[k] = { kind: "role", id: r.role_id };
+for (const o of OMSR) if (o.name.includes(" ") && !KEYS[o.name]) KEYS[o.name] = { kind: "oms", id: o.oms_role_id };
+const reEsc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const KEY_RE = Object.keys(KEYS).length ? new RegExp(`(?<![A-Za-z])(${Object.keys(KEYS).sort((a, b) => b.length - a.length).map(reEsc).join("|")})(?![A-Za-z])`, "g") : null;
+const HITS = {}; // role_id or oms id -> statements
+for (const x of STMTS) { if (!KEY_RE) break; const seen = new Set(); for (const m of x.b.t.matchAll(KEY_RE)) { const k = KEYS[m[1]]; if (seen.has(k.id)) continue; seen.add(k.id); (HITS[k.id] ||= []).push(x); } }
+// raw text in, HTML out: role names become links, everything else is escaped
+const linkRoles = (raw) => { if (!KEY_RE) return esc(raw); let out = "", last = 0; for (const m of String(raw).matchAll(KEY_RE)) { const k = KEYS[m[1]]; out += esc(raw.slice(last, m.index)) + `<a class="rl" href="#/${k.kind === "role" ? "role" : "duty"}/${k.id}">${esc(m[1])}</a>`; last = m.index + m[1].length; } return out + esc(raw.slice(last)); };
+
+// where each job role is named in document metadata and registers
+const META = ["owner", "author", "approver", "custodian", "endorser", "reviewers"]; const MNAME = { owner: "Owner", author: "Author", approver: "Approver", custodian: "Custodian", endorser: "Endorser", reviewers: "Reviewer" };
+const DOCROLE = {}; const STALE = [];
+for (const d of DOCS) for (const f of META) for (const w of parseWho(d[f])) { if (w.role) (DOCROLE[w.role.role_id] ||= []).push({ d, f }); if (w.stale) STALE.push({ d, f, w }); }
+const ownerRole = (s) => parseWho(s)[0]?.role;
+const OWNS = { risks: {}, controls: {}, actions: {}, kpis: {}, processes: {} };
+for (const r of RISKS) { const x = ownerRole(r.owner); if (x) (OWNS.risks[x.role_id] ||= []).push(r); }
+for (const c of CTLS) { const x = ownerRole(c.owner); if (x) (OWNS.controls[x.role_id] ||= []).push(c); }
+for (const a of ACTIONS) { const x = ownerRole(a.owner); if (x) (OWNS.actions[x.role_id] ||= []).push(a); }
+for (const k of KPIS) { const x = ownerRole(k.owner); if (x) (OWNS.kpis[x.role_id] ||= []).push(k); }
+for (const p of REG["BPM-REG-001"] || []) { const x = ownerRole(p.owner); if (x) (OWNS.processes[x.role_id] ||= []).push(p); }
+// duties (OMS roles) each job role carries, named in oms_roles.csv or worked out from the registers
+const DUTY = {}; const addDuty = (rid, oid, why) => { if (!rid) return; (DUTY[rid] ||= new Map()); if (!DUTY[rid].has(oid)) DUTY[rid].set(oid, why); };
+for (const o of OMSR) for (const rid of (o.held_by || "").split("; ").filter(Boolean)) addDuty(rid, o.oms_role_id, "");
+for (const e of ELS) addDuty(ROLE_BY[e.owner]?.role_id, "EO", `Element ${e.id}`);
+for (const d of DOCS) addDuty(ownerRole(d.owner)?.role_id, "DO", "");
+for (const k of ["risks", "controls", "processes"]) for (const rid in OWNS[k]) addDuty(rid, { risks: "RO", controls: "CO", processes: "PO" }[k], "");
+const dutyHolders = (oid) => ROLES.filter((r) => DUTY[r.role_id]?.has(oid));
+const roleFP = (rid) => { const f = {}; for (const x of HITS[rid] || []) if (x.tags[0]) f[elOf(x.tags[0])] = (f[elOf(x.tags[0])] || 0) + 1; return f; };
+const fpWheelOf = (f, label = "statements") => { const max = Math.max(1, ...Object.values(f)); const tot = Object.values(f).reduce((a, b) => a + b, 0);
+  return `<svg class="fpwheel" viewBox="0 0 120 120" role="img" aria-label="Element fingerprint">${ELS.map((e) => { const [a0, a1] = segA(e.id); const v = f[e.id] || 0;
+    return `<path d="${arc(60, 60, 22, 56, a0 + 0.02, a1 - 0.02)}" fill="#EEF2F3"/>${v ? `<path d="${arc(60, 60, 22, 22 + 34 * Math.sqrt(v / max), a0 + 0.02, a1 - 0.02)}" fill="${ECOL[e.id]}" data-tip="<b>${e.id}. ${esc(e.title)}</b>${v} ${label}" data-goel="${e.id}" style="cursor:pointer"/>` : ""}`; }).join("")}
+    <text x="60" y="58" text-anchor="middle" font-size="12" font-weight="600" fill="#17262E">${tot}</text><text x="60" y="71" text-anchor="middle" font-size="7.5" fill="#4E5F68">${label}</text></svg>`; };
+const elChips = (s) => String(s || "").split(/;\s*/).filter(Boolean).map((n) => `<a class="echip small" style="--c:${ECOL[n]}" href="#/el/${n}"><b style="color:${ON(n)}">${n}</b>${SHORT[n]}</a>`).join("");
+const headcount = (fc) => ACTIVE.filter((p) => p.fc === fc).length;
+
+// ---------- About ACE ----------
+function businessMap() {
+  const W = 900, H = 470, X = (s) => +s.map_x / 100 * W, Y = (s) => +s.map_y / 100 * H * 0.86 + 20;
+  const flows = [["CHB", "PAP", "flow"], ["SAP", "PAP", "flow"], ["PAP", "CPF", "flow"], ["LND", "CPF", "flow"], ["PLB", "PAP", "supply"], ["PLB", "LND", "supply"], ["PLB", "CPF", "supply"], ["RIG", "LND", "supply"]].filter(([a, b]) => SITE[a] && SITE[b]);
+  const cpf = SITE.CPF;
+  let g = `<defs><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0B5563"/></marker></defs>
+    <rect x="0" y="0" width="${W * 0.27}" height="${H}" fill="#DCEBF0"/><text x="16" y="28" class="water">Gulf of Paria</text>
+    <path d="M${W * 0.27},0 C${W * 0.25},${H * 0.3} ${W * 0.3},${H * 0.6} ${W * 0.27},${H} L${W},${H} L${W},0 Z" fill="#F4F1E6"/><text x="${W - 16}" y="28" text-anchor="end" class="land">Trinidad</text>`;
+  for (const [a, b, k] of flows) { const p = SITE[a], q = SITE[b]; g += `<path class="${k}" d="M${X(p)},${Y(p)} Q${(X(p) + X(q)) / 2},${(Y(p) + Y(q)) / 2 - 28} ${X(q)},${Y(q)}" ${k === "flow" ? 'marker-end="url(#ar2)"' : ""}/>`; }
+  if (cpf) { g += `<path class="flow" d="M${X(cpf)},${Y(cpf)} C${X(cpf) + 160},${Y(cpf) + 6} ${W - 260},${Y(cpf) + 2} ${W - 150},${Y(cpf) + 2}" marker-end="url(#ar2)"/><g class="sink"><rect x="${W - 148}" y="${Y(cpf) - 18}" width="138" height="40" rx="20"/><text x="${W - 79}" y="${Y(cpf) + 7}" text-anchor="middle">Gas to the Gas Buyer</text></g>
+    <path class="flow" d="M${X(cpf)},${Y(cpf)} L${X(cpf) - 70},${Y(cpf) + 60}" marker-end="url(#ar2)"/><g class="sink"><rect x="${X(cpf) - 150}" y="${Y(cpf) + 62}" width="128" height="40" rx="20"/><text x="${X(cpf) - 86}" y="${Y(cpf) + 87}" text-anchor="middle">Crude by tanker</text></g>`; }
+  for (const s of SITES) { const n = ACTIVE.filter((p) => p.s === s.site_code).length; const r = 16 + Math.sqrt(n) * 2.2;
+    g += `<a href="#/site/${s.site_code}" class="snode"><circle cx="${X(s)}" cy="${Y(s)}" r="${r}"/><text x="${X(s)}" y="${Y(s) + 4}" text-anchor="middle" class="code">${s.site_code}</text>
+      <text x="${X(s)}" y="${Y(s) + r + 16}" text-anchor="middle" class="nm">${esc(s.name)}</text><text x="${X(s)}" y="${Y(s) + r + 31}" text-anchor="middle" class="sub">${n ? n + " staff" : esc(s.manning)}</text></a>`; }
+  return `<svg class="bmap" viewBox="0 0 ${W} ${H}" role="img" aria-label="ACE business map">${g}</svg>`;
+}
+function siteStats(code) {
+  const evs = EVENTS.filter((e) => e.site === code && toDate(e.date) >= YEAR_AGO); const rs = RISKS.filter((r) => r.site === code);
+  const acts = ACTIONS.filter((a) => !a.closed && EVBY[a.event_id]?.site === code); const docs = DOCS.filter((d) => (d.applies || "").includes(code));
+  return { staff: ACTIVE.filter((p) => p.s === code).length, evs, rs, high: rs.filter((r) => /High/.test(r.current_rating)).length, acts, docs, mocs: MOCS.filter((m) => m.site === code && !m.closed) };
+}
+route(/^\/company$/, () => {
+  const md = CO.profile; const intro = (md.match(/## 1\. Overview\s+([\s\S]*?)ACE does three things/) || [, ""])[1].trim();
+  page(null, `<div class="cohero"><img src="brand/logo_lg.png" alt="ACE logo" onerror="this.remove()"><div><div class="crumb">Company</div><h1 class="display">Acme Caribbean Energy</h1>
+    <p class="lede">${(intro ? mdHTML(intro).replace(/^<p>|<\/p>$/g, "") : "A mid-size Trinidad and Tobago oil and gas producer.")}</p>
+    <div class="figures"><div><b>${ACTIVE.length}</b><span>staff</span></div><div><b>${SITES.length}</b><span>sites</span></div><div><b>${FUNCS.length}</b><span>functions</span></div><div><b>${ROLES.length}</b><span>job roles</span></div><div><b>${DOCS.length}</b><span>OMS documents</span></div></div></div></div>
+  <div class="grid2" style="grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);align-items:start">
+    <div class="panel"><h2>What ACE does, and where</h2><p class="small muted">Crude and gas flow from the wells to the Central Processing Facility, then to the Gas Buyer or by tanker. Dashed lines are supply routes from the shore base. Choose a site.</p>${businessMap()}</div>
+    <div class="stack"><div class="panel"><h2>Produce, process, sell</h2>
+      <p><b>Produce.</b> Crude and gas from small offshore fields in the Gulf of Paria and from three land leases.</p>
+      <p><b>Process.</b> Everything goes to ACE's own Central Processing Facility on the west coast.</p>
+      <p><b>Sell.</b> Gas to the Gas Buyer under a gas sales agreement; crude shipped by tanker or barge from the CPF jetty.</p></div>
+      <div class="panel"><h2>Explore the company</h2><p><a href="#/org">Organisation and functions</a><br><a href="#/roles">Roles and OMS duties</a><br><a href="#/people">Staff directory</a><br><a href="#/model">How ACE fits the ONE model</a></p></div></div></div>
+  <h2 style="margin-top:24px">Sites compared</h2>
+  <div class="panel"><p class="small muted">One OMS, several sites. The same documents, risks and registers can be read site by site, and a company with more than one OMS can be compared the same way.</p>
+    <table class="t"><tr><th>Site</th><th>Area Authority</th><th class="n">Staff</th><th class="n">Risks</th><th class="n">High</th><th class="n">Events, 12 mo</th><th class="n">Open actions</th><th class="n">Open changes</th><th class="n">Documents applying</th></tr>
+    ${SITES.map((s) => { const t = siteStats(s.site_code); return `<tr><td><a href="#/site/${s.site_code}">${esc(s.name)}</a><div class="small muted">${esc(s.type)}</div></td><td class="small">${roleLink(ROLE[s.area_authority])}</td><td class="n">${t.staff}</td><td class="n">${t.rs.length}</td><td class="n">${t.high || ""}</td><td class="n">${t.evs.length}</td><td class="n">${t.acts.length}</td><td class="n">${t.mocs.length}</td><td class="n">${t.docs.length}</td></tr>`; }).join("")}</table></div>
+  <h2 style="margin-top:24px">Functions</h2>
+  <div class="cards">${FUNCS.map((f) => `<a class="card fcard" href="#/org/${f.code}"><span class="id">${esc(f.code)}</span><h3>${esc(f.name)}</h3><p class="small muted" style="margin:0 0 8px">${esc(firstSentence(f.purpose))}</p><div class="row"><span>${headcount(f.code)} staff</span><span>${(HOLD[f.head_role] || []).map((p) => esc(p.n)).join(", ")}</span></div></a>`).join("")}</div>
+  ${md ? `<details class="panel" style="margin-top:24px"><summary><b>Full company profile</b> <span class="small muted">from company/ACE_Company_Profile.md</span></summary><div class="mdbody">${mdHTML(md)}</div></details>` : ""}`);
+});
+function mdHTML(md) {
+  const inl = (s) => esc(s).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\*(.+?)\*/g, "<i>$1</i>");
+  const out = []; const L = md.split(/\r?\n/); let i = 0;
+  while (i < L.length) { const l = L[i];
+    if (/^```/.test(l)) { const b = []; i++; while (i < L.length && !/^```/.test(L[i])) b.push(L[i++]); i++; out.push(`<pre>${esc(b.join("\n"))}</pre>`); continue; }
+    if (/^#{1,4} /.test(l)) { const n = l.match(/^#+/)[0].length; out.push(`<h${Math.min(4, n + 1)}>${inl(l.replace(/^#+ /, ""))}</h${Math.min(4, n + 1)}>`); i++; continue; }
+    if (/^\|/.test(l)) { const rows = []; while (i < L.length && /^\|/.test(L[i])) { if (!/^\|[-| :]+\|$/.test(L[i])) rows.push(L[i].split("|").slice(1, -1).map((c) => inl(c.trim()))); i++; } out.push(`<table class="t">${rows.map((r, k) => `<tr>${r.map((c) => k ? `<td>${c}</td>` : `<th>${c}</th>`).join("")}</tr>`).join("")}</table>`); continue; }
+    if (/^- /.test(l)) { const it = []; while (i < L.length && /^- /.test(L[i])) it.push(`<li>${inl(L[i++].slice(2))}</li>`); out.push(`<ul>${it.join("")}</ul>`); continue; }
+    if (/^---/.test(l) || !l.trim()) { i++; continue; }
+    out.push(`<p>${inl(l)}</p>`); i++; }
+  return out.join("");
+}
+
+// ---------- a site ----------
+route(/^\/site\/([A-Z]{3})$/, (code) => {
+  const s = SITE[code]; if (!s) return go404(); const t = siteStats(code); const aa = ROLE[s.area_authority];
+  const byF = {}; for (const p of ACTIVE.filter((p) => p.s === code)) byF[p.fc] = (byF[p.fc] || 0) + 1;
+  page(null, head(esc(s.name), `${esc(s.type)}, ${esc(s.location)}. ${esc(s.purpose)}.`, `<a href="#/company">Company</a>`) + `
+  <div class="figures" style="margin-bottom:18px"><div><b>${t.staff}</b><span>staff based here</span></div><div><b>${t.rs.length}</b><span>risks, ${t.high} high</span></div><div><b>${t.evs.length}</b><span>events in 12 months</span></div><div><b>${t.acts.length}</b><span>open actions</span></div><div><b>${t.docs.length}</b><span>documents apply here</span></div></div>
+  <div class="grid2" style="align-items:start"><div class="stack">
+    <div class="panel"><h2>Who is in charge</h2><p>Area Authority: ${roleLink(aa)} ${(HOLD[aa?.role_id] || []).map((p) => personLink(p)).join(", ")}</p><p class="small muted">${esc(s.manning)}${s.parent ? `. Run from ${esc(SITE[s.parent]?.name || s.parent)}` : ""}.</p>
+      ${Object.keys(byF).length ? `<h3 style="margin-top:12px">Staff by function</h3>${hbar(Object.entries(byF).sort((a, b) => b[1] - a[1]).map(([f, n], i) => [FUNC[f]?.name || f, n, ["#0B5563", "#3E8597", "#8EBCC6", "#B9C7CD", "#DCE4E7", "#E8EDEF"][Math.min(i, 5)]]))}<div class="small muted">${Object.entries(byF).sort((a, b) => b[1] - a[1]).map(([f, n]) => `${esc(FUNC[f]?.name || f)} ${n}`).join(", ")}</div>` : ""}</div>
+    <div class="panel"><h2>Risks at this site</h2>${rateBar(t.rs)}<table class="t">${t.rs.map((r) => `<tr><td><a href="#/risk/${r.risk_id}">${r.risk_id}</a> ${esc(r.title)}</td><td>${rateChip(r.current_rating)}</td></tr>`).join("") || `<tr><td class="muted">None registered.</td></tr>`}</table></div></div>
+    <div class="stack"><div class="panel"><h2>Documents that apply here</h2><table class="t">${t.docs.map((d) => `<tr><td>${docLink(d.id)} ${esc(d.title)}</td><td>${fpBar(d.id)}</td></tr>`).join("") || `<tr><td class="muted">No document names this site in its applicability.</td></tr>`}</table></div>
+    <div class="panel"><h2>Recent events</h2><ul class="events">${t.evs.slice(-12).reverse().map((e) => `<li><span class="muted">${fmt(toDate(e.date))}</span><span>${esc(e.title)} <span class="small muted">${esc(e.type)}</span></span></li>`).join("") || `<li><span></span><span class="muted">None in the last 12 months.</span></li>`}</ul></div></div></div>`);
+});
+
+// ---------- organisation ----------
+function functionRing() {
+  const N = FUNCS.length, cx = 300, cy = 270, R = 200; const pos = {}; FUNCS.forEach((f, i) => { const a = -Math.PI / 2 + i * 2 * Math.PI / N; pos[f.code] = [cx + R * Math.cos(a), cy + R * Math.sin(a), a]; });
+  const wt = { Strong: 3.2, Medium: 1.8, Light: 1 };
+  let g = CO.links.filter((l) => pos[l.from] && pos[l.to]).map((l) => { const [x1, y1] = pos[l.from], [x2, y2] = pos[l.to];
+    return `<path class="lk" data-a="${l.from}" data-b="${l.to}" d="M${x1},${y1} Q${cx},${cy} ${x2},${y2}" stroke-width="${wt[l.strength] || 1}" data-tip="<b>${esc(FUNC[l.from].name)} and ${esc(FUNC[l.to].name)}</b>${esc(l.strength)}: ${esc(l.nature)}"/>`; }).join("");
+  g += FUNCS.map((f) => { const [x, y, a] = pos[f.code]; const n = headcount(f.code); const r = 10 + Math.sqrt(n) * 2.6; const lx = cx + (R + r + 12) * Math.cos(a), ly = cy + (R + r + 12) * Math.sin(a);
+    return `<a href="#/org/${f.code}" class="fn" data-f="${f.code}"><circle cx="${x}" cy="${y}" r="${r}"/><text x="${x}" y="${y + 4}" text-anchor="middle" class="code">${f.code}</text><text x="${lx}" y="${ly + 4}" text-anchor="${Math.abs(Math.cos(a)) < 0.25 ? "middle" : Math.cos(a) > 0 ? "start" : "end"}" class="nm">${esc(f.name)}</text></a>`; }).join("");
+  return `<svg class="ring" viewBox="-170 0 940 560" role="img" aria-label="How the functions work together">${g}</svg>`;
+}
+route(/^\/org$/, () => {
+  const ceo = ROLES.find((r) => r.grade.startsWith("L1"));
+  page(null, head("Organisation", "Thirteen functions under a Chief Executive. Solid lines say who you work for; dotted lines say who sets your technical standard. Everything here is read from the staff list and role files in the repository, so a change of person or structure shows the next time the site builds.", `<a href="#/company">Company</a>`) + `
+  <div class="orgtop"><a class="obox ceo" href="#/role/${ceo?.role_id}"><b>${esc(ceo?.title || "")}</b><span>${(HOLD[ceo?.role_id] || []).map((p) => esc(p.n)).join(", ")}</span></a></div>
+  <div class="orgrow">${FUNCS.filter((f) => f.code !== "EXEC").map((f) => `<a class="obox" href="#/org/${f.code}"><b>${esc(f.name)}</b><span>${(HOLD[f.head_role] || []).map((p) => esc(p.n)).join(", ")}</span><span class="small muted">${headcount(f.code)} staff</span></a>`).join("")}
+    <a class="obox" href="#/org/EXEC"><b>${esc(FUNC.EXEC?.name || "CEO Office")}</b><span>Strategy, internal audit</span><span class="small muted">${headcount("EXEC")} staff</span></a></div>
+  <div class="grid2" style="grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:start;margin-top:18px">
+    <div class="panel"><h2>How the functions work together</h2><p class="small muted">Thicker lines are stronger working relationships. Point at a line to see what flows between two functions; point at a function to light up its partners.</p>${functionRing()}</div>
+    <div class="stack"><div class="panel"><h2>Dotted lines</h2><p>${ACTIVE.filter((p) => p.disc && p.t.endsWith("Lead") && p.dl).length} discipline leads hold a dotted line to the VP Engineering &amp; Projects as Technical Authorities, whatever function they sit in.</p><p><a class="btn" href="#/authority">See the technical authority network</a></p></div>
+      <div class="panel"><h2>Recent staff changes</h2><ul class="feed">${[...CHANGES].reverse().map((c) => { const p = PID[c.employee_id]; return `<li><time>${fmt(toDate(c.date))}</time><span>${personLink(p, c.name)} ${esc(c.event.toLowerCase())}${c.from_role ? ` from ${roleLink(ROLE_BY[c.from_role], c.from_role)}` : ""}${c.to_role ? ` ${c.event === "Joined" ? "as" : "to"} ${roleLink(ROLE_BY[c.to_role], c.to_role)}` : ""}<div class="small muted">${esc(c.note)}</div></span></li>`; }).join("") || `<li><span></span><span class="muted">None recorded.</span></li>`}</ul>
+      ${STALE.length ? `<p class="small" style="margin-top:8px"><b>${STALE.length}</b> document entries still name people who have since left or moved. <a href="#/gaps">See them under Gaps</a>.</p>` : ""}</div></div></div>`);
+  const svg = $(".ring");
+  svg.addEventListener("mouseover", (e) => { const n = e.target.closest(".fn"); if (!n) return; const f = n.dataset.f; svg.classList.add("focus"); for (const l of svg.querySelectorAll(".lk")) l.classList.toggle("on", l.dataset.a === f || l.dataset.b === f); });
+  svg.addEventListener("mouseout", (e) => { if (e.target.closest(".fn")) { svg.classList.remove("focus"); for (const l of svg.querySelectorAll(".lk")) l.classList.remove("on"); } });
+});
+function roleTree(fc) {
+  const rs = ROLES.filter((r) => r.function === fc); const ids = new Set(rs.map((r) => r.role_id));
+  const kids = {}; for (const r of rs) { const p = ids.has(r.reports_to) ? r.reports_to : "_root"; (kids[p] ||= []).push(r); }
+  const node = (r, depth) => { const hs = HOLD[r.role_id] || []; const ch = kids[r.role_id] || []; const duties = [...(DUTY[r.role_id]?.keys() || [])];
+    const box = `<a class="rbox" href="#/role/${r.role_id}"><b>${esc(r.title)}</b><span>${hs.length > 3 ? `${hs.length} people` : hs.map((p) => esc(p.n)).join(", ") || "<i>Vacant</i>"}</span>${duties.length ? `<span class="duties">${duties.slice(0, 3).map((d) => `<i>${esc(OMSR_BY[d]?.name || d)}</i>`).join("")}</span>` : ""}</a>`;
+    return `<li>${ch.length ? `<details ${depth < 2 ? "open" : ""}><summary>${box}</summary><ul>${ch.map((c) => node(c, depth + 1)).join("")}</ul></details>` : box}</li>`; };
+  return `<div class="otree"><ul>${(kids._root || []).map((r) => node(r, 0)).join("")}</ul></div>`;
+}
+route(/^\/org\/([A-Z]+)$/, (fc) => {
+  const f = FUNC[fc]; if (!f) return go404();
+  const links = CO.links.filter((l) => l.from === fc || l.to === fc);
+  const docs = DOCS.filter((d) => (d.func || "").includes(f.name) || ownerRole(d.owner)?.function === fc);
+  const sites = {}; for (const p of ACTIVE.filter((p) => p.fc === fc)) sites[p.s] = (sites[p.s] || 0) + 1;
+  page(f.elements.split("; ").map(Number), head(esc(f.name), esc(f.purpose), `<a href="#/company">Company</a> / <a href="#/org">Organisation</a>`, `<div class="chips">${elChips(f.elements)}</div>`) + `
+  <div class="figures" style="margin-bottom:18px"><div><b>${headcount(fc)}</b><span>staff</span></div><div><b>${ROLES.filter((r) => r.function === fc).length}</b><span>job roles</span></div><div><b>${docs.length}</b><span>documents owned</span></div><div><b>${Object.keys(sites).length}</b><span>${Object.entries(sites).sort((a, b) => b[1] - a[1]).map(([s, n]) => `${n} at ${esc(SITE[s]?.name || s)}`).join(", ")}</span></div></div>
+  <div class="grid2" style="grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);align-items:start"><div class="panel"><h2>Roles and reporting lines</h2><p class="small muted">Each box is a job role. Grey tags are OMS duties the role carries. Choose a role to see its documents.</p>${roleTree(fc)}</div>
+    <div class="stack"><div class="panel"><h2>Works closely with</h2><table class="t">${links.map((l) => { const o = l.from === fc ? l.to : l.from; return `<tr><td><a href="#/org/${o}">${esc(FUNC[o]?.name || o)}</a><div class="small muted">${esc(l.nature)}</div></td><td class="small">${esc(l.strength)}</td></tr>`; }).join("")}</table></div>
+      <div class="panel"><h2>Documents owned</h2><table class="t">${docs.map((d) => `<tr><td>${docLink(d.id)} ${esc(d.title)}</td><td>${fpBar(d.id)}</td></tr>`).join("") || `<tr><td class="muted">None yet.</td></tr>`}</table></div></div></div>`);
+});
+
+// ---------- roles ----------
+route(/^\/roles$/, () => {
+  page(null, head("Roles", "Documents name roles, not people. A role stays when its holder changes, so every page that mentions a role stays right. OMS duties such as Area Authority are carried by several job roles.", `<a href="#/company">Company</a>`) + `
+  <h2>OMS duties</h2><div class="cards">${OMSR.map((o) => { const hs = dutyHolders(o.oms_role_id); return `<a class="card" href="#/duty/${o.oms_role_id}" style="--c:${ECOL[(o.elements || "5").split("; ")[0]]}"><span class="id">${esc(o.oms_role_id)}</span><h3>${esc(o.name)}</h3><p class="small muted" style="margin:0 0 8px">${esc(o.definition)}</p><div class="row"><span>${plural(hs.length, "job role")}</span><span>${(HITS[o.oms_role_id] || []).length || ""}${(HITS[o.oms_role_id] || []).length ? " statements" : ""}</span></div></a>`; }).join("")}</div>
+  <h2 style="margin-top:24px">Job roles</h2><div class="filters"><label>Function<select id="ff"><option value="">All</option>${FUNCS.map((f) => `<option value="${f.code}">${esc(f.name)}</option>`).join("")}</select></label><label>Find<input id="ft" type="search" placeholder="e.g. Lead"></label>
+    <label>Show<select id="fx"><option value="">All roles</option><option value="d">Named in documents</option></select></label></div>
+  <div class="panel"><table class="t" id="rt"></table></div>`);
+  const run = () => { const f = $("#ff").value, t = $("#ft").value.toLowerCase(), x = $("#fx").value;
+    $("#rt").innerHTML = `<tr><th>Role</th><th>Function</th><th>Holders</th><th>OMS duties</th><th class="n">Named in statements</th><th>Duties by element</th></tr>` + ROLES.filter((r) => (!f || r.function === f) && (!t || r.title.toLowerCase().includes(t)) && (!x || (HITS[r.role_id] || DOCROLE[r.role_id]))).map((r) => {
+      const hs = HOLD[r.role_id] || []; const fp = roleFP(r.role_id); const tot = Object.values(fp).reduce((a, b) => a + b, 0);
+      return `<tr><td>${roleLink(r)}<div class="small muted">${esc(r.grade)}</div></td><td class="small">${esc(FUNC[r.function]?.name || r.function)}</td><td class="small">${hs.length > 2 ? hs.length + " people" : hs.map((p) => personLink(p)).join(", ")}</td><td class="small">${[...(DUTY[r.role_id]?.keys() || [])].map((d) => esc(OMSR_BY[d]?.name || d)).join(", ")}</td><td class="n">${(HITS[r.role_id] || []).length || ""}</td>
+        <td>${tot ? `<span class="fp">${Object.keys(fp).sort((a, b) => a - b).map((n) => `<i style="width:${100 * fp[n] / tot}%;background:${ECOL[n]}"></i>`).join("")}</span>` : ""}</td></tr>`; }).join(""); };
+  for (const id of ["ff", "ft", "fx"]) $("#" + id).oninput = run; run();
+});
+const stmtList = (list, max = 40) => { const by = new Map(); for (const s of list) { if (!by.has(s.d.id)) by.set(s.d.id, []); by.get(s.d.id).push(s); }
+  return [...by].map(([doc, l]) => `<details class="vm-sec" style="--c:${ECOL[elOf(l[0].tags[0])] || "#D5DDE0"}"><summary><b>${esc(doc)}</b> ${esc(DOC[doc].title)} <span class="small muted">${plural(l.length, "statement")}</span></summary><div class="vm-body">${l.slice(0, max).map(stmtHTML).join("")}</div></details>`).join(""); };
+route(/^\/role\/([A-Z]+-\d+)$/, (id) => {
+  const r = ROLE[id]; if (!r) return go404();
+  const hs = HOLD[id] || []; const mgr = ROLE[r.reports_to], dot = ROLE[r.dotted_to]; const reports = ROLES.filter((x) => x.reports_to === id);
+  const duties = [...(DUTY[id] || new Map())]; const hits = HITS[id] || []; const fp = roleFP(id);
+  const asDuty = duties.map(([o]) => [o, HITS[o] || []]).filter(([, l]) => l.length);
+  const meta = DOCROLE[id] || []; const docsIn = new Map(); for (const m of meta) (docsIn.get(m.d.id) || docsIn.set(m.d.id, []).get(m.d.id)).push(MNAME[m.f]);
+  for (const s of hits) (docsIn.get(s.d.id) || docsIn.set(s.d.id, []).get(s.d.id)).push("named in text");
+  const own = (k) => OWNS[k][id] || [];
+  const lanes = D.processes.flatMap((pm) => pm.lanes.filter((l) => l.role === r.title || duties.some(([o]) => OMSR_BY[o]?.name === l.role)).map((l) => [pm, l]));
+  const moves = CHANGES.filter((c) => c.from_role === r.title || c.to_role === r.title);
+  page(Object.keys(fp).length ? fp : null, head(esc(r.title), esc(r.purpose), `<a href="#/company">Company</a> / <a href="#/org/${r.function}">${esc(FUNC[r.function]?.name || r.function)}</a>`,
+    `<div style="text-align:center">${fpWheelOf(fp)}<div class="small muted">Where this role's duties sit in the OMS</div></div>`) + `
+  <div class="grid3" style="align-items:start">
+    <div class="panel"><h2>Held by</h2>${hs.map((p) => `<div style="margin-bottom:4px">${personLink(p)} <span class="small muted">${esc(SITE[p.s]?.name || p.loc)}</span></div>`).join("") || `<p class="muted">Vacant.</p>`}
+      ${moves.length ? `<h3 style="margin-top:10px">Changes</h3>${moves.map((c) => `<div class="small">${fmt(toDate(c.date))}: ${personLink(PID[c.employee_id], c.name)} ${esc(c.event.toLowerCase())}${c.to_role && c.to_role !== r.title ? " to " + esc(c.to_role) : ""}</div>`).join("")}` : ""}</div>
+    <div class="panel"><h2>Reporting lines</h2><p>Reports to ${mgr ? roleLink(mgr) : "the Board"}${dot ? `<br>Dotted line to ${roleLink(dot)}${r.dotted_purpose ? `<span class="small muted"> (${esc(r.dotted_purpose)})</span>` : ""}` : ""}</p>
+      ${reports.length ? `<h3>Direct reports</h3>${reports.map((x) => `<div class="small">${roleLink(x)} <span class="muted">${(HOLD[x.role_id] || []).length}</span></div>`).join("")}` : ""}
+      <p class="small muted" style="margin-top:8px">${esc(r.grade)}${r.discipline ? `, discipline: ${esc(r.discipline)}` : ""}. Sites: ${r.sites.split("; ").map((s) => `<a href="#/site/${s}">${esc(SITE[s]?.name || s)}</a>`).join(", ")}</p></div>
+    <div class="panel"><h2>OMS duties</h2>${duties.map(([o, why]) => `<div style="margin-bottom:6px"><a href="#/duty/${o}">${esc(OMSR_BY[o]?.name || o)}</a>${why ? ` <span class="small muted">${esc(why)}</span>` : ""}</div>`).join("") || `<p class="muted small">No OMS duty recorded for this role.</p>`}</div></div>
+  <div class="figures" style="margin:18px 0"><div><b>${docsIn.size}</b><span>documents name this role</span></div><div><b>${hits.length}</b><span>binding statements name it</span></div><div><b>${asDuty.reduce((a, [, l]) => a + l.length, 0)}</b><span>more name its duties</span></div><div><b>${own("controls").length}</b><span>controls owned</span></div><div><b>${own("risks").length}</b><span>risks owned</span></div><div><b>${own("actions").filter((a) => !a.closed).length}</b><span>open actions</span></div></div>
+  <div class="grid2" style="align-items:start"><div class="stack">
+    <div class="panel"><h2>Documents this role works with</h2><table class="t">${[...docsIn].sort((a, b) => b[1].length - a[1].length).map(([d, how]) => `<tr><td>${docLink(d)} ${esc(DOC[d].title)}</td><td class="small">${[...new Set(how)].join(", ")}</td><td>${fpBar(d)}</td></tr>`).join("") || `<tr><td class="muted">This role is not named in any issued document yet.</td></tr>`}</table></div>
+    ${hits.length ? `<div class="panel"><h2>What the documents require of the ${esc(r.title)}</h2>${stmtList(hits)}</div>` : ""}
+    ${asDuty.map(([o, l]) => `<div class="panel"><h2>As ${esc(OMSR_BY[o].name)}</h2><p class="small muted">Statements written for every ${esc(OMSR_BY[o].name)}, which this role is.</p>${stmtList(l, 12)}</div>`).join("")}</div>
+    <div class="stack">
+      ${own("controls").length ? `<div class="panel"><h2>Controls owned</h2>${healthBar(own("controls"))}${own("controls").map((c) => ctlChip(c.control_id)).join("")}</div>` : ""}
+      ${own("risks").length ? `<div class="panel"><h2>Risks owned</h2>${own("risks").map((x) => `<div><a href="#/risk/${x.risk_id}">${x.risk_id}</a> ${esc(x.title)} ${rateChip(x.current_rating)}</div>`).join("")}</div>` : ""}
+      ${own("kpis").length ? `<div class="panel"><h2>Measures owned</h2>${own("kpis").map((k) => `<div class="small"><b>${esc(k.name)}</b></div>${spark(SERIES[k.kpi_id], "#0B5563", 280, 30)}`).join("")}</div>` : ""}
+      ${own("actions").filter((a) => !a.closed).length ? `<div class="panel"><h2>Open actions</h2><table class="t">${own("actions").filter((a) => !a.closed).map((a) => `<tr><td>${esc(a.title)}<div class="small muted">${esc(a.action_id)}</div></td><td class="small" style="${toDate(a.due) < TODAY ? "color:var(--fail)" : ""}">Due ${fmt(toDate(a.due))}</td></tr>`).join("")}</table></div>` : ""}
+      ${lanes.length ? `<div class="panel"><h2>Process steps</h2>${lanes.map(([pm, l]) => `<div><a href="#/process">${esc(pm.title)}</a>: ${pm.steps.filter((s) => s.lane === l.id).map((s) => esc(s.name)).join(", ")}</div>`).join("")}</div>` : ""}
+      ${own("processes").length ? `<div class="panel"><h2>Processes owned</h2>${own("processes").map((p) => `<div class="small">${esc(p.process_id)} ${esc(p.title)}</div>`).join("")}</div>` : ""}
+    </div></div>`);
+});
+route(/^\/duty\/([A-Z]+)$/, (id) => {
+  const o = OMSR_BY[id]; if (!o) return go404(); const hs = dutyHolders(id); const hits = HITS[id] || [];
+  page(o.elements.split("; ").map(Number), head(esc(o.name), esc(o.definition), `<a href="#/roles">Roles</a> / OMS duties`) + `
+  <div class="grid2" style="align-items:start"><div class="panel"><h2>Carried by</h2><table class="t">${hs.map((r) => `<tr><td>${roleLink(r)}${DUTY[r.role_id].get(id) ? ` <span class="small muted">${esc(DUTY[r.role_id].get(id))}</span>` : ""}</td><td class="small">${(HOLD[r.role_id] || []).slice(0, 3).map((p) => personLink(p)).join(", ")}${(HOLD[r.role_id] || []).length > 3 ? "…" : ""}</td></tr>`).join("") || `<tr><td class="muted">Not assigned.</td></tr>`}</table></div>
+    <div class="panel"><h2>Defined in</h2><p>${o.defined_in.split("; ").map((d) => docLink(d)).join(", ")}</p><p class="small muted">${o.derived_from ? `Worked out from the ${esc(o.derived_from)} register, so it follows the data.` : "Assigned in company/org/oms_roles.csv."}</p><div class="chips">${elChips(o.elements)}</div></div></div>
+  ${hits.length ? `<div class="panel" style="margin-top:18px"><h2>${plural(hits.length, "binding statement")} name the ${esc(o.name)}</h2>${stmtList(hits, 20)}</div>` : ""}`);
+});
+
+// ---------- people ----------
+route(/^\/people$/, () => {
+  page(null, head("People", `${ACTIVE.length} staff, read from company/ACE_People.csv. Leavers stay on record so documents that still name them can be found.`, `<a href="#/company">Company</a>`) + `
+  <div class="filters"><label>Function<select id="ff"><option value="">All</option>${FUNCS.map((f) => `<option value="${f.code}">${esc(f.name)}</option>`).join("")}</select></label>
+    <label>Site<select id="fs"><option value="">All</option>${SITES.map((s) => `<option value="${s.site_code}">${esc(s.name)}</option>`).join("")}</select></label>
+    <label>Status<select id="fx"><option value="">Current staff</option><option value="Left">Left</option><option value="all">Everyone</option></select></label><label>Find<input id="ft" type="search" placeholder="Name or title"></label></div>
+  <div class="panel"><div class="scroll" style="max-height:none"><table class="t" id="pt"></table></div></div>`);
+  const run = () => { const f = $("#ff").value, s = $("#fs").value, x = $("#fx").value, t = $("#ft").value.toLowerCase();
+    const l = PEOPLE.filter((p) => (x === "all" || (x === "Left" ? p.st === "Left" : p.st !== "Left")) && (!f || p.fc === f) && (!s || p.s === s) && (!t || (p.n + " " + p.t).toLowerCase().includes(t)));
+    $("#pt").innerHTML = `<tr><th>Name</th><th>Role</th><th>Function</th><th>Site</th><th>Reports to</th></tr>` + l.map((p) => `<tr><td>${personLink(p)}</td><td>${roleLink(ROLE[p.r], p.t)}</td><td class="small">${esc(p.f)}</td><td class="small">${esc(SITE[p.s]?.name || p.loc)}</td><td class="small">${personLink(PID[p.to])}</td></tr>`).join(""); };
+  for (const id of ["ff", "fs", "fx", "ft"]) $("#" + id).oninput = run; run();
+});
+route(/^\/person\/(ACE-\d+)$/, (id) => {
+  const p = PID[id]; if (!p) return go404(); const r = ROLE[p.r] || ROLE_BY[p.t];
+  const team = ACTIVE.filter((x) => x.to === id); const mgr = PID[p.to];
+  const named = DOCS.flatMap((d) => META.flatMap((f) => parseWho(d[f]).filter((w) => w.person === p).map((w) => ({ d, f, w }))));
+  const ownC = CTLS.filter((c) => c.owner.startsWith(p.n + " ")), ownR = RISKS.filter((x) => x.owner.startsWith(p.n + " "));
+  const hist = CHANGES.filter((c) => c.employee_id === id);
+  page(null, head(esc(p.n), `${roleLink(r, p.t)}, ${esc(p.f)}. ${esc(SITE[p.s]?.name || p.loc)}.`, `<a href="#/people">People</a>`) + `
+  ${p.st === "Left" ? `<div class="offline" style="font-size:14px">${esc(p.n)} left ACE on ${fmt(toDate(p.left))}. ${named.length ? `${named.length} document entries still name them and should be updated at the next revision.` : ""}</div>` : ""}
+  <div class="grid3" style="align-items:start"><div class="panel"><h2>Position</h2><p>${roleLink(r, p.t)}<br><span class="small muted">${esc(p.d)}, ${esc(p.g)}</span></p><p>Reports to ${personLink(mgr) || "the Board"}${mgr ? `<span class="small muted">, ${esc(mgr.t)}</span>` : ""}</p>${PID[p.dl] ? `<p>Dotted line to ${personLink(PID[p.dl])}<span class="small muted">, ${esc(p.dlp)}</span></p>` : ""}</div>
+    <div class="panel"><h2>Background</h2><p class="small">Joined ${fmt(toDate(p.hire))}</p><p class="small">${esc(p.q)}</p><p class="small"><a href="mailto:${esc(p.em)}">${esc(p.em)}</a> <span class="muted">(fictional)</span></p></div>
+    <div class="panel"><h2>Team</h2>${team.map((x) => `<div class="small">${personLink(x)} <span class="muted">${esc(x.t)}</span></div>`).join("") || `<p class="muted small">No direct reports.</p>`}</div></div>
+  <div class="grid2" style="align-items:start;margin-top:18px"><div class="panel"><h2>Named in documents</h2><table class="t">${named.map(({ d, f, w }) => `<tr><td>${docLink(d.id)} ${esc(d.title)}</td><td class="small">${MNAME[f]}</td><td class="small">${w.stale ? `<span class="st rejected">${staleNote(w)}</span>` : ""}</td></tr>`).join("") || `<tr><td class="muted">Not named personally. Documents name the role, which is how it should be.</td></tr>`}</table>
+    ${r ? `<p class="small" style="margin-top:8px">As ${roleLink(r)}, ${esc(p.n.split(" ")[0])} is covered by ${plural((HITS[r.role_id] || []).length, "binding statement")}. <a href="#/role/${r.role_id}">See them</a>.</p>` : ""}</div>
+    <div class="stack">${ownC.length ? `<div class="panel"><h2>Controls owned</h2>${ownC.map((c) => ctlChip(c.control_id)).join("")}</div>` : ""}${ownR.length ? `<div class="panel"><h2>Risks owned</h2>${ownR.map((x) => `<div><a href="#/risk/${x.risk_id}">${x.risk_id}</a> ${esc(x.title)}</div>`).join("")}</div>` : ""}
+      ${hist.length ? `<div class="panel"><h2>History</h2>${hist.map((c) => `<div class="small">${fmt(toDate(c.date))}: ${esc(c.event)}${c.from_role ? " from " + esc(c.from_role) : ""}${c.to_role ? " to " + esc(c.to_role) : ""}. ${esc(c.note)}</div>`).join("")}</div>` : ""}</div></div>`);
+});
+
+// ---------- the ONE model: how the dimensions connect ----------
+route(/^\/model$/, () => {
+  const n = { secs: DOCS.reduce((a, d) => a + d.sections.length, 0), roleHits: Object.entries(HITS).filter(([k]) => ROLE[k]).reduce((a, [, l]) => a + l.length, 0) };
+  const dims = [
+    ["Documents", "#/library", `${DOCS.length} documents, ${n.secs.toLocaleString()} sections, ${WORK.length.toLocaleString()} binding statements`, "The spine. Every section carries OMS tags; every binding paragraph is styled as what it is.", "#17262E"],
+    ["OMS elements", "#/", `10 elements, 54 expectations, ${[...COV.values()].filter((c) => c.n).length} written`, "What good looks like. Tags link each section to the expectation it serves.", ECOL[1]],
+    ["Organisation", "#/org", `${FUNCS.length} functions, ${ROLES.length} roles, ${ACTIVE.length} people`, "Who does it. Statements name roles; the staff list says who holds them today.", ECOL[3]],
+    ["Risk", "#/risk", `${RISKS.length} risks, ${CTLS.length} controls`, "What could go wrong. Each control is a statement in a document with an ID and an owner.", ECOL[5]],
+    ["Assets and sites", "#/company", `${SITES.length} sites, ${(REG["AIM-REG-002"] || []).length} assets`, "Where it happens. Documents say where they apply; risks and events are logged by site.", ECOL[6]],
+    ["Process", "#/process", `${(REG["BPM-REG-001"] || []).length} processes, ${D.processes.length} modelled`, "How work flows. Steps name roles and documents and perform controls.", ECOL[7]],
+    ["Performance", "#/performance", `${KPIS.length} measures, ${EVENTS.length} events`, "Whether it works. Measures and events test the controls and feed learning.", ECOL[9]],
+  ];
+  const cx = 330, cy = 250, R = 190;
+  const g = dims.slice(1).map((d, i) => { const a = -Math.PI / 2 + i * 2 * Math.PI / 6; const x = cx + R * Math.cos(a), y = cy + R * Math.sin(a);
+    return `<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="#C7D2D6" stroke-width="2"/><a href="${d[1]}" class="dim"><circle cx="${x}" cy="${y}" r="62" fill="${d[4]}"/><text x="${x}" y="${y + 5}" text-anchor="middle" fill="${lum(d[4]) > 0.2 ? "#17262E" : "#fff"}">${esc(d[0])}</text></a>`; }).join("");
+  page(null, head("How ACE fits the ONE model", "ONE reads a company along several dimensions at once. The approved documents sit in the middle: the tags and styles written into them connect everything else. Swap in another company's documents, staff list and registers, and the same pages appear for them.", `<a href="#/company">Company</a>`) + `
+  <div class="grid2" style="grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:start"><div class="panel" style="position:sticky;top:14px"><svg class="model" viewBox="60 -20 540 540" role="img" aria-label="The ONE dimensions">${g}<a href="#/library" class="dim"><circle cx="${cx}" cy="${cy}" r="78" fill="#17262E"/><text x="${cx}" y="${cy - 4}" text-anchor="middle" fill="#fff">Documents</text><text x="${cx}" y="${cy + 16}" text-anchor="middle" fill="#fff" class="sm">the spine</text></a></svg></div>
+    <div class="stack">${dims.map((d) => `<a class="card" style="--c:${d[4]}" href="${d[1]}"><h3>${esc(d[0])}</h3><p class="small" style="margin:0 0 4px">${esc(d[3])}</p><div class="row"><span>${d[2]}</span></div></a>`).join("")}</div></div>
+  <div class="panel" style="margin-top:18px"><h2>Follow one thread</h2><p>Start anywhere and the links carry you through every dimension. For example:</p>
+    <ol class="thread-steps"><li><a href="#/site/PAP">Pommerac A</a>, a manned platform in the Gulf of Paria (site)</li><li><a href="#/risk/R-PAP-01">R-PAP-01</a> Loss of containment from the export pipeline (risk)</li>
+      <li><a href="#/barriers">Its barriers</a>, each written in a document with a Control ID (controls)</li><li><a href="#/doc/ACE-AIM-PRA-001">The inspection practice</a> that holds them (document)</li>
+      <li>${roleLink(ROLE_BY["Inspection Lead"])}, who owns them, and ${personLink(HOLD[ROLE_BY["Inspection Lead"]?.role_id]?.[0])}, who holds that role today (organisation)</li><li><a href="#/el/6">Element 6</a>, the expectation they serve (OMS)</li><li><a href="#/performance">The measures</a> that show whether they work (performance)</li></ol></div>
+  <div class="panel" style="margin-top:18px"><h2>Bringing your own company</h2><p>Everything ACE-specific lives in plain files that a company already has, or can export:</p>
+    <table class="t"><tr><th>Dimension</th><th>Where it comes from</th></tr><tr><td>Documents</td><td>Approved Word files written to the ONE document standard (a document library, SharePoint or a repository)</td></tr><tr><td>Organisation</td><td>Staff list, role catalogue, functions and sites, as spreadsheets</td></tr><tr><td>Risk</td><td>Risk and control registers</td></tr><tr><td>Process</td><td>A process register and process models</td></tr><tr><td>Performance</td><td>Monthly measures and the event log</td></tr></table>
+    <p class="small muted" style="margin-top:8px">A company with several sites reads them side by side. A group with several OMSs can load each one and compare documents, coverage and processes between them.</p></div>`);
+});
+
+// ---------- document map ----------
+route(/^\/library\/map$/, () => {
+  const cols = ["Manual", "Policy", "Standard", "Practice", "Process", "Procedure", "Task & record"];
+  const planned = (REG["DOC-REG-001"] || []).filter((d) => d.status === "Planned").map((d) => ({ id: d.doc_id, title: d.title, layer: TYPE_LAYER[d.doc_id.split("-")[2]] || "Other", planned: true, system: d.doc_id.split("-")[1] }));
+  const refsOf = (d) => [...new Set(d.sections.flatMap((s) => s.blocks.flatMap((b) => b.r || [])))].filter((r) => r !== d.id);
+  const referenced = new Set(DOCS.flatMap(refsOf));
+  const nodes = [...DOCS.map((d) => ({ id: d.id, title: d.title, layer: d.layer, system: d.system, d })), ...planned.filter((p) => referenced.has(p.id))];
+  const W = 1180, colW = W / cols.length, byCol = {}; for (const n of nodes) (byCol[cols.includes(n.layer) ? n.layer : "Task & record"] ||= []).push(n);
+  const H = Math.max(560, 60 + Math.max(...Object.values(byCol).map((l) => l.length)) * 38);
+  const P = {}; for (const [c, l] of Object.entries(byCol)) { l.sort((a, b) => a.system.localeCompare(b.system) || a.id.localeCompare(b.id)); const gap = Math.min(52, (H - 70) / l.length); const top = 60 + ((H - 70) - gap * l.length) / 2; l.forEach((n, i) => (P[n.id] = [cols.indexOf(c) * colW + colW / 2, top + gap * (i + 0.5)])); }
+  const domEl = (id) => { const f = FP[id] || {}; return +Object.entries(f).sort((a, b) => b[1] - a[1])[0]?.[0] || 0; };
+  let edges = "";
+  for (const d of DOCS) { const p = parentOf(d); if (p && P[p]) edges += `<path class="pe" data-a="${d.id}" data-b="${p}" d="M${P[d.id][0]},${P[d.id][1]} C${P[d.id][0] - colW / 2},${P[d.id][1]} ${P[p][0] + colW / 2},${P[p][1]} ${P[p][0]},${P[p][1]}"/>`;
+    if (d.id !== MAN.id) for (const r of refsOf(d)) if (P[r] && r !== p) edges += `<path class="re" data-a="${d.id}" data-b="${r}" d="M${P[d.id][0]},${P[d.id][1]} Q${(P[d.id][0] + P[r][0]) / 2},${(P[d.id][1] + P[r][1]) / 2 - 40} ${P[r][0]},${P[r][1]}"/>`; }
+  const dots = nodes.map((n) => { const [x, y] = P[n.id]; const k = n.d ? WORK.filter((s) => s.d.id === n.id).length : 0; const r = n.planned ? 7 : 6 + Math.sqrt(k) * 0.9; const e = n.d ? domEl(n.id) : 0;
+    return `<a ${n.d ? `href="#/doc/${n.id}"` : ""} class="dn${n.planned ? " planned" : ""}" data-id="${n.id}" data-f="${esc(n.d ? n.d.func : "")}" data-e="${n.d ? Object.keys(FP[n.id] || {}).join(" ") : ""}"><circle cx="${x}" cy="${y}" r="${r}" fill="${e ? ECOL[e] : "#fff"}" data-tip="<b>${esc(n.id)}</b>${esc(n.title)}${n.planned ? "<br>Planned, not yet issued" : `<br>${k} binding statements`}"/>
+      <text x="${x + r + 4}" y="${y + 4}">${esc(n.id.replace("ACE-", ""))}</text></a>`; }).join("");
+  const fns = [...new Set(DOCS.map((d) => d.func).filter(Boolean))].sort();
+  page(null, head("Document map", "Every document placed by its layer, coloured by the element it serves most, sized by its binding statements. Solid lines run to the parent document; thin lines are references. Hollow dots are documents that are referenced but not yet written.", `<a href="#/library">Library</a>`) + libTabs("map") + `
+  <div class="filters"><label>Highlight element<select id="me"><option value="">None</option>${ELS.map((e) => `<option value="${e.id}">${e.id}. ${esc(e.title)}</option>`).join("")}</select></label>
+    <label>Highlight function<select id="mf"><option value="">None</option>${fns.map((f) => `<option>${esc(f)}</option>`).join("")}</select></label></div>
+  <div class="panel" style="overflow:auto"><svg class="dmap" viewBox="0 0 ${W} ${H}" style="min-width:900px">${cols.map((c, i) => `<text class="colh" x="${i * colW + colW / 2}" y="26" text-anchor="middle">${c}</text><line x1="${(i + 1) * colW}" x2="${(i + 1) * colW}" y1="10" y2="${H}" stroke="#E8EDEF"/>`).join("")}<g>${edges}</g><g>${dots}</g></svg></div>`);
+  const svg = $(".dmap");
+  const hl = (ids) => { svg.classList.toggle("focus", !!ids); for (const d of svg.querySelectorAll(".dn")) d.classList.toggle("on", !!ids && ids.has(d.dataset.id)); for (const l of svg.querySelectorAll(".pe,.re")) l.classList.toggle("on", !!ids && ids.has(l.dataset.a) && ids.has(l.dataset.b)); };
+  svg.addEventListener("mouseover", (e) => { const n = e.target.closest(".dn"); if (!n) return; const id = n.dataset.id; const s = new Set([id]); for (const l of svg.querySelectorAll(".pe,.re")) if (l.dataset.a === id || l.dataset.b === id) { s.add(l.dataset.a); s.add(l.dataset.b); } hl(s); });
+  svg.addEventListener("mouseleave", () => filt());
+  const filt = () => { const e = $("#me").value, f = $("#mf").value; if (!e && !f) return hl(null); hl(new Set([...svg.querySelectorAll(".dn")].filter((d) => (!e || d.dataset.e.split(" ").includes(e)) && (!f || d.dataset.f === f)).map((d) => d.dataset.id))); };
+  $("#me").oninput = filt; $("#mf").oninput = filt;
 });
 
 go();

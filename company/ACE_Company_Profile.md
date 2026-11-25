@@ -12,7 +12,7 @@ ACE does three things:
 
 - **Produces** crude oil and gas from small offshore fields in the **Gulf of Paria** and from **land leases** in Central and South Trinidad.
 - **Processes** all of its production at its own **Central Processing Facility (CPF)** in Central Trinidad.
-- **Sells** gas to **NGC** (The National Gas Company of Trinidad and Tobago) under a gas sales agreement, and sells crude to buyers, shipped by tanker or barge from the CPF jetty.
+- **Sells** gas to **the Gas Buyer** (the national gas buyer; deliberately unnamed) under a gas sales agreement, and sells crude to buyers, shipped by tanker or barge from the CPF jetty.
 
 ACE is the operator on its licences and has joint venture partners on some of them.
 
@@ -28,7 +28,7 @@ ACE is the operator on its licences and has joint venture partners on some of th
 | **Chenet B** and **Sapodilla C**, Gulf of Paria | Normally unmanned wellhead platforms tied back to Pommerac A | Offshore Operations Manager (Gulf of Paria) |
 | **Gulf of Paria pipelines** | Subsea lines carrying crude and gas to the west coast and the CPF | Offshore Operations Manager (Gulf of Paria) |
 | **Tamarind Lease** (Central), **Pawpaw Lease** and **Soursop Lease** (South) | Land wells on pump jacks, well pads, tank batteries, gathering stations and flowlines | Land Operations Manager |
-| **Central Processing Facility**, Central Trinidad, west coast | Crude stabilisation and storage, gas conditioning and compression, sales gas metering to NGC, crude tank farm and loading jetty | Plant Manager – Central Processing Facility |
+| **Central Processing Facility**, Central Trinidad, west coast | Crude stabilisation and storage, gas conditioning and compression, sales gas metering to the Gas Buyer, crude tank farm and loading jetty | Plant Manager – Central Processing Facility |
 | **Contracted rigs** | Land drilling and workover rigs, and a jack-up for offshore campaigns | Drilling Supervisors (Wellsite) |
 
 ### How product moves
@@ -36,7 +36,7 @@ ACE is the operator on its licences and has joint venture partners on some of th
 ```
 Reservoirs → Wells (land & offshore) → Pommerac A / well pads & gathering stations
           → Gulf of Paria pipelines / land flowlines → Central Processing Facility
-          → Sales gas to NGC  |  Crude stored and shipped by tanker or barge
+          → Sales gas to the Gas Buyer  |  Crude stored and shipped by tanker or barge
 ```
 
 ### How materials move
@@ -64,13 +64,13 @@ ACE is led by a **Chief Executive Officer** with an Executive Leadership Team of
 | Human Resources | Adrian Achong | 12 | People, competence assurance, industrial relations |
 | Supply Chain Management | Sasha George | 18 | Procurement, contracts, logistics, shore base, materials |
 | IT, Data & Knowledge | Marvin Williams | 14 | IT/OT, data, document control and knowledge management |
-| Business Development & Markets | Karen Jack | 8 | Gas sales to NGC, crude marketing, partners, new ventures |
+| Business Development & Markets | Karen Jack | 8 | Gas sales to the Gas Buyer, crude marketing, partners, new ventures |
 | Communications & Corporate Services | Rodney Garcia | 10 | Communications, community relations, offices |
 | Legal & Government Affairs | Sharda Bissoon | 7 | Legal, corporate secretary, licences, government relations |
 
 **Grades:** L1 Chief Executive · L2 Vice President · L3 Manager · L4 Lead / Superintendent · L5 Senior Professional / Supervisor · L6 Professional / Specialist · L7 Technician / Administrative.
 
-**Workforce mix:** 150 women and 150 men (7 of the 12 VPs are women). Names reflect Trinidad's mix of African, East Indian, French Creole, Portuguese, Chinese and Syrian-Lebanese heritage. Most professionals trained at UWI St. Augustine or UTT, with some at universities in the UK, USA and Canada. Technicians come through UTT, NESC and MIC.
+**Workforce mix:** 150 women and 150 men (7 of the 12 VPs are women). Names reflect Trinidad's mix of African, East Indian, French Creole, Portuguese, Chinese and Syrian-Lebanese heritage. Most professionals trained at Saman University or the Lisas Institute of Technology, with some at universities in the UK, USA and Canada. Technicians come through the Lisas Institute of Technology, Southern Technical Institute and Caroni Technical Institute.
 
 **Operations** is the largest function and is split four ways:
 
@@ -128,7 +128,7 @@ Many of ACE's procedures depend on these two agreeing. MOC, permit to work and d
 | Engineering & Projects ↔ Supply Chain | Technical specifications, vendor qualification, inspection and test plans |
 | Operations ↔ HSE & Compliance | Permit to work, incident investigation, emergency and oil spill response |
 | Operations ↔ Supply Chain | Spares, maintenance contracts, supply boats from Point Lisas |
-| Operations ↔ Business Development & Markets | Sales gas delivery to NGC, crude liftings and quality |
+| Operations ↔ Business Development & Markets | Sales gas delivery to the Gas Buyer, crude liftings and quality |
 | Wells ↔ Supply Chain | Land and offshore rig, workover and well services contracts |
 | HSE & Compliance ↔ Supply Chain | Contractor HSE pre-qualification and performance |
 | HSE & Compliance ↔ IT, Data & Knowledge | OMS documents, tagging and publishing |
@@ -204,7 +204,7 @@ ACE is designed to be reused. Some useful anchors for other projects:
   - Rig, workover and well services contracts.
   - Contractor HSE pre-qualification and local content commitments.
   - An 18-person SCM function with Procurement, Contracts, and Logistics & Materials teams, plus Marine and Quality discipline leads.
-- **Commercial:** a gas sales agreement with NGC, crude sales and liftings, joint venture partners and partner billing.
+- **Commercial:** a gas sales agreement with the Gas Buyer, crude sales and liftings, joint venture partners and partner billing.
 - **Asset integrity:** platforms, pipelines, land flowlines, tank farm, rotating equipment, safety-critical elements, inspection and corrosion programmes.
 - **People and competence:** 300 named staff with grades, degrees, hire dates and job descriptions; offshore rotation and shift patterns; a recognised union.
 

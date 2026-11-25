@@ -35,8 +35,12 @@
     return rows.filter((r) => r.length > 1).map((r) => Object.fromEntries(h.map((k, i) => [k, r[i]])));
   }
   function peopleFromCsv(text, proto) {
-    const m = new Map();
-    for (const r of parseCsv(text)) m.set(r[proto.people.name_column], r[proto.people.title_column]);
+    const m = new Map(); m.left = new Map(); m.titles = new Set();
+    for (const r of parseCsv(text)) {
+      const n = r[proto.people.name_column], t = r[proto.people.title_column];
+      if ((r.Status || "Active") === "Left") { m.left.set(n, r["Left Date"] || ""); if (!m.has(n)) m.set(n, t); continue; }
+      m.set(n, t); m.titles.add(t);
+    }
     return m;
   }
 
@@ -225,6 +229,8 @@
         if (pd.since === "2.0") add("G3", sev2("error"), "auto", `Property ${pd.name} missing (added in template v5)`);
         else add("G3", "error", "auto", `Property ${pd.name} missing`);
       } else if (!props[pd.name] && v) add("G3", "error", "auto", isDerived(pd.name) ? `Property ${pd.name} empty; Fix will set '${v}'` : `Property ${pd.name} empty; value available in the document`);
+      if (!approved && v && /^\[.*\]$/.test(v.trim())) { add("G3", "warning", "manual", `${pd.name} still holds the placeholder ${v.trim()}: to be completed before approval`); continue; }
+      if (!v && !approved && (P.people.fields.includes(pd.name) || /Date$/.test(pd.name))) { add("G3", "warning", "manual", `${pd.name} left blank in this draft: to be completed before approval`); continue; }
       if (!v && (pd.required === "always" || (pd.required === "approved" && approved))) {
         if (pd.since === "2.0") { if (pd.name === "ODS.Parent") continue; add("G3", sev2("error"), "manual", `${pd.name} has no value`); }
         else add("G3", "error", "manual", `${pd.name} has no value anywhere in the document`);
@@ -333,8 +339,11 @@
       const v = value(f); if (!v) continue;
       for (const person of v.split(/;\s*/).map((x) => x.trim()).filter(Boolean)) {
         if (P.people.allowed_values.some((a) => person === a || person.startsWith(a))) continue;
+        if (/^\[.*\]$/.test(person)) continue;   // draft placeholder, reported under G3
         const [nm, title] = person.split(" — ").map((x) => (x || "").trim());
+        if (ctx.people.left && ctx.people.left.has(nm)) { add("G8", "warning", "manual", `${f.slice(4)}: ${nm} left ACE${ctx.people.left.get(nm) ? " on " + ctx.people.left.get(nm) : ""}; name the current ${title || "role holder"} at the next revision`); continue; }
         if (!ctx.people.has(nm)) add("G8", "error", "manual", `${f.slice(4)}: '${person}' not in the organisation register`);
+        else if (ctx.people.get(nm) !== title && ctx.people.titles && ctx.people.titles.has(title) && !title.startsWith(ctx.people.get(nm) + " (")) add("G8", "warning", "manual", `${f.slice(4)}: ${nm} is now ${ctx.people.get(nm)}; name the current ${title} at the next revision`);
         else if (ctx.people.get(nm) !== title) {
           const reg = ctx.people.get(nm);
           if (title.startsWith(reg + " (")) add("G8", "warning", "auto", `${f.slice(4)}: role qualifier after the title in '${person}'`);

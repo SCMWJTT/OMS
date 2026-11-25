@@ -52,11 +52,11 @@ lines = [
  ("As-of date", dt.date(2026, 11, 24)),
  ("Risk method", "ACE-RSK-STD-001 Risk Management Standard: likelihood A (Rare) to E (Expected); consequence 1 (Minor) to 5 (Catastrophic) in four domains; headline consequence = most severe domain."),
  ("Controls", "101 Control IDs read from the approved documents in finals/; 12 planned controls (status Planned) for risks whose Practice is not yet written."),
- ("Production basis (assumption)", "About 6,700 bbl/d crude in 2024 (Pommerac A ~3,050, Chenet B ~620, Sapodilla C ~360, land ~2,950) with natural decline 3.5–9% per year by field; sales gas to NGC ~46 MMscf/d declining 4% per year."),
+ ("Production basis (assumption)", "About 6,700 bbl/d crude in 2024 (Pommerac A ~3,050, Chenet B ~620, Sapodilla C ~360, land ~2,950) with natural decline 3.5–9% per year by field; sales gas to the Gas Buyer ~46 MMscf/d declining 4% per year."),
  ("Exposure basis (assumption)", "300 employees at about 172 h/month; contractors 58,000–86,000 h/month; about 1.4 million work-hours per year."),
  ("Cost basis (assumption)", "Operating cost TT$64–78 million per month; TT$6.78 = US$1; boe = oil + gas/6."),
  ("Incident numbers", "Monthly incident and process safety counts are calculated from the Events register, so the two always agree."),
- ("Storylines", "Pommerac A export pipeline corrosion (inhibitor below IOW Mar–May 2026; pigging deferred Apr 2026; pinhole leak found on boat patrol 14 Jul 2026; MOC Aug 2026; ILI Sep 2026; document revisions open). Also: CPF alarm flood 2025, NGC meter mismeasurement 2025, SOU-15 annulus pressure 2025–26, Chenet B transfer near miss 2024."),
+ ("Storylines", "Pommerac A export pipeline corrosion (inhibitor below IOW Mar–May 2026; pigging deferred Apr 2026; pinhole leak found on boat patrol 14 Jul 2026; MOC Aug 2026; ILI Sep 2026; document revisions open). Also: CPF alarm flood 2025, Gas Buyer meter mismeasurement 2025, SOU-15 annulus pressure 2025–26, Chenet B transfer near miss 2024."),
 ]
 for i, (k, v) in enumerate(lines, 3):
     ws.cell(i, 1, k).font = BB; c = ws.cell(i, 2, v); c.font = B; c.alignment = Alignment(wrap_text=True, vertical="top")

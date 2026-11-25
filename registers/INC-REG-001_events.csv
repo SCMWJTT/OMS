@@ -505,7 +505,7 @@ EV-2025-189,2025-08-15,LND,Near miss,Unsecured load on forklift at laydown,1,,,R
 EV-2025-190,2025-08-15,LND,Near miss,Slip on wet deck near stairway,1,,,R-LND-04,,,,
 EV-2025-191,2025-08-19,PAP,PSE Tier 3,Safety valve lifted during upset,1,3,,R-PAP-02,,,ACE-INC-PRS-001,
 EV-2025-192,2025-08-20,CHB,Near miss,Crane lift close to process piping,1,,,,,,,
-EV-2025-193,2025-08-20,CPF,Measurement error,NGC sales gas meter found reading 1.3% low after flow computer update in May,3,,,R-CPF-05; R-HOF-02,,,,Storyline: NGC meter mismeasurement
+EV-2025-193,2025-08-20,CPF,Measurement error,Gas Buyer sales gas meter found reading 1.3% low after flow computer update in May,3,,,R-CPF-05; R-HOF-02,,,,Storyline: Gas Buyer meter mismeasurement
 EV-2025-194,2025-08-22,HOF,Near miss,Slip on wet deck near stairway,1,,,,,,,
 EV-2025-195,2025-08-22,CPF,Spill,Diesel spill during refuelling,1,,1.5,R-CPF-02,,,,
 EV-2025-196,2025-08-23,PAP,Near miss,Unsecured load on forklift at laydown,1,,,R-PAP-07,,,,

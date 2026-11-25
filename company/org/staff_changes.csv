@@ -1,0 +1,5 @@
+date,employee_id,name,event,from_role,to_role,note
+2026-08-31,ACE-0163,Marc Gomes,Left,Maintenance & Integrity Manager,,Left to join another operator
+2026-09-14,ACE-0301,Keisha Ramnarine,Joined,,Maintenance & Integrity Manager,Replaces Marc Gomes
+2026-10-01,ACE-0094,Adrian Rodriguez,Moved,Permit to Work Coordinator (Offshore),Offshore Production Supervisor,Promotion
+2026-10-01,ACE-0099,Adrian Boissiere,Moved,Production Technician (Offshore),Permit to Work Coordinator (Offshore),Promotion
