@@ -420,6 +420,7 @@ Replace this appendix to use the standard for another company.
 | BPM | Business Process Management | 1, 2, 3, 7, 10 |
 | LOG | Marine and Aviation Logistics | 3, 7, 8 |
 | HMA | Hydrocarbon Measurement and Allocation | 2, 4, 9 |
+| FIN | Finance and Financial Control | 2, 3 |
 
 ### B.2 Site codes
 

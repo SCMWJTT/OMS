@@ -13,7 +13,9 @@ EXP = [dict(id=x[0], element=e["n"], title=x[1]) for e in elements.ELEMENTS for 
 assert len(EXP) == 54
 
 SYS = {c: dict(name=n, owner=o, elements=[int(x) for x in el.split(", ")]) for c, n, o, el in register.SYSTEMS}
-assert len(SYS) == 26
+# Systems added after the Manual Rev 04 (Session 4): kept here so the Manual source is not changed.
+SYS["FIN"] = dict(name="Finance and Financial Control", owner="Chief Financial Officer", elements=[2, 3])
+assert len(SYS) == 27
 
 TYPES = {
     "MAN": dict(name="Manual", level=1, layer="Policy"),

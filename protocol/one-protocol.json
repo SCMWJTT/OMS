@@ -322,6 +322,14 @@
     4,
     9
    ]
+  },
+  "FIN": {
+   "name": "Finance and Financial Control",
+   "owner": "Chief Financial Officer",
+   "elements": [
+    2,
+    3
+   ]
   }
  },
  "sites": {
