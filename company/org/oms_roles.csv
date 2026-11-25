@@ -1,0 +1,17 @@
+oms_role_id,name,definition,held_by,derived_from,defined_in,elements
+AA,Area Authority,"Accountable for everything that happens at a location: plant status, permits, simultaneous operations and release of work.",OPS-08; OPS-04; OPS-02; OPS-05; SCM-03; CCS-03,,ACE-OMS-MAN-001; ACE-COW-STD-001,7; 8
+TA,Technical Authority,"Discipline lead who owns the technical standards of a discipline and endorses designs, changes and deviations, independent of line management.",EXD-04; EXD-05; EXD-06; EXD-07; EXD-08; WEL-04; WEL-05; WEL-06; ENP-04; ENP-05; ENP-06; ENP-07; ENP-08; ENP-09; ENP-10; ENP-11; ENP-12; ENP-13; ENP-14; ENP-15; OPS-06; OPS-09; OPS-10; OPS-11; HSE-05; HSE-06; HSE-08; HSE-09; SCM-05; SCM-06; IDK-04; IDK-05,,ACE-OMS-MAN-001; ACE-ENG-STD-901,6; 5
+PA,Performing Authority,"Leads a work party: accepts the permit, briefs the crew, monitors the work and hands the worksite back.",OPS-13; OPS-14; OPS-12; OPS-07; SCM-07; WEL-07,,ACE-COW-STD-001,8
+IA,Isolating Authority,"Authorised to prepare, apply and verify energy isolations and to reinstate plant.",OPS-30; OPS-29; OPS-33; OPS-37,,ACE-COW-STD-001; ACE-COW-PRC-001,8
+PTWC,Permit to Work Coordinator,"Runs the permit office at a site: checks permits, keeps the isolation register and plans simultaneous operations.",OPS-25; OPS-24,,ACE-COW-PRC-001,8
+WCA,Well Control Authority,"ACE's representative at the wellsite, with authority over well control on the rig.",WEL-07,,ACE-WEL-STD-001,8; 6
+EO,Element Owner,"Executive who owns one of the ten OMS elements: its expectations, its performance and its improvement.",,elements,ACE-OMS-MAN-001,1; 10
+DO,Document Owner,"Accountable for a controlled document: its content, its review on time and its revision.",,documents,ACE-DOC-STD-001,2; 7
+DC,Document Controller,"Registers, checks, publishes and revises controlled documents.",IDK-07; ENP-26; OPS-40; IDK-04,,ACE-DOC-STD-001; ACE-DOC-PRC-001,2; 7
+RO,Risk Owner,"Accountable for a risk in the register: its assessment, its controls and its actions.",,risks,ACE-RSK-STD-001,5
+CO,Control Owner,"Accountable for one control: that it is in place, tested and working.",,controls,ACE-RSK-STD-001,5; 6
+PO,Process Owner,"Accountable for a business process: its design, its performance and its improvement.",,processes,ACE-BPM-PRA-001,7; 10
+MOCC,MOC Coordinator,Screens and tracks changes through the Management of Change process.,ENP-02; OPS-22; OPS-20; OPS-21,,ACE-MOC-PRC-001,5
+ERC,Emergency Response Coordinator,"Keeps emergency plans, drills and the response organisation ready.",HSE-03; HSE-10,,ACE-EMR-STD-001,5; 8
+AUD,Auditor,Independent check that the OMS works as written.,EXEC-02; EXEC-04; HSE-02; HSE-13,,ACE-OMS-MAN-001,10
+OMSM,OMS Manager,Custodian of the OMS framework and its mapping to the ten elements; runs conformance assessments.,HSE-07,,ACE-OMS-MAN-001,2; 10

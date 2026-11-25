@@ -89,17 +89,24 @@ async function readDoc(file, folder) {
     findings: r.findings.map((f) => ({ rule: f.rule, sev: f.severity, fix: f.fix, msg: f.msg })) };
   // people (compact)
   const ppl = csv(P.people.source).map((r) => ({ id: r["Employee ID"], n: r["Full Name"], t: r["Job Title"], f: r["Function"], d: r["Department"], g: r["Grade"].slice(0, 2),
-    to: r["Reports To (ID)"], dl: r["Dotted Line To (ID)"], dlp: r["Dotted Line Purpose"], disc: r["Discipline"], role: r["OMS Role"], loc: r["Work Location"] }));
+    to: r["Reports To (ID)"], dl: r["Dotted Line To (ID)"], dlp: r["Dotted Line Purpose"], disc: r["Discipline"], role: r["OMS Role"], loc: r["Work Location"],
+    r: r["Role ID"] || "", s: r["Site"] || "", st: r["Status"] || "Active", left: r["Left Date"] || "", hire: r["Hire Date"], em: r["Email"], fc: r["Function Code"],
+    q: [r["Base Degree"], r["Institution"], r["Postgraduate / Professional"]].filter(Boolean).join("; ") }));
+  // the organisational dimension: editable CSV files in company/org
+  const company = { roles: csv("company/org/roles.csv"), omsRoles: csv("company/org/oms_roles.csv"), sites: csv("company/org/sites.csv"), functions: csv("company/org/functions.csv"),
+    links: csv("company/org/function_links.csv"), changes: csv("company/org/staff_changes.csv"),
+    profile: fs.existsSync(path.join(ROOT, "company/ACE_Company_Profile.md")) ? fs.readFileSync(path.join(ROOT, "company/ACE_Company_Profile.md"), "utf8") : "" };
   const reg = {}; for (const f of fs.readdirSync(path.join(ROOT, "registers"))) if (f.endsWith(".csv")) reg[f.replace(".csv", "")] = csv(`registers/${f}`);
   // process models (processes/ and the schema example)
   const processes = [];
   for (const dir of ["processes", "protocol/schemas/example"]) { const d = path.join(ROOT, dir); if (fs.existsSync(d)) for (const f of fs.readdirSync(d)) if (f.endsWith(".json")) processes.push(JSON.parse(fs.readFileSync(path.join(d, f), "utf8"))); }
   const data = { built: new Date().toISOString(), protocol: { version: P.version, elements: P.elements, expectations: P.expectations, systems: P.systems, types: P.types,
-    sites: P.sites, functions: P.functions, planned: P.document_register.planned }, docs, gate, people: ppl, registers: reg, processes,
+    sites: P.sites, functions: P.functions, planned: P.document_register.planned }, docs, gate, people: ppl, company, registers: reg, processes,
     api: process.env.ONE_API || "https://oms-api.cynmark.app" };
   const out = path.join(ROOT, "portal/dist"); fs.mkdirSync(out, { recursive: true });
   // the original Word files, so the owner's "Download for Word" can write tracked changes into the real document
   fs.mkdirSync(path.join(out, "docs"), { recursive: true });
+  const brand = path.join(ROOT, "company/branding"); if (fs.existsSync(brand)) { fs.mkdirSync(path.join(out, "brand"), { recursive: true }); for (const f of fs.readdirSync(brand)) fs.copyFileSync(path.join(brand, f), path.join(out, "brand", f)); }
   for (const d of docs) fs.copyFileSync(path.join(ROOT, d.file), path.join(out, "docs", `${d.id}.docx`));
   const json = JSON.stringify(data);
   fs.writeFileSync(path.join(out, "one-data.json"), json);

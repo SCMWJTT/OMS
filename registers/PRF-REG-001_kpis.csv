@@ -1,7 +1,7 @@
 kpi_id,name,unit,category,family,oms_tag,owner,target,better,scope
 PROD-OIL,Crude oil production,bbl/d,Production,lagging,,Sophia Hosany — VP Operations,"≥ 6,600 (2026)",up,site
-PROD-GAS,Sales gas to NGC,MMscf/d,Production,lagging,4.2,Karen Jack — VP Business Development & Markets,≥ 44,up,ACE
-NGC-DCQ,NGC contract quantity delivered,%,Production,lagging,4.2,Karen Jack — VP Business Development & Markets,≥ 98,up,ACE
+PROD-GAS,Sales gas to the Gas Buyer,MMscf/d,Production,lagging,4.2,Karen Jack — VP Business Development & Markets,≥ 44,up,ACE
+GAS-DCQ,Gas Buyer contract quantity delivered,%,Production,lagging,4.2,Karen Jack — VP Business Development & Markets,≥ 98,up,ACE
 PROD-EFF,Production efficiency,%,Production,lagging,6.3,Sophia Hosany — VP Operations,≥ 92,up,ACE
 DEFER-OIL,Deferred crude production,bbl/d,Production,lagging,6.3,Sophia Hosany — VP Operations,< 300,down,ACE
 ALLOC-IMB,Gas allocation imbalance,%,Measurement,leading,9.1,Navin Sookdeo — Metering & Measurement Lead,< 0.5,down,ACE

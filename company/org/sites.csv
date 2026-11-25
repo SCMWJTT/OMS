@@ -1,0 +1,9 @@
+site_code,name,type,manning,location,purpose,area_authority,parent,risk_prefix,map_x,map_y
+HOF,Head Office,Corporate office,Office,"Central Trinidad, close to the highway","Executive, technical and support functions",CCS-03,,,64,38
+PLB,Point Lisas Shore Base,Marine base and warehouse,Manned (day),Point Lisas,Supply and crew boats to the Gulf of Paria; warehouse and laydown,SCM-03,,,42,24
+PAP,Pommerac A,Offshore production platform,"Manned, 14/14 rotation",Gulf of Paria,"Separation, metering and export of crude and gas",OPS-08,,R-PAP,13,42
+CHB,Chenet B,Wellhead platform,Normally unmanned,Gulf of Paria,Wells tied back to Pommerac A,OPS-04,PAP,R-CHB,8,16
+SAP,Sapodilla C,Wellhead platform,Normally unmanned,Gulf of Paria,Wells tied back to Pommerac A,OPS-04,PAP,R-SAP,10,70
+CPF,Central Processing Facility,Crude and gas processing plant,Manned 24/7,"Central Trinidad, west coast","Stabilises and stores crude, conditions and compresses gas, meters sales gas, loads crude",OPS-05,,R-CPF,38,60
+LND,Land leases,"Tamarind, Pawpaw and Soursop leases",Field-based,Central and South Trinidad,"Oil and gas wells on pump jacks, tank batteries, gathering stations and flowlines",OPS-02,,R-LND,68,74
+RIG,Contracted rigs,Drilling and workover rigs,Mobile,Land leases and Gulf of Paria,"Land rigs, workover units and a jack-up for offshore campaigns",WEL-07,,,86,90

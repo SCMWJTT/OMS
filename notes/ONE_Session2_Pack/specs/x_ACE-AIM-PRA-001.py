@@ -24,7 +24,7 @@ BODY = [('h1', 'Purpose and scope', '6.5, 6.4, 5.4'),
   'Define loops/circuits by process conditions, fluid composition, materials, geometry, flow regime and credible degradation. Boundaries and '
   'equipment identifiers must be stable and traceable.'),
  ('p',
-  'Screen for CO₂ corrosion, H₂S-related damage, MIC, erosion/erosion-corrosion, CUI, atmospheric corrosion, galvanic effects, under-deposit '
+  'Screen for CO₂ corrosion, H₂S-related damage, Caroni Technical Institute, erosion/erosion-corrosion, CUI, atmospheric corrosion, galvanic effects, under-deposit '
   'corrosion, cracking, coating degradation and external corrosion as relevant.'),
  ('p',
   'Record susceptibility, expected morphology, locations, detection limitations, mitigation and consequence. Reassess when chemistry, conditions, '
