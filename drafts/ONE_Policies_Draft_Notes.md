@@ -21,7 +21,7 @@ Session 4, November 2026. All drafts are in `drafts/`, status In Review, built o
 
 ## Results
 
-- All 12 files (the 11 drafts plus DOC-POL-001 Rev B) **PASS** the checker. The only warnings are the blank issue and effective dates, which are expected in a draft. Checked on `drafts` alone and on `finals manuals drafts` together.
+- All 12 policy files (LDR-POL-001 Rev 02, the ten new policies and DOC-POL-001 Rev 02) **PASS** the checker. The only warnings are the blank issue and effective dates, which are expected in a draft. Checked on `drafts` alone and on `finals manuals drafts` together.
 - The **FIN** code is added to `protocol/build/build_protocol.py`, `protocol/one-protocol.json` (regenerated) and Appendix B.1 of the Document Standard. I added it in the build script and did not change the Session 1 Manual source, so the system table in the OMS Manual itself does not yet show FIN. It needs adding at the Manual's next revision.
 
 ## 0. ACE-LDR-POL-001 OMS Policy — draft of Rev 02 (Revision A)
