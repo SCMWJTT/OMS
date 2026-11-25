@@ -24,3 +24,15 @@ OMS wheel (with timeline) · Requirements explorer · Gaps · Risks (matrix with
 | `build/build.js` | reads the repository and writes `dist/` |
 | `dist/index.html` | the built portal (self-contained) |
 | `dist/one-data.json` | the data the portal draws from |
+
+## Comments and suggested edits (v2)
+
+Anyone viewing a document can point at a paragraph and add a comment or a suggested edit. Notes stay beside the document, never in it, until the owner acts:
+
+1. The owner ticks "I am the document owner" (demo switch until staff sign-in exists) and accepts or rejects each edit.
+2. "Download for Word" writes the accepted edits into the original Word file as tracked changes, with the author and date, and adds open comments as Word comments. Control ID fields are kept as they are.
+3. The owner reviews in Word, issues the new revision and puts it in `finals/`. The site rebuilds itself.
+
+All notes across all documents are listed under "Comments and edits" (`#/review`).
+
+Notes are stored by the ONE API, a Cloudflare Worker with a D1 database at `https://oms-api.cynmark.app` (code in `worker/`, deployed by `.github/workflows/worker.yml`). If the API cannot be reached, the portal keeps notes in the browser and says so.

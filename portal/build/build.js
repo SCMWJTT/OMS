@@ -95,8 +95,12 @@ async function readDoc(file, folder) {
   const processes = [];
   for (const dir of ["processes", "protocol/schemas/example"]) { const d = path.join(ROOT, dir); if (fs.existsSync(d)) for (const f of fs.readdirSync(d)) if (f.endsWith(".json")) processes.push(JSON.parse(fs.readFileSync(path.join(d, f), "utf8"))); }
   const data = { built: new Date().toISOString(), protocol: { version: P.version, elements: P.elements, expectations: P.expectations, systems: P.systems, types: P.types,
-    sites: P.sites, functions: P.functions, planned: P.document_register.planned }, docs, gate, people: ppl, registers: reg, processes };
+    sites: P.sites, functions: P.functions, planned: P.document_register.planned }, docs, gate, people: ppl, registers: reg, processes,
+    api: process.env.ONE_API || "https://oms-api.cynmark.app" };
   const out = path.join(ROOT, "portal/dist"); fs.mkdirSync(out, { recursive: true });
+  // the original Word files, so the owner's "Download for Word" can write tracked changes into the real document
+  fs.mkdirSync(path.join(out, "docs"), { recursive: true });
+  for (const d of docs) fs.copyFileSync(path.join(ROOT, d.file), path.join(out, "docs", `${d.id}.docx`));
   const json = JSON.stringify(data);
   fs.writeFileSync(path.join(out, "one-data.json"), json);
   // inline into the page
