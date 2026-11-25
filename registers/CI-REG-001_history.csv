@@ -1,0 +1,44 @@
+ci_id,date,stage,note
+CI-2024-001,2024-10-07,Idea,Raised
+CI-2024-001,2024-10-21,Assessed,Route: PDCA
+CI-2024-001,2024-11-11,In progress,Plan agreed
+CI-2024-001,2026-01-15,Verified,KPI 61 → 88
+CI-2024-001,2026-02-02,Standardised,Process Rev 02
+CI-2024-001,2026-02-02,Closed,Closed
+CI-2024-002,2024-09-02,Idea,Raised
+CI-2024-002,2024-09-05,Assessed,Route: Just do it
+CI-2024-002,2024-09-26,In progress,Plan agreed
+CI-2024-002,2025-12-10,Verified,KPI 5.9 → 1.5
+CI-2024-002,2025-12-15,Standardised,Process Rev 02
+CI-2024-002,2025-12-15,Closed,Closed
+CI-2025-003,2025-11-18,Idea,Raised
+CI-2025-003,2025-12-02,Assessed,Route: PDCA
+CI-2025-003,2025-12-23,In progress,Plan agreed
+CI-2026-007,2026-07-20,Idea,Raised
+CI-2026-007,2026-07-28,Assessed,Route: DMAIC
+CI-2026-007,2026-08-18,In progress,Plan agreed
+CI-2024-004,2024-11-04,Idea,Raised
+CI-2024-004,2024-11-18,Assessed,Route: PDCA
+CI-2024-004,2024-12-09,In progress,Plan agreed
+CI-2024-004,2026-03-31,Verified,KPI 27.0 → 20.0
+CI-2024-004,2026-04-06,Standardised,Process Rev 02
+CI-2024-004,2026-04-06,Closed,Closed
+CI-2025-005,2025-02-17,Idea,Raised
+CI-2025-005,2025-03-03,Assessed,Route: PDCA
+CI-2025-005,2025-03-24,In progress,Plan agreed
+CI-2025-005,2026-10-30,Verified,KPI 84 → 96
+CI-2026-006,2026-05-11,Idea,Raised
+CI-2026-006,2026-05-25,Assessed,Route: DMAIC
+CI-2026-006,2026-06-15,In progress,Plan agreed
+CI-2026-008,2026-10-06,Idea,Raised
+CI-2026-008,2026-10-20,Assessed,Route: Just do it
+CI-2026-009,2026-08-14,Idea,Raised
+CI-2026-009,2026-09-03,Parked,Parked by the process owner
+CI-2025-010,2025-03-10,Idea,Raised
+CI-2025-010,2025-03-14,Assessed,Route: Just do it
+CI-2025-010,2025-04-04,In progress,Plan agreed
+CI-2025-010,2025-08-29,Verified,KPI 2.5 → 0.8
+CI-2025-010,2025-09-05,Closed,Closed
+CI-2026-011,2026-11-10,Idea,Raised
+CI-2026-012,2026-09-15,Idea,Raised
+CI-2026-012,2026-10-01,Assessed,Route: PDCA

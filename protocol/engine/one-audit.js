@@ -430,7 +430,7 @@
   function auditProcess(obj, ctx) {
     const P = ctx.protocol, F = [];
     const add = (severity, fix, msg, where) => F.push({ rule: "G12", severity, fix, msg, where: where || "" });
-    if (obj.schema !== "ONE-PRS/1") add("error", "manual", `schema is '${obj.schema}', expected ONE-PRS/1`);
+    if (!["ONE-PRS/1", "ONE-PRS/2"].includes(obj.schema)) add("error", "manual", `schema is '${obj.schema}', expected ONE-PRS/1 or ONE-PRS/2`);
     const lanes = new Set((obj.lanes || []).map((l) => l.id)), ids = (obj.steps || []).map((s) => s.id), idset = new Set(ids);
     if (idset.size !== ids.length) add("error", "manual", "Duplicate step ids");
     const exp = new Set(P.expectations.map((e) => e.id));

@@ -97,9 +97,9 @@ async function readDoc(file, folder) {
     links: csv("company/org/function_links.csv"), changes: csv("company/org/staff_changes.csv"),
     profile: fs.existsSync(path.join(ROOT, "company/ACE_Company_Profile.md")) ? fs.readFileSync(path.join(ROOT, "company/ACE_Company_Profile.md"), "utf8") : "" };
   const reg = {}; for (const f of fs.readdirSync(path.join(ROOT, "registers"))) if (f.endsWith(".csv")) reg[f.replace(".csv", "")] = csv(`registers/${f}`);
-  // process models (processes/ and the schema example)
+  // process models (processes/*.json, ONE-PRS/1 or /2)
   const processes = [];
-  for (const dir of ["processes", "protocol/schemas/example"]) { const d = path.join(ROOT, dir); if (fs.existsSync(d)) for (const f of fs.readdirSync(d)) if (f.endsWith(".json")) processes.push(JSON.parse(fs.readFileSync(path.join(d, f), "utf8"))); }
+  for (const dir of ["processes"]) { const d = path.join(ROOT, dir); if (fs.existsSync(d)) for (const f of fs.readdirSync(d)) if (f.endsWith(".json")) processes.push(JSON.parse(fs.readFileSync(path.join(d, f), "utf8"))); }
   const data = { built: new Date().toISOString(), protocol: { version: P.version, elements: P.elements, expectations: P.expectations, systems: P.systems, types: P.types,
     sites: P.sites, functions: P.functions, planned: P.document_register.planned }, docs, gate, people: ppl, company, registers: reg, processes,
     api: process.env.ONE_API || "https://oms-api.cynmark.app" };
@@ -114,7 +114,10 @@ async function readDoc(file, folder) {
   const src = path.join(ROOT, "portal/src");
   if (fs.existsSync(path.join(src, "index.html"))) {
     let html = fs.readFileSync(path.join(src, "index.html"), "utf8");
-    const css = fs.readFileSync(path.join(src, "style.css"), "utf8"), js = fs.readFileSync(path.join(src, "app.js"), "utf8");
+    const css = fs.readFileSync(path.join(src, "style.css"), "utf8") + (fs.existsSync(path.join(src, "process.css")) ? "\n" + fs.readFileSync(path.join(src, "process.css"), "utf8") : "");
+    // process.js (Process and Improvement dimensions) runs inside the same script as app.js, before the first route is drawn
+    let js = fs.readFileSync(path.join(src, "app.js"), "utf8"); const pjs = path.join(src, "process.js");
+    if (fs.existsSync(pjs)) { const extra = fs.readFileSync(pjs, "utf8"); const at = js.lastIndexOf("\ngo();"); js = at >= 0 ? js.slice(0, at) + "\n" + extra + js.slice(at) : js + "\n" + extra; }
     html = html.replace("<!--STYLE-->", () => `<style>\n${css}\n</style>`).replace("<!--DATA-->", () => `<script>window.ONE_DATA=${json.replace(/<\//g, "<\\/")};</script>`)
                .replace("<!--SCRIPT-->", () => `<script>\n${js}\n</script>`);
     fs.writeFileSync(path.join(out, "index.html"), html);
