@@ -1,0 +1,25 @@
+key,name,value,unit,group,basis,source,url
+FX_TTD,Exchange rate,6.78,TTD per USD,General,Central Bank of Trinidad and Tobago mid-rate (held near 6.78 for several years),CBTT published rate (approximate),https://www.central-bank.org.tt
+ONCOST,Employment on-cost,1.35,multiplier,General,"Salary plus allowances, pension, NIS and benefits",Assumption (typical loading),
+HOURS_YR,Productive hours per person,1800,hours per year,General,Working year less leave and training,Assumption,
+RATE_L1,Loaded hourly rate L1 Chief Executive,159,USD per hour,Rates,"TTD 120,000 per month x 12 x on-cost / hours / FX",Assumption scaled from Paylab T&T bands,https://www.paylab.com/tt/salaryinfo/mining-metallurgy/petroleum-engineer
+RATE_L2,Loaded hourly rate L2 Vice President,106,USD per hour,Rates,"TTD 80,000 per month",Assumption scaled from Paylab T&T bands,https://www.paylab.com/tt/salaryinfo/mining-metallurgy/petroleum-engineer
+RATE_L3,Loaded hourly rate L3 Manager,60,USD per hour,Rates,"TTD 45,000 per month",Assumption scaled from Paylab T&T bands,https://www.paylab.com/tt/salaryinfo/mining-metallurgy/petroleum-engineer
+RATE_L4,Loaded hourly rate L4 Lead / Superintendent,42,USD per hour,Rates,"TTD 32,000 per month",Assumption scaled from Paylab T&T bands,https://www.paylab.com/tt/salaryinfo/mining-metallurgy/petroleum-engineer
+RATE_L5,Loaded hourly rate L5 Senior Professional / Supervisor,32,USD per hour,Rates,"TTD 24,000 per month",Paylab: petroleum engineer TTD 8.8k-21.1k per month (top decile above 21k),https://www.paylab.com/tt/salaryinfo/mining-metallurgy/petroleum-engineer
+RATE_L6,Loaded hourly rate L6 Professional / Specialist,21,USD per hour,Rates,"TTD 16,000 per month",Paylab petroleum engineer band midpoint; ERI EHS engineer TTD 64 per hour base,https://www.erieri.com/salary/job/engineer-ehs/trinidad-and-tobago
+RATE_L7,Loaded hourly rate L7 Technician / Administrative,12,USD per hour,Rates,"TTD 9,000 per month",Paylab T&T maintenance and technician bands,https://www.paylab.com/tt/salaryinfo/production/maintenance-engineer
+RATE_CONTR,Inspection contractor technician (NDT),85,USD per hour,Rates,"Day rate including margin, equipment and certification",Assumption,
+OIL_PRICE,Crude oil price,95,USD per bbl,Prices,ICE Brent mid-November 2026 (about USD 95; ACE crude priced at Brent parity for the demo),Reuters via BOE Report 15 Nov 2026,https://boereport.com/2026/11/15/oil-prices-fall-on-expectations-of-coming-supply-surplus/amp/
+GAS_PRICE,Gas price to the Gas Buyer,5.30,USD per MMBtu,Prices,Public Trinidad gas price to light industrial customers used as a proxy,Trinidad Guardian,https://www.guardian.co.tt/business/tts-downstream-industry-challenged-by-ngcs-high-gas-prices-6.2.2584509.e0f141ffc6
+HELI_HOUR,Offshore helicopter (AW139 class),6500,USD per flight hour,Logistics,Charter USD 5.5k-7.5k per hour; operating cost about USD 7.3k per hour at 200 h per year,Jettly; Flycraft,https://www.flycraft.com/ownership-cost/leonardo-aw139-ownership-operating-costs
+HELI_TRIP_H,Helicopter round trip Point Lisas area to Gulf of Paria platform,1.2,flight hours,Logistics,Short over-water sector both ways plus taxi,Assumption,
+HELI_SEATS,Helicopter passenger seats,12,seats,Logistics,AW139 offshore configuration 2 + 12,Controller.com listings,https://www.controller.com/listing/for-sale/249348413/2013-leonardo-aw139-turbine-helicopters
+BOAT_DAY,Fast crew / supply boat,14000,USD per day,Logistics,SEACOR Marine fast support vessel average day rate Q3 2025 (USD 14k),Riviera Maritime Media,https://www.rivieramm.com/news-content-hub/seacor-marine-pivots-from-high-volatility-markets-86670
+PSV_DAY,Platform supply vessel,20000,USD per day,Logistics,SEACOR average USD 19.5k (Q3 2025); Tidewater USD 23.2k (Q2 2025),Riviera Maritime Media,https://www.rivieramm.com/news-content-hub/lack-of-urgency-in-the-drilling-market-softens-osv-demand-86037
+MOC_BENEFIT_C1,Average benefit of an implemented C1 change,10000,USD per year,MOC,"Minor improvements: efficiency, reliability, small savings",Assumption,
+MOC_BENEFIT_C2,Average benefit of an implemented C2 change,60000,USD per year,MOC,"Configuration, limits, procedures and roles: uptime, cost or risk reduction",Assumption,
+MOC_BENEFIT_C3,Average benefit of an implemented C3 change,400000,USD per year,MOC,"Major changes: debottlenecks, new tie-ins, major hazard risk reduction",Assumption,
+INSP_SHUTDOWN_D,Unplanned shutdown after a loss of containment,14,days,Inspection,Typical repair and restart for a production vessel or line,Assumption,
+INSP_POF_OVERDUE,Added chance of failure for an overdue SCE inspection,0.02,per year,Inspection,Chance that undetected degradation causes a loss of containment while overdue,Assumption,
+INSP_POF_DONE,Chance of failure after an on-time inspection,0.002,per year,Inspection,Residual chance after inspection and repair,Assumption,

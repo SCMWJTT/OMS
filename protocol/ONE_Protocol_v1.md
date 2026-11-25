@@ -250,7 +250,7 @@ Errors block publication; warnings are listed. 'auto' means ONE Fix can correct 
 
 ## 9. Process files (PRS)
 
-A Process is a Word description plus a model file `ACE-SSS-PRS-NNN.json` (schema ONE-PRS/1, `protocol/schemas/one-prs-1.schema.json`). Defined in ACE-BPM-PRA-002. Worked example: `schemas/example/ACE-MOC-PRS-001.json`.
+A Process is a Word description plus a model file `ACE-SSS-PRS-NNN.json` (schema ONE-PRS/1, `protocol/schemas/one-prs-1.schema.json`). Defined in ACE-BPM-PRA-002. Version 2 (ONE-PRS/2, `protocol/schemas/one-prs-2.schema.json`) adds lane roles and functions, typed flows, cycles, policy commitments, value model, revision history and the ledger. Worked models: `processes/ACE-MOC-PRS-001.json` and `processes/ACE-AIM-PRS-001.json`.
 
 ## 10. Data spine registers
 
