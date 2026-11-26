@@ -84,6 +84,6 @@ table(["File", "Purpose"], [
     ["engine/cli.js", "runs the checker over the repository; writes reports/audit.md and audit.json"],
     ["schemas/one-prs-1.schema.json", "process file schema"], ["registers/*.csv", "empty register templates"],
     ["samples/ACE-DOC-PRA-999_…Golden_Sample…docx", "test document that passes every rule"],
-    ["../templates/ONE_ACE_Master_Template_v5.dotx", "template v5"], ["build/", "scripts that regenerate the JSON and this page"]])
+    ["../standards/templates/ONE_ACE_Master_Template_v5.dotx", "template v5"], ["build/", "scripts that regenerate the JSON and this page"]])
 open(os.path.join(ROOT, "protocol", "ONE_Protocol_v1.md"), "w", encoding="utf-8").write("\n".join(L))
 print("wrote ONE_Protocol_v1.md", len(L), "lines")

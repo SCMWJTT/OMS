@@ -318,5 +318,5 @@ A Process is a Word description plus a model file `ACE-SSS-PRS-NNN.json` (schema
 | schemas/one-prs-1.schema.json | process file schema |
 | registers/*.csv | empty register templates |
 | samples/ACE-DOC-PRA-999_…Golden_Sample…docx | test document that passes every rule |
-| ../templates/ONE_ACE_Master_Template_v5.dotx | template v5 |
+| ../standards/templates/ONE_ACE_Master_Template_v5.dotx | template v5 |
 | build/ | scripts that regenerate the JSON and this page |

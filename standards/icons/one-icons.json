@@ -1,0 +1,1463 @@
+{
+ "schema": "ONE-ICONS/1",
+ "version": "1.0",
+ "updated": "2026-11-26",
+ "standard": "standards/icons/ONE_Icon_Standard.md",
+ "base_set": {
+  "name": "Font Awesome Free 6.5.1, solid style",
+  "license": "Icons CC BY 4.0 (attribution kept in the files); fonts SIL OFL 1.1; code MIT",
+  "css": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css",
+  "prefix": "fa-solid fa-"
+ },
+ "shapes": {
+  "circle": "Organisation, external parties, resources and equipment: who and what does the work.",
+  "tile": "OMS framework: elements and expectations. Square with small corner radius.",
+  "hex": "Management objects: the things the business manages, measures and reports on.",
+  "doc": "Artefacts: documents, records, data and systems. Rounded square.",
+  "diamond": "Decisions.",
+  "mark": "Status marks: small circles laid over another icon or a step. The only place red, amber and green are used."
+ },
+ "colours": {
+  "elements": {
+   "1": "#0B5563",
+   "2": "#3D4FA1",
+   "3": "#7A4FA0",
+   "4": "#B5427A",
+   "5": "#C8402F",
+   "6": "#E07A1F",
+   "7": "#D6A21E",
+   "8": "#6E9A2E",
+   "9": "#2E9A78",
+   "10": "#2F7FB8"
+  },
+  "functions": {
+   "EXEC": "#0B5563",
+   "OPS": "#2F6F8F",
+   "ENP": "#7A5C9E",
+   "WEL": "#8E5B3A",
+   "EXD": "#2E8A78",
+   "SCM": "#B07A1F",
+   "HSE": "#B5473A",
+   "HR": "#6E9A2E",
+   "FIN": "#5B7F3A",
+   "ITD": "#3D4FA1",
+   "BDM": "#A0527A",
+   "LGA": "#57656C",
+   "CCS": "#6B7B83",
+   "CTR": "#7D8D95"
+  },
+  "documents": {
+   "POL": "#14275E",
+   "MAN": "#0E4D6E",
+   "STD": "#2648A6",
+   "PRA": "#1D6FA3",
+   "PRC": "#2E8BC9",
+   "WIN": "#5468C4",
+   "FRM": "#3A9AB8",
+   "PLN": "#3F3A9C",
+   "SPC": "#5B7FA6"
+  },
+  "families": {
+   "records": "#3B6D11",
+   "data": "#0F7C8C",
+   "systems": "#3D4A55",
+   "external": "#6B5B4E",
+   "value": "#A87A12",
+   "people": "#7A4FA0",
+   "plant": "#D2691E",
+   "materials": "#8E6A2E",
+   "transport": "#8E6A2E",
+   "flow": "#444441"
+  },
+  "status": {
+   "waiting": "#E0AE2E",
+   "working": "#0F6E56",
+   "rework": "#C8402F",
+   "blocked": "#C8402F",
+   "overdue": "#BA7517",
+   "effective": "#3B6D11",
+   "degraded": "#BA7517",
+   "failed": "#A32D2D",
+   "up": "#3B6D11",
+   "down": "#C8402F"
+  }
+ },
+ "families": [
+  {
+   "id": "org",
+   "name": "Organisation",
+   "shape": "circle",
+   "colour_rule": "function",
+   "use": "The company, its functions, roles, people and sites."
+  },
+  {
+   "id": "site",
+   "name": "Sites",
+   "shape": "circle",
+   "colour_rule": "fixed:#0B5563",
+   "use": "Where the work happens."
+  },
+  {
+   "id": "ext",
+   "name": "External parties",
+   "shape": "circle",
+   "colour_rule": "family:external",
+   "use": "Organisations outside ACE that work passes to or from."
+  },
+  {
+   "id": "oms",
+   "name": "OMS framework",
+   "shape": "tile",
+   "colour_rule": "element",
+   "use": "The ten OMS elements and their expectations."
+  },
+  {
+   "id": "mo",
+   "name": "Management objects",
+   "shape": "hex",
+   "colour_rule": "element",
+   "use": "Opportunities, objectives, processes, requirements, risks, controls, incidents, improvement, compliance and value."
+  },
+  {
+   "id": "doc",
+   "name": "Documents",
+   "shape": "doc",
+   "colour_rule": "document",
+   "use": "Controlled documents. One base glyph; type shown by its blue and its letter badge."
+  },
+  {
+   "id": "rec",
+   "name": "Records",
+   "shape": "doc",
+   "colour_rule": "family:records",
+   "use": "Evidence that work was done. One green; type shown by the badge glyph."
+  },
+  {
+   "id": "data",
+   "name": "Data and measurement",
+   "shape": "doc",
+   "colour_rule": "family:data",
+   "use": "Measures, KPIs, registers and dashboards."
+  },
+  {
+   "id": "sys",
+   "name": "Systems",
+   "shape": "doc",
+   "colour_rule": "family:systems",
+   "use": "Where records and data live."
+  },
+  {
+   "id": "res",
+   "name": "Resources",
+   "shape": "circle",
+   "colour_rule": "own",
+   "use": "People, materials, money, transport and time."
+  },
+  {
+   "id": "eq",
+   "name": "Energy equipment",
+   "shape": "circle",
+   "colour_rule": "family:plant",
+   "use": "Upstream and downstream plant. Most need custom drawing; a generic glyph stands in until then."
+  },
+  {
+   "id": "flow",
+   "name": "Flow and decisions",
+   "shape": "circle",
+   "colour_rule": "family:flow",
+   "use": "Start, end, decision, approval, timer, cycle and what moves between steps."
+  },
+  {
+   "id": "reason",
+   "name": "Wait and rework reasons",
+   "shape": "circle",
+   "colour_rule": "status:waiting",
+   "use": "Why work is waiting or coming back. Used in bottleneck views."
+  },
+  {
+   "id": "st",
+   "name": "Status marks",
+   "shape": "mark",
+   "colour_rule": "status",
+   "use": "Waiting, working, rework, blocked, overdue, effective, degraded, failed, trend."
+  }
+ ],
+ "icons": {
+  "org.company": {
+   "name": "Company",
+   "glyph": "sitemap",
+   "colour": "#0B5563",
+   "family": "org",
+   "shape": "circle"
+  },
+  "org.function.EXEC": {
+   "name": "Executive",
+   "glyph": "sitemap",
+   "colour": "#0B5563",
+   "badge_glyph": "user-tie",
+   "family": "org",
+   "shape": "circle"
+  },
+  "org.function.OPS": {
+   "name": "Operations",
+   "glyph": "sitemap",
+   "colour": "#2F6F8F",
+   "badge_glyph": "industry",
+   "family": "org",
+   "shape": "circle"
+  },
+  "org.function.ENP": {
+   "name": "Engineering & Projects",
+   "glyph": "sitemap",
+   "colour": "#7A5C9E",
+   "badge_glyph": "gears",
+   "family": "org",
+   "shape": "circle"
+  },
+  "org.function.WEL": {
+   "name": "Wells",
+   "glyph": "sitemap",
+   "colour": "#8E5B3A",
+   "badge_glyph": "oil-well",
+   "family": "org",
+   "shape": "circle"
+  },
+  "org.function.EXD": {
+   "name": "Exploration & Development",
+   "glyph": "sitemap",
+   "colour": "#2E8A78",
+   "badge_glyph": "magnifying-glass-location",
+   "family": "org",
+   "shape": "circle"
+  },
+  "org.function.SCM": {
+   "name": "Supply Chain",
+   "glyph": "sitemap",
+   "colour": "#B07A1F",
+   "badge_glyph": "truck",
+   "family": "org",
+   "shape": "circle"
+  },
+  "org.function.HSE": {
+   "name": "HSE & Compliance",
+   "glyph": "sitemap",
+   "colour": "#B5473A",
+   "badge_glyph": "helmet-safety",
+   "family": "org",
+   "shape": "circle"
+  },
+  "org.function.HR": {
+   "name": "Human Resources",
+   "glyph": "sitemap",
+   "colour": "#6E9A2E",
+   "badge_glyph": "users",
+   "family": "org",
+   "shape": "circle"
+  },
+  "org.function.FIN": {
+   "name": "Finance",
+   "glyph": "sitemap",
+   "colour": "#5B7F3A",
+   "badge_glyph": "coins",
+   "family": "org",
+   "shape": "circle"
+  },
+  "org.function.ITD": {
+   "name": "IT, Data & Knowledge",
+   "glyph": "sitemap",
+   "colour": "#3D4FA1",
+   "badge_glyph": "laptop-code",
+   "family": "org",
+   "shape": "circle"
+  },
+  "org.function.BDM": {
+   "name": "Business Development & Markets",
+   "glyph": "sitemap",
+   "colour": "#A0527A",
+   "badge_glyph": "handshake",
+   "family": "org",
+   "shape": "circle"
+  },
+  "org.function.LGA": {
+   "name": "Legal & Government Affairs",
+   "glyph": "sitemap",
+   "colour": "#57656C",
+   "badge_glyph": "scale-balanced",
+   "family": "org",
+   "shape": "circle"
+  },
+  "org.function.CCS": {
+   "name": "Communications & Corporate Services",
+   "glyph": "sitemap",
+   "colour": "#6B7B83",
+   "badge_glyph": "bullhorn",
+   "family": "org",
+   "shape": "circle"
+  },
+  "org.function.CTR": {
+   "name": "Contractors",
+   "glyph": "sitemap",
+   "colour": "#7D8D95",
+   "badge_glyph": "user-gear",
+   "family": "org",
+   "shape": "circle"
+  },
+  "org.role": {
+   "name": "Role",
+   "glyph": "user",
+   "family": "org",
+   "shape": "circle",
+   "colour": "#444441"
+  },
+  "org.person": {
+   "name": "Person",
+   "glyph": "user",
+   "family": "org",
+   "shape": "circle",
+   "colour": "#444441"
+  },
+  "org.team": {
+   "name": "Team",
+   "glyph": "users",
+   "family": "org",
+   "shape": "circle",
+   "colour": "#444441"
+  },
+  "org.contractor": {
+   "name": "Contractor",
+   "glyph": "user-gear",
+   "colour": "#7D8D95",
+   "family": "org",
+   "shape": "circle"
+  },
+  "site.generic": {
+   "name": "Site",
+   "glyph": "location-dot",
+   "family": "site",
+   "shape": "circle",
+   "colour": "#0B5563"
+  },
+  "site.platform": {
+   "name": "Offshore platform",
+   "glyph": "oil-well",
+   "custom": true,
+   "family": "site",
+   "shape": "circle",
+   "colour": "#0B5563"
+  },
+  "site.plant": {
+   "name": "Process plant",
+   "glyph": "industry",
+   "family": "site",
+   "shape": "circle",
+   "colour": "#0B5563"
+  },
+  "site.shorebase": {
+   "name": "Shore base / port",
+   "glyph": "anchor",
+   "family": "site",
+   "shape": "circle",
+   "colour": "#0B5563"
+  },
+  "site.office": {
+   "name": "Head office",
+   "glyph": "building",
+   "family": "site",
+   "shape": "circle",
+   "colour": "#0B5563"
+  },
+  "site.terminal": {
+   "name": "Terminal",
+   "glyph": "warehouse",
+   "family": "site",
+   "shape": "circle",
+   "colour": "#0B5563"
+  },
+  "site.refinery": {
+   "name": "Refinery",
+   "glyph": "industry",
+   "custom": true,
+   "family": "site",
+   "shape": "circle",
+   "colour": "#0B5563"
+  },
+  "site.landlease": {
+   "name": "Land lease",
+   "glyph": "map",
+   "family": "site",
+   "shape": "circle",
+   "colour": "#0B5563"
+  },
+  "ext.regulator": {
+   "name": "Regulator",
+   "glyph": "landmark",
+   "family": "ext",
+   "shape": "circle",
+   "colour": "#6B5B4E"
+  },
+  "ext.customer": {
+   "name": "Customer / buyer",
+   "glyph": "handshake",
+   "family": "ext",
+   "shape": "circle",
+   "colour": "#6B5B4E"
+  },
+  "ext.partner": {
+   "name": "JV partner",
+   "glyph": "people-arrows",
+   "family": "ext",
+   "shape": "circle",
+   "colour": "#6B5B4E"
+  },
+  "ext.contractor": {
+   "name": "Contractor company",
+   "glyph": "helmet-safety",
+   "family": "ext",
+   "shape": "circle",
+   "colour": "#6B5B4E"
+  },
+  "ext.community": {
+   "name": "Community",
+   "glyph": "people-roof",
+   "family": "ext",
+   "shape": "circle",
+   "colour": "#6B5B4E"
+  },
+  "ext.supplier": {
+   "name": "Supplier",
+   "glyph": "truck-ramp-box",
+   "family": "ext",
+   "shape": "circle",
+   "colour": "#6B5B4E"
+  },
+  "oms.element.1": {
+   "name": "Commitment and accountability",
+   "glyph": "flag",
+   "colour": "#0B5563",
+   "badge": "1",
+   "element": 1,
+   "family": "oms",
+   "shape": "tile"
+  },
+  "oms.element.2": {
+   "name": "Policies, standards and objectives",
+   "glyph": "landmark",
+   "colour": "#3D4FA1",
+   "badge": "2",
+   "element": 2,
+   "family": "oms",
+   "shape": "tile"
+  },
+  "oms.element.3": {
+   "name": "Organisation, resources and capability",
+   "glyph": "people-group",
+   "colour": "#7A4FA0",
+   "badge": "3",
+   "element": 3,
+   "family": "oms",
+   "shape": "tile"
+  },
+  "oms.element.4": {
+   "name": "Stakeholders and customers",
+   "glyph": "handshake",
+   "colour": "#B5427A",
+   "badge": "4",
+   "element": 4,
+   "family": "oms",
+   "shape": "tile"
+  },
+  "oms.element.5": {
+   "name": "Risk assessment and control",
+   "glyph": "triangle-exclamation",
+   "colour": "#C8402F",
+   "badge": "5",
+   "element": 5,
+   "family": "oms",
+   "shape": "tile"
+  },
+  "oms.element.6": {
+   "name": "Asset design and integrity",
+   "glyph": "oil-well",
+   "colour": "#E07A1F",
+   "badge": "6",
+   "element": 6,
+   "family": "oms",
+   "shape": "tile"
+  },
+  "oms.element.7": {
+   "name": "Plans and procedures",
+   "glyph": "book",
+   "colour": "#D6A21E",
+   "badge": "7",
+   "element": 7,
+   "family": "oms",
+   "shape": "tile"
+  },
+  "oms.element.8": {
+   "name": "Execution of activities",
+   "glyph": "play",
+   "colour": "#6E9A2E",
+   "badge": "8",
+   "element": 8,
+   "family": "oms",
+   "shape": "tile"
+  },
+  "oms.element.9": {
+   "name": "Monitoring, reporting and learning",
+   "glyph": "graduation-cap",
+   "colour": "#2E9A78",
+   "badge": "9",
+   "element": 9,
+   "family": "oms",
+   "shape": "tile"
+  },
+  "oms.element.10": {
+   "name": "Assurance, review and improvement",
+   "glyph": "magnifying-glass",
+   "colour": "#2F7FB8",
+   "badge": "10",
+   "element": 10,
+   "family": "oms",
+   "shape": "tile"
+  },
+  "oms.expectation": {
+   "name": "OMS expectation",
+   "glyph": "list-check",
+   "colour": "#0B5563",
+   "family": "oms",
+   "shape": "tile"
+  },
+  "oms.manual": {
+   "name": "OMS manual",
+   "glyph": "book-bookmark",
+   "colour": "#0B5563",
+   "family": "oms",
+   "shape": "tile"
+  },
+  "mo.opportunity": {
+   "name": "Business opportunity",
+   "glyph": "seedling",
+   "colour": "#3D4FA1",
+   "element": 2,
+   "family": "mo",
+   "shape": "hex"
+  },
+  "mo.objective": {
+   "name": "Objective / target",
+   "glyph": "bullseye",
+   "colour": "#3D4FA1",
+   "element": 2,
+   "family": "mo",
+   "shape": "hex"
+  },
+  "mo.process": {
+   "name": "Process",
+   "glyph": "diagram-project",
+   "colour": "#D6A21E",
+   "element": 7,
+   "family": "mo",
+   "shape": "hex"
+  },
+  "mo.requirement": {
+   "name": "Requirement",
+   "glyph": "list-check",
+   "colour": "#3D4FA1",
+   "element": 2,
+   "family": "mo",
+   "shape": "hex"
+  },
+  "mo.hazard": {
+   "name": "Hazard",
+   "glyph": "fire-flame-curved",
+   "colour": "#C8402F",
+   "element": 5,
+   "family": "mo",
+   "shape": "hex"
+  },
+  "mo.risk": {
+   "name": "Risk",
+   "glyph": "triangle-exclamation",
+   "colour": "#C8402F",
+   "element": 5,
+   "family": "mo",
+   "shape": "hex"
+  },
+  "mo.control": {
+   "name": "Control / barrier",
+   "glyph": "shield-halved",
+   "colour": "#C8402F",
+   "element": 5,
+   "family": "mo",
+   "shape": "hex"
+  },
+  "mo.change": {
+   "name": "Change (MOC)",
+   "glyph": "arrows-rotate",
+   "colour": "#C8402F",
+   "element": 5,
+   "family": "mo",
+   "shape": "hex"
+  },
+  "mo.deviation": {
+   "name": "Deviation",
+   "glyph": "route",
+   "colour": "#C8402F",
+   "element": 5,
+   "family": "mo",
+   "shape": "hex"
+  },
+  "mo.incident": {
+   "name": "Incident / event",
+   "glyph": "burst",
+   "colour": "#2E9A78",
+   "element": 9,
+   "family": "mo",
+   "shape": "hex"
+  },
+  "mo.action": {
+   "name": "Action",
+   "glyph": "square-check",
+   "colour": "#2E9A78",
+   "element": 9,
+   "family": "mo",
+   "shape": "hex"
+  },
+  "mo.finding": {
+   "name": "Audit finding",
+   "glyph": "circle-exclamation",
+   "colour": "#2F7FB8",
+   "element": 10,
+   "family": "mo",
+   "shape": "hex"
+  },
+  "mo.improvement": {
+   "name": "Improvement",
+   "glyph": "arrow-trend-up",
+   "colour": "#2E9A78",
+   "element": 9,
+   "family": "mo",
+   "shape": "hex"
+  },
+  "mo.efficiency": {
+   "name": "Efficiency",
+   "glyph": "gauge-high",
+   "colour": "#2F7FB8",
+   "element": 10,
+   "family": "mo",
+   "shape": "hex"
+  },
+  "mo.compliance": {
+   "name": "Compliance",
+   "glyph": "scale-balanced",
+   "colour": "#3D4FA1",
+   "element": 2,
+   "family": "mo",
+   "shape": "hex"
+  },
+  "mo.regulation": {
+   "name": "Rule / regulation",
+   "glyph": "gavel",
+   "colour": "#B5427A",
+   "element": 4,
+   "family": "mo",
+   "shape": "hex"
+  },
+  "mo.licence": {
+   "name": "Licence / permit to operate",
+   "glyph": "certificate",
+   "colour": "#B5427A",
+   "element": 4,
+   "family": "mo",
+   "shape": "hex"
+  },
+  "mo.idea": {
+   "name": "Idea",
+   "glyph": "lightbulb",
+   "colour": "#2E9A78",
+   "element": 9,
+   "family": "mo",
+   "shape": "hex"
+  },
+  "mo.recognition": {
+   "name": "Recognition",
+   "glyph": "trophy",
+   "colour": "#7A4FA0",
+   "element": 3,
+   "family": "mo",
+   "shape": "hex"
+  },
+  "mo.value": {
+   "name": "Value",
+   "glyph": "sack-dollar",
+   "colour": "#A87A12",
+   "family": "mo",
+   "shape": "hex"
+  },
+  "mo.cost": {
+   "name": "Cost",
+   "glyph": "money-bill-wave",
+   "colour": "#A87A12",
+   "family": "mo",
+   "shape": "hex"
+  },
+  "mo.benefit": {
+   "name": "Benefit",
+   "glyph": "hand-holding-dollar",
+   "colour": "#A87A12",
+   "family": "mo",
+   "shape": "hex"
+  },
+  "mo.revenue": {
+   "name": "Revenue",
+   "glyph": "file-invoice-dollar",
+   "colour": "#A87A12",
+   "family": "mo",
+   "shape": "hex"
+  },
+  "mo.profit": {
+   "name": "Profit",
+   "glyph": "chart-line",
+   "colour": "#A87A12",
+   "family": "mo",
+   "shape": "hex"
+  },
+  "mo.budget": {
+   "name": "Budget",
+   "glyph": "coins",
+   "colour": "#A87A12",
+   "family": "mo",
+   "shape": "hex"
+  },
+  "doc.POL": {
+   "name": "Policy",
+   "glyph": "file-lines",
+   "colour": "#14275E",
+   "badge": "P",
+   "family": "doc",
+   "shape": "doc"
+  },
+  "doc.MAN": {
+   "name": "Manual",
+   "glyph": "file-lines",
+   "colour": "#0E4D6E",
+   "badge": "M",
+   "family": "doc",
+   "shape": "doc"
+  },
+  "doc.STD": {
+   "name": "Standard",
+   "glyph": "file-lines",
+   "colour": "#2648A6",
+   "badge": "S",
+   "family": "doc",
+   "shape": "doc"
+  },
+  "doc.PRA": {
+   "name": "Practice",
+   "glyph": "file-lines",
+   "colour": "#1D6FA3",
+   "badge": "PA",
+   "family": "doc",
+   "shape": "doc"
+  },
+  "doc.PRC": {
+   "name": "Procedure",
+   "glyph": "file-lines",
+   "colour": "#2E8BC9",
+   "badge": "PR",
+   "family": "doc",
+   "shape": "doc"
+  },
+  "doc.WIN": {
+   "name": "Work instruction",
+   "glyph": "file-lines",
+   "colour": "#5468C4",
+   "badge": "WI",
+   "family": "doc",
+   "shape": "doc"
+  },
+  "doc.FRM": {
+   "name": "Form",
+   "glyph": "file-lines",
+   "colour": "#3A9AB8",
+   "badge": "F",
+   "family": "doc",
+   "shape": "doc"
+  },
+  "doc.PLN": {
+   "name": "Plan",
+   "glyph": "file-lines",
+   "colour": "#3F3A9C",
+   "badge": "PL",
+   "family": "doc",
+   "shape": "doc"
+  },
+  "doc.SPC": {
+   "name": "Specification",
+   "glyph": "file-lines",
+   "colour": "#5B7FA6",
+   "badge": "SP",
+   "family": "doc",
+   "shape": "doc"
+  },
+  "doc.generic": {
+   "name": "Document",
+   "glyph": "file-lines",
+   "colour": "#2648A6",
+   "family": "doc",
+   "shape": "doc"
+  },
+  "rec.generic": {
+   "name": "Record",
+   "glyph": "file-circle-check",
+   "family": "rec",
+   "shape": "doc",
+   "colour": "#3B6D11"
+  },
+  "rec.work_order": {
+   "name": "Work order",
+   "glyph": "file-circle-check",
+   "badge_glyph": "wrench",
+   "family": "rec",
+   "shape": "doc",
+   "colour": "#3B6D11"
+  },
+  "rec.permit": {
+   "name": "Permit to work",
+   "glyph": "file-circle-check",
+   "badge_glyph": "fire",
+   "family": "rec",
+   "shape": "doc",
+   "colour": "#3B6D11"
+  },
+  "rec.moc": {
+   "name": "MOC record",
+   "glyph": "file-circle-check",
+   "badge_glyph": "arrows-rotate",
+   "family": "rec",
+   "shape": "doc",
+   "colour": "#3B6D11"
+  },
+  "rec.inspection": {
+   "name": "Inspection report",
+   "glyph": "file-circle-check",
+   "badge_glyph": "magnifying-glass",
+   "family": "rec",
+   "shape": "doc",
+   "colour": "#3B6D11"
+  },
+  "rec.risk_assessment": {
+   "name": "Risk assessment",
+   "glyph": "file-circle-check",
+   "badge_glyph": "triangle-exclamation",
+   "family": "rec",
+   "shape": "doc",
+   "colour": "#3B6D11"
+  },
+  "rec.deferral": {
+   "name": "Deferral record",
+   "glyph": "file-circle-check",
+   "badge_glyph": "clock",
+   "family": "rec",
+   "shape": "doc",
+   "colour": "#3B6D11"
+  },
+  "rec.manifest": {
+   "name": "Manifest / booking",
+   "glyph": "file-circle-check",
+   "badge_glyph": "helicopter",
+   "family": "rec",
+   "shape": "doc",
+   "colour": "#3B6D11"
+  },
+  "rec.training": {
+   "name": "Training record",
+   "glyph": "file-circle-check",
+   "badge_glyph": "graduation-cap",
+   "family": "rec",
+   "shape": "doc",
+   "colour": "#3B6D11"
+  },
+  "rec.certificate": {
+   "name": "Certificate",
+   "glyph": "file-circle-check",
+   "badge_glyph": "certificate",
+   "family": "rec",
+   "shape": "doc",
+   "colour": "#3B6D11"
+  },
+  "rec.review": {
+   "name": "Review record",
+   "glyph": "file-circle-check",
+   "badge_glyph": "clipboard-check",
+   "family": "rec",
+   "shape": "doc",
+   "colour": "#3B6D11"
+  },
+  "rec.anomaly": {
+   "name": "Anomaly record",
+   "glyph": "file-circle-check",
+   "badge_glyph": "circle-exclamation",
+   "family": "rec",
+   "shape": "doc",
+   "colour": "#3B6D11"
+  },
+  "data.measure": {
+   "name": "Measure / trend",
+   "glyph": "chart-line",
+   "family": "data",
+   "shape": "doc",
+   "colour": "#0F7C8C"
+  },
+  "data.kpi": {
+   "name": "KPI",
+   "glyph": "gauge-high",
+   "family": "data",
+   "shape": "doc",
+   "colour": "#0F7C8C"
+  },
+  "data.register": {
+   "name": "Register",
+   "glyph": "database",
+   "family": "data",
+   "shape": "doc",
+   "colour": "#0F7C8C"
+  },
+  "data.dataset": {
+   "name": "Dataset / table",
+   "glyph": "table",
+   "family": "data",
+   "shape": "doc",
+   "colour": "#0F7C8C"
+  },
+  "data.dashboard": {
+   "name": "Dashboard",
+   "glyph": "chart-pie",
+   "family": "data",
+   "shape": "doc",
+   "colour": "#0F7C8C"
+  },
+  "data.reading": {
+   "name": "Field reading",
+   "glyph": "temperature-half",
+   "family": "data",
+   "shape": "doc",
+   "colour": "#0F7C8C"
+  },
+  "data.meter": {
+   "name": "Meter",
+   "glyph": "gauge",
+   "family": "data",
+   "shape": "doc",
+   "colour": "#0F7C8C"
+  },
+  "sys.generic": {
+   "name": "System",
+   "glyph": "desktop",
+   "family": "sys",
+   "shape": "doc",
+   "colour": "#3D4A55"
+  },
+  "sys.cmms": {
+   "name": "Maintenance system (CMMS)",
+   "glyph": "desktop",
+   "badge_glyph": "screwdriver-wrench",
+   "family": "sys",
+   "shape": "doc",
+   "colour": "#3D4A55"
+  },
+  "sys.erp": {
+   "name": "ERP / finance system",
+   "glyph": "desktop",
+   "badge_glyph": "coins",
+   "family": "sys",
+   "shape": "doc",
+   "colour": "#3D4A55"
+  },
+  "sys.docs": {
+   "name": "Document system",
+   "glyph": "desktop",
+   "badge_glyph": "folder-open",
+   "family": "sys",
+   "shape": "doc",
+   "colour": "#3D4A55"
+  },
+  "sys.permit": {
+   "name": "Permit system",
+   "glyph": "desktop",
+   "badge_glyph": "fire",
+   "family": "sys",
+   "shape": "doc",
+   "colour": "#3D4A55"
+  },
+  "sys.moc": {
+   "name": "MOC system",
+   "glyph": "desktop",
+   "badge_glyph": "arrows-rotate",
+   "family": "sys",
+   "shape": "doc",
+   "colour": "#3D4A55"
+  },
+  "sys.rbi": {
+   "name": "RBI / inspection software",
+   "glyph": "desktop",
+   "badge_glyph": "magnifying-glass",
+   "family": "sys",
+   "shape": "doc",
+   "colour": "#3D4A55"
+  },
+  "sys.logistics": {
+   "name": "Logistics booking",
+   "glyph": "desktop",
+   "badge_glyph": "helicopter",
+   "family": "sys",
+   "shape": "doc",
+   "colour": "#3D4A55"
+  },
+  "sys.training": {
+   "name": "Training system",
+   "glyph": "desktop",
+   "badge_glyph": "graduation-cap",
+   "family": "sys",
+   "shape": "doc",
+   "colour": "#3D4A55"
+  },
+  "res.people": {
+   "name": "People",
+   "glyph": "user-group",
+   "colour": "#7A4FA0",
+   "family": "res",
+   "shape": "circle"
+  },
+  "res.competence": {
+   "name": "Competence",
+   "glyph": "id-badge",
+   "colour": "#7A4FA0",
+   "family": "res",
+   "shape": "circle"
+  },
+  "res.materials": {
+   "name": "Materials",
+   "glyph": "boxes-stacked",
+   "colour": "#8E6A2E",
+   "family": "res",
+   "shape": "circle"
+  },
+  "res.spares": {
+   "name": "Spares / parts",
+   "glyph": "box",
+   "colour": "#8E6A2E",
+   "family": "res",
+   "shape": "circle"
+  },
+  "res.tools": {
+   "name": "Tools and NDT equipment",
+   "glyph": "toolbox",
+   "colour": "#8E6A2E",
+   "family": "res",
+   "shape": "circle"
+  },
+  "res.vehicle": {
+   "name": "Vehicle",
+   "glyph": "truck",
+   "colour": "#8E6A2E",
+   "family": "res",
+   "shape": "circle"
+  },
+  "res.helicopter": {
+   "name": "Helicopter",
+   "glyph": "helicopter",
+   "colour": "#8E6A2E",
+   "family": "res",
+   "shape": "circle"
+  },
+  "res.vessel": {
+   "name": "Vessel",
+   "glyph": "ship",
+   "colour": "#8E6A2E",
+   "family": "res",
+   "shape": "circle"
+  },
+  "res.money": {
+   "name": "Money",
+   "glyph": "coins",
+   "colour": "#A87A12",
+   "family": "res",
+   "shape": "circle"
+  },
+  "res.time": {
+   "name": "Time",
+   "glyph": "clock",
+   "colour": "#444441",
+   "family": "res",
+   "shape": "circle"
+  },
+  "eq.well": {
+   "name": "Well",
+   "glyph": "oil-well",
+   "family": "eq",
+   "shape": "circle",
+   "colour": "#D2691E"
+  },
+  "eq.borehole": {
+   "name": "Borehole",
+   "glyph": "bore-hole",
+   "family": "eq",
+   "shape": "circle",
+   "colour": "#D2691E"
+  },
+  "eq.wellhead": {
+   "name": "Wellhead / Christmas tree",
+   "glyph": "oil-well",
+   "custom": true,
+   "family": "eq",
+   "shape": "circle",
+   "colour": "#D2691E"
+  },
+  "eq.platform": {
+   "name": "Platform",
+   "glyph": "tower-observation",
+   "custom": true,
+   "family": "eq",
+   "shape": "circle",
+   "colour": "#D2691E"
+  },
+  "eq.fpso": {
+   "name": "FPSO",
+   "glyph": "ship",
+   "custom": true,
+   "family": "eq",
+   "shape": "circle",
+   "colour": "#D2691E"
+  },
+  "eq.separator": {
+   "name": "Separator / vessel",
+   "glyph": "database",
+   "custom": true,
+   "family": "eq",
+   "shape": "circle",
+   "colour": "#D2691E"
+  },
+  "eq.compressor": {
+   "name": "Compressor",
+   "glyph": "fan",
+   "custom": true,
+   "family": "eq",
+   "shape": "circle",
+   "colour": "#D2691E"
+  },
+  "eq.pump": {
+   "name": "Pump",
+   "glyph": "gears",
+   "custom": true,
+   "family": "eq",
+   "shape": "circle",
+   "colour": "#D2691E"
+  },
+  "eq.pipeline": {
+   "name": "Pipeline",
+   "glyph": "arrow-right-arrow-left",
+   "custom": true,
+   "family": "eq",
+   "shape": "circle",
+   "colour": "#D2691E"
+  },
+  "eq.pig_launcher": {
+   "name": "Pig launcher / receiver",
+   "glyph": "arrow-right-arrow-left",
+   "custom": true,
+   "family": "eq",
+   "shape": "circle",
+   "colour": "#D2691E"
+  },
+  "eq.relief_valve": {
+   "name": "Relief valve",
+   "glyph": "gauge-high",
+   "custom": true,
+   "family": "eq",
+   "shape": "circle",
+   "colour": "#D2691E"
+  },
+  "eq.flare": {
+   "name": "Flare",
+   "glyph": "fire-flame-curved",
+   "custom": true,
+   "family": "eq",
+   "shape": "circle",
+   "colour": "#D2691E"
+  },
+  "eq.tank": {
+   "name": "Storage tank",
+   "glyph": "database",
+   "custom": true,
+   "family": "eq",
+   "shape": "circle",
+   "colour": "#D2691E"
+  },
+  "eq.tank_farm": {
+   "name": "Tank farm",
+   "glyph": "cubes",
+   "custom": true,
+   "family": "eq",
+   "shape": "circle",
+   "colour": "#D2691E"
+  },
+  "eq.column": {
+   "name": "Distillation column",
+   "glyph": "industry",
+   "custom": true,
+   "family": "eq",
+   "shape": "circle",
+   "colour": "#D2691E"
+  },
+  "eq.jetty": {
+   "name": "Jetty / tanker berth",
+   "glyph": "anchor",
+   "custom": true,
+   "family": "eq",
+   "shape": "circle",
+   "colour": "#D2691E"
+  },
+  "eq.loading_rack": {
+   "name": "Loading rack",
+   "glyph": "truck-droplet",
+   "custom": true,
+   "family": "eq",
+   "shape": "circle",
+   "colour": "#D2691E"
+  },
+  "eq.meter_skid": {
+   "name": "Metering skid",
+   "glyph": "gauge",
+   "custom": true,
+   "family": "eq",
+   "shape": "circle",
+   "colour": "#D2691E"
+  },
+  "eq.crane": {
+   "name": "Crane",
+   "glyph": "gears",
+   "custom": true,
+   "family": "eq",
+   "shape": "circle",
+   "colour": "#D2691E"
+  },
+  "eq.process_plant": {
+   "name": "Process plant",
+   "glyph": "industry",
+   "family": "eq",
+   "shape": "circle",
+   "colour": "#D2691E"
+  },
+  "flow.start": {
+   "name": "Start",
+   "glyph": "play",
+   "family": "flow",
+   "shape": "circle",
+   "colour": "#444441"
+  },
+  "flow.end": {
+   "name": "End",
+   "glyph": "stop",
+   "family": "flow",
+   "shape": "circle",
+   "colour": "#444441"
+  },
+  "flow.decision": {
+   "name": "Decision",
+   "glyph": "code-branch",
+   "shape": "diamond",
+   "family": "flow",
+   "colour": "#444441"
+  },
+  "flow.approval": {
+   "name": "Approval",
+   "glyph": "stamp",
+   "family": "flow",
+   "shape": "circle",
+   "colour": "#444441"
+  },
+  "flow.timer": {
+   "name": "Timer",
+   "glyph": "clock",
+   "family": "flow",
+   "shape": "circle",
+   "colour": "#444441"
+  },
+  "flow.cycle": {
+   "name": "Cycle",
+   "glyph": "rotate",
+   "family": "flow",
+   "shape": "circle",
+   "colour": "#444441"
+  },
+  "flow.handoff": {
+   "name": "Hand-off",
+   "glyph": "people-arrows",
+   "colour": "#E07A1F",
+   "family": "flow",
+   "shape": "circle"
+  },
+  "flow.information": {
+   "name": "Information moves",
+   "glyph": "share-nodes",
+   "colour": "#2F7FB8",
+   "family": "flow",
+   "shape": "circle"
+  },
+  "flow.material": {
+   "name": "Material moves",
+   "glyph": "box",
+   "colour": "#8E6A2E",
+   "family": "flow",
+   "shape": "circle"
+  },
+  "flow.people": {
+   "name": "People move",
+   "glyph": "person-walking",
+   "colour": "#7A4FA0",
+   "family": "flow",
+   "shape": "circle"
+  },
+  "reason.resource": {
+   "name": "Person or team busy",
+   "glyph": "user-clock",
+   "family": "reason",
+   "shape": "circle",
+   "colour": "#E0AE2E"
+  },
+  "reason.information": {
+   "name": "Waiting for information",
+   "glyph": "circle-question",
+   "family": "reason",
+   "shape": "circle",
+   "colour": "#E0AE2E"
+  },
+  "reason.approval": {
+   "name": "Waiting for approval",
+   "glyph": "stamp",
+   "family": "reason",
+   "shape": "circle",
+   "colour": "#E0AE2E"
+  },
+  "reason.transport": {
+   "name": "Waiting for transport",
+   "glyph": "helicopter",
+   "family": "reason",
+   "shape": "circle",
+   "colour": "#E0AE2E"
+  },
+  "reason.weather": {
+   "name": "Weather",
+   "glyph": "cloud-showers-heavy",
+   "family": "reason",
+   "shape": "circle",
+   "colour": "#E0AE2E"
+  },
+  "reason.batch": {
+   "name": "Held for a batch or campaign",
+   "glyph": "layer-group",
+   "family": "reason",
+   "shape": "circle",
+   "colour": "#E0AE2E"
+  },
+  "reason.parts": {
+   "name": "Waiting for parts",
+   "glyph": "box-open",
+   "family": "reason",
+   "shape": "circle",
+   "colour": "#E0AE2E"
+  },
+  "reason.window": {
+   "name": "Waiting for a work window",
+   "glyph": "calendar-days",
+   "family": "reason",
+   "shape": "circle",
+   "colour": "#E0AE2E"
+  },
+  "reason.permit": {
+   "name": "Waiting for a permit",
+   "glyph": "file-circle-exclamation",
+   "family": "reason",
+   "shape": "circle",
+   "colour": "#E0AE2E"
+  },
+  "reason.incomplete": {
+   "name": "Incomplete or wrong input (rework)",
+   "glyph": "rotate-left",
+   "family": "reason",
+   "shape": "circle",
+   "colour": "#E0AE2E"
+  },
+  "st.waiting": {
+   "name": "Waiting",
+   "glyph": "hourglass-half",
+   "colour": "#E0AE2E",
+   "family": "st",
+   "shape": "mark"
+  },
+  "st.working": {
+   "name": "Working",
+   "glyph": "gear",
+   "colour": "#0F6E56",
+   "family": "st",
+   "shape": "mark"
+  },
+  "st.rework": {
+   "name": "Rework",
+   "glyph": "rotate-left",
+   "colour": "#C8402F",
+   "family": "st",
+   "shape": "mark"
+  },
+  "st.blocked": {
+   "name": "Blocked",
+   "glyph": "ban",
+   "colour": "#C8402F",
+   "family": "st",
+   "shape": "mark"
+  },
+  "st.overdue": {
+   "name": "Overdue",
+   "glyph": "clock",
+   "colour": "#BA7517",
+   "family": "st",
+   "shape": "mark"
+  },
+  "st.effective": {
+   "name": "Effective",
+   "glyph": "check",
+   "colour": "#3B6D11",
+   "family": "st",
+   "shape": "mark"
+  },
+  "st.degraded": {
+   "name": "Degraded",
+   "glyph": "minus",
+   "colour": "#BA7517",
+   "family": "st",
+   "shape": "mark"
+  },
+  "st.failed": {
+   "name": "Failed",
+   "glyph": "xmark",
+   "colour": "#A32D2D",
+   "family": "st",
+   "shape": "mark"
+  },
+  "st.up": {
+   "name": "Trend up",
+   "glyph": "arrow-up",
+   "colour": "#3B6D11",
+   "family": "st",
+   "shape": "mark"
+  },
+  "st.down": {
+   "name": "Trend down",
+   "glyph": "arrow-down",
+   "colour": "#C8402F",
+   "family": "st",
+   "shape": "mark"
+  }
+ }
+}

@@ -6,104 +6,861 @@
   "title": "Management of Change Process",
   "summary": "How a proposed change to plant, process, people, procedures or organisation is raised, classified, assessed, approved, implemented, verified and closed. Information-heavy: the work is mostly records, reviews and decisions passing between functions.",
   "character": "information",
-  "apqc": { "l1": "7 Manage Risk & HSE", "l2": "7.2 Manage change", "l3": "Management of Change Process" },
+  "apqc": {
+    "l1": "7 Manage Risk & HSE",
+    "l2": "7.2 Manage change",
+    "l3": "Management of Change Process"
+  },
   "owner": "Elena Farfan — Manager, Technical Excellence",
   "function": "Engineering & Projects",
   "policy": "ACE-RSK-POL-001",
-  "commitments": ["ACE-RSK-POL-001#COM_CHANGE", "ACE-RSK-POL-001#COM_ASSESS"],
-  "policies_also": ["ACE-FIN-POL-001", "ACE-PPL-POL-001", "ACE-SEC-POL-001"],
+  "commitments": [
+    "ACE-RSK-POL-001#COM_CHANGE",
+    "ACE-RSK-POL-001#COM_ASSESS"
+  ],
+  "policies_also": [
+    "ACE-FIN-POL-001",
+    "ACE-PPL-POL-001",
+    "ACE-SEC-POL-001"
+  ],
   "parent": "ACE-MOC-PRC-001",
-  "oms_tags": ["5.3", "6.2", "7.1"],
-  "objectives": ["OBJ-26-02"],
+  "oms_tags": [
+    "5.3",
+    "6.2",
+    "7.1"
+  ],
+  "objectives": [
+    "OBJ-26-02"
+  ],
   "ledger": "BPM-LOG-ACE-MOC-PRS-001",
   "case_label": "change",
   "sipoc": {
-    "suppliers": ["Operations", "Engineering & Projects", "Wells", "Contractors"],
-    "inputs": ["Proposed change", "Current documents and drawings", "Risk assessment"],
-    "process": ["Raise", "Classify", "Assess", "Approve", "Implement", "Verify", "Close"],
-    "outputs": ["Approved and implemented change", "Revised documents", "Training records", "Close-out record"],
-    "customers": ["Area Authority", "Operators", "Maintenance", "Process owners"]
+    "suppliers": [
+      "Operations",
+      "Engineering & Projects",
+      "Wells",
+      "Contractors"
+    ],
+    "inputs": [
+      "Proposed change",
+      "Current documents and drawings",
+      "Risk assessment"
+    ],
+    "process": [
+      "Raise",
+      "Classify",
+      "Assess",
+      "Approve",
+      "Implement",
+      "Verify",
+      "Close"
+    ],
+    "outputs": [
+      "Approved and implemented change",
+      "Revised documents",
+      "Training records",
+      "Close-out record"
+    ],
+    "customers": [
+      "Area Authority",
+      "Operators",
+      "Maintenance",
+      "Process owners"
+    ]
   },
   "lanes": [
-    { "id": "L1", "role": "Change Originator", "role_id": "OPS-22", "function": "OPS", "note": "Usually an operations engineer or OIM" },
-    { "id": "L2", "role": "MOC Coordinator", "role_id": "ENP-21", "function": "ENP", "oms_role": "MOCC" },
-    { "id": "L3", "role": "Technical Authority", "role_id": "ENP-12", "function": "ENP", "oms_role": "TA", "note": "Discipline lead for the system changed" },
-    { "id": "L4", "role": "Area Authority", "role_id": "OPS-08", "function": "OPS", "oms_role": "AA" },
-    { "id": "L5", "role": "MOC Approver", "role_id": "ENP-02", "function": "ENP", "note": "Set by change class (C1 Area Authority; C2 and C3 Manager, Technical Excellence)" },
-    { "id": "L6", "role": "Maintenance Planner", "role_id": "OPS-19", "function": "OPS", "note": "Plans and executes the work through the CMMS" }
+    {
+      "id": "L1",
+      "role": "Change Originator",
+      "role_id": "OPS-22",
+      "function": "OPS",
+      "note": "Usually an operations engineer or OIM"
+    },
+    {
+      "id": "L2",
+      "role": "MOC Coordinator",
+      "role_id": "ENP-21",
+      "function": "ENP",
+      "oms_role": "MOCC"
+    },
+    {
+      "id": "L3",
+      "role": "Technical Authority",
+      "role_id": "ENP-12",
+      "function": "ENP",
+      "oms_role": "TA",
+      "note": "Discipline lead for the system changed"
+    },
+    {
+      "id": "L4",
+      "role": "Area Authority",
+      "role_id": "OPS-08",
+      "function": "OPS",
+      "oms_role": "AA"
+    },
+    {
+      "id": "L5",
+      "role": "MOC Approver",
+      "role_id": "ENP-02",
+      "function": "ENP",
+      "note": "Set by change class (C1 Area Authority; C2 and C3 Manager, Technical Excellence)"
+    },
+    {
+      "id": "L6",
+      "role": "Maintenance Planner",
+      "role_id": "OPS-19",
+      "function": "OPS",
+      "note": "Plans and executes the work through the CMMS"
+    }
   ],
   "steps": [
-    { "id": "S01", "lane": "L1", "type": "start", "name": "Change identified", "next": ["S02"] },
-    { "id": "S02", "lane": "L1", "type": "task", "name": "Raise MOC request", "value": "BVA",
-      "inputs": ["Proposed change"], "outputs": ["MOC record"],
-      "doc_refs": ["ACE-MOC-PRC-001#ACE_MOC_PRC_001_H207"], "controls": ["C-OPS-009", "C-BPM-044"],
-      "records": ["MOC record"], "systems": ["ONE MOC module"],
-      "sim": { "dur_h": [0.5, 1, 3], "cost_role": "L1" }, "next": ["S03"] },
-    { "id": "S03", "lane": "L2", "type": "xor", "name": "Classify change", "value": "BVA",
-      "doc_refs": ["ACE-MOC-PRC-001#ACE_MOC_PRC_001_H208"],
+    {
+      "id": "S01",
+      "lane": "L1",
+      "type": "start",
+      "name": "Change identified",
+      "next": [
+        "S02"
+      ],
+      "icon": "flow.start"
+    },
+    {
+      "id": "S02",
+      "lane": "L1",
+      "type": "task",
+      "name": "Raise MOC request",
+      "value": "BVA",
+      "inputs": [
+        "Proposed change"
+      ],
+      "outputs": [
+        "MOC record"
+      ],
+      "doc_refs": [
+        "ACE-MOC-PRC-001#ACE_MOC_PRC_001_H207"
+      ],
+      "controls": [
+        "C-OPS-009",
+        "C-BPM-044"
+      ],
+      "records": [
+        "MOC record"
+      ],
+      "systems": [
+        "ONE MOC module"
+      ],
+      "sim": {
+        "dur_h": [
+          0.5,
+          1,
+          3
+        ],
+        "cost_role": "L1"
+      },
+      "next": [
+        "S03"
+      ],
+      "icon": "rec.moc",
+      "element": 5,
+      "target_days": 1,
+      "touch": [
+        {
+          "a": "A01",
+          "op": "C"
+        },
+        {
+          "a": "A02",
+          "op": "R"
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "lane": "L2",
+      "type": "xor",
+      "name": "Classify change",
+      "value": "BVA",
+      "doc_refs": [
+        "ACE-MOC-PRC-001#ACE_MOC_PRC_001_H208"
+      ],
       "commitment": "ACE-RSK-POL-001#COM_CHANGE",
-      "sim": { "dur_h": [0.5, 1, 2], "cost_role": "L2" },
-      "branches": [ { "to": "S04", "label": "C2 or C3", "p": 0.36 }, { "to": "S05", "label": "C1", "p": 0.64 } ] },
-    { "id": "S04", "lane": "L3", "type": "task", "name": "Assess technical risk", "value": "VA",
-      "inputs": ["MOC record"], "outputs": ["Risk assessment"],
-      "doc_refs": ["ACE-MOC-PRC-001#ACE_MOC_PRC_001_H211", "ACE-MOC-PRC-001#ACE_MOC_PRC_001_H212"],
-      "records": ["Risk assessment"], "systems": ["ONE MOC module"],
-      "sim": { "dur_h": [4, 8, 24], "wait_h": 48, "cost_role": "L3" }, "next": ["S06"] },
-    { "id": "S05", "lane": "L2", "type": "task", "name": "Screen minor change", "value": "BVA",
-      "inputs": ["MOC record"], "outputs": ["Screening record"],
-      "doc_refs": ["ACE-MOC-PRC-001#ACE_MOC_PRC_001_H209"], "records": ["Screening record"],
-      "sim": { "dur_h": [0.5, 1, 2], "cost_role": "L2" }, "next": ["S06"] },
-    { "id": "S06", "lane": "L4", "type": "task", "name": "Review operational impact", "value": "VA",
-      "inputs": ["MOC record", "Risk assessment"], "outputs": ["Impact review"],
-      "doc_refs": ["ACE-MOC-PRC-001#ACE_MOC_PRC_001_H213"], "records": ["Impact review"],
-      "sim": { "dur_h": [1, 2, 6], "wait_h": 24, "cost_role": "L4" }, "next": ["S07"] },
-    { "id": "S07", "lane": "L5", "type": "xor", "name": "Approve change", "value": "BVA",
-      "doc_refs": ["ACE-MOC-PRC-001#ACE_MOC_PRC_001_H216", "ACE-MOC-PRC-001#ACE_MOC_PRC_001_H217"],
+      "sim": {
+        "dur_h": [
+          0.5,
+          1,
+          2
+        ],
+        "cost_role": "L2"
+      },
+      "branches": [
+        {
+          "to": "S04",
+          "label": "C2 or C3",
+          "p": 0.36
+        },
+        {
+          "to": "S05",
+          "label": "C1",
+          "p": 0.64
+        }
+      ],
+      "icon": "flow.decision",
+      "element": 5,
+      "target_days": 2,
+      "touch": [
+        {
+          "a": "A01",
+          "op": "U"
+        },
+        {
+          "a": "A02",
+          "op": "R"
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "lane": "L3",
+      "type": "task",
+      "name": "Assess technical risk",
+      "value": "VA",
+      "inputs": [
+        "MOC record"
+      ],
+      "outputs": [
+        "Risk assessment"
+      ],
+      "doc_refs": [
+        "ACE-MOC-PRC-001#ACE_MOC_PRC_001_H211",
+        "ACE-MOC-PRC-001#ACE_MOC_PRC_001_H212"
+      ],
+      "records": [
+        "Risk assessment"
+      ],
+      "systems": [
+        "ONE MOC module"
+      ],
+      "sim": {
+        "dur_h": [
+          4,
+          8,
+          24
+        ],
+        "wait_h": 48,
+        "cost_role": "L3"
+      },
+      "next": [
+        "S06"
+      ],
+      "icon": "mo.risk",
+      "element": 5,
+      "target_days": 10,
+      "touch": [
+        {
+          "a": "A04",
+          "op": "C"
+        },
+        {
+          "a": "A05",
+          "op": "R"
+        },
+        {
+          "a": "A06",
+          "op": "R"
+        },
+        {
+          "a": "A01",
+          "op": "U"
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "lane": "L2",
+      "type": "task",
+      "name": "Screen minor change",
+      "value": "BVA",
+      "inputs": [
+        "MOC record"
+      ],
+      "outputs": [
+        "Screening record"
+      ],
+      "doc_refs": [
+        "ACE-MOC-PRC-001#ACE_MOC_PRC_001_H209"
+      ],
+      "records": [
+        "Screening record"
+      ],
+      "sim": {
+        "dur_h": [
+          0.5,
+          1,
+          2
+        ],
+        "cost_role": "L2"
+      },
+      "next": [
+        "S06"
+      ],
+      "icon": "rec.review",
+      "element": 5,
+      "target_days": 2,
+      "touch": [
+        {
+          "a": "A03",
+          "op": "C"
+        },
+        {
+          "a": "A01",
+          "op": "U"
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "lane": "L4",
+      "type": "task",
+      "name": "Review operational impact",
+      "value": "VA",
+      "inputs": [
+        "MOC record",
+        "Risk assessment"
+      ],
+      "outputs": [
+        "Impact review"
+      ],
+      "doc_refs": [
+        "ACE-MOC-PRC-001#ACE_MOC_PRC_001_H213"
+      ],
+      "records": [
+        "Impact review"
+      ],
+      "sim": {
+        "dur_h": [
+          1,
+          2,
+          6
+        ],
+        "wait_h": 24,
+        "cost_role": "L4"
+      },
+      "next": [
+        "S07"
+      ],
+      "icon": "mo.hazard",
+      "element": 5,
+      "target_days": 3,
+      "touch": [
+        {
+          "a": "A07",
+          "op": "C"
+        },
+        {
+          "a": "A06",
+          "op": "R"
+        }
+      ]
+    },
+    {
+      "id": "S07",
+      "lane": "L5",
+      "type": "xor",
+      "name": "Approve change",
+      "value": "BVA",
+      "doc_refs": [
+        "ACE-MOC-PRC-001#ACE_MOC_PRC_001_H216",
+        "ACE-MOC-PRC-001#ACE_MOC_PRC_001_H217"
+      ],
       "commitment": "ACE-RSK-POL-001#COM_ASSESS",
       "threshold": "Risk acceptance by band (ACE-RSK-POL-001 section 4); spend by the delegation schedule (ACE-FIN-POL-001)",
-      "sim": { "dur_h": [0.5, 1, 2], "cost_role": "L5" },
-      "branches": [ { "to": "S08", "label": "Approved", "p": 0.80 }, { "to": "S02", "label": "Returned for rework", "p": 0.11, "loop": "rework" }, { "to": "S12", "label": "Rejected", "p": 0.09 } ] },
-    { "id": "S08", "lane": "L6", "type": "task", "name": "Implement change", "value": "VA",
-      "inputs": ["Approved MOC", "Work package"], "outputs": ["Completed work orders"],
-      "doc_refs": ["ACE-MOC-PRC-001#ACE_MOC_PRC_001_H220", "ACE-MOC-PRC-001#ACE_MOC_PRC_001_H221"],
-      "records": ["Work orders"], "systems": ["CMMS"],
-      "sim": { "dur_h": [8, 40, 200], "cost_role": "L6" }, "next": ["S09"] },
-    { "id": "S09", "lane": "L4", "type": "task", "name": "Verify pre-start readiness", "value": "VA",
-      "inputs": ["Completed work orders"], "outputs": ["PSSR record"],
-      "doc_refs": ["ACE-MOC-PRC-001#ACE_MOC_PRC_001_H224", "ACE-MOC-PRC-001#ACE_MOC_PRC_001_H225"],
-      "records": ["PSSR record"], "systems": ["ONE MOC module"],
-      "sim": { "dur_h": [2, 4, 8], "cost_role": "L4" }, "next": ["S10"] },
-    { "id": "S10", "lane": "L2", "type": "task", "name": "Update documents and train", "value": "BVA",
-      "inputs": ["PSSR record"], "outputs": ["Revised documents", "Training record"],
-      "doc_refs": ["ACE-MOC-PRC-001#ACE_MOC_PRC_001_H222"], "controls": ["C-BPM-045"],
-      "records": ["Revised documents", "Training record"], "systems": ["ONE repository", "Training system"],
-      "sim": { "dur_h": [2, 8, 24], "cost_role": "L2" }, "next": ["S11"] },
-    { "id": "S11", "lane": "L2", "type": "end", "name": "Close MOC", "doc_refs": ["ACE-MOC-PRC-001#ACE_MOC_PRC_001_H232"] },
-    { "id": "S12", "lane": "L1", "type": "end", "name": "Change rejected" }
+      "sim": {
+        "dur_h": [
+          0.5,
+          1,
+          2
+        ],
+        "cost_role": "L5"
+      },
+      "branches": [
+        {
+          "to": "S08",
+          "label": "Approved",
+          "p": 0.8
+        },
+        {
+          "to": "S02",
+          "label": "Returned for rework",
+          "p": 0.11,
+          "loop": "rework"
+        },
+        {
+          "to": "S12",
+          "label": "Rejected",
+          "p": 0.09
+        }
+      ],
+      "icon": "flow.approval",
+      "element": 1,
+      "target_days": 2,
+      "touch": [
+        {
+          "a": "A01",
+          "op": "U"
+        },
+        {
+          "a": "A08",
+          "op": "R"
+        },
+        {
+          "a": "A04",
+          "op": "R"
+        },
+        {
+          "a": "A07",
+          "op": "R"
+        }
+      ]
+    },
+    {
+      "id": "S08",
+      "lane": "L6",
+      "type": "task",
+      "name": "Implement change",
+      "value": "VA",
+      "inputs": [
+        "Approved MOC",
+        "Work package"
+      ],
+      "outputs": [
+        "Completed work orders"
+      ],
+      "doc_refs": [
+        "ACE-MOC-PRC-001#ACE_MOC_PRC_001_H220",
+        "ACE-MOC-PRC-001#ACE_MOC_PRC_001_H221"
+      ],
+      "records": [
+        "Work orders"
+      ],
+      "systems": [
+        "CMMS"
+      ],
+      "sim": {
+        "dur_h": [
+          8,
+          40,
+          200
+        ],
+        "cost_role": "L6"
+      },
+      "next": [
+        "S09"
+      ],
+      "icon": "rec.work_order",
+      "element": 8,
+      "target_days": 21,
+      "touch": [
+        {
+          "a": "A09",
+          "op": "C"
+        },
+        {
+          "a": "A10",
+          "op": "R"
+        },
+        {
+          "a": "A06",
+          "op": "R"
+        }
+      ]
+    },
+    {
+      "id": "S09",
+      "lane": "L4",
+      "type": "task",
+      "name": "Verify pre-start readiness",
+      "value": "VA",
+      "inputs": [
+        "Completed work orders"
+      ],
+      "outputs": [
+        "PSSR record"
+      ],
+      "doc_refs": [
+        "ACE-MOC-PRC-001#ACE_MOC_PRC_001_H224",
+        "ACE-MOC-PRC-001#ACE_MOC_PRC_001_H225"
+      ],
+      "records": [
+        "PSSR record"
+      ],
+      "systems": [
+        "ONE MOC module"
+      ],
+      "sim": {
+        "dur_h": [
+          2,
+          4,
+          8
+        ],
+        "cost_role": "L4"
+      },
+      "next": [
+        "S10"
+      ],
+      "icon": "rec.certificate",
+      "element": 8,
+      "target_days": 1,
+      "touch": [
+        {
+          "a": "A11",
+          "op": "C"
+        },
+        {
+          "a": "A09",
+          "op": "R"
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "lane": "L2",
+      "type": "task",
+      "name": "Update documents and train",
+      "value": "BVA",
+      "inputs": [
+        "PSSR record"
+      ],
+      "outputs": [
+        "Revised documents",
+        "Training record"
+      ],
+      "doc_refs": [
+        "ACE-MOC-PRC-001#ACE_MOC_PRC_001_H222"
+      ],
+      "controls": [
+        "C-BPM-045"
+      ],
+      "records": [
+        "Revised documents",
+        "Training record"
+      ],
+      "systems": [
+        "ONE repository",
+        "Training system"
+      ],
+      "sim": {
+        "dur_h": [
+          2,
+          8,
+          24
+        ],
+        "cost_role": "L2"
+      },
+      "next": [
+        "S11"
+      ],
+      "icon": "rec.training",
+      "element": 9,
+      "target_days": 5,
+      "touch": [
+        {
+          "a": "A12",
+          "op": "U"
+        },
+        {
+          "a": "A13",
+          "op": "C"
+        },
+        {
+          "a": "A01",
+          "op": "U"
+        }
+      ]
+    },
+    {
+      "id": "S11",
+      "lane": "L2",
+      "type": "end",
+      "name": "Close MOC",
+      "doc_refs": [
+        "ACE-MOC-PRC-001#ACE_MOC_PRC_001_H232"
+      ],
+      "icon": "flow.end",
+      "touch": [
+        {
+          "a": "A01",
+          "op": "U"
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "lane": "L1",
+      "type": "end",
+      "name": "Change rejected",
+      "icon": "flow.end"
+    }
   ],
   "flows": [
-    { "from": "S02", "to": "S04", "type": "information", "carries": "MOC record and change package" },
-    { "from": "S04", "to": "S07", "type": "information", "carries": "Risk assessment" },
-    { "from": "S06", "to": "S07", "type": "information", "carries": "Impact review" },
-    { "from": "S07", "to": "S08", "type": "material", "carries": "Approved work package, parts and drawings" },
-    { "from": "S09", "to": "S10", "type": "information", "carries": "PSSR record and punch list" },
-    { "from": "S10", "to": "S06", "type": "people", "carries": "Briefing of operators in the affected area" },
-    { "from": "S10", "to": "ACE-DOC-PRS-001", "type": "information", "carries": "Revised documents to the ONE repository" }
+    {
+      "from": "S02",
+      "to": "S04",
+      "type": "information",
+      "carries": "MOC record and change package"
+    },
+    {
+      "from": "S04",
+      "to": "S07",
+      "type": "information",
+      "carries": "Risk assessment"
+    },
+    {
+      "from": "S06",
+      "to": "S07",
+      "type": "information",
+      "carries": "Impact review"
+    },
+    {
+      "from": "S07",
+      "to": "S08",
+      "type": "material",
+      "carries": "Approved work package, parts and drawings"
+    },
+    {
+      "from": "S09",
+      "to": "S10",
+      "type": "information",
+      "carries": "PSSR record and punch list"
+    },
+    {
+      "from": "S10",
+      "to": "S06",
+      "type": "people",
+      "carries": "Briefing of operators in the affected area"
+    },
+    {
+      "from": "S10",
+      "to": "ACE-DOC-PRS-001",
+      "type": "information",
+      "carries": "Revised documents to the ONE repository"
+    }
   ],
   "kpis": [
-    { "name": "MOC cycle time (median)", "family": "cycle time", "type": "lagging", "measure": "cycle_median_days", "target": "≤ 30 days", "threshold": 30, "better": "down" },
-    { "name": "Changes approved without return", "family": "quality", "type": "leading", "measure": "right_first_time", "target": "≥ 85%", "threshold": 85, "better": "up" },
-    { "name": "Controls in the process that are effective", "family": "control effectiveness", "type": "leading", "measure": "control_health", "target": "100%", "threshold": 100, "better": "up" },
-    { "name": "Cases that followed the modelled path", "family": "conformance", "type": "lagging", "measure": "conformance", "target": "≥ 90%", "threshold": 90, "better": "up" }
+    {
+      "name": "MOC cycle time (median)",
+      "family": "cycle time",
+      "type": "lagging",
+      "measure": "cycle_median_days",
+      "target": "≤ 30 days",
+      "threshold": 30,
+      "better": "down"
+    },
+    {
+      "name": "Changes approved without return",
+      "family": "quality",
+      "type": "leading",
+      "measure": "right_first_time",
+      "target": "≥ 85%",
+      "threshold": 85,
+      "better": "up"
+    },
+    {
+      "name": "Controls in the process that are effective",
+      "family": "control effectiveness",
+      "type": "leading",
+      "measure": "control_health",
+      "target": "100%",
+      "threshold": 100,
+      "better": "up"
+    },
+    {
+      "name": "Cases that followed the modelled path",
+      "family": "conformance",
+      "type": "lagging",
+      "measure": "conformance",
+      "target": "≥ 90%",
+      "threshold": 90,
+      "better": "up"
+    }
   ],
   "value": {
     "model": "deferred-benefit",
     "explain": "Each implemented change is worth its average yearly benefit by class. While a change waits, that benefit is deferred; the cost of waiting is waiting days × benefit ÷ 365.",
-    "benefit_by_class": { "C1": "MOC_BENEFIT_C1", "C2": "MOC_BENEFIT_C2", "C3": "MOC_BENEFIT_C3" }
+    "benefit_by_class": {
+      "C1": "MOC_BENEFIT_C1",
+      "C2": "MOC_BENEFIT_C2",
+      "C3": "MOC_BENEFIT_C3"
+    }
   },
   "history": [
-    { "revision": "01", "date": "2024-01-01", "summary": "First modelled issue, drawn from ACE-MOC-PRC-001. Implementation planned by the originator outside the maintenance schedule." },
-    { "revision": "02", "date": "2025-04-01", "summary": "Implementation (S08) moved to the Maintenance Planner and joined to the weekly integrated maintenance schedule; approval returns tracked as rework.", "ci": "CI-2024-004", "changed_steps": ["S08", "S07"] }
+    {
+      "revision": "01",
+      "date": "2024-01-01",
+      "summary": "First modelled issue, drawn from ACE-MOC-PRC-001. Implementation planned by the originator outside the maintenance schedule."
+    },
+    {
+      "revision": "02",
+      "date": "2025-04-01",
+      "summary": "Implementation (S08) moved to the Maintenance Planner and joined to the weekly integrated maintenance schedule; approval returns tracked as rework.",
+      "ci": "CI-2024-004",
+      "changed_steps": [
+        "S08",
+        "S07"
+      ]
+    }
   ],
-  "sim_defaults": { "volume_per_year": 120, "rates_per_h": { "L1": 21, "L2": 21, "L3": 42, "L4": 42, "L5": 60, "L6": 21 } }
+  "sim_defaults": {
+    "volume_per_year": 120,
+    "rates_per_h": {
+      "L1": 21,
+      "L2": 21,
+      "L3": 42,
+      "L4": 42,
+      "L5": 60,
+      "L6": 21
+    }
+  },
+  "stages": [
+    {
+      "id": "raise",
+      "name": "Raise and classify",
+      "icon": "mo.change",
+      "element": 5,
+      "steps": [
+        "S01",
+        "S02",
+        "S03",
+        "S05"
+      ],
+      "summary": "The originator raises the change and the MOC Coordinator sets its class."
+    },
+    {
+      "id": "assess",
+      "name": "Assess",
+      "icon": "mo.risk",
+      "element": 5,
+      "steps": [
+        "S04",
+        "S06"
+      ],
+      "summary": "Technical risk (C2 and C3 only) and operational impact are assessed."
+    },
+    {
+      "id": "approve",
+      "name": "Approve",
+      "icon": "flow.approval",
+      "element": 1,
+      "steps": [
+        "S07",
+        "S12"
+      ],
+      "summary": "The approver set by class approves, returns or rejects."
+    },
+    {
+      "id": "implement",
+      "name": "Implement and verify",
+      "icon": "rec.work_order",
+      "element": 8,
+      "steps": [
+        "S08",
+        "S09"
+      ],
+      "summary": "Work is planned and done through the CMMS, then verified before start-up."
+    },
+    {
+      "id": "close",
+      "name": "Close out",
+      "icon": "rec.training",
+      "element": 9,
+      "steps": [
+        "S10",
+        "S11"
+      ],
+      "summary": "Documents are revised, people are briefed and the MOC is closed."
+    }
+  ],
+  "artefacts": [
+    {
+      "id": "A01",
+      "name": "MOC record",
+      "icon": "rec.moc",
+      "system": "sys.moc"
+    },
+    {
+      "id": "A02",
+      "name": "MOC procedure",
+      "icon": "doc.PRC",
+      "doc": "ACE-MOC-PRC-001"
+    },
+    {
+      "id": "A03",
+      "name": "Screening record",
+      "icon": "rec.review",
+      "system": "sys.moc"
+    },
+    {
+      "id": "A04",
+      "name": "Risk assessment",
+      "icon": "rec.risk_assessment",
+      "system": "sys.moc"
+    },
+    {
+      "id": "A05",
+      "name": "HAZOP worksheet",
+      "icon": "rec.risk_assessment",
+      "system": "sys.docs",
+      "doc": "ACE-PSM-STD-001"
+    },
+    {
+      "id": "A06",
+      "name": "P&IDs and drawings",
+      "icon": "doc.SPC",
+      "system": "sys.docs"
+    },
+    {
+      "id": "A07",
+      "name": "Impact review",
+      "icon": "rec.review",
+      "system": "sys.moc"
+    },
+    {
+      "id": "A08",
+      "name": "Delegation of authority schedule",
+      "icon": "doc.POL",
+      "doc": "ACE-FIN-POL-001"
+    },
+    {
+      "id": "A09",
+      "name": "Work orders",
+      "icon": "rec.work_order",
+      "system": "sys.cmms"
+    },
+    {
+      "id": "A10",
+      "name": "Work pack",
+      "icon": "doc.WIN",
+      "system": "sys.cmms"
+    },
+    {
+      "id": "A11",
+      "name": "Pre-start safety review record",
+      "icon": "rec.certificate",
+      "system": "sys.moc"
+    },
+    {
+      "id": "A12",
+      "name": "Revised documents",
+      "icon": "doc.generic",
+      "system": "sys.docs"
+    },
+    {
+      "id": "A13",
+      "name": "Training record",
+      "icon": "rec.training",
+      "system": "sys.training"
+    }
+  ],
+  "capacity": "BPM-CAP-001",
+  "scenarios": "BPM-SCN-001",
+  "data_map": "processes/maps/ACE-MOC-PRS-001.map.json"
 }

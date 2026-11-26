@@ -11,7 +11,7 @@ The single rule set for turning ACE Word documents into ONE. Read **ONE_Protocol
 | Process file schema + MOC example | `schemas/` |
 | Register templates | `registers/` |
 | Golden sample (passes every rule) | `samples/` |
-| Template v5 | `../templates/ONE_ACE_Master_Template_v5.dotx` |
+| Template v5 | `../standards/templates/ONE_ACE_Master_Template_v5.dotx` |
 | Regenerate JSON and page | `build/build_protocol.py`, `build/build_protocol_md.py` |
 
 Latest check of the repository: `reports/audit.md`.

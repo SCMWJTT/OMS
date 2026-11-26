@@ -102,6 +102,7 @@ async function readDoc(file, folder) {
   for (const dir of ["processes"]) { const d = path.join(ROOT, dir); if (fs.existsSync(d)) for (const f of fs.readdirSync(d)) if (f.endsWith(".json")) processes.push(JSON.parse(fs.readFileSync(path.join(d, f), "utf8"))); }
   const data = { built: new Date().toISOString(), protocol: { version: P.version, elements: P.elements, expectations: P.expectations, systems: P.systems, types: P.types,
     sites: P.sites, functions: P.functions, planned: P.document_register.planned }, docs, gate, people: ppl, company, registers: reg, processes,
+    icons: fs.existsSync(path.join(ROOT, "standards/icons/one-icons.json")) ? JSON.parse(fs.readFileSync(path.join(ROOT, "standards/icons/one-icons.json"), "utf8")) : null,
     api: process.env.ONE_API || "https://oms-api.cynmark.app" };
   const out = path.join(ROOT, "portal/dist"); fs.mkdirSync(out, { recursive: true });
   // the original Word files, so the owner's "Download for Word" can write tracked changes into the real document
