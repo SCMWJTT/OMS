@@ -1,0 +1,16 @@
+process_id,lane,role,role_id,people,hours_per_week,start,end,note
+ACE-MOC-PRS-001,L1,Change Originator,OPS-22,1,20.9,2024-01-01,,
+ACE-MOC-PRS-001,L2,MOC Coordinator,ENP-21,1,41.7,2024-01-01,,
+ACE-MOC-PRS-001,L3,Technical Authority,ENP-12,1,13.8,2024-01-01,2025-02-28,Four discipline leads share MOC technical reviews
+ACE-MOC-PRS-001,L3,Technical Authority,ENP-12,1,11.3,2025-03-01,,Rotating equipment lead post vacant; reviews shared by the remaining three leads
+ACE-MOC-PRS-001,L4,Area Authority,OPS-08,1,44.1,2024-01-01,,
+ACE-MOC-PRS-001,L5,MOC Approver,ENP-02,1,18.7,2024-01-01,,
+ACE-MOC-PRS-001,L6,Maintenance Planner,OPS-19,7,208.4,2024-01-01,,
+ACE-AIM-PRS-001,L1,Inspection Lead,OPS-06,1,19.9,2024-01-01,,
+ACE-AIM-PRS-001,L2,Integrity Engineer,OPS-17,2,56.4,2024-01-01,,
+ACE-AIM-PRS-001,L3,Materials & Corrosion Lead (Technical Authority),ENP-08,1,4.1,2024-01-01,,
+ACE-AIM-PRS-001,L4,Maintenance Planner,OPS-19,1,14.7,2024-01-01,,
+ACE-AIM-PRS-001,L5,Logistics Coordinator (Marine & Aviation),SCM-11,1,5.2,2024-01-01,2025-05-31,Logistics coordinator books each offshore inspection trip separately
+ACE-AIM-PRS-001,L5,Logistics Coordinator (Marine & Aviation),SCM-11,1,5.2,2025-06-01,,Campaign bundling: one booking per platform campaign
+ACE-AIM-PRS-001,L6,Offshore Installation Manager (Area Authority),OPS-08,1,25.0,2024-01-01,,
+ACE-AIM-PRS-001,L7,Inspection contractor (NDT technicians),,2,54.3,2024-01-01,,

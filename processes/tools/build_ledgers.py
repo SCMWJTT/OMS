@@ -423,3 +423,6 @@ if __name__ == "__main__":
     print(f"Inspection ledger: {a} cases, {b} events; per year opened: {dict(Counter(c['opened'][:4] for c in ic))}")
     C, m = build_ci(mc, me, ic, ie)
     print(f"CI register: {len(C)} items; measures used: {m}")
+    import importlib.util, sys
+    _p = os.path.join(os.path.dirname(os.path.abspath(__file__)), "enrich_ledgers.py")
+    _s = importlib.util.spec_from_file_location("enrich_ledgers", _p); _m = importlib.util.module_from_spec(_s); _s.loader.exec_module(_m); _m.main()

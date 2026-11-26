@@ -1,0 +1,14 @@
+date,process_id,kind,description,step_id,ref
+2024-01-01,ACE-MOC-PRS-001,revision,Rev 01 modelled from ACE-MOC-PRC-001,,
+2024-01-01,ACE-AIM-PRS-001,revision,Rev 01 modelled from ACE-AIM-PRA-001 and ACE-AIM-STD-002,,
+2024-09-02,ACE-AIM-PRS-001,improvement,Idea raised after three wasted trips: confirm readiness before travel,S08,CI-2024-002
+2024-10-07,ACE-AIM-PRS-001,improvement,Offshore on-time inspections below target two quarters running,S06,CI-2024-001
+2024-11-04,ACE-MOC-PRS-001,improvement,MOCs open at month end above target,S08,CI-2024-004
+2025-03-01,ACE-MOC-PRS-001,capacity,Rotating equipment lead post vacant; MOC technical reviews shared by three leads,S04,
+2025-04-01,ACE-MOC-PRS-001,revision,Rev 02: implementation joined to the weekly maintenance schedule,S08,CI-2024-004
+2025-06-01,ACE-AIM-PRS-001,revision,Rev 02: offshore inspections bundled into platform campaigns; readiness checked 48 hours before travel,S06,CI-2024-001
+2025-11-18,ACE-AIM-PRS-001,assurance,Conformance check rates C-AIM-004 (deferral safeguards) Degraded,S04,CI-2025-003
+2026-02-09,ACE-AIM-PRS-001,deviation,PL-101 inspection deferral extended to August 2026,S04,
+2026-05-11,ACE-MOC-PRS-001,improvement,DMAIC study opened on the Technical Authority review queue,S04,CI-2026-006
+2026-07-14,ACE-AIM-PRS-001,incident,Pinhole leak on PL-101 (near miss),S04,EV-2026-161
+2026-07-20,ACE-AIM-PRS-001,improvement,DMAIC study: stop campaign bundling driving deferrals of critical lines,S03,CI-2026-007

@@ -1,0 +1,39 @@
+{
+  "process_id": "ACE-AIM-PRS-001",
+  "owner": "Wayne Rajkumar \u2014 Inspection Lead",
+  "data_champion": "OMS data champion (to be appointed)",
+  "refresh": "daily extract",
+  "demo_note": "ACE has no live systems: these files are curated by processes/tools/build_ledgers.py in this shape.",
+  "cases": {
+    "source": "RBI / inspection data system",
+    "fields": {
+      "case_id": "record number",
+      "opened": "date raised",
+      "closed": "date closed",
+      "outcome": "final status",
+      "due": "target date",
+      "site": "location"
+    }
+  },
+  "events": {
+    "source": "RBI / inspection data system; CMMS work orders, permit system, logistics booking",
+    "fields": {
+      "arrived": "status changed to waiting at this step",
+      "started": "assignee began work (first edit or acceptance)",
+      "finished": "status moved on",
+      "branch": "decision recorded",
+      "wait_reason": "reason drop-down (to be added to the form)",
+      "rework_reason": "return reason drop-down"
+    }
+  },
+  "capacity": {
+    "source": "rosters and role assignments, monthly",
+    "file": "registers/BPM-CAP-001.csv"
+  },
+  "costs": {
+    "source": "ERP and logistics booking",
+    "fields": {
+      "trip": "booking or flight reference"
+    }
+  }
+}

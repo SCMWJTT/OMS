@@ -103,93 +103,184 @@ const kpiFmt = (k, v) => (v == null ? "–" : k.measure === "cycle_median_days" 
 const kpiOk = (k, v) => v == null || k.threshold == null ? null : k.better === "down" ? v <= k.threshold : v >= k.threshold;
 const YEARS = ["2024", "2025", "2026"];
 
-// ---------------------------------------------------------------- map layout and drawing
-const NW = 120, NH = 48, CW = 152, X0 = 176, SLOT = 64;
-function layout(m, group) {
-  const S = Object.fromEntries(m.steps.map((s) => [s.id, s])); const col = {};
-  const q = m.steps.filter((s) => s.type === "start").map((s) => [s.id, 0]); let guard = 0;
-  while (q.length && guard++ < 4000) { const [k, c] = q.shift(); if (col[k] !== undefined && col[k] >= c) continue; col[k] = c; for (const n of fwd(S[k])) if (S[n]) q.push([n, c + 1]); }
-  const rows = group === "fn" ? [...new Set(m.lanes.map((l) => l.function || "CTR"))].map((f) => ({ key: f, label: fname(f), fn: f })) : m.lanes.map((l) => ({ key: l.id, label: l.role, fn: l.function || "CTR", lane: l }));
-  const rowOf = (s) => rows.findIndex((r) => (group === "fn" ? r.key === laneFn(m, s.lane) : r.key === s.lane));
-  const slot = {}, used = {};
-  for (const s of [...m.steps].sort((a, b) => col[a.id] - col[b.id])) { const k = `${rowOf(s)}:${col[s.id]}`; slot[s.id] = used[k] || 0; used[k] = (used[k] || 0) + 1; }
-  const rowH = rows.map((_, i) => Math.max(1, ...Object.entries(used).filter(([k]) => +k.split(":")[0] === i).map(([, v]) => v)) * SLOT + 30);
-  const top = m.cycle ? 40 : 10; const rowY = []; let y = top; for (const h of rowH) { rowY.push(y); y += h; }
-  const maxCol = Math.max(...Object.values(col));
-  const P = {}; for (const s of m.steps) { const r = rowOf(s); P[s.id] = { x: X0 + col[s.id] * CW + 16, y: rowY[r] + 18 + slot[s.id] * SLOT, row: r }; }
-  return { rows, rowY, rowH, P, S, W: X0 + (maxCol + 1) * CW + 190, H: y + 18, top, maxCol };
+const FLOWSTYLE = { information: { c: "#2F7FB8" }, material: { c: "#8E6A2E" }, people: { c: "#7A4FA0" } };
+const wrap = (t, n = 17, max = 3) => { const w = String(t).split(" "); const L = [""]; for (const x of w) { if ((L[L.length - 1] + " " + x).trim().length > n && L[L.length - 1]) L.push(x); else L[L.length - 1] = (L[L.length - 1] + " " + x).trim(); } return L.slice(0, max); };
+// ---------------------------------------------------------------- icons (standards/icons/one-icons.json)
+const ICONS = D.icons?.icons || {}; const IPRE = D.icons?.base_set?.prefix || "fa-solid fa-";
+function ico(key, size = 30, o = {}) {
+  const k = ICONS[key] || ICONS[`${(key || "").split(".")[0]}.generic`] || { glyph: "circle-question", colour: "#7D8D95", shape: "circle", name: key };
+  const col = o.colour || k.colour, sh = o.shape || k.shape || "circle";
+  const badge = o.badge === false ? "" : o.badgeText ? `<b class="oib">${esc(o.badgeText)}</b>` : k.badge ? `<b class="oib">${esc(k.badge)}</b>` : k.badge_glyph ? `<b class="oib"><i class="${IPRE}${k.badge_glyph}"></i></b>` : "";
+  return `<span class="oi" style="--c:${col};--s:${size}px"${o.tip === false ? "" : ` data-tip="${esc(o.tip || k.name || key)}"`}><span class="ois ois-${sh}"><i class="${IPRE}${k.glyph}"></i></span>${badge}</span>`;
 }
-const heat = (d, max) => { if (d == null) return "#FFFFFF"; const t = Math.min(1, d / (max || 1)); const c = [[255, 255, 255], [250, 222, 160], [232, 140, 90], [201, 71, 63]]; const i = Math.min(2, Math.floor(t * 3)), f = t * 3 - i; const a = c[i], b = c[i + 1]; return `rgb(${a.map((v, k) => Math.round(v + (b[k] - v) * f)).join(",")})`; };
-const wrap = (t, n = 17) => { const w = t.split(" "); const L = [""]; for (const x of w) { if ((L[L.length - 1] + " " + x).trim().length > n && L[L.length - 1]) L.push(x); else L[L.length - 1] = (L[L.length - 1] + " " + x).trim(); } return L.slice(0, 3); };
-const FLOWSTYLE = { information: { c: "#2F7FB8", d: "6 4", w: 2 }, material: { c: "#B07A1F", d: "2 4", w: 3.2 }, people: { c: "#7A4FA0", d: "10 4 2 4", w: 2.4 } };
+const fo = (x, y, w, h, html) => `<foreignObject x="${x}" y="${y}" width="${w}" height="${h}"><div xmlns="http://www.w3.org/1999/xhtml" class="fo">${html}</div></foreignObject>`;
+const REASON = { resource: "Person or team busy", information: "Waiting for information", approval: "Waiting for approval", transport: "Waiting for transport", weather: "Weather",
+  batch: "Held for a batch or campaign", parts: "Waiting for parts", window: "Waiting for a work window", permit: "Waiting for a permit", incomplete: "Incomplete or wrong input" };
+const RCOL = { resource: "#C8402F", information: "#2F7FB8", approval: "#3D4FA1", transport: "#8E6A2E", weather: "#57656C", batch: "#E07A1F", parts: "#B07A1F", window: "#7A5C9E", permit: "#B5427A", incomplete: "#A32D2D" };
+const CAP = REG["BPM-CAP-001"] || []; const SCN = REG["BPM-SCN-001"] || [];
 
-function drawMap(m, o) {
-  const L = layout(m, o.group), { P, S } = L, st = o.st, st2 = o.st2;
-  const maxWait = st ? Math.max(1, ...m.steps.map((s) => median(st.S[s.id].wait) || 0)) : 1;
-  const maxT = st ? Math.max(1, ...Object.values(st.T)) : 1;
-  const traced = o.trace ? new Set(o.trace.ev.map((e) => e.step_id)) : null;
-  const cx = (id) => P[id].x + NW / 2, cy = (id) => P[id].y + NH / 2;
-  let g = `<defs><marker id="pa" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4E5F68"/></marker>
-    <marker id="pr" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C9473F"/></marker>
-    <marker id="pc" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0B5563"/></marker></defs>`;
-  L.rows.forEach((r, i) => { g += `<rect class="lane-bg" x="0" y="${L.rowY[i]}" width="${L.W}" height="${L.rowH[i]}"/><rect x="0" y="${L.rowY[i]}" width="6" height="${L.rowH[i]}" fill="${fcol(r.fn)}"/>
-    ${wrap(r.label, 22).map((t, k) => `<text class="lane-name" x="16" y="${L.rowY[i] + 22 + k * 15}">${esc(t)}</text>`).join("")}<text class="lane-fn" x="16" y="${L.rowY[i] + 22 + Math.min(3, wrap(r.label, 22).length) * 15}" fill="${fcol(r.fn)}">${o.group === "fn" ? "" : esc(fname(r.fn))}${r.lane?.external ? " (external)" : ""}</text>`; });
-  // cycle arc over the top
-  if (m.cycle && P[m.cycle.from] && P[m.cycle.to]) { const a = m.cycle.from, b = m.cycle.to;
-    g += `<path class="cyc" d="M${cx(a)},${P[a].y} C${cx(a)},${8} ${cx(b)},${8} ${cx(b)},${P[b].y - 2}" marker-end="url(#pc)"/><text class="cyc-t" x="${(cx(a) + cx(b)) / 2}" y="20" text-anchor="middle">↻ ${esc(m.cycle.label || m.cycle.name)}</text>`; }
-  // sequence flows
-  for (const s of m.steps) {
-    const all = [...(s.next || []).map((to) => ({ to })), ...(s.branches || [])];
-    for (const b of all) { if (!P[b.to]) continue;
-      const a = P[s.id], t = P[b.to], back = t.x <= a.x, laneChange = o.group === "fn" ? laneFn(m, s.lane) !== laneFn(m, S[b.to].lane) : s.lane !== S[b.to].lane;
-      const n = st ? st.T[`${s.id}>${b.to}`] || 0 : 0; const w = st ? (n ? 1 + 6 * Math.sqrt(n / maxT) : 0.8) : laneChange ? 2.2 : 1.3;
-      const cls = `flow${laneChange ? " handoff" : ""}${b.loop ? " rework" : ""}${st && !n ? " unused" : ""}${traced && traced.has(s.id) && traced.has(b.to) ? " traced" : ""}`;
-      let d; if (back) { const yb = Math.max(a.y, t.y) + NH + 26; d = `M${cx(s.id)},${a.y + NH} C${cx(s.id)},${yb} ${cx(b.to)},${yb} ${cx(b.to)},${t.y + NH + 2}`; }
-      else d = `M${a.x + NW},${cy(s.id)} C${a.x + NW + 30},${cy(s.id)} ${t.x - 30},${cy(b.to)} ${t.x - 2},${cy(b.to)}`;
-      g += `<path class="${cls}" d="${d}" style="stroke-width:${w.toFixed(1)}" marker-end="url(#${b.loop ? "pr" : "pa"})"${st ? ` data-tip="${esc(s.name)} → ${esc(S[b.to].name)}<br>${n.toLocaleString()} times"` : ""}/>`;
-      if (b.label) { const lx = back ? (cx(s.id) + cx(b.to)) / 2 : t.x - 8, ly = back ? Math.max(a.y, t.y) + NH + 22 : cy(b.to) - 7;
-        g += `<text class="blabel${b.loop ? " rework" : ""}" x="${lx}" y="${ly}" text-anchor="${back ? "middle" : "end"}">${esc(b.label)}${b.p != null && !st ? ` · ${Math.round(b.p * 100)}%` : ""}</text>`; } }
+// ---------------------------------------------------------------- extra measures for the map: reasons, stages, capacity, confidence
+function period(f) { const y = +f.year; if (y) return [new Date(y, 0, 1), new Date(Math.min(+TODAY, +new Date(y + 1, 0, 1)))]; return [new Date(2024, 0, 1), TODAY]; }
+function stepMore(m, cases, f) {
+  const R = {}, RW = {}, Q = {}, [p0, p1] = period(f), days = Math.max(1, (p1 - p0) / DAY);
+  for (const s of m.steps) { R[s.id] = {}; RW[s.id] = {}; Q[s.id] = 0; }
+  const stageOf = {}; for (const g of m.stages || []) for (const id of g.steps) stageOf[id] = g.id;
+  const SG = {}; for (const g of m.stages || []) SG[g.id] = { tot: [], wait: 0, work: 0, q: 0 };
+  for (const c of cases) {
+    const per = {};
+    for (const e of c.ev) {
+      if (!R[e.step_id]) continue;
+      if (e.s && e.a) { const w = (e.s - e.a) / DAY; if (e.wait_reason) R[e.step_id][e.wait_reason] = (R[e.step_id][e.wait_reason] || 0) + w;
+        const a = Math.max(+e.a, +p0), b = Math.min(+e.s, +p1); if (b > a) Q[e.step_id] += (b - a) / DAY; }
+      if (e.rework_reason) RW[e.step_id][e.rework_reason] = (RW[e.step_id][e.rework_reason] || 0) + 1;
+      const g = stageOf[e.step_id]; if (g && e.f) { per[g] = (per[g] || 0) + (e.f - e.a) / DAY; if (e.s) { SG[g].wait += (e.s - e.a) / DAY; SG[g].work += (e.f - e.s) / DAY; } }
+    }
+    for (const g in per) SG[g].tot.push(per[g]);
   }
-  // typed flows: information, material, people (with moving markers)
-  const ext = {}; let ei = 0;
-  for (const f of m.flows || []) { if (!o.ov[f.type] || !P[f.from]) continue; const sty = FLOWSTYLE[f.type];
-    let x2, y2; if (P[f.to]) { x2 = cx(f.to); y2 = cy(f.to); } else { if (!ext[f.to]) ext[f.to] = { y: P[f.from].y, i: ei++ }; x2 = L.W - 150; y2 = ext[f.to].y + NH / 2; }
-    const x1 = cx(f.from), y1 = cy(f.from), mx = (x1 + x2) / 2, my = (y1 + y2) / 2 - 40 - (f.type === "people" ? 24 : f.type === "material" ? 12 : 0);
-    const d = `M${x1},${y1} Q${mx},${my} ${x2},${y2}`;
-    g += `<path class="tflow" d="${d}" stroke="${sty.c}" stroke-dasharray="${sty.d}" stroke-width="${sty.w}" data-tip="<b>${esc(f.type[0].toUpperCase() + f.type.slice(1))}</b> ${esc(f.carries || "")}"/>`;
-    if (o.animate) g += `<circle r="${f.type === "material" ? 4.5 : 3.6}" fill="${sty.c}">${f.type === "material" ? "" : ""}<animateMotion dur="${f.type === "people" ? 3.6 : f.type === "material" ? 5 : 2.6}s" repeatCount="indefinite" path="${d}"/></circle>`;
+  for (const id in Q) Q[id] = Q[id] / days;
+  for (const g of m.stages || []) SG[g.id].q = g.steps.reduce((a, id) => a + (Q[id] || 0), 0);
+  return { R, RW, Q, SG };
+}
+function utilisation(m, f) {
+  const [p0, p1] = period(f), out = {};
+  for (const l of m.lanes) {
+    let cap = 0; for (const r of CAP.filter((x) => x.process_id === m.id && x.lane === l.id)) { const a = Math.max(+p0, +PT(r.start)), b = Math.min(+p1, r.end ? +PT(r.end) + DAY : +p1); if (b > a) cap += ((b - a) / DAY / 7) * +r.hours_per_week; }
+    let work = 0; for (const c of ledger(m).cases) for (const e of c.ev) if (e.lane === l.id && e.s && e.f && e.s >= p0 && e.s < p1) work += (e.f - e.s) / HR;
+    out[l.id] = cap ? (100 * work) / cap : null;
   }
-  for (const [pid, e] of Object.entries(ext)) { const t = PRSBY[pid] ? pid : pid; const reg = BPMREG.find((r) => r.process_id === pid);
-    g += `<a href="${PRSBY[pid] ? `#/process/${pid}` : DOC[pid] ? `#/doc/${pid}` : "#/process"}"><rect class="extbox" x="${L.W - 150}" y="${e.y}" width="140" height="${NH}" rx="6"/><text class="ext-t" x="${L.W - 80}" y="${e.y + 19}" text-anchor="middle">${esc(t)}</text><text class="ext-s" x="${L.W - 80}" y="${e.y + 34}" text-anchor="middle">${esc((reg?.title || "Another process").replace(/ Process$/, "").slice(0, 24))}</text></a>`; }
+  return out;
+}
+function confidence(m) {
+  let n = 0, full = 0, lw = 0, lr = 0, last = 0;
+  for (const c of ledger(m).cases) for (const e of c.ev) { const s = m.steps.find((x) => x.id === e.step_id); if (!isWork(s)) continue; if (+e.a > last) last = +e.a;
+    if (e.f) { n++; if (e.a && e.s && e.f) full++; } if (e.s && (e.s - e.a) / DAY > 1) { lw++; if (e.wait_reason) lr++; } }
+  const comp = n ? (100 * full) / n : 0, rs = lw ? (100 * lr) / lw : 0, age = (TODAY - last) / DAY;
+  const level = comp >= 95 && rs >= 90 && age <= 7 ? "High" : comp >= 80 && rs >= 50 && age <= 31 ? "Medium" : "Low";
+  return { level, comp, rs, age };
+}
+let GCOL = {};
+function gcol(m) {
+  if (GCOL[m.id]) return GCOL[m.id];
+  const S = Object.fromEntries(m.steps.map((s) => [s.id, s])), col = {}; const q = m.steps.filter((s) => s.type === "start").map((s) => [s.id, 0]); let g = 0;
+  while (q.length && g++ < 4000) { const [k, c] = q.shift(); if (col[k] !== undefined && col[k] >= c) continue; col[k] = c; for (const n of fwd(S[k])) if (S[n]) q.push([n, c + 1]); }
+  return (GCOL[m.id] = col);
+}
+
+// ---------------------------------------------------------------- the stage swimlane
+const LENSES = [["flow", "Who does what", "org.team"], ["fn", "Functions", "org.company"], ["info", "Information", "doc.generic"], ["time", "Time and cost", "res.time"],
+  ["neck", "Bottlenecks", "st.waiting"], ["ci", "Improvement", "mo.improvement"], ["ctl", "Risk and controls", "mo.control"]];
+function drawStage(m, g, o) {
+  const S = Object.fromEntries(m.steps.map((s) => [s.id, s])), col = gcol(m), ids = g.steps.filter((id) => S[id]);
+  const stageOf = {}; for (const x of m.stages) for (const id of x.steps) stageOf[id] = x;
+  const cols = [...new Set(ids.map((id) => col[id]))].sort((a, b) => a - b), lc = (id) => cols.indexOf(col[id]);
+  const byFn = o.lens === "fn";
+  const rows = byFn ? [...new Set(ids.map((id) => laneFn(m, S[id].lane)))].map((f) => ({ key: f, fn: f, label: fname(f) }))
+    : [...new Set(ids.map((id) => S[id].lane))].map((l) => { const L = laneOf(m, l); return { key: l, fn: L.function || "CTR", label: L.role, lane: L }; });
+  rows.sort((a, b) => (byFn ? m.lanes.findIndex((l) => l.function === a.key) - m.lanes.findIndex((l) => l.function === b.key) : m.lanes.findIndex((l) => l.id === a.key) - m.lanes.findIndex((l) => l.id === b.key)));
+  const rowOf = (id) => rows.findIndex((r) => r.key === (byFn ? laneFn(m, S[id].lane) : S[id].lane));
+  const LW = 190, CWd = 236, BW = 154, BH = 58, RH = o.lens === "info" ? 182 : o.lens === "time" || o.lens === "neck" ? 172 : 140, TOP = 34;
+  const OVH = o.lens === "info" ? 70 : o.lens === "time" || o.lens === "neck" ? 74 : 26;
+  const slot = {}, used = {}; for (const id of ids) { const k = `${rowOf(id)}:${lc(id)}`; slot[id] = used[k] || 0; used[k] = (used[k] || 0) + 1; }
+  const rh = rows.map((_, i) => RH + (Math.max(1, ...Object.entries(used).filter(([k]) => +k.split(":")[0] === i).map(([, v]) => v)) - 1) * (BH + 40));
+  const ry = []; let y = TOP; for (const h of rh) { ry.push(y); y += h; }
+  const X1 = 150, W = LW + X1 + cols.length * CWd + 200, H = y + 26;
+  const P = {}; for (const id of ids) { const r = rowOf(id); P[id] = { x: LW + X1 + lc(id) * CWd, y: ry[r] + 30 + slot[id] * (BH + 40) }; }
+  const st = o.st, more = o.more, cxr = (id) => P[id].x + BW, cy = (id) => P[id].y + BH / 2;
+  let svg = `<defs><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" orient="auto"><path d="M0,0L10,5L0,10z" fill="#3D4A55"/></marker>
+    <marker id="a2r" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" orient="auto"><path d="M0,0L10,5L0,10z" fill="#C8402F"/></marker></defs>`;
+  svg += `<rect x="0" y="0" width="${W}" height="24" class="sg-head"/><text x="12" y="16" class="sg-ht">${esc(g.name)} · ${esc(g.summary || "")}</text>`;
+  rows.forEach((r, i) => {
+    const fc = fcol(r.fn); svg += `<rect x="0" y="${ry[i]}" width="${W}" height="${rh[i]}" class="sg-lane" style="${byFn ? `fill:${fc};fill-opacity:.10` : ""}"/><rect x="0" y="${ry[i]}" width="7" height="${rh[i]}" fill="${fc}"/>`;
+    svg += fo(14, ry[i] + 12, 44, 44, ico(byFn ? `org.function.${r.fn}` : r.lane?.external ? "ext.contractor" : `org.function.${r.fn}`, 32, { tip: byFn ? fname(r.fn) : `${r.label} — ${fname(r.fn)}` }));
+    svg += wrap(r.label, 19, 4).map((t, k) => `<text x="62" y="${ry[i] + 26 + k * 15}" class="sg-ln">${esc(t)}</text>`).join("") + `<text x="62" y="${ry[i] + 26 + wrap(r.label, 19, 4).length * 15}" class="sg-lf" fill="${fc}">${byFn ? "" : esc(fname(r.fn))}</text>`;
+    if (o.lens === "neck" && !byFn && o.util) { const u = o.util[r.key]; if (u != null) { const c = u > 85 ? "#C8402F" : u > 65 ? "#E0AE2E" : "#3B6D11";
+      svg += `<g data-tip="${esc(r.label)} uses ${Math.round(u)}% of the hours it has for this process${u > 85 ? ". Above about 85%, queues grow sharply." : ""}"><rect x="16" y="${ry[i] + rh[i] - 34}" width="160" height="9" rx="2" class="sg-track"/><rect x="16" y="${ry[i] + rh[i] - 34}" width="${Math.min(160, 1.6 * u)}" height="9" rx="2" fill="${c}"/><text x="16" y="${ry[i] + rh[i] - 12}" class="sg-u" fill="${c}">${Math.round(u)}% of capacity</text></g>`; } }
+  });
+  // edges
+  const exitR = [], exitL = [], entries = [];
+  for (const id of ids) {
+    const s = S[id]; const outsAll = [...(s.next || []).map((to) => ({ to })), ...(s.branches || [])];
+    outsAll.forEach((b, bi) => {
+      const n = st ? st.T[`${id}>${b.to}`] || 0 : 0, tot = st ? Object.entries(st.T).filter(([k]) => k.startsWith(id + ">")).reduce((a, [, v]) => a + v, 0) : 0;
+      const share = st && tot && outsAll.length > 1 ? ` · ${Math.round((100 * n) / tot)}%` : "";
+      const lab = b.label ? esc(b.label) + share : share ? share.slice(3) : "";
+      if (P[b.to]) {
+        const back = lc(b.to) <= lc(id) && b.to !== id;
+        const ho = laneFn(m, s.lane) !== laneFn(m, S[b.to].lane);
+        if (back) { const yb = Math.max(P[id].y, P[b.to].y) + BH + OVH; svg += `<path d="M${P[id].x + 14},${P[id].y + BH} L${P[id].x + 14},${yb} L${P[b.to].x + BW / 2},${yb} L${P[b.to].x + BW / 2},${P[b.to].y + BH + 2}" class="sg-e rw" marker-end="url(#a2r)"/><text x="${(P[id].x + P[b.to].x + BW) / 2}" y="${yb + 14}" class="sg-bl rw" text-anchor="middle">${lab}</text>`; }
+        else { const xa = cxr(id), xb = P[b.to].x, ya = cy(id), yb2 = cy(b.to), mx = xa + 18 + bi * 8;
+          svg += `<path d="M${xa},${ya} L${mx},${ya} L${mx},${yb2} L${xb - 2},${yb2}" class="sg-e${ho ? " ho" : ""}" marker-end="url(#a2)"/>`;
+          if (lab) svg += `<text x="${xb - 6}" y="${yb2 - 7}" class="sg-bl" text-anchor="end">${lab}</text>`;
+          if (byFn && ho) svg += fo(mx - 13, (ya + yb2) / 2 - 13, 30, 30, ico("flow.handoff", 24, { tip: `Hand-off ${fname(laneFn(m, s.lane))} → ${fname(laneFn(m, S[b.to].lane))}${n ? `: ${n} times` : ""}` })); }
+      } else if (S[b.to]) {
+        const tg = stageOf[b.to], back = m.stages.indexOf(tg) < m.stages.indexOf(g);
+        (back ? exitL : exitR).push({ id, b, lab, tg });
+      }
+    });
+  }
+  for (const id of ids) for (const x of m.steps) if (!ids.includes(x.id)) for (const b of [...(x.next || []).map((to) => ({ to })), ...(x.branches || [])]) if (b.to === id) entries.push({ id, from: x, b, tg: stageOf[x.id] });
+  exitR.forEach((x, i) => { const ya = cy(x.id) + (x.b.label ? 0 : 0), xa = cxr(x.id); const yy = ya + (exitR.filter((z) => z.id === x.id).indexOf(x)) * 20;
+    svg += `<path d="M${xa},${ya} L${xa + 14},${ya} L${xa + 14},${yy} L${W - 10},${yy}" class="sg-e" marker-end="url(#a2)"/><text x="${xa + 30}" y="${yy - 6}" class="sg-bl">${x.lab ? x.lab + " → " : "→ "}${esc(x.tg?.name || "")}</text>`; });
+  exitL.forEach((x) => { const yb = P[x.id].y + BH + OVH + 8; svg += `<path d="M${P[x.id].x + 14},${P[x.id].y + BH} L${P[x.id].x + 14},${yb} L${LW + 4},${yb}" class="sg-e rw" marker-end="url(#a2r)"/><text x="${LW + 10}" y="${yb + 14}" class="sg-bl rw">↺ ${x.lab ? x.lab + " · " : ""}back to ${esc(x.tg?.name || "")}</text>`; });
+  const seenEntry = new Set();
+  for (const e of entries) { if (seenEntry.has(e.id)) continue; seenEntry.add(e.id); const back = m.stages.indexOf(e.tg) > m.stages.indexOf(g);
+    if (back) continue;
+    svg += `<path d="M${LW + 2},${cy(e.id)} L${P[e.id].x - 2},${cy(e.id)}" class="sg-e" marker-end="url(#a2)"/><text x="${LW + 6}" y="${cy(e.id) - 7}" class="sg-bl">${esc(e.tg?.name || "")} →</text>`; }
+  // the cycle: shown as a return stub where it leaves and an entry where it arrives
+  if (m.cycle && P[m.cycle.from] && !P[m.cycle.to]) { const id = m.cycle.from; svg += `<path d="M${P[id].x + BW / 2},${P[id].y} L${P[id].x + BW / 2},${P[id].y - 40} L${W - 10},${P[id].y - 40}" class="sg-e cyc" marker-end="url(#a2)"/><text x="${P[id].x + BW / 2 + 8}" y="${P[id].y - 46}" class="sg-bl cy">↻ ${esc(m.cycle.label || "next cycle")} → ${esc(stageOf[m.cycle.to]?.name || "")}</text>`; }
+  if (m.cycle && P[m.cycle.to] && !P[m.cycle.from]) { const id = m.cycle.to; svg += `<text x="${P[id].x}" y="${P[id].y + BH + 16}" class="sg-bl cy">↻ from ${esc(stageOf[m.cycle.from]?.name || "")}</text><text x="${P[id].x}" y="${P[id].y + BH + 30}" class="sg-bl cy">${esc(m.cycle.period || "")}</text>`; }
   // nodes
-  for (const s of m.steps) {
-    const p = P[s.id], x = p.x, y = p.y, ss = st?.S[s.id];
-    let fill = "#fff", sub = "";
-    if (o.mode === "actual" && ss && isWork(s)) { const w = median(ss.wait); fill = heat(w, maxWait); sub = ss.n ? `wait ${dfmt(w)} · work ${hfmt(median(ss.work))}` : "not used"; }
-    if (o.mode === "compare" && st2 && isWork(s)) { const a = median(st.S[s.id].span), b = median(st2.S[s.id].span); if (a != null && b != null) { const r = (b - a) / (a || 1); fill = r < -0.1 ? "#CFEBD8" : r > 0.1 ? "#F6D2CC" : "#F1F4F5"; sub = `${dfmt(a)} → ${dfmt(b)}`; } }
-    const cis = ciFor(m.id, s.id).filter((c) => !["Closed", "Parked"].includes(c.stage)).length;
-    const cls = `pnode${o.sel === s.id ? " sel" : ""}${traced ? (traced.has(s.id) ? " on" : " dim") : ""}${(m.history || []).some((h) => (h.changed_steps || []).includes(s.id)) && o.mode === "compare" ? " changed" : ""}`;
-    let shape;
-    if (s.type === "start" || s.type === "end") shape = `<circle cx="${x + NW / 2}" cy="${y + NH / 2}" r="17" fill="#fff" stroke="#17262E" stroke-width="${s.type === "end" ? 3.4 : 1.4}"/>` + wrap(s.name, 20).map((t, k) => `<text class="nl" x="${x + NW / 2}" y="${y + NH + 6 + k * 12}" text-anchor="middle">${esc(t)}</text>`).join("");
-    else if (s.type === "xor") shape = `<path d="M${x + NW / 2},${y - 4} L${x + NW + 2},${y + NH / 2} L${x + NW / 2},${y + NH + 4} L${x - 2},${y + NH / 2} Z" fill="${fill}" stroke="#17262E" stroke-width="1.4"/>` + wrap(s.name, 16).map((t, k, A) => `<text class="nt" x="${x + NW / 2}" y="${y + NH / 2 + 4 - (A.length - 1) * 6 + k * 12}" text-anchor="middle">${esc(t)}</text>`).join("");
-    else shape = `<rect x="${x}" y="${y}" width="${NW}" height="${NH}" rx="7" fill="${fill}" stroke="#17262E" stroke-width="1.3"/>` + wrap(s.name, 17).map((t, k, A) => `<text class="nt" x="${x + NW / 2}" y="${y + NH / 2 + 4 - (A.length - 1) * 6.5 + k * 13}" text-anchor="middle">${esc(t)}</text>`).join("");
-    const marks = (s.type === "start" || s.type === "end" ? "" : `<text class="sid" x="${x + 2}" y="${y - 6}">${s.id}${s.value ? ` · ${s.value}` : ""}</text>`)
-      + (o.ov.ctl && (s.controls || []).length ? `<g data-tip="${(s.controls || []).map((c) => `<b>${c}</b> ${esc(CTL[c]?.statement || "")} (${esc(CTL[c]?.health || "")})`).join("<br>")}"><circle cx="${x + NW - 4}" cy="${y + 2}" r="8" fill="${(s.controls || []).some((c) => CTL[c]?.health === "Degraded" || CTL[c]?.health === "Failed") ? "#E0AE2E" : "#B33A3A"}"/><text class="mk" x="${x + NW - 4}" y="${y + 6}" text-anchor="middle">${s.controls.length}</text></g>` : "")
-      + (o.ov.doc && (s.doc_refs || []).length ? `<g data-tip="${(s.doc_refs || []).map((r) => { const [d, bm] = r.split("#"); return `${d} ${esc(DOC[d]?.sections.find((x) => x.bm === bm)?.title || "")}`; }).join("<br>")}"><path d="M${x + 4},${y + NH - 14} h9 l4,4 v12 h-13 z" fill="#fff" stroke="#4E5F68"/><text class="mk2" x="${x + 21}" y="${y + NH - 2}">${s.doc_refs.length}</text></g>` : "")
-      + (cis ? `<g data-tip="${cis} open improvement item${cis > 1 ? "s" : ""}"><circle cx="${x + 2}" cy="${y + 2}" r="8" fill="#E07A1F"/><text class="mk" x="${x + 2}" y="${y + 6}" text-anchor="middle">${cis}</text></g>` : "")
-      + (o.mode === "actual" && ss?.inQ && isWork(s) ? `<text class="inq" x="${x + NW}" y="${y + NH + 26}" text-anchor="end">${ss.inQ} open now</text>` : "")
-      + (sub ? `<text class="nsub" x="${x + NW / 2}" y="${y + NH + 14}" text-anchor="middle">${esc(sub)}</text>` : "")
-      + `<text class="qcount" id="q-${s.id}" x="${x + NW / 2}" y="${y - 6}" text-anchor="middle"></text>`;
-    g += `<g class="${cls}" data-step="${s.id}" tabindex="0" role="button" aria-label="${s.id} ${esc(s.name)}">${shape}${marks}</g>`;
+  const maxBar = Math.max(1, ...ids.map((id) => (median(st.S[id].wait) || 0) + (median(st.S[id].work) || 0) / 24), ...ids.map((id) => S[id].target_days || 0));
+  for (const id of ids) {
+    const s = S[id], p = P[id], ss = st.S[id], w = median(ss.wait), k = median(ss.work), tg = s.target_days;
+    const sel = o.sel === id, dim = o.trace && !o.trace.ev.some((e) => e.step_id === id);
+    let fill = "#FFFFFF";
+    if (o.lens === "neck" && isWork(s) && w != null) fill = tg ? (w + (k || 0) / 24 > 2 * tg ? "#F7C1C1" : w + (k || 0) / 24 > tg ? "#FAE0A6" : "#FFFFFF") : w > 7 ? "#F7C1C1" : w > 2 ? "#FAE0A6" : "#FFFFFF";
+    const icol = s.element ? ECOL[s.element] : null;
+    let g2 = `<g class="sg-n${sel ? " sel" : ""}${dim ? " dim" : ""}" data-step="${id}" tabindex="0" role="button" aria-label="${id} ${esc(s.name)}">`;
+    if (s.type === "start" || s.type === "end") {
+      g2 += `<circle cx="${p.x + 24}" cy="${p.y + BH / 2}" r="22" fill="#fff" stroke="#17262E" stroke-width="${s.type === "end" ? 3.5 : 1.5}"/>` + fo(p.x + 9, p.y + BH / 2 - 15, 34, 34, ico(s.icon || (s.type === "start" ? "flow.start" : "flow.end"), 28, { tip: s.name }))
+        + wrap(s.name, 18).map((t, i) => `<text x="${p.x + 54}" y="${p.y + BH / 2 - 2 + i * 13}" class="sg-nt2">${esc(t)}</text>`).join("");
+    } else {
+      g2 += s.type === "xor" ? `<path d="M${p.x + BW / 2},${p.y - 8} L${p.x + BW + 6},${p.y + BH / 2} L${p.x + BW / 2},${p.y + BH + 8} L${p.x - 6},${p.y + BH / 2} Z" fill="${fill}" class="sg-box"/>`
+        : `<rect x="${p.x}" y="${p.y}" width="${BW}" height="${BH}" rx="9" fill="${fill}" class="sg-box"/>`;
+      g2 += fo(p.x + (s.type === "xor" ? 14 : 8), p.y + BH / 2 - 17, 38, 38, ico(s.icon || "mo.process", 32, { colour: icol || undefined, tip: `${s.name}${s.element ? ` · element ${s.element} ${SHORT[s.element] || ""}` : ""}` }));
+      g2 += wrap(s.name, s.type === "xor" ? 12 : 14).map((t, i, A) => `<text x="${p.x + (s.type === "xor" ? 92 : 96)}" y="${p.y + BH / 2 + 4 - (A.length - 1) * 7 + i * 14}" text-anchor="middle" class="sg-nt">${esc(t)}</text>`).join("");
+      g2 += `<text x="${p.x}" y="${p.y - 9}" class="sg-id">${id}${s.value ? " · " + s.value : ""}</text>`;
+    }
+    // lens overlays
+    if (isWork(s)) {
+      if (o.lens === "flow") { const fl = (m.flows || []).filter((f) => f.from === id); fl.forEach((f, i) => { g2 += fo(p.x + BW - 22 - i * 26, p.y - 30, 28, 28, ico(`flow.${f.type}`, 22, { tip: `${f.type[0].toUpperCase() + f.type.slice(1)}: ${f.carries || ""}` })); }); }
+      if (o.lens === "info") { const tc = s.touch || []; tc.slice(0, 5).forEach((t, i) => { const a = (m.artefacts || []).find((x) => x.id === t.a); if (!a) return;
+        g2 += fo(p.x + i * 31, p.y + BH + 14, 32, 34, ico(a.icon, 24, { badgeText: t.op, tip: `${{ C: "Creates", R: "Reads", U: "Updates" }[t.op]} ${a.name}${a.system ? " · in " + (ICONS[a.system]?.name || "") : ""}${a.doc ? " · " + a.doc : ""}` })); });
+        if (tc.length > 5) g2 += `<text x="${p.x + 5 * 31 + 4}" y="${p.y + BH + 34}" class="sg-bl">+${tc.length - 5}</text>`; }
+      if (o.lens === "time" && w != null) { const sc = BW / maxBar, ww = w * sc, kk = ((k || 0) / 24) * sc;
+        g2 += `<rect x="${p.x}" y="${p.y + BH + 14}" width="${Math.max(1.5, ww)}" height="10" fill="#E0AE2E"/><rect x="${p.x + ww}" y="${p.y + BH + 14}" width="${Math.max(1.5, kk)}" height="10" fill="#0F6E56"/>`;
+        if (tg) g2 += `<line x1="${p.x + tg * sc}" x2="${p.x + tg * sc}" y1="${p.y + BH + 9}" y2="${p.y + BH + 29}" stroke="#17262E" stroke-width="1.5" stroke-dasharray="3 2"/>`;
+        g2 += `<text x="${p.x}" y="${p.y + BH + 42}" class="sg-m">wait ${dfmt(w)} · work ${hfmt(k)}${tg ? ` · target ${tg} d` : ""}</text><text x="${p.x}" y="${p.y + BH + 57}" class="sg-m b">${usd((ss.workSum * laneRate(m, s.lane)) / Math.max(1, ss.n))} people cost per pass</text>`; }
+      if (o.lens === "neck") { const q = Math.round(more.Q[id] || 0); for (let i = 0; i < Math.min(q, 12); i++) g2 += `<rect x="${p.x + BW - 10 - (i % 6) * 11}" y="${p.y - 18 - Math.floor(i / 6) * 10}" width="8" height="8" rx="1.5" fill="#C8402F"/>`;
+        if (q > 12) g2 += `<text x="${p.x + BW - 78}" y="${p.y - 12}" class="sg-q" text-anchor="end">+${q - 12}</text>`;
+        const R = Object.entries(more.R[id] || {}).sort((a, b) => b[1] - a[1]), tot = R.reduce((a, [, v]) => a + v, 0); let xx = p.x;
+        if (tot) { for (const [r, v] of R) { const wd = (BW * v) / tot; g2 += `<rect x="${xx}" y="${p.y + BH + 14}" width="${wd}" height="10" fill="${RCOL[r] || "#999"}" data-tip="${esc(REASON[r] || r)}: ${Math.round((100 * v) / tot)}% of waiting"/>`; xx += wd; }
+          g2 += fo(p.x - 2, p.y + BH + 28, 30, 30, ico(`reason.${R[0][0]}`, 22, { colour: RCOL[R[0][0]], tip: REASON[R[0][0]] })) + `<text x="${p.x + 28}" y="${p.y + BH + 44}" class="sg-m">${esc(REASON[R[0][0]] || "")}</text>`; }
+        if (w != null) g2 += `<text x="${p.x + BW}" y="${p.y + BH + 62}" class="sg-q" text-anchor="end">wait ${dfmt(w)}${q ? ` · ${q} in queue on average` : ""}</text>`; }
+      if (o.lens === "ci") { const items = ciFor(m.id, id); if (items.length) { const top = [...items].sort((a, b) => STAGES.indexOf(b.stage) - STAGES.indexOf(a.stage))[0];
+        g2 += fo(p.x + BW - 18, p.y - 18, 34, 34, ico("mo.improvement", 28, { colour: STCOL[top.stage], badgeText: items.length > 1 ? String(items.length) : undefined, tip: items.map((c) => `${c.ci_id} ${c.title} (${c.stage})`).join(" · ") }));
+        g2 += `<text x="${p.x}" y="${p.y + BH + 22}" class="sg-m">${esc(top.ci_id)} · ${esc(top.stage)}</text>`; } }
+      if (o.lens === "ctl") { (s.controls || []).slice(0, 4).forEach((c, i) => { const h = CTL[c]?.health || ""; const hc = h === "Effective" ? "#3B6D11" : h === "Degraded" ? "#BA7517" : h === "Failed" ? "#A32D2D" : "#7D8D95";
+        g2 += fo(p.x + i * 32, p.y + BH + 12, 32, 34, ico("mo.control", 26, { colour: hc, tip: `${c} ${CTL[c]?.statement || ""} — ${h}` })); });
+        const rk = [...new Set((s.controls || []).map((c) => CTL[c]?.risk_id).filter(Boolean))]; if (rk.length) g2 += fo(p.x + BW - 30, p.y - 22, 34, 34, ico("mo.risk", 26, { badgeText: String(rk.length), tip: rk.map((r) => `${r} ${RISK[r]?.title || ""}`).join(" · ") })); }
+    }
+    svg += g2 + "</g>";
   }
-  g += `<g id="tok"></g>`;
-  return { svg: `<svg class="pmap" viewBox="0 0 ${L.W} ${L.H}" style="min-width:${L.W}px">${g}</svg>`, L };
+  return `<svg class="sgmap" viewBox="0 0 ${W} ${H}" width="${W}" style="max-width:100%">${svg}</svg>`;
 }
 
 // ---------------------------------------------------------------- process page
-const PSTATE = { mode: "design", group: "role", year: "", site: "", ov: { information: true, material: true, people: true, ctl: true, doc: false }, trace: "" };
+const PSTATE = { lens: "flow", stage: "", year: "", site: "", trace: "", full: false, pid: "" };
 route(/^\/process\/(ACE-[A-Z]{3}-PRS-\d{3})(?:\/(S\d\d))?$/, (pid, sel) => {
   const m = PRSBY[pid]; if (!m) { const r = BPMREG.find((x) => x.process_id === pid); return r ? plannedPage(r) : go404(); }
+  if (!m.stages) m.stages = [{ id: "all", name: "All steps", steps: m.steps.map((s) => s.id) }];
   const els = [...new Set((m.oms_tags || []).map(elOf))];
   const owner = parseWho(m.owner)[0]; const reg = BPMREG.find((r) => r.process_id === pid) || {};
   const risks = RISKS.filter((r) => r.process === pid);
@@ -197,75 +288,131 @@ route(/^\/process\/(ACE-[A-Z]{3}-PRS-\d{3})(?:\/(S\d\d))?$/, (pid, sel) => {
   const vals = [...new Map(commits.flatMap((c) => valuesIn(c.s)).map((v) => [v.bm, v])).values()];
   const objs = (m.objectives || []).map((id) => (REG["OMS-REG-001_objectives"] || []).find((o) => o.objective_id === id)).filter(Boolean);
   const isInsp = m.value?.model === "risk-exposure";
-  page(els, head(esc(m.title), esc(m.summary || ""), `<a href="#/process">Processes</a> / ${esc(m.apqc?.l1 || "")} / ${esc(m.apqc?.l2 || "")}`,
+  if (PSTATE.pid !== pid) { PSTATE.pid = pid; PSTATE.stage = ""; PSTATE.trace = ""; PSTATE.site = ""; }
+  if (!m.stages.some((g) => g.id === PSTATE.stage)) PSTATE.stage = "";
+  if (sel) { const g = m.stages.find((x) => x.steps.includes(sel)); if (g) PSTATE.stage = g.id; }
+  page(els, head(`${ico("mo.process", 34)} ${esc(m.title)}`, esc(m.summary || ""), `<a href="#/process">Processes</a> / ${esc(m.apqc?.l1 || "")} / ${esc(m.apqc?.l2 || "")}`,
     `<div class="ownerbox"><div class="small muted">Process owner</div><div>${owner ? personLink(owner.person, owner.name) : esc(m.owner)}</div><div class="small">${owner?.role ? roleLink(owner.role, owner.title) : ""}</div>
-     <div class="small muted" style="margin-top:6px">${esc(m.function)} · ${esc(m.id)} Rev ${esc(m.revision)} ${esc(m.status)} · maturity ${esc(reg.maturity || "–")}</div><div class="chips" style="margin-top:6px">${tagChips(m.oms_tags)}</div></div>`) + `
+     <div class="small muted" style="margin-top:6px">${esc(m.function)} · ${esc(m.id)} Rev ${esc(m.revision)} · maturity ${esc(reg.maturity || "–")}</div><div class="chips" style="margin-top:6px">${(m.oms_tags || []).map((t) => elIconTag(t)).join("")}</div></div>`) + `
   <div class="thread panel">
-    <div class="tcol"><h4>Values</h4>${vals.map(valueChip).join("") || `<span class="muted small">–</span>`}</div><div class="tarrow">→</div>
-    <div class="tcol"><h4>Policy commitments</h4>${commits.map((c) => `<div class="small">${commitLink(c.ref)}</div>`).join("")}<div class="small muted">Governing policy ${docLink(m.policy)}${(m.policies_also || []).length ? `; also ${m.policies_also.map((x) => docLink(x)).join(", ")}` : ""}</div></div><div class="tarrow">→</div>
-    <div class="tcol here"><h4>This process</h4><div class="small"><b>${esc(m.title)}</b></div><div class="small muted">Parent ${docLink(m.parent)} · ${esc((m.character || "").replace(/^./, (c) => c.toUpperCase()))}</div></div><div class="tarrow">→</div>
-    <div class="tcol"><h4>Objectives</h4>${objs.map((o) => `<div class="small"><b>${esc(o.objective_id)}</b> ${esc(o.title)}</div>`).join("") || `<span class="muted small">–</span>`}</div><div class="tarrow">·</div>
-    <div class="tcol"><h4>Risks it controls</h4>${risks.map((r) => `<div class="small"><a href="#/risk/${r.risk_id}">${r.risk_id}</a> ${esc(r.title)} ${rateChip(r.current_rating)}</div>`).join("") || `<span class="muted small">None linked yet</span>`}</div>
+    <div class="tcol"><h4>${ico("oms.element.1", 20, { tip: "Values" })} Values</h4>${vals.map(valueChip).join("") || `<span class="muted small">–</span>`}</div><div class="tarrow">→</div>
+    <div class="tcol"><h4>${ico("doc.POL", 20)} Policy commitments</h4>${commits.map((c) => `<div class="small">${commitLink(c.ref)}</div>`).join("")}</div><div class="tarrow">→</div>
+    <div class="tcol here"><h4>${ico("mo.process", 20)} This process</h4><div class="small"><b>${esc(m.title)}</b></div><div class="small muted">Governed by ${docLink(m.policy)} · parent ${docLink(m.parent)}</div></div><div class="tarrow">→</div>
+    <div class="tcol"><h4>${ico("mo.objective", 20)} Objectives</h4>${objs.map((o) => `<div class="small"><b>${esc(o.objective_id)}</b> ${esc(o.title)}</div>`).join("") || `<span class="muted small">–</span>`}</div><div class="tarrow">·</div>
+    <div class="tcol"><h4>${ico("mo.risk", 20)} Risks it controls</h4>${risks.map((r) => `<div class="small"><a href="#/risk/${r.risk_id}">${r.risk_id}</a> ${esc(r.title)} ${rateChip(r.current_rating)}</div>`).join("") || `<span class="muted small">None linked yet</span>`}</div>
   </div>
+  <div class="ptiles" id="tiles"></div>
   <div class="panel pmap-panel">
     <div class="ptool">
-      <div class="seg" id="mode">${[["design", "Design"], ["actual", "Actual"], ["compare", "Before / after"]].map(([k, l]) => `<button data-v="${k}" class="${PSTATE.mode === k ? "on" : ""}">${l}</button>`).join("")}</div>
-      <div class="seg" id="grp">${[["role", "Lanes by role"], ["fn", "Lanes by function"]].map(([k, l]) => `<button data-v="${k}" class="${PSTATE.group === k ? "on" : ""}">${l}</button>`).join("")}</div>
+      <div class="lensbar" id="lensbar">${LENSES.map(([k, l, ic]) => `<button data-v="${k}" class="${PSTATE.lens === k ? "on" : ""}">${ico(ic, 22, { tip: false })}<span>${l}</span></button>`).join("")}</div>
       <label class="tsel">Year <select id="fy"><option value="">All years</option>${YEARS.map((y) => `<option ${PSTATE.year === y ? "selected" : ""}>${y}</option>`).join("")}</select></label>
       <label class="tsel">Site <select id="fs"><option value="">All sites</option>${isInsp ? `<option value="OFF">Offshore platforms</option><option value="ON">Onshore sites</option>` : ""}${[...new Set(ledger(m).cases.map((c) => c.site))].sort().map((s) => `<option value="${s}">${esc(SITE[s]?.name || s)}</option>`).join("")}</select></label>
-      <span class="ovs">${[["information", "Information"], ["material", "Material"], ["people", "People"], ["ctl", "Controls"], ["doc", "Documents"]].map(([k, l]) => `<label class="ov ov-${k}"><input type="checkbox" data-ov="${k}" ${PSTATE.ov[k] ? "checked" : ""}> ${l}</label>`).join("")}</span>
-      <button class="btn primary" id="play"></button>
     </div>
-    <div class="pnote small muted" id="pnote"></div>
+    <div class="stagebar" id="stagebar"></div>
+    <div class="insight" id="insight"></div>
     <div class="pmap-wrap" id="mapwrap"></div>
     <div class="plegend small" id="legend"></div>
   </div>
+  <div class="panel scard" id="card"></div>
   <div class="panel" id="detail" hidden></div>
   <div class="grid2 pgrid"><div class="panel" id="kpis"></div><div class="panel" id="value"></div></div>
   <div class="grid2 pgrid"><div class="panel" id="time"></div><div class="panel" id="funcs"></div></div>
   <div class="grid2 pgrid"><div class="panel" id="improve"></div><div class="panel" id="cases"></div></div>
   <div class="panel"><h2>SIPOC</h2><div class="sipoc">${["suppliers", "inputs", "process", "outputs", "customers"].map((k) => `<div><h4>${k[0].toUpperCase() + k.slice(1)}</h4>${(m.sipoc?.[k] || []).map((x) => `<div class="small">${esc(x)}</div>`).join("")}</div>`).join("")}</div>
-    <p class="small muted" style="margin-top:10px">Drawn from <code>processes/${esc(m.id)}.json</code> (${esc(m.schema)}) and measured from <code>registers/${esc(m.ledger)}_cases.csv</code> and <code>_events.csv</code>. Value assumptions are on the <a href="#/value">value assumptions</a> page.</p></div>`);
+    <p class="small muted" style="margin-top:10px">Drawn from <code>processes/${esc(m.id)}.json</code> and measured from <code>registers/${esc(m.ledger)}_*.csv</code>, capacity in <code>registers/BPM-CAP-001.csv</code>, following the <a href="https://github.com/SCMWJTT/OMS/blob/main/standards/process-data/ONE_Process_Data_Requirement.md" target="_blank" rel="noopener">ONE Process Data Requirement</a>. Value assumptions are on the <a href="#/value">value assumptions</a> page.</p></div>`);
 
   let selStep = sel || "";
   const render = () => {
-    stopAll();
     const f = { year: PSTATE.year, site: PSTATE.site };
-    const cases = pick(m, f); const st = stats(m, cases);
-    const rev = (m.history || []).slice(-1)[0];
-    const st1 = PSTATE.mode === "compare" ? stats(m, pick(m, { site: PSTATE.site, rev: (m.history || []).slice(-2)[0]?.revision })) : null;
-    const st2 = PSTATE.mode === "compare" ? stats(m, pick(m, { site: PSTATE.site, rev: rev?.revision })) : null;
+    const cases = pick(m, f), st = stats(m, cases), more = stepMore(m, cases, f), util = utilisation(m, f), conf = confidence(m);
+    const hist = m.history || [];
+    const st1 = hist.length > 1 ? stats(m, pick(m, { site: PSTATE.site, rev: hist.slice(-2)[0].revision })) : null, st2 = hist.length > 1 ? stats(m, pick(m, { site: PSTATE.site, rev: hist.slice(-1)[0].revision })) : null;
+    // stage summaries and the bottleneck stage
+    const SGs = m.stages.map((g) => { const x = more.SG[g.id] || { tot: [], wait: 0, work: 0, q: 0 }; const lt = median(x.tot); const tgt = g.steps.reduce((a, id) => a + (m.steps.find((s) => s.id === id)?.target_days || 0), 0);
+      return { g, lt, wshare: x.wait + x.work ? (100 * x.wait) / (x.wait + x.work) : null, q: x.q, tgt }; });
+    const hot = [...SGs].filter((x) => x.lt != null).sort((a, b) => b.lt * (b.wshare || 0) - a.lt * (a.wshare || 0))[0];
+    if (!PSTATE.stage) PSTATE.stage = hot?.g.id || m.stages[0].id;
+    const g = m.stages.find((x) => x.id === PSTATE.stage);
+    if (!selStep || !g.steps.includes(selStep)) { const cand = g.steps.map((id) => m.steps.find((s) => s.id === id)).filter(isWork).sort((a, b) => (median(st.S[b.id].wait) || 0) - (median(st.S[a.id].wait) || 0)); selStep = cand[0]?.id || g.steps[0]; }
+    // tiles
+    const kc = (m.kpis || []).find((k) => k.measure === "cycle_median_days"), krt = (m.kpis || []).find((k) => k.measure === "right_first_time" || k.measure === "on_time");
+    const tile = (v, l, ok, ic) => `<div class="ptile2 ${ok === false ? "bad" : ok ? "good" : ""}">${ico(ic, 34)}<div><b>${v}</b><span>${l}</span></div></div>`;
+    $("#tiles").innerHTML = tile(`${st.cycle != null ? Math.round(st.cycle) : "–"} d`, `Lead time, median${kc ? ` (target ${esc(kc.target.replace(/[^\d]/g, ""))} d)` : ""}`, kc ? kpiOk(kc, st.cycle) : null, "res.time")
+      + tile(pct(st.flowEff), "Of that time someone is working", st.flowEff != null ? st.flowEff >= 25 : null, "st.working")
+      + tile(krt ? kpiFmt(krt, kpiVal(krt, st)) : "–", krt ? esc(krt.name) : "Right first time", krt ? kpiOk(krt, kpiVal(krt, st)) : null, krt?.measure === "on_time" ? "flow.timer" : "st.effective")
+      + tile(usd((st.labour + st.logistics) / Math.max(1, st.n)), `Cost per ${esc(m.case_label || "case")}${isInsp ? " incl. trips" : ""}`, null, "mo.cost")
+      + `<div class="ptile2 conf-${conf.level.toLowerCase()}" data-tip="Data confidence (ONE Process Data Requirement §6): ${Math.round(conf.comp)}% of events have all three times; ${Math.round(conf.rs)}% of long waits have a reason; newest event ${Math.round(conf.age)} days old">${ico("data.dataset", 34)}<div><b>${conf.level}</b><span>Data confidence</span></div></div>`;
+    // stage bar
+    $("#stagebar").innerHTML = SGs.map((x, i) => `<button class="stg2 ${x.g.id === PSTATE.stage ? "on" : ""}" data-stage="${x.g.id}" style="--z:${SGs.length - i}">
+      ${x === hot ? `<span class="hot2">${ico("st.waiting", 18, { tip: false })} bottleneck</span>` : ""}${ico(x.g.icon || "mo.process", 30, { colour: x.g.element ? ECOL[x.g.element] : undefined, tip: false })}
+      <span class="nm">${esc(x.g.name)}</span><span class="sm">${x.lt != null ? dfmt(x.lt) : "–"}${x.tgt ? ` · target ${x.tgt} d` : ""} · ${Math.round(x.q)} waiting</span>
+      <span class="bar2"><i style="width:${x.wshare || 0}%;background:#E0AE2E"></i><i style="width:${100 - (x.wshare || 0)}%;background:#0F6E56"></i></span></button>`).join("");
+    for (const b of $$(".stg2")) b.onclick = () => { PSTATE.stage = b.dataset.stage; selStep = ""; history.replaceState(null, "", `#/process/${pid}`); render(); };
+    // map
     const trace = PSTATE.trace ? ledger(m).byId[PSTATE.trace] : null;
-    const { svg, L } = drawMap(m, { group: PSTATE.group, mode: PSTATE.mode, st: PSTATE.mode === "actual" ? st : PSTATE.mode === "compare" ? st1 : null, st2, ov: PSTATE.ov, sel: selStep, trace, animate: PSTATE.mode === "design" });
-    $("#mapwrap").innerHTML = svg;
-    $("#play").textContent = PSTATE.mode === "design" ? "Play the stages" : PSTATE.mode === "actual" ? "Replay real cases" : "Show what changed";
-    $("#pnote").innerHTML = PSTATE.mode === "design" ? `The process as written: ${m.steps.filter(isWork).length} steps across ${m.lanes.length} roles in ${new Set(m.lanes.map((l) => l.function)).size} functions. Bold arrows are hand-offs between ${PSTATE.group === "fn" ? "functions" : "roles"}; red dashed arrows are rework loops${m.cycle ? "; the arc over the top is the cycle" : ""}. Coloured lines show what moves: information, material and people.`
-      : PSTATE.mode === "actual" ? `${plural(cases.length, m.case_label || "case")} from the ledger${PSTATE.year ? " opened in " + PSTATE.year : ""}${PSTATE.site ? " at " + esc(PSTATE.site === "OFF" ? "the offshore platforms" : PSTATE.site === "ON" ? "onshore sites" : SITE[PSTATE.site]?.name || PSTATE.site) : ""}. Step colour shows the median wait before work starts (white none, red longest); arrow thickness shows how many cases took that path.`
-      : `Rev ${esc((m.history || []).slice(-2)[0]?.revision || "")} cases against Rev ${esc(rev?.revision || "")} cases (from ${fmt(toDate(rev?.date))}). Green steps got faster, red slower; outlined steps changed in the revision. ${esc(rev?.summary || "")}`;
-    $("#legend").innerHTML = PSTATE.mode === "actual" ? `<span class="lg"><i style="background:${heat(0.2, 1)}"></i>short wait</span><span class="lg"><i style="background:${heat(0.6, 1)}"></i></span><span class="lg"><i style="background:${heat(1, 1)}"></i>long wait</span> <span class="lg"><i class="dot" style="background:#E0AE2E"></i>waiting</span><span class="lg"><i class="dot" style="background:#0B5563"></i>being worked</span>`
-      : `<span class="lg"><b style="color:#2F7FB8">- - -</b> information</span><span class="lg"><b style="color:#B07A1F">· · ·</b> material</span><span class="lg"><b style="color:#7A4FA0">— · —</b> people</span><span class="lg"><i class="dot" style="background:#B33A3A"></i>controls (amber if one is degraded)</span><span class="lg"><i class="dot" style="background:#E07A1F"></i>open improvement items</span><span class="lg">VA value-added · BVA needed by the business · NVA waste</span>`;
-    for (const n of $$(".pnode", $("#mapwrap"))) { n.onclick = () => { selStep = n.dataset.step; history.replaceState(null, "", `#/process/${pid}/${selStep}`); render(); $("#detail").scrollIntoView({ behavior: "smooth", block: "nearest" }); }; n.onkeydown = (e) => { if (e.key === "Enter") n.onclick(); }; }
-    $("#play").onclick = () => (PSTATE.mode === "design" ? playStages(m, L) : PSTATE.mode === "actual" ? replay(m, L, cases) : null);
-    $("#play").hidden = PSTATE.mode === "compare";
-    drawDetail(m, selStep, st, cases);
-    drawKpis(m, st);
-    drawValue(m);
-    drawTime(m, st, st1, st2);
-    drawFuncs(m, st);
-    drawImprove(m);
-    drawCases(m, cases, trace);
+    $("#mapwrap").innerHTML = drawStage(m, g, { lens: PSTATE.lens, st, more, util, sel: selStep, trace });
+    for (const n of $$(".sg-n", $("#mapwrap"))) { n.onclick = () => { selStep = n.dataset.step; history.replaceState(null, "", `#/process/${pid}/${selStep}`); render(); }; n.onkeydown = (e) => { if (e.key === "Enter") n.onclick(); }; }
+    // insight line
+    const work = g.steps.map((id) => m.steps.find((s) => s.id === id)).filter(isWork);
+    const worst = [...work].sort((a, b) => (median(st.S[b.id].wait) || 0) - (median(st.S[a.id].wait) || 0))[0];
+    let ins = "";
+    if (worst) { const w = median(st.S[worst.id].wait), u = util[worst.lane], R = Object.entries(more.R[worst.id] || {}).sort((a, b) => b[1] - a[1]), tot = R.reduce((a, [, v]) => a + v, 0);
+      const why = R.length ? `${Math.round((100 * R[0][1]) / tot)}% of the waiting is "${REASON[R[0][0]].toLowerCase()}"` : "";
+      const capS = u == null ? "" : u > 85 ? ` ${esc(laneOf(m, worst.lane).role)} is at ${Math.round(u)}% of capacity, so more people or fewer reviews each would cut the wait.` : ` ${esc(laneOf(m, worst.lane).role)} is at ${Math.round(u)}% of capacity, so capacity is not the main cause.`;
+      ins = PSTATE.lens === "neck" ? `${ico("st.waiting", 22, { tip: false })} <b>${esc(worst.name)}</b> is where work waits longest in this stage: median ${dfmt(w)}${worst.target_days ? ` against a target of ${worst.target_days} d` : ""}. ${why}.${capS}`
+        : PSTATE.lens === "time" ? `${ico("res.time", 22, { tip: false })} Amber is waiting, green is working; the dashed mark is the step's target. This stage takes a median ${dfmt(SGs.find((x) => x.g === g)?.lt)} per ${esc(m.case_label)}.`
+        : PSTATE.lens === "info" ? `${ico("doc.generic", 22, { tip: false })} Each step shows the documents, records and data it creates (C), reads (R) or updates (U). Hover an icon for the record and the system it lives in.`
+        : PSTATE.lens === "fn" ? `${ico("org.company", 22, { tip: false })} Lanes grouped by function. ${ico("flow.handoff", 18, { tip: false })} marks a hand-off between functions; bold arrows cross a function boundary.`
+        : PSTATE.lens === "ci" ? `${ico("mo.improvement", 22, { tip: false })} Improvement items pinned to the steps they target, coloured by how far they have got.`
+        : PSTATE.lens === "ctl" ? `${ico("mo.control", 22, { tip: false })} Controls performed at each step, coloured by health, and the risks they address.`
+        : `${ico("org.team", 22, { tip: false })} Who does each step. Small icons above a step show what moves on from it: information, material or people. Branch figures are the share of real ${esc(m.case_label)}s that took each path.`; }
+    $("#insight").innerHTML = ins;
+    // legend: element colours in this stage + lens keys
+    const elsHere = [...new Set(work.map((s) => s.element).filter(Boolean))];
+    $("#legend").innerHTML = `<span class="lg">Step icon colour = OMS element:</span>${elsHere.map((e) => `<span class="lg"><i class="dot" style="background:${ECOL[e]}"></i>${e} ${esc(SHORT[e] || "")}</span>`).join("")}`
+      + (PSTATE.lens === "neck" ? `<span class="lg"><i style="background:#C8402F;width:9px;height:9px"></i>one ${esc(m.case_label)} waiting (average queue)</span>${[...new Set(work.flatMap((s) => Object.keys(more.R[s.id] || {})))].map((r) => `<span class="lg"><i style="background:${RCOL[r]}"></i>${esc(REASON[r])}</span>`).join("")}` : "")
+      + (PSTATE.lens === "info" ? `<span class="lg"><b>C</b> creates · <b>R</b> reads · <b>U</b> updates</span><span class="lg">Document blues: ${["POL", "STD", "PRA", "PRC", "WIN", "SPC"].map((c) => ico(`doc.${c}`, 18)).join("")}</span><span class="lg">${ico("rec.generic", 18)} records</span><span class="lg">${ico("data.register", 18)} data</span>` : "")
+      + (PSTATE.lens === "time" ? `<span class="lg"><i style="background:#E0AE2E"></i>waiting</span><span class="lg"><i style="background:#0F6E56"></i>working</span><span class="lg">┆ target</span>` : "")
+      + (PSTATE.lens === "ci" ? STAGES.map((s) => `<span class="lg"><i class="dot" style="background:${STCOL[s]}"></i>${s}</span>`).join("") : "")
+      + (PSTATE.lens === "ctl" ? `<span class="lg"><i class="dot" style="background:#3B6D11"></i>effective</span><span class="lg"><i class="dot" style="background:#BA7517"></i>degraded</span><span class="lg"><i class="dot" style="background:#A32D2D"></i>failed</span>` : "");
+    drawCard(m, selStep, st, more, util);
+    drawDetail(m, selStep, st, cases); $("#detail").hidden = !PSTATE.full;
+    drawKpis(m, st); drawValue(m); drawTime(m, st, st1, st2); drawFuncs(m, st); drawImprove(m); drawCases(m, cases, trace);
   };
-  $("#mode").onclick = (e) => { const b = e.target.closest("button"); if (!b) return; PSTATE.mode = b.dataset.v; for (const x of $$("#mode button")) x.classList.toggle("on", x === b); render(); };
-  $("#grp").onclick = (e) => { const b = e.target.closest("button"); if (!b) return; PSTATE.group = b.dataset.v; for (const x of $$("#grp button")) x.classList.toggle("on", x === b); render(); };
+  $("#lensbar").onclick = (e) => { const b = e.target.closest("button"); if (!b) return; PSTATE.lens = b.dataset.v; for (const x of $$("#lensbar button")) x.classList.toggle("on", x === b); render(); };
   $("#fy").oninput = (e) => { PSTATE.year = e.target.value; render(); };
   $("#fs").value = PSTATE.site; if ($("#fs").value !== PSTATE.site) PSTATE.site = "";
   $("#fs").oninput = (e) => { PSTATE.site = e.target.value; render(); };
-  for (const c of $$("[data-ov]")) c.onchange = () => { PSTATE.ov[c.dataset.ov] = c.checked; render(); };
   PSTATE.trace = PSTATE.trace && ledger(m).byId[PSTATE.trace] ? PSTATE.trace : "";
   render();
-  if (sel) setTimeout(() => $("#detail")?.scrollIntoView({ block: "nearest" }), 50);
   window.__render = render;
 });
+function elIconTag(t) { const e = elOf(t); return `<a href="#/exp/${t}" class="eltag">${ico(`oms.element.${e}`, 22)}<span>${esc(t)}</span></a>`; }
+
+function drawCard(m, sid, st, more, util) {
+  const s = m.steps.find((x) => x.id === sid), el = $("#card"); if (!s) { el.innerHTML = ""; return; }
+  const l = laneOf(m, s.lane), ss = st.S[sid], w = median(ss.wait), k = median(ss.work), u = util[s.lane];
+  const R = Object.entries(more.R[sid] || {}).sort((a, b) => b[1] - a[1]), tot = R.reduce((a, [, v]) => a + v, 0);
+  const RW = Object.entries(more.RW[sid] || {}).sort((a, b) => b[1] - a[1]);
+  let body = "";
+  if (PSTATE.lens === "info") body = `<div class="cgrid">${(s.touch || []).map((t) => { const a = (m.artefacts || []).find((x) => x.id === t.a); return a ? `<div class="crow">${ico(a.icon, 26, { badgeText: t.op })}<div><b>${esc(a.name)}</b><div class="small muted">${{ C: "Created", R: "Read", U: "Updated" }[t.op]} here${a.system ? ` · ${esc(ICONS[a.system]?.name || "")}` : ""}${a.doc ? ` · ${docLink(a.doc)}` : ""}</div></div></div>` : ""; }).join("") || `<span class="muted small">No artefacts recorded.</span>`}</div>`;
+  else if (PSTATE.lens === "neck") body = `${R.length ? R.map(([r, v]) => `<div class="rrow">${ico(`reason.${r}`, 22, { colour: RCOL[r] })}<span>${esc(REASON[r])}</span><div><i style="width:${(100 * v) / tot}%;background:${RCOL[r]}"></i></div><b>${Math.round((100 * v) / tot)}%</b></div>`).join("") : `<span class="muted small">No waiting recorded at this step.</span>`}
+    ${u != null ? `<p class="small" style="margin-top:8px">${ico("org.role", 20)} ${esc(l.role)} uses <b>${Math.round(u)}%</b> of the hours it has for this process. ${u > 85 ? "Queues grow sharply above about 85%: capacity is a main cause here." : "Capacity is not the main cause here."}</p>` : ""}
+    ${RW.length ? `<p class="small">${ico("st.rework", 18)} Rework reasons: ${RW.map(([r, n]) => `${esc(REASON[r])} (${n})`).join(", ")}</p>` : ""}`;
+  else if (PSTATE.lens === "ci") { const items = ciFor(m.id, sid); body = items.map((c) => `<a class="crow ci" href="#/ci/${c.ci_id}">${ico("mo.improvement", 26, { colour: STCOL[c.stage] })}<div><b>${c.ci_id} ${esc(c.title)}</b><div class="small muted">${esc(c.stage)} · ${esc(c.method)} · ${esc(c.source)}${c.baseline ? ` · ${esc(c.baseline)} → ${esc(c.actual || "…")}` : ""}</div></div></a>`).join("") || `<span class="muted small">No improvement item on this step.</span>`; }
+  else if (PSTATE.lens === "ctl") body = (s.controls || []).map((c) => { const h = CTL[c]?.health || ""; return `<div class="crow">${ico("mo.control", 26, { colour: h === "Effective" ? "#3B6D11" : h === "Degraded" ? "#BA7517" : "#A32D2D" })}<div><b>${ctlChip(c)}</b> ${esc(CTL[c]?.statement || "")}<div class="small muted">${esc(h)}${CTL[c]?.risk_id ? ` · protects <a href="#/risk/${CTL[c].risk_id}">${CTL[c].risk_id}</a> ${esc(RISK[CTL[c].risk_id]?.title || "")}` : ""}</div></div></div>`; }).join("") || `<span class="muted small">No control is performed at this step.</span>`;
+  else if (PSTATE.lens === "time") { const tot = (w || 0) + (k || 0) / 24, sh = tot ? (100 * (w || 0)) / tot : 0;
+    body = `<div class="small">${ico("st.waiting", 20)} Waiting is <b>${Math.round(sh)}%</b> of the time a ${esc(m.case_label)} spends at this step${s.target_days ? `; median ${dfmt(tot)} against a target of ${s.target_days} d (${tot > s.target_days ? "over" : "within"} target)` : ""}.</div>
+      <div class="small" style="margin-top:6px">${ico("mo.cost", 20)} People cost per pass <b>${usd((ss.workSum * laneRate(m, s.lane)) / Math.max(1, ss.n))}</b> at ${usd(laneRate(m, s.lane))} an hour for ${esc(l.role)} (<a href="#/value">rates</a>).</div>`; }
+  else if (PSTATE.lens === "fn") { const ins = m.steps.filter((x) => outs(x).includes(sid)), out = outs(s).map((id) => m.steps.find((x) => x.id === id)).filter(Boolean);
+    body = `<div class="small">Receives from ${ins.map((x) => `<b style="color:${fcol(laneFn(m, x.lane))}">${esc(fname(laneFn(m, x.lane)))}</b> (${x.id})`).join(", ") || "–"}; passes to ${out.map((x) => `<b style="color:${fcol(laneFn(m, x.lane))}">${esc(fname(laneFn(m, x.lane)))}</b> (${x.id})`).join(", ") || "–"}.</div>`; }
+  else body = `<div class="small">${(s.inputs || []).map(esc).join(", ") || "–"} → ${(s.outputs || []).map(esc).join(", ") || "–"}</div>${(m.flows || []).filter((f) => f.from === sid).map((f) => `<div class="crow">${ico(`flow.${f.type}`, 22)}<span class="small">${esc(f.carries || "")}</span></div>`).join("")}`;
+  el.innerHTML = `<div class="chead">${ico(s.icon || "mo.process", 44, { colour: s.element ? ECOL[s.element] : undefined })}<div><div class="crumb">Step ${s.id}${s.element ? ` · element ${s.element} ${esc(SHORT[s.element] || "")}` : ""}${s.value ? ` · ${{ VA: "value-added", BVA: "needed by the business", NVA: "waste" }[s.value]}` : ""}</div><h2>${esc(s.name)}</h2>
+    <div class="small">${ico(`org.function.${l.function || "CTR"}`, 20)} ${ROLE[l.role_id] ? roleLink(ROLE[l.role_id], l.role) : esc(l.role)} · <span style="color:${fcol(l.function)}">${esc(fname(l.function))}</span></div></div>
+    <div class="cnums">${[["Passes", ss.n.toLocaleString()], ["Median wait", dfmt(w)], ["Median work", hfmt(k)], ["Target", s.target_days ? s.target_days + " d" : "–"], ["Queue", `${Math.round(more.Q[sid] || 0)}`], ["Open now", ss.inQ]].map(([a, b]) => `<div><b>${b}</b><span>${a}</span></div>`).join("")}</div></div>
+    <div class="cbody">${body}</div><button class="btn small" id="cfull">${PSTATE.full ? "Hide" : "Show"} the full step record</button>`;
+  $("#cfull").onclick = () => { PSTATE.full = !PSTATE.full; $("#detail").hidden = !PSTATE.full; $("#cfull").textContent = `${PSTATE.full ? "Hide" : "Show"} the full step record`; };
+}
 
 function drawDetail(m, sid, st, cases) {
   const el = $("#detail"); const s = m.steps.find((x) => x.id === sid); if (!s) { el.hidden = true; return; } el.hidden = false;
@@ -358,50 +505,6 @@ function drawCases(m, cases, trace) {
   ${sel ? `<h3>${esc(sel.title)}</h3><div class="small muted">${esc(SITE[sel.site]?.name || sel.site)}${sel.cls ? " · class " + esc(sel.cls) : ""} · Rev ${esc(sel.revision)} · ${esc(sel.outcome)}</div>${gantt}` : ""}`;
   $("#tc").oninput = (e) => { PSTATE.trace = e.target.value; window.__render(); };
   if ($("#tcx")) $("#tcx").onclick = () => { PSTATE.trace = ""; window.__render(); };
-}
-
-// ---------------------------------------------------------------- animation: stages (no clock) and real-case replay
-function centre(L, id) { const p = L.P[id]; return { x: p.x + NW / 2, y: p.y + NH / 2 }; }
-function playStages(m, L) {
-  stopAll(); const T = $("#tok"); if (!T) return; T.innerHTML = "";
-  const S = Object.fromEntries(m.steps.map((s) => [s.id, s])); const start = m.steps.find((s) => s.type === "start").id;
-  const choose = (s) => { if (s.branches) { let r = Math.random(), acc = 0; for (const b of s.branches) { acc += b.p ?? 1 / s.branches.length; if (r <= acc) return b.to; } return s.branches[0].to; } return (s.next || [])[0]; };
-  const toks = []; let hand = 0, tick = 0, finished = 0; const N = 8;
-  const note = $("#pnote"); const base = note.innerHTML;
-  timers.push(setInterval(() => {
-    tick++;
-    if (tick % 14 === 1 && toks.length < N) { const el = document.createElementNS("http://www.w3.org/2000/svg", "circle"); el.setAttribute("r", 7); el.setAttribute("class", "stok"); T.appendChild(el); toks.push({ at: start, to: null, t: 0, el, k: toks.length }); }
-    for (const k of toks) { if (k.done) continue;
-      if (!k.to) { const s = S[k.at]; if (s.type === "end") { k.done = true; finished++; k.el.remove(); continue; } k.to = choose(s); k.t = 0; for (const n of $$(".pnode")) if (n.dataset.step === k.at) { n.classList.add("lit"); setTimeout(() => n.classList.remove("lit"), 500); } }
-      k.t += 0.12; const a = centre(L, k.at), b = centre(L, k.to); const t = Math.min(1, k.t);
-      const back = L.P[k.to].x <= L.P[k.at].x; const yb = Math.max(L.P[k.at].y, L.P[k.to].y) + NH + 26;
-      const x = back ? a.x + (b.x - a.x) * t : a.x + (b.x - a.x) * t, y = back ? (1 - t) * (1 - t) * a.y + 2 * t * (1 - t) * yb + t * t * b.y : a.y + (b.y - a.y) * t;
-      k.el.setAttribute("cx", x + ((k.k % 3) - 1) * 5); k.el.setAttribute("cy", y);
-      if (t >= 1) { if (S[k.at].lane !== S[k.to].lane) hand++; k.at = k.to; k.to = null; }
-    }
-    note.innerHTML = `${base}<br><b>Playing:</b> ${toks.filter((k) => !k.done).length} ${esc(m.case_label || "case")}s in flow · ${finished} finished · <b>${hand}</b> hand-offs between roles so far.`;
-    if (finished >= N) { stopAll(); note.innerHTML = `${base}<br><b>${N} ${esc(m.case_label || "case")}s</b> took <b>${hand}</b> hand-offs between roles — about ${(hand / N).toFixed(1)} each. Every hand-off is a queue in the Actual view.`; }
-  }, 70));
-}
-function replay(m, L, cases) {
-  stopAll(); const T = $("#tok"); if (!T) return; T.innerHTML = "";
-  const cs = cases.filter((c) => c.ev.length); if (!cs.length) return;
-  let t = Math.min(...cs.map((c) => +c.o)); const end = Math.min(+TODAY, Math.max(...cs.map((c) => +(c.cl || TODAY))));
-  const pool = {}; const note = $("#pnote");
-  const step = Math.max(DAY / 2, (end - t) / 700);
-  timers.push(setInterval(() => {
-    t += step; const at = {};
-    for (const c of cs) { if (+c.o > t || (c.cl && +c.cl < t)) { if (pool[c.case_id]) { pool[c.case_id].remove(); delete pool[c.case_id]; } continue; }
-      const e = c.ev.find((x) => +x.a <= t && (!x.f || +x.f > t)); if (!e || !L.P[e.step_id]) continue;
-      const k = (at[e.step_id] = (at[e.step_id] || 0) + 1) - 1; const p = L.P[e.step_id];
-      let el = pool[c.case_id]; if (!el) { el = document.createElementNS("http://www.w3.org/2000/svg", "circle"); el.setAttribute("r", 4.2); T.appendChild(el); pool[c.case_id] = el; }
-      el.setAttribute("cx", p.x + 8 + (k % 12) * 9); el.setAttribute("cy", p.y + NH + 10 + Math.floor(k / 12) * 9);
-      el.setAttribute("class", `rtok ${e.s && +e.s <= t ? "work" : "wait"}`);
-    }
-    for (const s of m.steps) { const q = $(`#q-${s.id}`); if (q) q.textContent = at[s.id] ? `${at[s.id]} here` : ""; }
-    const d = new Date(t); note.innerHTML = `<b>Replaying ${cs.length.toLocaleString()} real ${esc(m.case_label || "case")}s</b> — ${d.getDate()} ${MON[d.getMonth()]} ${d.getFullYear()} · ${Object.values(at).reduce((a, b) => a + b, 0)} in flow. Amber dots are waiting; dark dots are being worked.`;
-    if (t >= end) stopAll();
-  }, 60));
 }
 
 // ---------------------------------------------------------------- landscape
